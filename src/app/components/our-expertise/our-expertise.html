@@ -1,0 +1,36 @@
+<section class="relative py-[70px] bg-[url('/assets/images/our-expertise-bg.webp')] bg-cover bg-center bg-no-repeat">
+    <div class="absolute inset-0 bg-gradient-to-bl from-[#2559EB]/100 to-[#8A38F5]/90 pointer-events-none"></div>
+    <div class="relative z-10 px-4">
+        <div class="text-center mb-[78px]">
+            <h2 class="font-semibold text-5xl leading-14 text-white mb-2">Explore our Expertise</h2>
+            <p class="text-xl text-white leading-8">Experience the power of innovation with our specialized services.
+            </p>
+        </div>
+
+        <div #scrollContainer class="px-4 md:px-12 lg:px-32 overflow-x-auto hide-scrollbar"
+            (scroll)="checkScrollPosition()">
+            <div class="flex gap-[75px]">
+                @for(card of expertiseCards; track $index){
+                <div class="bg-white max-w-[350px] rounded px-5 py-10 text-center flex-shrink-0 expertise-card">
+                    <img ngSrc="{{card.image}}" alt="{{card.title}}" width="200" height="200" class="mx-auto mb-6">
+                    <h3 class="text-[#2559EB] font-bold text-xl leading-8 mb-2">{{card.title}}</h3>
+                    <p class="leading-6 text-[#5D5D5D]">{{card.description}}</p>
+                </div>
+                }
+            </div>
+        </div>
+
+        <div class="buttons mt-[82px] flex items-center justify-center gap-[8px]">
+            <button (click)="scrollToPrevious()" [disabled]="!canScrollLeft"
+                [ngClass]="{'disabled:opacity-50 disabled:cursor-not-allowed': !canScrollLeft}"
+                class="bg-white p-[10px] rounded inline-block cursor-pointer transition-opacity">
+                <img ngSrc="/assets/icons/chevron-left.svg" alt="Left Arrow" width="24" height="24" loading="lazy" />
+            </button>
+            <button (click)="scrollToNext()" [disabled]="!canScrollRight"
+                [ngClass]="{'disabled:opacity-50 disabled:cursor-not-allowed': !canScrollRight}"
+                class="bg-white p-[10px] rounded inline-block cursor-pointer transition-opacity">
+                <img ngSrc="/assets/icons/chevron-right.svg" alt="Right Arrow" width="24" height="24" loading="lazy" />
+            </button>
+        </div>
+    </div>
+</section>
