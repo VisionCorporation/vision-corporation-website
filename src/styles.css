@@ -35,6 +35,9 @@
 
 * {
   font-family: "Lato", sans-serif;
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 }
 
 html {
@@ -51,4 +54,13 @@ body {
 img {
   -webkit-user-drag: none;
   user-drag: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
