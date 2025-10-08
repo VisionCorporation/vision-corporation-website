@@ -1,0 +1,22 @@
+<section class="py-[97px] max-w-[1400px] mx-auto px-5 md:px-12 lg:px-20">
+    <div class="text-center mb-16">
+        <h3 class="text-[#262626] font-semibold text-[30px] sm:text-[40px] leading-10 sm:leading-12 mb-2">Why choose Vision Corporation?</h3>
+        <p class="text-lg sm:text-xl text-[#5D5D5D] leading-6 sm:leading-8 max-w-[579px] mx-auto">Discover the unique advantages we bring to
+            every project and how we
+            help our clients achieve their goals</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-[30px] lg:gap-x-[225px] gap-y-[50px] lg:gap-y-[80px]">
+        @for(value of coreValues; track $index){
+        <div class="flex items-start gap-4">
+            <div class="flex items-center justify-center">
+                <img [ngSrc]="value.icon" alt="{{ value.title }}" width="64" height="64"
+                    class="w-12 sm:w-16 h-12 sm:h-16 object-contain flex-shrink-0">
+            </div>
+            <div>
+                <h3 class="font-bold text-xl text-[#262626]">{{ value.title }}</h3>
+                <p class="text-[#5D5D5D] leading-6">{{ value.description }}</p>
+            </div>
+        </div>
+        }
+    </div>
+</section>
