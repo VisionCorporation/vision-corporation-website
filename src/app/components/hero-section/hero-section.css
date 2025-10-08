@@ -1,0 +1,11 @@
+
+
+/* Optional: keep text vertically centered for large displays */
+.hero-left { display: flex; flex-direction: column; gap: 1rem; }
+
+/* Small screens: make them full-width stacked */
+@media (max-width: 640px) {
+	.hero-left,
+	.hero-right { flex-basis: 100%; }
+}
+
