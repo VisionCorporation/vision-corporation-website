@@ -5,10 +5,11 @@ import { OurExpertise } from './components/our-expertise/our-expertise';
 import { CoreValues } from "./components/core-values/core-values";
 import { Testimonials } from './components/testimonials/testimonials';
 import { RealitySection } from './components/reality-section/reality-section';
+import { NewsletterSection } from './components/newsletter-section/newsletter-section';
 
 @Component({
   selector: 'app-root',
-  imports: [Header, HeroSection, OurExpertise, CoreValues, Testimonials, RealitySection],
+  imports: [Header, HeroSection, OurExpertise, CoreValues, Testimonials, RealitySection, NewsletterSection],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
