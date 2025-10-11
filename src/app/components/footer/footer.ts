@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FooterLinks, FooterServices, SocialMediaLinks } from '../../data/constants/footer.constants';
 
 @Component({
   selector: 'app-footer',
@@ -7,5 +8,8 @@ import { Component } from '@angular/core';
   styleUrl: './footer.css'
 })
 export class Footer {
-public readonly currentYear = new Date().getFullYear();
+  public readonly currentYear = new Date().getFullYear();
+  public readonly footerLinks = FooterLinks;
+  public readonly footerServices = FooterServices;
+  public readonly socialMediaLinks = SocialMediaLinks;
 }

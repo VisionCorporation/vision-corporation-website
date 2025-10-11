@@ -4,43 +4,25 @@
             <h4 class="text-[#2559EB] mb-3 sm:mb-0 leading-6 flex items-center gap-x-[11px]"><img
                     src='assets/icons/quick-links.svg' alt="Quick Links" width="24" height="24" />Quick Links</h4>
             <ul class="flex flex-col gap-2">
-                <li>
-                    <a href="#" class="text-[#5D5D5D] leading-6 flex items-center justify-between w-24">
-                        <span>Home</span>
-                        <img src="assets/icons/footer-chevron-right.svg" alt="chevron right" width="7" height="7" loading="eager" />
+                @for(link of footerLinks; track link.label) {
+                <li class="group">
+                    <a [href]="link.url" class="text-[#5D5D5D] leading-6 flex items-center justify-between w-24">
+                        <span>{{link.label}}</span>
+                        <img src="assets/icons/footer-chevron-right.svg" alt="chevron right" width="7" height="7"
+                            loading="eager"
+                            class="transition-transform duration-300 ease-in-out group-hover:translate-x-2" />
                     </a>
                 </li>
-                <li>
-                    <a href="#" class="text-[#5D5D5D] leading-6 flex items-center justify-between w-24">
-                        <span>Services</span>
-                        <img src="assets/icons/footer-chevron-right.svg" alt="chevron right" width="7" height="7" loading="eager" />
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="text-[#5D5D5D] leading-6 flex items-center justify-between w-24">
-                        <span>Projects</span>
-                        <img src="assets/icons/footer-chevron-right.svg" alt="chevron right" width="7" height="7" loading="eager" />
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="text-[#5D5D5D] leading-6 flex items-center justify-between w-24">
-                        <span>About Us</span>
-                        <img src="assets/icons/footer-chevron-right.svg" alt="chevron right" width="7" height="7" loading="eager" />
-                    </a>
-                </li>
+                }
             </ul>
         </div>
         <div class="flex items-start flex-col sm:flex-row gap-x-4">
             <h4 class="text-[#2559EB] mb-3 sm:mb-0 leading-6 flex items-center gap-x-[11px]"><img
                     src='assets/icons/cog.svg' alt="Cog" width="24" height="24" />Services</h4>
             <ul class="flex flex-col gap-2">
-                <li class="text-[#5D5D5D] leading-6">Website Development</li>
-                <li class="text-[#5D5D5D] leading-6">App Development</li>
-                <li class="text-[#5D5D5D] leading-6">UX/UI Development</li>
-                <li class="text-[#5D5D5D] leading-6">Mobile Application Development</li>
-                <li class="text-[#5D5D5D] leading-6">Graphic Design</li>
-                <li class="text-[#5D5D5D] leading-6">Animation</li>
-                <li class="text-[#5D5D5D] leading-6">Video Editing</li>
+                @for(service of footerServices; track service.label) {
+                <li class="text-[#5D5D5D] leading-6">{{service.label}}</li>
+                }
             </ul>
         </div>
         <div class="flex items-start flex-col sm:flex-row gap-x-4">
@@ -64,22 +46,11 @@
                 loading="eager" class="w-[150px] md:w-[167px] h-[40px] md:h-[48px]" />
 
             <ul class="flex items-center gap-x-2">
+                @for(link of socialMediaLinks; track link.label) {
                 <li class="hover:scale-125 transform transition-transform duration-300 ease-in-out"><a
-                        href="https://www.instagram.com/visioncorporationafrica/" target="_blank"><img
-                            src="assets/icons/instagram.svg" alt="Instagram Logo" width="24" height="24"
-                            loading="eager" /></a></li>
-                <li class="hover:scale-125 transform transition-transform duration-300 ease-in-out"><a
-                        href="https://www.linkedin.com/company/vision-corporationafrica/" target="_blank"><img
-                            src="assets/icons/linkedin.svg" alt="LinkedIn Logo" width="24" height="24"
-                            loading="eager" /></a></li>
-                <li class="hover:scale-125 transform transition-transform duration-300 ease-in-out"><a
-                        href="https://www.youtube.com/@visioncorporationafrica" target="_blank"><img
-                            src="assets/icons/youtube.svg" alt="YouTube Logo" width="24" height="24"
-                            loading="eager" /></a></li>
-                <li class="hover:scale-125 transform transition-transform duration-300 ease-in-out"><a
-                        href="https://www.facebook.com/visioncorporationafrica" target="_blank"><img
-                            src="assets/icons/facebook.svg" alt="Facebook Logo" width="24" height="24"
-                            loading="eager" /></a></li>
+                        href="{{link.url}}" target="_blank"><img src="{{link.icon}}" alt="{{link.label}} Logo"
+                            width="24" height="24" loading="eager" /></a></li>
+                }
             </ul>
         </div>
         <div class="flex items-center flex-col md:flex-row justify-between gap-4 ">
