@@ -11,7 +11,7 @@
 @font-face {
   font-family: 'Airbnb Cereal';
   src: url('/assets/fonts/AirbnbCereal_W_Bk.otf') format('opentype');
-  font-weight: 700;
+  font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
@@ -35,7 +35,7 @@
 @font-face {
   font-family: 'Airbnb Cereal';
   src: url('/assets/fonts/AirbnbCereal_W_Md.otf') format('opentype');
-  font-weight: 400;
+  font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
@@ -82,5 +82,20 @@ img {
 }
 
 p {
-  font-weight: 300;
+  font-weight: 600;
+}
+
+a,
+button,
+.footer-link {
+  font-weight: 500;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 500;
 }
