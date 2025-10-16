@@ -6,3 +6,18 @@
     -6px 14px 6px 0px rgba(255, 255, 255, 0.01),
     -10px 22px 7px 0px rgba(255, 255, 255, 0.00);
 }
+/* On mobile, show only one card at a time */
+@media (max-width: 767px) {
+  .expertise-card {
+    min-width: 100%;
+  }
+
+  .hide-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
