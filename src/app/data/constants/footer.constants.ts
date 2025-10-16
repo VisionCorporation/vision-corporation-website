@@ -14,5 +14,4 @@ export const SocialMediaLinks = [
     { label: 'Instagram', url: 'https://www.instagram.com/visioncorporationafrica/', icon: 'assets/icons/instagram.svg' },
     { label: 'LinkedIn', url: 'https://www.linkedin.com/company/vision-corporationafrica/', icon: 'assets/icons/linkedin.svg' },
     { label: 'YouTube', url: 'https://www.youtube.com/@visioncorporationafrica', icon: 'assets/icons/youtube.svg' },
-    { label: 'Facebook', url: 'https://www.facebook.com/visioncorporationafrica', icon: 'assets/icons/facebook.svg' },
 ] as const;
