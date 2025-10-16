@@ -9,24 +9,28 @@
             </p>
         </div>
 
-        <div
-            class="max-w-[1400px] mx-auto px-1 md:px-12 lg:px-20 gap-[50px] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-            @for(testimonial of testimonials; track $index){
-            <div class="p-5 border border-[#D1D1D1] rounded w-full md:max-w-[426px] flex flex-col gap-y-6">
-                <div class="flex  items-center gap-3">
-                    <img [ngSrc]="testimonial.userImage" [alt]="testimonial. userName" width="30" height="30"
+        <div class="max-w-[1400px] mx-auto px-1 md:px-12 lg:px-20 flex gap-5 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-[50px]
+         overflow-x-auto md:overflow-visible hide-scrollbar snap-x snap-mandatory scroll-smooth">
+            @for (testimonial of testimonials; track $index) {
+            <div class="p-5 border border-[#D1D1D1] rounded w-[85%] flex-shrink-0
+             flex flex-col gap-y-6 snap-start md:w-full md:max-w-[426px]">
+                <div class="flex items-center gap-3">
+                    <img [ngSrc]="testimonial.userImage" [alt]="testimonial.userName" width="30" height="30"
                         class="w-10 h-10 border border-[#D1D1D1] rounded-full object-cover" />
-                    <h3 class="text-white leading-6">{{testimonial. userName}}</h3>
+                    <h3 class="text-white leading-6">{{ testimonial.userName }}</h3>
                 </div>
+
                 <p class="text-white leading-6">
-                    "{{testimonial.message}}"
+                    "{{ testimonial.message }}"
                 </p>
+
                 <div class="flex items-center gap-2 leading-6 text-white">
                     <img ngSrc="assets/icons/stars.svg" alt="stars" width="136" height="24" loading="eager" />
-                    <p> 5.0</p>
+                    <p>5.0</p>
                 </div>
             </div>
             }
         </div>
+
     </div>
 </section>
