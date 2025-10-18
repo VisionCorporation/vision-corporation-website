@@ -6,15 +6,25 @@ const angularAppEngine = new AngularAppEngine();
 export async function netlifyAppEngineHandler(request: Request): Promise<Response> {
   const context = getContext();
 
-  // Example API endpoints can be defined here.
-  // Uncomment and define endpoints as necessary.
-  // const pathname = new URL(request.url).pathname;
-  // if (pathname === '/api/hello') {
-  //   return Response.json({ message: 'Hello from the API' });
-  // }
-
+  // Let Angular try to handle the requested route
   const result = await angularAppEngine.handle(request, context);
-  return result || new Response('Not found', { status: 404 });
+
+  // If no route matched, let Angular render the "**" NotFound route
+  if (!result) {
+    console.log(`[SSR] 404: ${request.url}`);
+    const notFoundRequest = new Request(new URL('/not-found', request.url).toString(), request);
+    const notFoundResult = await angularAppEngine.handle(notFoundRequest, context);
+
+    return (
+      notFoundResult ||
+      new Response('Not Found', {
+        status: 404,
+        headers: { 'Content-Type': 'text/html' },
+      })
+    );
+  }
+
+  return result;
 }
 
 /**
