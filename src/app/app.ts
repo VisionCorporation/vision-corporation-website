@@ -1,32 +1,45 @@
-import { AfterViewInit, Component, Inject, PLATFORM_ID, signal } from '@angular/core';
-import { Header } from './components/header/header';
-import { HeroSection } from './components/hero-section/hero-section';
-import { OurExpertise } from './components/our-expertise/our-expertise';
-import { CoreValues } from "./components/core-values/core-values";
-import { Testimonials } from './components/testimonials/testimonials';
-import { RealitySection } from './components/reality-section/reality-section';
-import { NewsletterSection } from './components/newsletter-section/newsletter-section';
-import { Footer } from './components/footer/footer';
-import * as AOS from 'aos';
+import { AfterViewInit, Component, Inject, PLATFORM_ID } from '@angular/core';
+import AOS from 'aos';
 import { isPlatformBrowser } from '@angular/common';
+import { Router, RouterOutlet, NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-root',
-  imports: [Header, HeroSection, OurExpertise, CoreValues, Testimonials, RealitySection, NewsletterSection, Footer],
+  imports: [RouterOutlet],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App implements AfterViewInit {
-  constructor(@Inject(PLATFORM_ID) private platformId: object) { }
-  ngAfterViewInit() {
-    if (isPlatformBrowser(this.platformId)) {
-      AOS.init({
-        duration: 500,
-        easing: 'ease-out-cubic',
-        once: false,
-        offset: 110,
-      });
-    }
+  private aosInitialized = false;
 
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: object,
+    private router: Router
+  ) { }
+
+  ngAfterViewInit() {
+    if (!isPlatformBrowser(this.platformId)) return;
+
+    this.router.events
+      .pipe(filter((event) => event instanceof NavigationEnd))
+      .subscribe(() => {
+        setTimeout(() => {
+          if (!this.aosInitialized) {
+
+            AOS.init({
+              duration: 500,
+              easing: 'ease-out-cubic',
+              once: false,
+              offset: 90,
+              delay: 0
+            });
+            this.aosInitialized = true;
+          } else {
+
+            AOS.refresh();
+          }
+        }, 200);
+      });
   }
 }
