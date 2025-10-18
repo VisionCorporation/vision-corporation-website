@@ -3,8 +3,10 @@
     <div class="absolute inset-0 bg-gradient-to-bl from-[#2559EB]/100 to-[#8A38F5]/90 pointer-events-none"></div>
     <div class="relative z-10 px-4 ">
         <div class="text-center mb-[78px]">
-            <h2 class="text-3xl sm:text-[40px] leading-12 text-white mb-2">What Our Clients Say</h2>
-            <p class="text-lg sm:text-xl text-white leading-6 sm:leading-8">Real results from real businesses who
+            <h2 class="text-3xl sm:text-[40px] leading-12 text-white mb-2" data-aos="fade-up" data-aos-delay="50">What
+                Our Clients Say</h2>
+            <p class="text-lg sm:text-xl text-white leading-6 sm:leading-8" data-aos="fade-up" data-aos-delay="60">Real
+                results from real businesses who
                 trusted us with their growth.
             </p>
         </div>
@@ -13,7 +15,8 @@
          overflow-x-auto md:overflow-visible hide-scrollbar snap-x snap-mandatory scroll-smooth">
             @for (testimonial of testimonials; track $index) {
             <div class="p-5 border border-[#D1D1D1] rounded w-[85%] flex-shrink-0
-             flex flex-col gap-y-6 snap-start md:w-full md:max-w-[426px]">
+             flex flex-col gap-y-6 snap-start md:w-full md:max-w-[426px]" data-aos="flip-left"
+                [attr.data-aos-delay]="$index * 150">
                 <div class="flex items-center gap-3">
                     <img [ngSrc]="testimonial.userImage" [alt]="testimonial.userName" width="30" height="30"
                         class="w-10 h-10 border border-[#D1D1D1] rounded-full object-cover" />

@@ -6,16 +6,16 @@
     <img ngSrc="/assets/icons/sankofa.svg" alt="sankofa" width="260" height="250"
         class="absolute bottom-[10px] -right-[5px] -z-10 opacity-30 hidden 2xl:block" />
     <div class="text-center mb-16">
-        <h3 class="text-[#262626] text-[30px] sm:text-[40px] leading-10 sm:leading-12 mb-2">Why choose
+        <h3 class="text-[#262626] text-[30px] sm:text-[40px] leading-10 sm:leading-12 mb-2" data-aos="fade-up" data-aos-delay="50">Why choose
             Vision Corporation?</h3>
-        <p class="text-lg sm:text-xl text-[#5D5D5D] leading-6 sm:leading-8 max-w-[579px] mx-auto">Discover the unique
+        <p class="text-lg sm:text-xl text-[#5D5D5D] leading-6 sm:leading-8 max-w-[579px] mx-auto" data-aos="fade-up" data-aos-delay="60">Discover the unique
             advantages we bring to
             every project and how we
             help our clients achieve their goals</p>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-[30px] lg:gap-x-[225px] gap-y-[50px] lg:gap-y-[80px]">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-[30px] lg:gap-x-[225px] gap-y-[50px] lg:gap-y-[80px]" data-aos="zoom-in">
         @for(value of coreValues; track $index){
-        <div class="flex items-start gap-4">
+        <div class="flex items-start gap-4" data-aos="zoom-in" [attr.data-aos-delay]="$index * 100">
             <div class="flex items-center justify-center">
                 <img [ngSrc]="value.icon" alt="{{ value.title }}" width="64" height="64"
                     class="w-12 sm:w-16 h-12 sm:h-16 object-contain flex-shrink-0">

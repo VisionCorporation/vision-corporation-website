@@ -1,11 +1,11 @@
 <section class="max-w-[1400px] mx-auto px-5 md:px-12 lg:px-20 pt-[87px] pb-8">
     <div class="w-full flex justify-between flex-wrap gap-8">
         <div class="flex items-start flex-col sm:flex-row gap-x-4">
-            <h4 class="text-[#2559EB] mb-3 sm:mb-0 leading-6 flex items-center gap-x-[11px]"><img
+            <h4 class="text-[#2559EB] mb-3 sm:mb-0 leading-6 flex items-center gap-x-[11px]" data-aos="zoom-in-up"><img
                     src='assets/icons/quick-links.svg' alt="Quick Links" width="24" height="24" />Quick Links</h4>
             <ul class="flex flex-col gap-2">
                 @for(link of footerLinks; track link.label) {
-                <li class="group">
+                <li class="group" data-aos="zoom-in-up" [attr.data-aos-delay]="(footerLinks.indexOf(link) + 1) * 100">
                     <a [href]="link.url"
                         class="footer-link text-[#5D5D5D] leading-6 flex items-center justify-between w-24">
                         {{link.label}}
@@ -18,27 +18,29 @@
             </ul>
         </div>
         <div class="flex items-start flex-col sm:flex-row gap-x-4">
-            <h4 class="text-[#2559EB] mb-3 sm:mb-0 leading-6 flex items-center gap-x-[11px]"><img
+            <h4 class="text-[#2559EB] mb-3 sm:mb-0 leading-6 flex items-center gap-x-[11px]" data-aos="zoom-in-up"><img
                     src='assets/icons/cog.svg' alt="Cog" width="24" height="24" />Services</h4>
             <ul class="flex flex-col gap-2">
                 @for(service of footerServices; track service.label) {
-                <li class="text-[#5D5D5D] leading-6 footer-link">{{service.label}}</li>
+                <li class="text-[#5D5D5D] leading-6 footer-link" data-aos="zoom-in-up"
+                    [attr.data-aos-delay]="(footerServices.indexOf(service) + 1) * 100">{{service.label}}</li>
                 }
             </ul>
         </div>
         <div class="flex items-start flex-col sm:flex-row gap-x-4">
-            <h4 class="text-[#2559EB] mb-3 sm:mb-0 leading-6 flex items-center gap-x-[11px]"><img
+            <h4 class="text-[#2559EB] mb-3 sm:mb-0 leading-6 flex items-center gap-x-[11px]" data-aos="zoom-in-up"><img
                     src='assets/icons/info.svg' alt="Info" width="24" height="24" />Contact Info</h4>
             <ul class="flex flex-col gap-2">
-                <li class="footer-link text-[#5D5D5D] leading-6 flex items-center gap-x-2"><img
-                        src="assets/icons/footer-phone.svg" alt="Phone" width="16" height="16" /><a
+                <li class="footer-link text-[#5D5D5D] leading-6 flex items-center gap-x-2" data-aos="zoom-in-up"
+                    data-aos-delay="0"><img src="assets/icons/footer-phone.svg" alt="Phone" width="16" height="16" /><a
                         href="tel:+233242458248">+233 24 245 8248</a></li>
-                <li class="footer-link text-[#5D5D5D] leading-6 flex items-center gap-x-2"><img
-                        src="assets/icons/footer-mail.svg" alt="Email" width="16" height="16" /><a
+                <li class="footer-link text-[#5D5D5D] leading-6 flex items-center gap-x-2" data-aos="zoom-in-up"
+                    data-aos-delay="100"><img src="assets/icons/footer-mail.svg" alt="Email" width="16" height="16" /><a
                         href="mailto:info@visioncorporation.org">info@visioncorporation.org</a>
                 </li>
-                <li class="footer-link text-[#5D5D5D] leading-6 flex items-center gap-x-2"><img
-                        src="assets/icons/address.svg" alt="Address" width="16" height="16" />Accra, Ghana, West Africa.
+                <li class="footer-link text-[#5D5D5D] leading-6 flex items-center gap-x-2" data-aos="zoom-in-up"
+                    data-aos-delay="200"><img src="assets/icons/address.svg" alt="Address" width="16"
+                        height="16" />Accra, Ghana, West Africa.
                 </li>
             </ul>
         </div>
