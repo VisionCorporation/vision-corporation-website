@@ -3,10 +3,10 @@ import { Header } from '../../components/shared/header/header';
 import { HeroSection } from './hero-section/hero-section';
 import { OurExpertise } from './our-expertise/our-expertise';
 import { CoreValues } from './core-values/core-values';
-import { Testimonials } from '../../components/testimonials/testimonials';
 import { RealitySection } from './reality-section/reality-section';
 import { NewsletterSection } from './newsletter-section/newsletter-section';
 import { Footer } from '../../components/shared/footer/footer';
+import { Testimonials } from './testimonials/testimonials';
 
 @Component({
   selector: 'app-home',

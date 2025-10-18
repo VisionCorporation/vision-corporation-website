@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NgOptimizedImage } from "@angular/common";
-import { TESTIMONIALS } from '../../data/constants/testimonials.constants';
+import { TESTIMONIALS } from '../../../data/constants/testimonials.constants';
 
 @Component({
   selector: 'app-testimonials',
