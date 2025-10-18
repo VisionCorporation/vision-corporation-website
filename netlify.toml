@@ -5,7 +5,6 @@
 [[plugins]]
   package = "@netlify/angular-runtime"
 
-[[redirects]]
-  from = "/*"
-  to = "/.netlify/builders/render"
-  status = 200
+[[edge_functions]]
+  function = "angular-ssr"
+  path = "/*"
