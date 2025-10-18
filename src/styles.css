@@ -86,9 +86,12 @@ p {
 }
 
 a,
-button,
-.footer-link {
+button {
   font-weight: 500;
+}
+
+.footer-link {
+  font-weight: 300;
 }
 
 h1,
