@@ -1,9 +1,9 @@
 [build]
-  command = "npm run build"
+  command = "npx ng build --configuration production"
   publish = "dist/vision-corporation-website/browser"
 
-[functions]
-  node_bundler = "esbuild"
+[[plugins]]
+  package = "@netlify/angular-runtime"
 
 [[redirects]]
   from = "/*"
