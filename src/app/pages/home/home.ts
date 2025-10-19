@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Header } from '../../components/shared/header/header';
 import { HeroSection } from './hero-section/hero-section';
 import { OurExpertise } from './our-expertise/our-expertise';
@@ -7,6 +7,7 @@ import { RealitySection } from './reality-section/reality-section';
 import { NewsletterSection } from './newsletter-section/newsletter-section';
 import { Footer } from '../../components/shared/footer/footer';
 import { Testimonials } from './testimonials/testimonials';
+import { SeoService } from '../../services/seo-service';
 
 @Component({
   selector: 'app-home',
@@ -15,5 +16,14 @@ import { Testimonials } from './testimonials/testimonials';
   styleUrl: './home.css'
 })
 export class Home {
+  private readonly seoService = inject(SeoService);
 
+  ngOnInit() {
+    this.seoService.updatePageSeo({
+      title: 'Vision Corporation - Innovative IT Solutions & Digital Transformation',
+      description: 'Empowering businesses with cutting-edge software development, IT consulting, and digital transformation solutions across Africa.',
+      url: 'https://visioncorporationafrica.netlify.app/',
+      image: 'https://ogcdn.net/492b33ea-6084-4713-8edd-a23e75442d52/v1/og.png'
+    });
+  }
 }
