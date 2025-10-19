@@ -18,9 +18,9 @@ import { SeoService } from '../../services/seo-service';
 export class Home {
   private readonly seoService = inject(SeoService);
 
-  ngOnInit() {
+  constructor() {
     this.seoService.updatePageSeo({
-      title: 'Vision Corporation - Innovative IT Solutions & Digital Transformation',
+      title: 'Vision Corporation – IT Solutions & Digital Transformation',
       description: 'Empowering businesses with cutting-edge software development, IT consulting, and digital transformation solutions across Africa.',
       url: 'https://visioncorporationafrica.netlify.app/',
       image: 'https://ogcdn.net/492b33ea-6084-4713-8edd-a23e75442d52/v1/og.png'
