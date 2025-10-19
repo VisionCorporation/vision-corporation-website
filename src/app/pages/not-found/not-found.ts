@@ -1,24 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { SeoService } from '../../services/seo-service';
 import { Meta } from '@angular/platform-browser';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-not-found',
+  imports: [RouterLink],
   templateUrl: './not-found.html',
   styleUrls: ['./not-found.css']
 })
 export class NotFound implements OnInit {
-  constructor(
-    private seoService: SeoService,
-    private meta: Meta
-  ) { }
+  private readonly seoService = inject(SeoService);
+  private readonly meta = inject(Meta);
 
   ngOnInit() {
     this.seoService.updatePageSeo({
       title: '404 - Page Not Found | Vision Corporation',
-      description: 'The page you are looking for could not be found. Return to Vision Corporation homepage for enterprise IT solutions.',
+      description: "The page you're looking for doesn't exist. Return to our homepage to explore enterprise software development, IT infrastructure, and strategic consulting.",
       url: 'https://visioncorporationafrica.netlify.app' + (typeof window !== 'undefined' ? window.location.pathname : ''),
-      image: 'https://visioncorporationafrica.netlify.app/assets/images/404-og-image.png'
+      image: 'https://ogcdn.net/52bb31b7-9adb-4a94-9adb-2fb68c5c1bdb/v1/og.png'
     });
 
     this.meta.updateTag({ name: 'robots', content: 'noindex, follow' });
