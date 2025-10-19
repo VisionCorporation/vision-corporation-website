@@ -1,10 +1,11 @@
 import { NgOptimizedImage } from '@angular/common';
 import { Component } from '@angular/core';
 import { ACHIEVEMENT_STATS } from '../../../data/constants/achievement-stats.constants';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-hero-section',
-  imports: [NgOptimizedImage],
+  imports: [NgOptimizedImage, RouterLink],
   templateUrl: './hero-section.html',
   styleUrl: './hero-section.css'
 })

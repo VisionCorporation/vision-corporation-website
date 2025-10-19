@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { FooterLinks, FooterServices, SocialMediaLinks } from '../../../data/constants/footer.constants';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-footer',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './footer.html',
   styleUrl: './footer.css'
 })
