@@ -1,6 +1,6 @@
-import { Component, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, Inject, PLATFORM_ID, Optional, REQUEST } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import { RouterLink, Router } from '@angular/router';
 import { Meta } from '@angular/platform-browser';
 import { SeoService } from '../../services/seo-service';
 
@@ -11,15 +11,27 @@ import { SeoService } from '../../services/seo-service';
   templateUrl: './not-found.html',
   styleUrls: ['./not-found.css']
 })
-export class NotFound {
+export class NotFoundComponent {
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
+    @Optional() @Inject(REQUEST) private request: any,
+    private router: Router,
     private seoService: SeoService,
     private meta: Meta
   ) {
-    const pathname = isPlatformBrowser(this.platformId)
-      ? window.location.pathname
-      : '';
+    // Get pathname from different sources depending on environment
+    let pathname = '';
+
+    if (isPlatformBrowser(this.platformId)) {
+      // Client-side
+      pathname = window.location.pathname;
+    } else if (this.request) {
+      // Server-side - get from request
+      pathname = new URL(this.request.url).pathname;
+    } else {
+      // Fallback
+      pathname = this.router.url;
+    }
 
     this.seoService.updatePageSeo({
       title: '404 - Page Not Found | Vision Corporation',
