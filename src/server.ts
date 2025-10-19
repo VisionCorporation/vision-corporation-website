@@ -3,30 +3,37 @@ import { getContext } from '@netlify/angular-runtime/context.mjs';
 
 const angularAppEngine = new AngularAppEngine();
 
-// List of known valid routes (update this with your actual routes)
-const validRoutes = ['/', '/services', '/projects', '/about', '/contact'];
-
 export async function netlifyAppEngineHandler(request: Request): Promise<Response> {
   const context = getContext();
   const url = new URL(request.url);
-  const pathname = url.pathname;
+  
+  console.log(`[SSR] Handling request: ${url.pathname}`);
 
+  // Let Angular handle the request
   const result = await angularAppEngine.handle(request, context);
 
   if (!result) {
-    return new Response('Not Found', {
+    console.log(`[SSR] No result from Angular for: ${url.pathname}`);
+    return new Response('<h1>Not Found</h1>', {
       status: 404,
       headers: { 'Content-Type': 'text/html' },
     });
   }
 
-  // Check if this is a wildcard route match (404 page)
-  const isValidRoute = validRoutes.some(route => 
-    pathname === route || pathname.startsWith(route + '/')
-  );
+  // Define known routes (exact matches and prefixes)
+  const knownRoutes = ['/', '/services'];
+  
+  // Check if it's a static asset
+  const isStaticAsset = url.pathname.match(/\.(js|css|png|jpg|jpeg|gif|svg|ico|woff|woff2|ttf|json|txt|xml)$/);
+  
+  // Check if it's a known route
+  const isKnownRoute = knownRoutes.some(route => url.pathname === route);
 
-  if (!isValidRoute && result) {
-    // It's a 404 page rendered by Angular's wildcard route
+  // If it's not a known route and not a static asset, it's a 404
+  if (!isKnownRoute && !isStaticAsset) {
+    console.log(`[SSR] Returning 404 for unknown route: ${url.pathname}`);
+    
+    // Return the Angular-rendered content but with 404 status
     return new Response(result.body, {
       status: 404,
       statusText: 'Not Found',
@@ -34,6 +41,7 @@ export async function netlifyAppEngineHandler(request: Request): Promise<Respons
     });
   }
 
+  console.log(`[SSR] Returning 200 for: ${url.pathname}`);
   return result;
 }
 
