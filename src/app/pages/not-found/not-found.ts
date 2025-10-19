@@ -11,7 +11,7 @@ import { SeoService } from '../../services/seo-service';
   templateUrl: './not-found.html',
   styleUrls: ['./not-found.css']
 })
-export class NotFoundComponent {
+export class NotFound {
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
     @Optional() @Inject(REQUEST) private request: any,
