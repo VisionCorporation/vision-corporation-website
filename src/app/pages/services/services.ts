@@ -17,7 +17,7 @@ export class Services {
       title: 'Our Services - Vision Corporation | Software Development & IT Consulting',
       description: 'Expert software development, cloud solutions, IT consulting, and digital transformation services tailored to your business needs.',
       url: 'https://visioncorporationafrica.netlify.app/services',
-      image: 'https://ogcdn.net/fb15cb13-a93b-4dfa-a9ff-8b920d8d1f11/v5/og.png'
+      image: 'https://ogcdn.net/492b33ea-6084-4713-8edd-a23e75442d52/v1/og.png'
     });
   }
 }
