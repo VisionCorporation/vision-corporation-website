@@ -14,7 +14,7 @@ export class PrivacyPolicy {
 
   constructor() {
     this.seoService.updatePageSeo({
-      title: 'Vision Corporation - Your Data, Our Priority',
+      title: 'Privacy Policy - Vision Corporation',
       description: 'Learn how Vision Corporation collects, uses, and protects your personal information. Your privacy and data security are our top priorities.',
       url: 'https://visioncorporationafrica.netlify.app/privacy-policy',
       image: 'https://visioncorporationafrica.netlify.app/assets/images/privacy-policy-og.jpeg'
