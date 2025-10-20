@@ -14,7 +14,7 @@ export class TermsOfService {
 
   constructor() {
     this.seoService.updatePageSeo({
-      title: 'Terms of Service - Vision Corporation',
+      title: 'Terms of Service - Vision Corporation | Legal User Agreement',
       description: 'Read Vision Corporation’s Terms of Service to understand your rights, responsibilities, and our policies when using our digital products and IT solutions.',
       url: 'https://visioncorporationafrica.netlify.app/terms-of-service',
       image: 'https://visioncorporationafrica.netlify.app/assets/images/terms-of-service-og.jpeg'
