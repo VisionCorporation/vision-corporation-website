@@ -49,8 +49,8 @@
 }
 
 * {
-
   font-family: 'Airbnb Cereal', sans-serif;
+  font-weight: 600;
   user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
@@ -81,17 +81,8 @@ img {
   scrollbar-width: none;
 }
 
-p {
-  font-weight: 600;
-}
-
-a,
-button {
-  font-weight: 500;
-}
-
-.footer-link {
-  font-weight: 300;
+p{
+  font-weight: 300
 }
 
 h1,
@@ -99,6 +90,6 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,.custom-name {
   font-weight: 500;
 }
