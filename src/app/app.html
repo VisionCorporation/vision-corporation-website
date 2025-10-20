@@ -1,1 +1,49 @@
-<router-outlet />
+<main class="relative">
+    <router-outlet />
+    @if(isCookieOpen){
+    <div class="w-full fixed bottom-0 bg-white py-6 px-3 md:px-12 lg:px-20 z-50 shadow-[0_-6px_20px_rgba(0,0,0,0.1)]"
+        data-aos="fade-up">
+        <div class="flex justify-end mb-2">
+            <button class="cursor-pointer hover:scale-110 transform transition-transform duration-300 ease-in-out"
+                (click)="closeCookieBanner()">
+                <img src="assets/icons/x-circle.svg" alt="close" width="24" height="24" loading="eager" />
+            </button>
+        </div>
+
+        <div class="flex flex-col lg:flex-row items-start lg:items-center gap-6">
+            <div class="flex items-start gap-4 w-full lg:max-w-[717px]">
+                <img src="assets/icons/cookie.svg" alt="cookie" width="64" height="64" loading="eager"
+                    class="w-[48px] h-[48px] sm:w-[64px] sm:h-[64px]" />
+                <div>
+                    <h5 class="text-[#262626] text-lg sm:text-2xl leading-6 sm:leading-7 font-semibold">
+                        We use cookies to improve your experience
+                    </h5>
+                    <p class="text-[#5D5D5D] text-base md:text-lg leading-5 sm:leading-6 mt-1">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam pellentesque, dolor nec feugiat
+                        ornare, quam sem vehicula tortor, eu finibus libero elit nec orci. Vivamus non ligula enim.
+                    </p>
+                </div>
+            </div>
+
+            <div
+                class="w-full lg:flex-1 flex flex-col md:flex-row justify-center lg:justify-end items-center gap-4 sm:gap-6 mt-2 lg:mt-0">
+                <button class="text-nowrap cursor-pointer text-[#2559EB] hover:text-[#1D4ED8] text-base font-medium">
+                    Customise
+                </button>
+
+                <button class="w-full md:w-auto text-nowrap cursor-pointer border border-[#2559EB] text-[#2559EB]
+          hover:bg-[#DBE4FE] transition-colors duration-200 focus:outline-none focus:ring-[2px]
+          focus:ring-[#2559EB] focus:ring-offset-2 rounded py-3 px-6 text-base font-medium">
+                    Reject all
+                </button>
+
+                <button class="w-full md:w-auto text-nowrap cursor-pointer bg-[#2559EB] hover:bg-[#1D4ED8]
+          transition-colors duration-200 focus:outline-none focus:ring-[2px] focus:ring-[#2559EB]
+          focus:ring-offset-2 text-white rounded py-3 px-6 text-base font-medium">
+                    Accept all
+                </button>
+            </div>
+        </div>
+    </div>
+    }
+</main>

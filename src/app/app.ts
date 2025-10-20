@@ -12,6 +12,7 @@ import { filter } from 'rxjs';
 })
 export class App implements AfterViewInit {
   private aosInitialized = false;
+  public isCookieOpen = true
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: object,
@@ -41,5 +42,9 @@ export class App implements AfterViewInit {
           }
         }, 200);
       });
+  }
+
+  public closeCookieBanner(): void {
+    this.isCookieOpen = !this.isCookieOpen
   }
 }
