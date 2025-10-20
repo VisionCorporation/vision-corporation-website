@@ -17,7 +17,7 @@ export class PrivacyPolicy {
       title: 'Vision Corporation - Your Data, Our Priority',
       description: 'Learn how Vision Corporation collects, uses, and protects your personal information. Your privacy and data security are our top priorities.',
       url: 'https://visioncorporationafrica.netlify.app/privacy-policy',
-      image: 'https://ogcdn.net/e4dcd561-b2e1-486a-82ce-1525b60d33a8/v1/og.png'
+      image: 'assets/images/privacy-policy-og.png'
     });
   }
 }
