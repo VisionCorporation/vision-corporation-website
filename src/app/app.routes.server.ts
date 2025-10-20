@@ -17,6 +17,10 @@ export const serverRoutes: ServerRoute[] = [
     path: 'terms-of-service',
     renderMode: RenderMode.Prerender
   },
+   {
+    path: 'cookie-policy',
+    renderMode: RenderMode.Prerender
+  },
   {
     path: '**',
     renderMode: RenderMode.Server,
