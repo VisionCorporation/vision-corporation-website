@@ -1,6 +1,9 @@
 <app-header />
 <section class="max-w-[1400px] mx-auto py-5 px-3 md:px-12 lg:px-20 mt-4 mb-10">
-    <div class="rounded relative bg-[url('/assets/images/cookie-policy.webp')] bg-cover bg-center bg-no-repeat">
+    <div class="rounded relative">
+        <img ngSrc="assets/images/cookie-policy.webp" [attr.srcset]="srcSet['cookie-policy']"
+            sizes="(max-width: 768px) 100vw, 70vw" alt="Cookie Policy" priority fill
+            class="object-cover object-center" />
         <div class="rounded absolute inset-0 bg-gradient-to-t from-[#2559EB]/100 to-[#8A38F5]/30 pointer-events-none">
         </div>
         <div
@@ -62,7 +65,8 @@
     </div>
 
     <div class="mb-16">
-        <h2 class="text-[#262626] mb-8 text-[25px] sm:text-[32px] sm:leading-10" data-aos="fade-up" data-aos-delay="50">Types of Cookies we use.</h2>
+        <h2 class="text-[#262626] mb-8 text-[25px] sm:text-[32px] sm:leading-10" data-aos="fade-up" data-aos-delay="50">
+            Types of Cookies we use.</h2>
         <h2 class="text-[#262626] text-xl sm:text-2xl sm:leading-7 mb-6" data-aos="fade-up" data-aos-delay="50">
             Necessary</h2>
         <p class="text-[#5D5D5D] text-lg sm:text-xl sm:leading-8" data-aos="fade-up" data-aos-delay="150">Lorem ipsum

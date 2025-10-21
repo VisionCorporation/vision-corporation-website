@@ -2,15 +2,18 @@ import { Component, inject } from '@angular/core';
 import { Header } from '../../components/shared/header/header';
 import { Footer } from '../../components/shared/footer/footer';
 import { SeoService } from '../../services/seo-service';
+import ngSrcset from './../../../../public/assets/ngSrcset.json';
+import { NgOptimizedImage } from '@angular/common';
 
 @Component({
   selector: 'app-cookie-policy',
-  imports: [Header, Footer],
+  imports: [Header, Footer, NgOptimizedImage],
   templateUrl: './cookie-policy.html',
   styleUrl: './cookie-policy.css'
 })
 export class CookiePolicy {
   private readonly seoService = inject(SeoService);
+  public srcSet = ngSrcset
 
   constructor() {
     this.seoService.updatePageSeo({
