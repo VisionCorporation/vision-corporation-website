@@ -13,6 +13,14 @@ import { filter } from 'rxjs';
 export class App implements AfterViewInit {
   private aosInitialized = false;
   public isCookieOpen = true
+  public isCustomiseCookieOpen = false
+
+  public cookiePreferences = {
+    strictlyNecessary: true,
+    functional: false,
+    analytics: false,
+    advertising: false
+  };
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: object,
@@ -46,5 +54,39 @@ export class App implements AfterViewInit {
 
   public closeCookieBanner(): void {
     this.isCookieOpen = !this.isCookieOpen
+  }
+
+  public toggleCookieBanners() {
+    this.isCookieOpen = !this.isCookieOpen
+    this.isCustomiseCookieOpen = !this.isCustomiseCookieOpen
+  }
+
+  public confirmCustomiseChoices() {
+    this.isCustomiseCookieOpen = !this.isCustomiseCookieOpen
+  }
+
+  public toggleCookie(type: 'strictlyNecessary' | 'functional' | 'analytics' | 'advertising'): void {
+    if (type === 'strictlyNecessary') {
+      return;
+    }
+    this.cookiePreferences[type] = !this.cookiePreferences[type];
+  }
+
+  public acceptAll(): void {
+    this.cookiePreferences = {
+      strictlyNecessary: true,
+      functional: true,
+      analytics: true,
+      advertising: true
+    };
+  }
+
+  public rejectAll(): void {
+    this.cookiePreferences = {
+      strictlyNecessary: true,
+      functional: false,
+      analytics: false,
+      advertising: false
+    };
   }
 }
