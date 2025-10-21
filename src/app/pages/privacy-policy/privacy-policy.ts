@@ -2,15 +2,18 @@ import { Component, inject } from '@angular/core';
 import { Header } from '../../components/shared/header/header';
 import { Footer } from '../../components/shared/footer/footer';
 import { SeoService } from '../../services/seo-service';
+import { NgOptimizedImage } from '@angular/common';
+import ngSrcset from './../../../../public/assets/ngSrcset.json';
 
 @Component({
   selector: 'app-privacy-policy',
-  imports: [Header, Footer],
+  imports: [Header, Footer, NgOptimizedImage],
   templateUrl: './privacy-policy.html',
   styleUrl: './privacy-policy.css'
 })
 export class PrivacyPolicy {
   private readonly seoService = inject(SeoService);
+  public srcSet = ngSrcset
 
   constructor() {
     this.seoService.updatePageSeo({
