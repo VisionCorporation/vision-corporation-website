@@ -18,8 +18,10 @@
              flex flex-col gap-y-6 snap-start md:w-full md:max-w-[426px]" data-aos="flip-left"
                 [attr.data-aos-delay]="$index * 150">
                 <div class="flex items-center gap-3">
-                    <img [ngSrc]="testimonial.userImage" [alt]="testimonial.userName" width="30" height="30"
-                        class="w-10 h-10 border border-[#D1D1D1] rounded-full object-cover" />
+                    <div class="relative w-[40px] h-[40px] rounded-full overflow-hidden border border-[#D1D1D1]">
+                        <img [ngSrc]="testimonial.userImage" [alt]="testimonial.userName" fill class="object-cover" />
+                    </div>
+
                     <h3 class="text-white leading-6">{{ testimonial.userName }}</h3>
                 </div>
 
@@ -28,7 +30,7 @@
                 </p>
 
                 <div class="flex items-center gap-2 leading-6 text-white">
-                    <img ngSrc="assets/icons/stars.svg" alt="stars" width="136" height="24" loading="eager" />
+                    <img ngSrc="assets/icons/stars.svg" alt="stars" width="136" height="24" />
                     <p>5.0</p>
                 </div>
             </div>

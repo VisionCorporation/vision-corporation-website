@@ -2,15 +2,14 @@
     <div class="w-full flex justify-between flex-wrap gap-8 px-1">
         <div class="flex items-start flex-col sm:flex-row gap-x-4">
             <h4 class="text-[#2559EB] mb-3 sm:mb-0 leading-6 flex items-center gap-x-[11px]" data-aos="zoom-in-up"><img
-                    src='assets/icons/quick-links.svg' alt="Quick Links" width="24" height="24" />Quick Links</h4>
+                    ngSrc='assets/icons/quick-links.svg' alt="Quick Links" width="24" height="24" />Quick Links</h4>
             <ul class="flex flex-col gap-2">
                 @for(link of footerLinks; track link.label) {
                 <li class="group" data-aos="zoom-in-up" [attr.data-aos-delay]="(footerLinks.indexOf(link) + 1) * 100">
                     <a [routerLink]="link.url"
                         class="footer-link text-[#5D5D5D] leading-6 flex items-center justify-between w-24">
                         {{link.label}}
-                        <img src="assets/icons/footer-chevron-right.svg" alt="chevron right" width="7" height="7"
-                            loading="eager"
+                        <img ngSrc="assets/icons/footer-chevron-right.svg" alt="chevron right" width="7" height="11"
                             class="transition-transform duration-300 ease-in-out group-hover:translate-x-2" />
                     </a>
                 </li>
@@ -19,7 +18,7 @@
         </div>
         <div class="flex items-start flex-col sm:flex-row gap-x-4">
             <h4 class="text-[#2559EB] mb-3 sm:mb-0 leading-6 flex items-center gap-x-[11px]" data-aos="zoom-in-up"><img
-                    src='assets/icons/cog.svg' alt="Cog" width="24" height="24" />Services</h4>
+                    ngSrc='assets/icons/cog.svg' alt="Cog" width="24" height="24" />Services</h4>
             <ul class="flex flex-col gap-2">
                 @for(service of footerServices; track service.label) {
                 <li class="text-[#5D5D5D] leading-6 footer-link" data-aos="zoom-in-up"
@@ -29,18 +28,19 @@
         </div>
         <div class="flex items-start flex-col sm:flex-row gap-x-4">
             <h4 class="text-[#2559EB] mb-3 sm:mb-0 leading-6 flex items-center gap-x-[11px]" data-aos="zoom-in-up"><img
-                    src='assets/icons/info.svg' alt="Info" width="24" height="24" />Contact Info</h4>
+                    ngSrc='assets/icons/info.svg' alt="Info" width="24" height="24" />Contact Info</h4>
             <ul class="flex flex-col gap-2">
                 <li class="footer-link text-[#5D5D5D] leading-6 flex items-center gap-x-2" data-aos="zoom-in-up"
-                    data-aos-delay="0"><img src="assets/icons/footer-phone.svg" alt="Phone" width="16" height="16" /><a
-                        href="tel:+233242458248" class="footer-link">+233 24 245 8248</a></li>
+                    data-aos-delay="0"><img ngSrc="assets/icons/footer-phone.svg" alt="Phone" width="16"
+                        height="16" /><a href="tel:+233242458248" class="footer-link">+233 24 245 8248</a></li>
                 <li class="footer-link text-[#5D5D5D] leading-6 flex items-center gap-x-2" data-aos="zoom-in-up"
-                    data-aos-delay="100"><img src="assets/icons/footer-mail.svg" alt="Email" width="16" height="16" /><a
-                        href="mailto:info@visioncorporation.org" class="footer-link">info@visioncorporation.org</a>
+                    data-aos-delay="100"><img ngSrc="assets/icons/footer-mail.svg" alt="Email" width="16"
+                        height="11" /><a href="mailto:info@visioncorporation.org"
+                        class="footer-link">info@visioncorporation.org</a>
                 </li>
                 <li class="footer-link text-[#5D5D5D] leading-6 flex items-center gap-x-2" data-aos="zoom-in-up"
-                    data-aos-delay="200"><img src="assets/icons/address.svg" alt="Address" width="16"
-                        height="16" />Accra, Ghana, West Africa.
+                    data-aos-delay="200"><img ngSrc="assets/icons/address.svg" alt="Address" width="16"
+                        height="20" />Accra, Ghana, West Africa.
                 </li>
             </ul>
         </div>
@@ -49,15 +49,15 @@
         <div class="flex items-center flex-wrap gap-x-1 gap-y-2 justify-between mb-4 pb-4 border-b border-b-[#D1D1D1]">
             <a routerLink="/" class="flex items-center gap-[6px]">
                 <img ngSrc="assets/icons/vision-logo.svg" alt="Vision Corporation Logo" width="48" height="48"
-                    loading="eager" class="w-[40px] h-[40px] md:w-[48px] md:h-[48px]" />
+                    class="w-[40px] h-[40px] md:w-[48px] md:h-[48px]" />
                 <span class="logo text-sm md:text-[16px] text-[#262626] md:leading-6">VISION <br>CORPORATION</span>
             </a>
 
             <ul class="flex items-center gap-x-2">
                 @for(link of socialMediaLinks; track link.label) {
                 <li class="hover:scale-125 transform transition-transform duration-300 ease-in-out"><a
-                        href="{{link.url}}" target="_blank"><img src="{{link.icon}}" alt="{{link.label}} Logo"
-                            width="24" height="24" loading="eager" /></a></li>
+                        href="{{link.url}}" target="_blank"><img ngSrc="{{link.icon}}" alt="{{link.label}} Logo"
+                            width="24" height="24" /></a></li>
                 }
             </ul>
         </div>

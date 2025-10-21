@@ -1,12 +1,12 @@
 import { AfterViewInit, Component, Inject, PLATFORM_ID } from '@angular/core';
 import AOS from 'aos';
-import { isPlatformBrowser } from '@angular/common';
+import { isPlatformBrowser, NgOptimizedImage } from '@angular/common';
 import { Router, RouterOutlet, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, NgOptimizedImage],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
