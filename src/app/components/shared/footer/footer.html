@@ -1,5 +1,5 @@
-<section class="max-w-[1400px] mx-auto px-5 md:px-12 lg:px-20 pt-[87px] pb-8">
-    <div class="w-full flex justify-between flex-wrap gap-8">
+<section class="max-w-[1400px] mx-auto px-3 md:px-12 lg:px-20 pt-[87px] pb-8">
+    <div class="w-full flex justify-between flex-wrap gap-8 px-1">
         <div class="flex items-start flex-col sm:flex-row gap-x-4">
             <h4 class="text-[#2559EB] mb-3 sm:mb-0 leading-6 flex items-center gap-x-[11px]" data-aos="zoom-in-up"><img
                     src='assets/icons/quick-links.svg' alt="Quick Links" width="24" height="24" />Quick Links</h4>
@@ -47,8 +47,11 @@
     </div>
     <div class="mt-[64px]">
         <div class="flex items-center flex-wrap gap-x-1 gap-y-2 justify-between mb-4 pb-4 border-b border-b-[#D1D1D1]">
-            <img src="assets/icons/vision-logo.svg" alt="Vision Corporation Logo" width="167" height="48"
-                loading="eager" class="w-[150px] md:w-[167px] h-[40px] md:h-[48px]" />
+            <a routerLink="/" class="flex items-center gap-[6px]">
+                <img ngSrc="assets/icons/vision-logo.svg" alt="Vision Corporation Logo" width="48" height="48"
+                    loading="eager" class="w-[40px] h-[40px] md:w-[48px] md:h-[48px]" />
+                <span class="logo text-sm md:text-[16px] text-[#262626] md:leading-6">VISION <br>CORPORATION</span>
+            </a>
 
             <ul class="flex items-center gap-x-2">
                 @for(link of socialMediaLinks; track link.label) {
@@ -58,12 +61,15 @@
                 }
             </ul>
         </div>
-        <div class="flex items-center flex-col md:flex-row justify-between gap-4 ">
+        <div class="flex items-center flex-col md:flex-row justify-between gap-4 px-1">
             <div class="flex items-center gap-x-2">
-                <a routerLink="/privacy-policy" class="text-[#5D5D5D] text-sm leading-5 footer-link hover:underline">Privacy Policy</a>
-                <a routerLink="/terms-of-service" class="text-[#5D5D5D] text-sm leading-5 footer-link hover:underline">Terms of
+                <a routerLink="/privacy-policy"
+                    class="text-[#5D5D5D] text-sm leading-5 footer-link hover:underline">Privacy Policy</a>
+                <a routerLink="/terms-of-service"
+                    class="text-[#5D5D5D] text-sm leading-5 footer-link hover:underline">Terms of
                     Service</a>
-                <a routerLink="/cookie-policy" class="text-[#5D5D5D] text-sm leading-5 footer-link hover:underline">Cookie Policy</a>
+                <a routerLink="/cookie-policy"
+                    class="text-[#5D5D5D] text-sm leading-5 footer-link hover:underline">Cookie Policy</a>
             </div>
             <span class="footer-link text-sm text-[#5D5D5D] leading-5">©{{ currentYear }} Vision Corporation | All
                 rights
