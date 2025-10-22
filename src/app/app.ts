@@ -42,7 +42,7 @@ export class App implements AfterViewInit, OnDestroy {
             duration: 400,
             easing: 'ease-out-cubic',
             once: false,
-            offset: 0,
+            offset: 90,
             delay: 0,
           });
           this.aosInitialized = true;
