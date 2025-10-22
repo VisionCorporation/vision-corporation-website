@@ -1,5 +1,6 @@
 <main class="relative">
     <router-outlet />
+    @if(!hideCookieBanner){
     @if(isCookieOpen){
     <div class="w-full fixed bottom-0 bg-white py-[17px] px-3 md:px-12 lg:px-20 z-50 shadow-[0_-6px_20px_rgba(0,0,0,0.1)]"
         data-aos="fade-up">
@@ -46,6 +47,7 @@
             </div>
         </div>
     </div>
+    }
     }
     @if(isCustomiseCookieOpen){
     <div class="w-full fixed bottom-0 left-0 right-0 bg-white py-[17px] px-3 md:px-12 lg:px-20 z-50 shadow-[0_-6px_20px_rgba(0,0,0,0.1)] overflow-y-auto max-h-[90vh]"

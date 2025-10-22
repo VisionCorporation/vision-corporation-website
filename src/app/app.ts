@@ -1,8 +1,8 @@
-import { AfterViewInit, Component, Inject, PLATFORM_ID } from '@angular/core';
+import { AfterViewInit, Component, Inject, OnDestroy, PLATFORM_ID } from '@angular/core';
 import AOS from 'aos';
 import { isPlatformBrowser, NgOptimizedImage } from '@angular/common';
-import { Router, RouterOutlet, NavigationEnd } from '@angular/router';
-import { filter } from 'rxjs';
+import { Router, RouterOutlet, NavigationEnd, ActivatedRouteSnapshot } from '@angular/router';
+import { filter, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -10,10 +10,13 @@ import { filter } from 'rxjs';
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
-export class App implements AfterViewInit {
+export class App implements AfterViewInit, OnDestroy {
   private aosInitialized = false;
-  public isCookieOpen = true
-  public isCustomiseCookieOpen = false
+  private routerSub!: Subscription;
+
+  public isCookieOpen = true;
+  public isCustomiseCookieOpen = false;
+  public hideCookieBanner = false;
 
   public cookiePreferences = {
     strictlyNecessary: true,
@@ -30,45 +33,55 @@ export class App implements AfterViewInit {
   ngAfterViewInit() {
     if (!isPlatformBrowser(this.platformId)) return;
 
-    this.router.events
-      .pipe(filter((event) => event instanceof NavigationEnd))
+    this.routerSub = this.router.events
+      .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe(() => {
-        setTimeout(() => {
-          if (!this.aosInitialized) {
 
-            AOS.init({
-              duration: 500,
-              easing: 'ease-out-cubic',
-              once: false,
-              offset: 90,
-              delay: 0
-            });
-            this.aosInitialized = true;
-          } else {
+        if (!this.aosInitialized) {
+          AOS.init({
+            duration: 400,
+            easing: 'ease-out-cubic',
+            once: false,
+            offset: 0,
+            delay: 0,
+          });
+          this.aosInitialized = true;
+        } else {
+          AOS.refreshHard();
+        }
 
-            AOS.refresh();
-          }
-        }, 200);
+        const rootRoute = this.router.routerState.snapshot.root;
+        this.hideCookieBanner = this.shouldHideCookieBanner(rootRoute);
       });
   }
 
+  ngOnDestroy(): void {
+    if (this.routerSub) {
+      this.routerSub.unsubscribe();
+    }
+  }
+
+  private shouldHideCookieBanner(route: ActivatedRouteSnapshot): boolean {
+    if (route.data?.['hideCookieBanner']) return true;
+    if (route.firstChild) return this.shouldHideCookieBanner(route.firstChild);
+    return false;
+  }
+
   public closeCookieBanner(): void {
-    this.isCookieOpen = !this.isCookieOpen
+    this.isCookieOpen = !this.isCookieOpen;
   }
 
-  public toggleCookieBanners() {
-    this.isCookieOpen = !this.isCookieOpen
-    this.isCustomiseCookieOpen = !this.isCustomiseCookieOpen
+  public toggleCookieBanners(): void {
+    this.isCookieOpen = !this.isCookieOpen;
+    this.isCustomiseCookieOpen = !this.isCustomiseCookieOpen;
   }
 
-  public confirmCustomiseChoices() {
-    this.isCustomiseCookieOpen = !this.isCustomiseCookieOpen
+  public confirmCustomiseChoices(): void {
+    this.isCustomiseCookieOpen = !this.isCustomiseCookieOpen;
   }
 
   public toggleCookie(type: 'strictlyNecessary' | 'functional' | 'analytics' | 'advertising'): void {
-    if (type === 'strictlyNecessary') {
-      return;
-    }
+    if (type === 'strictlyNecessary') return;
     this.cookiePreferences[type] = !this.cookiePreferences[type];
   }
 
