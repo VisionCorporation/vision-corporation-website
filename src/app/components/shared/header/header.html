@@ -6,10 +6,11 @@
       <span class="logo text-sm md:text-[16px] text-[#262626] md:leading-6">VISION <br>CORPORATION</span>
     </a>
 
-    <button
+    <button (click)="toggleMenu()"
       class="flex items-center justify-center w-[40px] h-[40px] bg-[#2559EB] hover:bg-[#1D4ED8] transition-colors duration-200 
           focus:outline-none focus:ring-[2px] focus:ring-[#2559EB] focus:ring-offset-2 rounded cursor-pointer md:hidden">
-      <img ngSrc="assets/icons/hamburger.svg" alt="hamburger" width="24" height="24" loading="eager" class="object-cover" />
+      <img ngSrc="assets/icons/hamburger.svg" alt="hamburger" width="24" height="24" loading="eager"
+        class="object-cover" />
     </button>
 
     <nav class="hidden md:block">
@@ -31,4 +32,37 @@
     </a>
 
   </div>
+  @if(isMenuOpen){
+  <div
+    [class]="'fixed bg-black/60 w-full h-screen px-4 block md:hidden z-40 overflow-hidden ' + (isClosing ? 'animate-fade-out' : 'animate-fade-in')"
+    (click)="closeMenu()">
+    <div
+      [class]="'absolute right-3 top-[20px] border border-[#D1D1D1] bg-white w-full max-w-[269px] z-50 rounded ' + (isClosing ? 'animate-slide-out-right' : 'animate-slide-in-right')"
+      (click)="$event.stopPropagation()">
+      <ul>
+        <li><a routerLink="/" routerLinkActive="bg-[#2559EB] hover:bg-[#1D4ED8] text-white"
+            [routerLinkActiveOptions]="{ exact: true }"
+            class="text-[#5D5D5D] px-4 py-2 rounded-tl rounded-tr block leading-6 hover:bg-[#2559EB] hover:text-white transition-colors duration-200 ease-in border-b border-[#D1D1D1]"
+            (click)="closeMenu()">Home</a>
+        </li>
+        <li><a routerLink="/services" routerLinkActive="bg-[#2559EB] hover:bg-[#1D4ED8] text-white"
+            class="text-[#5D5D5D] px-4 py-2 block leading-6 hover:bg-[#2559EB] hover:text-white transition-colors duration-200 ease-in border-b border-[#D1D1D1]"
+            (click)="closeMenu()">Services</a>
+        </li>
+        <li><a routerLink="/projects" routerLinkActive="bg-[#2559EB] hover:bg-[#1D4ED8] text-white"
+            class="text-[#5D5D5D] px-4 py-2 block leading-6 hover:bg-[#2559EB] hover:text-white transition-colors duration-200 ease-in border-b border-[#D1D1D1]"
+            (click)="closeMenu()">Projects</a>
+        </li>
+        <li><a routerLink="/about" routerLinkActive="bg-[#2559EB] hover:bg-[#1D4ED8] text-white"
+            class="text-[#5D5D5D] px-4 py-2 block leading-6 hover:bg-[#2559EB] hover:text-white transition-colors duration-200 ease-in border-b border-[#D1D1D1]"
+            (click)="closeMenu()">About Us</a>
+        </li>
+        <li><a routerLink="/contact" routerLinkActive="bg-[#2559EB] hover:bg-[#1D4ED8] text-white"
+            class="text-[#5D5D5D] px-4 py-2 rounded-bl rounded-br block leading-6 hover:bg-[#2559EB] hover:text-white transition-colors duration-200 ease-in"
+            (click)="closeMenu()">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  }
 </header>
