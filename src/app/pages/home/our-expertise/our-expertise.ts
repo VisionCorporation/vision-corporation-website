@@ -7,32 +7,37 @@ import {
   inject,
   PLATFORM_ID,
 } from '@angular/core';
-import { CommonModule, NgOptimizedImage, isPlatformBrowser } from '@angular/common';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { EXPERTISE_CARDS } from '../../../data/constants/expertise.contants';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-our-expertise',
-  imports: [NgOptimizedImage, CommonModule],
+  imports: [CommonModule],
   templateUrl: './our-expertise.html',
   styleUrl: './our-expertise.css',
 })
 export class OurExpertise implements AfterViewInit {
   @ViewChild('scrollContainer') scrollContainer!: ElementRef;
-  public readonly expertiseCards = EXPERTISE_CARDS;
   private readonly cdr = inject(ChangeDetectorRef);
   private readonly platformId = inject(PLATFORM_ID);
+  private readonly sanitizer = inject(DomSanitizer);
 
   public canScrollLeft = false;
   public canScrollRight = true;
-  public isMobile = false; // SSR-safe flag
+  public isMobile = false;
+
+  public readonly expertiseCards = EXPERTISE_CARDS.map(card => ({
+    ...card,
+    safeSvg: this.sanitizer.bypassSecurityTrustHtml(card.svg)
+  }));
+
 
   ngAfterViewInit() {
     if (isPlatformBrowser(this.platformId)) {
-      // Safe to access window here
       this.checkIfMobile();
       this.checkScrollPosition();
 
-      // Optional: update when window resizes
       window.addEventListener('resize', () => this.checkIfMobile());
     }
   }
@@ -49,8 +54,8 @@ export class OurExpertise implements AfterViewInit {
 
     const container = this.scrollContainer.nativeElement;
     const scrollAmount = this.isMobile
-      ? container.clientWidth // one full card width on mobile
-      : 350 + 75; // card width + gap on desktop
+      ? container.clientWidth
+      : 350 + 75;
 
     container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
     setTimeout(() => this.checkScrollPosition(), 400);
