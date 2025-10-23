@@ -29,11 +29,19 @@
         <div class="mt-[82px] flex items-center justify-center gap-[8px] sm:hidden">
             <button (click)="scrollToPrevious()" [disabled]="!canScrollLeft"
                 class="bg-white p-[10px] rounded inline-block cursor-pointer transition-opacity disabled:opacity-50 disabled:cursor-not-allowed">
-                <img ngSrc="/assets/icons/chevron-left.svg" alt="Left Arrow" width="24" height="24" />
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15.75 19.5L8.25 12L15.75 4.5" stroke="#2559EB" stroke-width="1.5" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+
             </button>
             <button (click)="scrollToNext()" [disabled]="!canScrollRight"
                 class="bg-white p-[10px] rounded inline-block cursor-pointer transition-opacity disabled:opacity-50 disabled:cursor-not-allowed">
-                <img ngSrc="/assets/icons/chevron-right.svg" alt="Right Arrow" width="24" height="24" />
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8.25 4.5L15.75 12L8.25 19.5" stroke="#2559EB" stroke-width="1.5" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+
             </button>
         </div>
 

@@ -1,17 +1,29 @@
 import { Component } from '@angular/core';
-import { FooterLinks, FooterServices, SocialMediaLinks } from '../../../data/constants/footer.constants';
 import { RouterLink } from '@angular/router';
-import { NgOptimizedImage } from '@angular/common';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import {
+  FooterLinks,
+  FooterServices,
+  SocialMediaLinks,
+} from '../../../data/constants/footer.constants';
 
 @Component({
   selector: 'app-footer',
-  imports: [RouterLink, NgOptimizedImage],
+  standalone: true,
+  imports: [RouterLink],
   templateUrl: './footer.html',
-  styleUrl: './footer.css'
+  styleUrl: './footer.css',
 })
 export class Footer {
-  public readonly currentYear = new Date().getFullYear();
-  public readonly footerLinks = FooterLinks;
-  public readonly footerServices = FooterServices;
-  public readonly socialMediaLinks = SocialMediaLinks;
+  readonly currentYear = new Date().getFullYear();
+  readonly footerLinks = FooterLinks;
+  readonly footerServices = FooterServices;
+  readonly socialMediaLinks: { label: string; url: string; icon: SafeHtml }[];
+
+  constructor(private sanitizer: DomSanitizer) {
+    this.socialMediaLinks = SocialMediaLinks.map((link) => ({
+      ...link,
+      icon: this.sanitizer.bypassSecurityTrustHtml(link.icon),
+    }));
+  }
 }
