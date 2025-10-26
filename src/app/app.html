@@ -1,42 +1,49 @@
 <main class="relative">
     <router-outlet />
     @if(!hideCookieBanner){
+    @if(isCookieOpen || isCustomiseCookieOpen){
+    <div class="fixed inset-0 z-50 cookie-overlay transition-opacity duration-500"
+        [class.opacity-0]="!isCookieOpen && !isCustomiseCookieOpen"
+        [class.opacity-100]="isCookieOpen || isCustomiseCookieOpen" data-aos="fade-up">
+    </div>
+    }
     @if(isCookieOpen){
-    <div class="w-full fixed bottom-0 bg-white py-[17px] px-3 md:px-12 lg:px-20 z-40 shadow-[0_-6px_20px_rgba(0,0,0,0.1)]"
+    <div class="fixed bottom-[52px] left-0 right-0 z-[51] w-full max-w-[1250px] mx-auto bg-white shadow-[0_-6px_20px_rgba(0,0,0,0.1)] py-[17px] px-3 md:px-12 lg:px-10 rounded"
         data-aos="fade-up">
         <div class="flex justify-end">
             <button class="cursor-pointer hover:scale-110 transform transition-transform duration-300 ease-in-out"
                 (click)="closeCookieBanner()">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
-                        d="M9.75 9.75L14.25 14.25M14.25 9.75L9.75 14.25M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"
-                        stroke="#5D5D5D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        d="M7.5 7.5L12 12M12 7.5L7.5 12M18.75 9.75C18.75 14.7206 14.7206 18.75 9.75 18.75C4.77944 18.75 0.75 14.7206 0.75 9.75C0.75 4.77944 4.77944 0.75 9.75 0.75C14.7206 0.75 18.75 4.77944 18.75 9.75Z"
+                        stroke="#E22420" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
             </button>
         </div>
 
         <div class="flex flex-col lg:flex-row items-start lg:items-center gap-6">
             <div class="flex items-start gap-4 w-full lg:max-w-[717px]">
-                <div class="w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center shrink-0">
-                    <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M18.6665 26.6667V26.6721H18.6612V26.6667H18.6665Z" stroke="#262626" stroke-width="2"
+                <div class="flex items-center justify-center shrink-0">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9.33334 13.3333V13.336H9.33068V13.3333H9.33334Z" stroke="#262626" stroke-width="2"
                             stroke-linecap="round" stroke-linejoin="round" />
-                        <path d="M24 40V40.0053H23.9947V40H24Z" stroke="#262626" stroke-width="2" stroke-linecap="round"
+                        <path d="M12 20V20.0027H11.9973V20H12Z" stroke="#262626" stroke-width="2" stroke-linecap="round"
                             stroke-linejoin="round" />
-                        <path d="M32 29.3333V29.3386H31.9947V29.3333H32Z" stroke="#262626" stroke-width="2"
+                        <path d="M16 14.6667V14.6694H15.9973V14.6667H16Z" stroke="#262626" stroke-width="2"
                             stroke-linecap="round" stroke-linejoin="round" />
-                        <path d="M37.3335 42.6667V42.6721H37.3282V42.6667H37.3335Z" stroke="#262626" stroke-width="2"
+                        <path d="M18.6667 21.3333V21.336H18.664V21.3333H18.6667Z" stroke="#262626" stroke-width="2"
                             stroke-linecap="round" stroke-linejoin="round" />
-                        <path d="M45.3335 8V8.00533H45.3282V8H45.3335Z" stroke="#262626" stroke-width="2"
+                        <path d="M22.6667 4V4.00267H22.664V4H22.6667Z" stroke="#262626" stroke-width="2"
                             stroke-linecap="round" stroke-linejoin="round" />
-                        <path d="M56 21.3333V21.3386H55.9947V21.3333H56Z" stroke="#262626" stroke-width="2"
+                        <path d="M28 10.6667V10.6694H27.9973V10.6667H28Z" stroke="#262626" stroke-width="2"
                             stroke-linecap="round" stroke-linejoin="round" />
-                        <path d="M56 10.6667V10.6721H55.9947V10.6667H56Z" stroke="#262626" stroke-width="2"
+                        <path d="M28 5.33331V5.33598H27.9973V5.33331H28Z" stroke="#262626" stroke-width="2"
                             stroke-linecap="round" stroke-linejoin="round" />
                         <path
-                            d="M32.0053 16.7547C33.3496 18.1068 35.0325 19.0729 36.878 19.5519C38.7235 20.0308 40.6638 20.0051 42.496 19.4773C41.969 21.3155 41.9426 23.261 42.4194 25.1129C42.8961 26.9647 43.8589 28.6555 45.208 30.0107C46.5901 31.4004 48.3293 32.3814 50.2337 32.8454C52.138 33.3094 54.1335 33.2383 56 32.64C55.824 38.7698 53.3133 44.6009 48.9813 48.9413C46.7565 51.1782 44.1115 52.9533 41.1984 54.1645C38.2853 55.3758 35.1615 55.9993 32.0067 55.9993C28.8518 55.9993 25.728 55.3758 22.8149 54.1645C19.9018 52.9533 17.2568 51.1782 15.032 48.9413C5.656 39.5307 5.656 24.2747 15.032 14.8613C18.7767 11.0885 23.6738 8.6737 28.9467 8C28.7682 9.59518 28.9504 11.2101 29.4798 12.7254C30.0092 14.2407 30.8723 15.6177 32.0053 16.7547Z"
+                            d="M16.0027 8.37733C16.6748 9.0534 17.5163 9.53644 18.439 9.77593C19.3618 10.0154 20.3319 10.0025 21.248 9.73867C20.9845 10.6577 20.9713 11.6305 21.2097 12.5564C21.4481 13.4823 21.9294 14.3278 22.604 15.0053C23.2951 15.7002 24.1647 16.1907 25.1168 16.4227C26.069 16.6547 27.0667 16.6191 28 16.32C27.912 19.3849 26.6567 22.3005 24.4907 24.4707C23.3783 25.5891 22.0558 26.4766 20.5992 27.0823C19.1427 27.6879 17.5808 27.9996 16.0033 27.9996C14.4259 27.9996 12.864 27.6879 11.4074 27.0823C9.9509 26.4766 8.62841 25.5891 7.516 24.4707C2.828 19.7653 2.828 12.1373 7.516 7.43067C9.38834 5.54423 11.8369 4.33685 14.4733 4C14.3841 4.79759 14.4752 5.60504 14.7399 6.36269C15.0046 7.12035 15.4362 7.80885 16.0027 8.37733Z"
                             stroke="#262626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
+
                 </div>
 
                 <div>
@@ -74,16 +81,16 @@
     }
     }
     @if(isCustomiseCookieOpen){
-    <div class="w-full fixed bottom-0 left-0 right-0 bg-white py-[17px] px-3 md:px-12 lg:px-20 z-40 shadow-[0_-6px_20px_rgba(0,0,0,0.1)] overflow-y-auto max-h-[90vh]"
-        data-aos="fade-up">
-        <div class="max-w-[1400px] mx-auto px-3 md:px-12 lg:px-20">
+    <div class="cookie-banner fixed inset-0 flex items-center justify-center z-[51]">
+        <div class="w-full max-w-[1250px] bg-white shadow-[0_0_20px_rgba(0,0,0,0.1)] py-[17px] px-4 md:px-10 rounded-lg overflow-y-auto h-svh sm:max-h-[90vh]"
+            data-aos="fade-up">
             <div class="flex justify-end  py-2 z-10">
                 <button class="cursor-pointer hover:scale-110 transform transition-transform duration-300 ease-in-out"
                     (click)="toggleCookieBanners()">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
-                            d="M9.75 9.75L14.25 14.25M14.25 9.75L9.75 14.25M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"
-                            stroke="#5D5D5D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                            d="M7.5 7.5L12 12M12 7.5L7.5 12M18.75 9.75C18.75 14.7206 14.7206 18.75 9.75 18.75C4.77944 18.75 0.75 14.7206 0.75 9.75C0.75 4.77944 4.77944 0.75 9.75 0.75C14.7206 0.75 18.75 4.77944 18.75 9.75Z"
+                            stroke="#E22420" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
                 </button>
             </div>
@@ -112,7 +119,7 @@
                             nec orci. Vivamus non ligula enim. </p>
                     </div>
 
-                    <div class="flex items-center justify-center ">
+                    <div class="flex items-center justify-center">
                         <button (click)="toggleCookie('strictlyNecessary')"
                             [class]="cookiePreferences.strictlyNecessary ? 'bg-[#E7E7E7]' : 'bg-gray-300'"
                             class="relative inline-flex h-[26px] w-12 border border-[#888888] cursor-not-allowed items-center rounded-full transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 p-[4px]"
@@ -137,7 +144,7 @@
                             nec orci. Vivamus non ligula enim. </p>
                     </div>
 
-                    <div class="flex items-center justify-center bg-gray-100">
+                    <div class="flex items-center justify-center">
                         <button (click)="toggleCookie('functional')"
                             [class]="cookiePreferences.functional ? 'bg-blue-600' : 'bg-gray-300'"
                             class="relative inline-flex h-[26px] w-12 cursor-pointer items-center rounded-full transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 p-[4px]"
@@ -161,7 +168,7 @@
                             nec orci. Vivamus non ligula enim. </p>
                     </div>
 
-                    <div class="flex items-center justify-center bg-gray-100">
+                    <div class="flex items-center justify-center">
                         <button (click)="toggleCookie('analytics')"
                             [class]="cookiePreferences.analytics ? 'bg-blue-600' : 'bg-gray-300'"
                             class="relative inline-flex h-[26px] w-12 cursor-pointer items-center rounded-full transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 p-[4px]"
@@ -186,7 +193,7 @@
                             nec orci. Vivamus non ligula enim. </p>
                     </div>
 
-                    <div class="flex items-center justify-center bg-gray-100">
+                    <div class="flex items-center justify-center">
                         <button (click)="toggleCookie('advertising')"
                             [class]="cookiePreferences.advertising ? 'bg-blue-600' : 'bg-gray-300'"
                             class="relative inline-flex h-[26px] w-12 cursor-pointer items-center rounded-full transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 p-[4px]"
@@ -197,7 +204,6 @@
                     </div>
                 </div>
             </div>
-
 
             <div
                 class="w-full lg:flex-1 flex flex-col md:flex-row justify-center lg:justify-end items-center gap-4 sm:gap-6 mt-8 pb-4">

@@ -82,7 +82,7 @@ img {
   scrollbar-width: none;
 }
 
-p{
+p {
   font-weight: 300
 }
 
@@ -91,14 +91,21 @@ h2,
 h3,
 h4,
 h5,
-h6,.custom-name {
+h6,
+.custom-name {
   font-weight: 500;
 }
 
-.logo{
+.logo {
   font-weight: 700;
 }
 
-.customise-sub-title{
+.customise-sub-title {
   font-weight: 600
+}
+
+.cookie-overlay {
+  background: linear-gradient(135deg, rgba(217, 217, 217, 0.3) 0%, rgba(115, 115, 115, 0.3) 100%);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
 }
