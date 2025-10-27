@@ -1,8 +1,14 @@
-import { AfterViewInit, Component, Inject, OnDestroy, PLATFORM_ID } from '@angular/core';
+import { AfterViewInit, Component, Inject, OnDestroy, OnInit, PLATFORM_ID } from '@angular/core';
 import AOS from 'aos';
 import { isPlatformBrowser } from '@angular/common';
 import { Router, RouterOutlet, NavigationEnd, ActivatedRouteSnapshot } from '@angular/router';
 import { filter, Subscription } from 'rxjs';
+
+declare global {
+  interface Window {
+    gtag?: (...args: any[]) => void;
+  }
+}
 
 @Component({
   selector: 'app-root',
@@ -10,7 +16,7 @@ import { filter, Subscription } from 'rxjs';
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
-export class App implements AfterViewInit, OnDestroy {
+export class App implements OnInit, AfterViewInit, OnDestroy {
   private aosInitialized = false;
   private routerSub!: Subscription;
 
@@ -29,6 +35,20 @@ export class App implements AfterViewInit, OnDestroy {
     @Inject(PLATFORM_ID) private platformId: object,
     private router: Router
   ) { }
+
+  ngOnInit(): void {
+    if (isPlatformBrowser(this.platformId)) {
+      this.router.events
+        .pipe(filter(event => event instanceof NavigationEnd))
+        .subscribe((event: NavigationEnd) => {
+          if (window.gtag) {
+            window.gtag('config', 'G-Y9GGWL1N5Q', {
+              page_path: event.urlAfterRedirects
+            });
+          }
+        });
+    }
+  }
 
   ngAfterViewInit() {
     if (!isPlatformBrowser(this.platformId)) return;
