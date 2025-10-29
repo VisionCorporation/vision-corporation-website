@@ -2,10 +2,11 @@ import { Component, inject } from '@angular/core';
 import { Header } from '../../components/shared/header/header';
 import { Footer } from '../../components/shared/footer/footer';
 import { SeoService } from '../../services/seo-service';
+import { Faqs } from '../../components/shared/faqs/faqs';
 
 @Component({
   selector: 'app-services',
-  imports: [Header, Footer],
+  imports: [Header,Faqs,Footer],
   templateUrl: './services.html',
   styleUrl: './services.css'
 })
