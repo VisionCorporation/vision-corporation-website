@@ -1,0 +1,61 @@
+<section
+    class="relative px-3 md:px-12 lg:px-20 py-[89px] bg-[url('/assets/images/our-expertise-bg.webp')] bg-cover bg-center bg-no-repeat">
+    <div class="absolute inset-0 bg-gradient-to-bl from-[#2559EB]/100 to-[#8A38F5]/90 pointer-events-none"></div>
+    <div class="relative z-10 max-w-[1280px] mx-auto ">
+        <div class="text-center text-white mb-16">
+            <h2 class="text-3xl sm:text-5xl mb-2">Frequently Asked Questions (FAQS)</h2>
+            <p class="text-lg sm:text-xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam pellentesque,
+                dolor nec feugiat ornare,
+                quam
+                sem vehicula tortor, eu finibus libero elit nec orci. Vivamus non ligula enim. </p>
+        </div>
+        <div class="flex items-center  gap-4 bg-[#F4F6FB] rounded-[52px] py-1 px-2 max-w-[610px] mx-auto text-nowrap mb-16 overflow-x-auto scrollbar-hide"
+            role="tablist" aria-label="FAQ categories">
+            @for(cat of categories; track $index){
+            <button #tabButton type="button" role="tab" (click)="setActive(cat)" [attr.aria-selected]="activeTab === cat"
+                class="cursor-pointer py-3 px-8 text-[#5D5D5D]"
+                [ngClass]="{'rounded-[52px] bg-[#2559EB] text-white transition-colors duration-300 ease-in-out': activeTab === cat}">
+                {{ cat }}
+            </button>
+            }
+        </div>
+
+        <div class="flex flex-col gap-4">
+            @for(item of faqs; track $index){
+            @if(item.category === activeTab){
+            <div class="flex bg-white rounded p-4 gap-4 faq-card" [class.expanded]="expandedIndex === $index"
+                data-aos="fade-up">
+                <div class="flex items-center justify-center w-12 h-12 rounded bg-[#F4F6FB] p-3 flex-shrink-0"
+                    aria-hidden="true">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M15.182 15.182C13.4246 16.9393 10.5754 16.9393 8.81802 15.182M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12ZM9.75 9.75C9.75 10.1642 9.58211 10.5 9.375 10.5C9.16789 10.5 9 10.1642 9 9.75C9 9.33579 9.16789 9 9.375 9C9.58211 9 9.75 9.33579 9.75 9.75ZM9.375 9.75H9.3825V9.765H9.375V9.75ZM15 9.75C15 10.1642 14.8321 10.5 14.625 10.5C14.4179 10.5 14.25 10.1642 14.25 9.75C14.25 9.33579 14.4179 9 14.625 9C14.8321 9 15 9.33579 15 9.75ZM14.625 9.75H14.6325V9.765H14.625V9.75Z"
+                            stroke="#2559EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </div>
+                <div class="w-full flex flex-col cursor-pointer faq-content-wrapper"
+                    [class.expanded]="expandedIndex === $index" role="button" (click)="toggle($index)"
+                    [attr.aria-expanded]="expandedIndex === $index">
+                    <div class="flex items-center justify-between">
+                        <div class="text-[#262626] text-lg sm:text-xl leading-5">{{ item.question }}</div>
+                        <div class="faq-chevron flex-shrink-0 ml-2" [class.open]="expandedIndex === $index">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M6.32951 9.3295C6.76884 8.89017 7.48116 8.89017 7.9205 9.3295L12 13.409L16.0795 9.32951C16.5188 8.89017 17.2312 8.89017 17.6705 9.32951C18.1098 9.76885 18.1098 10.4812 17.6705 10.9205L12.7955 15.7955C12.3562 16.2348 11.6438 16.2348 11.2045 15.7955L6.3295 10.9205C5.89016 10.4812 5.89017 9.76884 6.32951 9.3295Z"
+                                    fill="#5D5D5D" />
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div class="faq-content" [class.open]="expandedIndex === $index"
+                        [attr.aria-hidden]="expandedIndex !== $index">
+                        <div class="faq-answer">{{ item.answer }}</div>
+                    </div>
+                </div>
+            </div>
+            }
+            }
+        </div>
+    </div>
+</section>
