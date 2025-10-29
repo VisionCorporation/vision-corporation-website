@@ -9,7 +9,7 @@ import { CATEGORIES, FAQS } from '../../../data/constants/faqs.constants';
   styleUrl: './faqs.css'
 })
 export class Faqs {
-   @ViewChildren('tabButton') tabButtons!: QueryList<ElementRef>;
+  @ViewChildren('tabButton') tabButtons!: QueryList<ElementRef>;
   public categories = CATEGORIES
   public activeTab: (typeof CATEGORIES)[number] = this.categories[0];
   public faqs = FAQS;
@@ -20,7 +20,6 @@ export class Faqs {
     this.activeTab = tab;
     this.expandedIndex = null;
 
-    // Scroll the selected tab into view
     setTimeout(() => {
       const index = this.categories.indexOf(tab);
       const button = this.tabButtons.toArray()[index];

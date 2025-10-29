@@ -3,17 +3,18 @@
     <div class="absolute inset-0 bg-gradient-to-bl from-[#2559EB]/100 to-[#8A38F5]/90 pointer-events-none"></div>
     <div class="relative z-10 max-w-[1280px] mx-auto ">
         <div class="text-center text-white mb-16">
-            <h2 class="text-3xl sm:text-5xl mb-2">Frequently Asked Questions (FAQS)</h2>
-            <p class="text-lg sm:text-xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam pellentesque,
+            <h2 class="text-3xl sm:text-5xl mb-2" data-aos="fade-up">Frequently Asked Questions (FAQS)</h2>
+            <p class="text-lg sm:text-xl" data-aos="fade-up">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Etiam pellentesque,
                 dolor nec feugiat ornare,
                 quam
                 sem vehicula tortor, eu finibus libero elit nec orci. Vivamus non ligula enim. </p>
         </div>
         <div class="flex items-center  gap-4 bg-[#F4F6FB] rounded-[52px] py-1 px-2 max-w-[610px] mx-auto text-nowrap mb-16 overflow-x-auto scrollbar-hide"
-            role="tablist" aria-label="FAQ categories">
+            role="tablist" aria-label="FAQ categories" data-aos="fade-up">
             @for(cat of categories; track $index){
-            <button #tabButton type="button" role="tab" (click)="setActive(cat)" [attr.aria-selected]="activeTab === cat"
-                class="cursor-pointer py-3 px-8 text-[#5D5D5D]"
+            <button #tabButton type="button" role="tab" (click)="setActive(cat)"
+                [attr.aria-selected]="activeTab === cat" class="cursor-pointer py-3 px-8 text-[#5D5D5D]"
                 [ngClass]="{'rounded-[52px] bg-[#2559EB] text-white transition-colors duration-300 ease-in-out': activeTab === cat}">
                 {{ cat }}
             </button>
