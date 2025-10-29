@@ -10,5 +10,103 @@
         nec
         sem commodo, aliquam velit ut, convallis </p>
 </div>
+
+<div class="max-w-[1280px] flex flex-col gap-16 mx-auto pb-16">
+    @for(package of packages; track package.title){
+    <div class="p-4" #packageContainer>
+        <div class="flex items-center justify-between sm:gap-[88px]">
+            <div>
+                <h2 class="text-xl sm:text-[32px] text-[#262626] mb-2">{{ package.title }}</h2>
+                <p class="text-[#5D5D5D] text-lg sm:text-xl sm:leading-8">{{ package.description }}</p>
+            </div>
+            <div class="bg-[#F4F6FB] w-12 h-12 p-3 rounded flex items-center justify-center cursor-pointer"
+                (click)="togglePackage($index)" role="button" [attr.aria-expanded]="isPackageExpanded($index)">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    [class.rotate-180]="isPackageExpanded($index)" [class.transform]="isPackageExpanded($index)">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M12.5303 16.2803C12.2374 16.5732 11.7626 16.5732 11.4697 16.2803L3.96967 8.78033C3.67678 8.48744 3.67678 8.01256 3.96967 7.71967C4.26256 7.42678 4.73744 7.42678 5.03033 7.71967L12 14.6893L18.9697 7.71967C19.2626 7.42678 19.7374 7.42678 20.0303 7.71967C20.3232 8.01256 20.3232 8.48744 20.0303 8.78033L12.5303 16.2803Z"
+                        fill="#5D5D5D" />
+                </svg>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 items-start gap-y-5 gap-x-[9px] mt-12"
+            [class.hidden]="!isPackageExpanded($index)">
+            @for(packageType of package.types; track packageType.name){
+            <div class="border border-[#D1D1D1] p-4 rounded-lg w-full">
+                <h3 class="text-[#262626] text-xl flex items-center gap-2 mb-2">
+                    @if(packageType.name === 'Basic Package'){
+                    <div class="bg-[#DBE4FE] w-12 h-12 rounded p-3">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M20.8929 13.3929L19.7582 12.2582C19.5872 12.0872 19.4449 11.8897 19.3367 11.6734L18.2567 9.5133C18.1304 9.26078 17.7938 9.20616 17.5942 9.4058C17.3818 9.61824 17.0708 9.69881 16.782 9.61627L15.5091 9.25259C15.0257 9.11447 14.5239 9.40424 14.402 9.892C14.3108 10.2566 14.4587 10.6392 14.7715 10.8476L15.3582 11.2388C15.9489 11.6326 16.0316 12.4684 15.5297 12.9703L15.3295 13.1705C15.1185 13.3815 15 13.6676 15 13.966V14.3768C15 14.7846 14.8892 15.1847 14.6794 15.5344L13.3647 17.7254C12.9834 18.3611 12.2964 18.75 11.5552 18.75C10.9724 18.75 10.5 18.2776 10.5 17.6948V16.5233C10.5 15.6033 9.93986 14.7759 9.08563 14.4343L8.43149 14.1726C7.44975 13.7799 6.8739 12.7566 7.04773 11.7136L7.05477 11.6714C7.10117 11.393 7.19956 11.1257 7.3448 10.8837L7.43421 10.7347C7.92343 9.91928 8.87241 9.49948 9.80483 9.68597L10.9827 9.92153C11.5574 10.0365 12.124 9.69096 12.285 9.12744L12.4935 8.39774C12.6422 7.87721 12.3991 7.32456 11.9149 7.08245L11.25 6.75L11.159 6.84099C10.7371 7.26295 10.1648 7.5 9.56802 7.5H9.38709C9.13924 7.5 8.90095 7.59905 8.7257 7.7743C8.44222 8.05778 8.00814 8.12907 7.64958 7.94979C7.16433 7.70716 6.98833 7.10278 7.26746 6.63757L8.67936 4.2844C8.82024 4.04961 8.91649 3.79207 8.96453 3.52474M20.8929 13.3929C20.9634 12.9389 21 12.4737 21 12C21 7.02944 16.9706 3 12 3C10.9348 3 9.91287 3.18504 8.96453 3.52474M20.8929 13.3929C20.2234 17.702 16.4968 21 12 21C7.02944 21 3 16.9706 3 12C3 8.09461 5.48749 4.77021 8.96453 3.52474"
+                                stroke="#2559EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                    }
+                    @if(packageType.name === 'Standard Package'){
+                    <div class="bg-[#2559EB] w-12 h-12 rounded p-3">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M15.5904 14.3696C15.6948 14.8128 15.75 15.275 15.75 15.75C15.75 19.0637 13.0637 21.75 9.75 21.75V16.9503M15.5904 14.3696C19.3244 11.6411 21.75 7.22874 21.75 2.25C16.7715 2.25021 12.3595 4.67586 9.63122 8.40975M15.5904 14.3696C13.8819 15.6181 11.8994 16.514 9.75 16.9503M9.63122 8.40975C9.18777 8.30528 8.72534 8.25 8.25 8.25C4.93629 8.25 2.25 10.9363 2.25 14.25H7.05072M9.63122 8.40975C8.38285 10.1183 7.48701 12.1007 7.05072 14.25M9.75 16.9503C9.64659 16.9713 9.54279 16.9912 9.43862 17.0101C8.53171 16.291 7.70991 15.4692 6.99079 14.5623C7.00969 14.4578 7.02967 14.3537 7.05072 14.25M4.81191 16.6408C3.71213 17.4612 3 18.7724 3 20.25C3 20.4869 3.0183 20.7195 3.05356 20.9464C3.28054 20.9817 3.51313 21 3.75 21C5.22758 21 6.53883 20.2879 7.35925 19.1881M16.5 9C16.5 9.82843 15.8284 10.5 15 10.5C14.1716 10.5 13.5 9.82843 13.5 9C13.5 8.17157 14.1716 7.5 15 7.5C15.8284 7.5 16.5 8.17157 16.5 9Z"
+                                stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+
+                    </div>
+                    }
+                    @if(packageType.name === 'Premium Package'){
+                    <div class="bg-[#2559EB] w-12 h-12 rounded p-3">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M9.8132 15.9038L9 18.75L8.1868 15.9038C7.75968 14.4089 6.59112 13.2403 5.09619 12.8132L2.25 12L5.09619 11.1868C6.59113 10.7597 7.75968 9.59112 8.1868 8.09619L9 5.25L9.8132 8.09619C10.2403 9.59113 11.4089 10.7597 12.9038 11.1868L15.75 12L12.9038 12.8132C11.4089 13.2403 10.2403 14.4089 9.8132 15.9038Z"
+                                stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                            <path
+                                d="M18.2589 8.71454L18 9.75L17.7411 8.71454C17.4388 7.50533 16.4947 6.56117 15.2855 6.25887L14.25 6L15.2855 5.74113C16.4947 5.43883 17.4388 4.49467 17.7411 3.28546L18 2.25L18.2589 3.28546C18.5612 4.49467 19.5053 5.43883 20.7145 5.74113L21.75 6L20.7145 6.25887C19.5053 6.56117 18.5612 7.50533 18.2589 8.71454Z"
+                                stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                            <path
+                                d="M16.8942 20.5673L16.5 21.75L16.1058 20.5673C15.8818 19.8954 15.3546 19.3682 14.6827 19.1442L13.5 18.75L14.6827 18.3558C15.3546 18.1318 15.8818 17.6046 16.1058 16.9327L16.5 15.75L16.8942 16.9327C17.1182 17.6046 17.6454 18.1318 18.3173 18.3558L19.5 18.75L18.3173 19.1442C17.6454 19.3682 17.1182 19.8954 16.8942 20.5673Z"
+                                stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                    }
+                    {{ packageType.name }}
+                </h3>
+                <p class="text-[#5D5D5D] mb-6">{{ packageType.description }}</p>
+                <h3 class="text-xl text-[#262626] customise-sub-title mb-4">What you will get</h3>
+                @for(spec of packageType.specifications; track spec){
+                <p class="text-[#5D5D5D] mb-2 flex items-start gap-[5px]">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        class="flex-shrink-0">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M11.9999 21.6C17.3018 21.6 21.5999 17.302 21.5999 12C21.5999 6.69809 17.3018 2.40002 11.9999 2.40002C6.69797 2.40002 2.3999 6.69809 2.3999 12C2.3999 17.302 6.69797 21.6 11.9999 21.6ZM16.6278 9.82938C16.9201 9.42739 16.8312 8.86452 16.4293 8.57216C16.0273 8.27981 15.4644 8.36868 15.172 8.77067L10.9915 14.5189L8.7363 12.2636C8.38483 11.9122 7.81498 11.9122 7.46351 12.2636C7.11203 12.6151 7.11203 13.1849 7.46351 13.5364L10.4635 16.5364C10.6496 16.7225 10.9079 16.8179 11.1703 16.7973C11.4327 16.7767 11.673 16.6423 11.8278 16.4294L16.6278 9.82938Z"
+                            fill="#348537" />
+                    </svg>
+                    {{ spec }}
+                </p>
+                }
+                <h3 class="my-6 customise-sub-title text-xl text-[#262626]">Starting from <span>{{ packageType.price |
+                        currency:'USD':'symbol':'1.0-0' }}</span></h3>
+                <button class="rounded w-full flex items-center justify-center gap-3 py-3 cursor-pointer"
+                    [ngClass]="{ 'border border-[#2559EB] hover:bg-[#DBE4FE] transition-colors duration-200 focus:outline-none focus:ring-[2px] focus:ring-[#2559EB] focus:ring-offset-2 text-[#2559EB]': packageType.name === 'Basic Package', 'bg-[#2559EB] hover:bg-[#1D4ED8] transition-colors duration-200 
+          focus:outline-none focus:ring-[2px] focus:ring-[#2559EB] focus:ring-offset-2 text-white': packageType.name !== 'Basic Package' }">
+                    Get now
+                    @if(packageType.name === 'Basic Package'){
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M13.5 4.5L21 12M21 12L13.5 19.5M21 12H3" stroke="#2559EB" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>}
+                    @else {<svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M13.5 4.5L21 12M21 12L13.5 19.5M21 12H3" stroke="white" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>}
+                </button>
+            </div>
+            }
+        </div>
+    </div>
+}
+</div>
+
 <app-faqs />
 <app-footer />
