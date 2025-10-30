@@ -6,8 +6,10 @@ export const FooterLinks = [
 ] as const;
 
 export const FooterServices = [
-    { label: 'Web Development' },
-    { label: 'UX/UI Design' },
+    { label: 'Full Stack Web Development' },
+    { label: 'UI/UX Design' },
+    { label: 'Frontend Development' },
+    { label: 'Backend Development' },
 ] as const;
 
 export const SocialMediaLinks = [
