@@ -1,32 +1,37 @@
-<section
-    class="relative py-[70px] sm:py-[115px] bg-[url('/assets/images/our-expertise-bg.webp')] bg-cover bg-center bg-no-repeat">
+<section class="relative py-[70px] bg-[url('/assets/images/our-expertise-bg.webp')] bg-cover bg-center bg-no-repeat">
     <div class="absolute inset-0 bg-gradient-to-bl from-[#2559EB]/100 to-[#8A38F5]/90 pointer-events-none"></div>
     <div class="relative z-10 px-4">
         <div class="text-center mb-[78px]">
-            <h2 class="text-3xl sm:text-5xl leading-14 text-white mb-2" data-aos="fade-up" data-aos-delay="50">Explore
-                our Expertise</h2>
-            <p class="text-lg sm:text-xl text-white leading-6 sm:leading-8" data-aos="fade-up" data-aos-delay="60">
-                Experience the power of innovation with our
-                specialized services.
+            <h2 class="font-semibold text-5xl leading-14 text-white mb-2">Explore our Expertise</h2>
+            <p class="text-xl text-white leading-8">Experience the power of innovation with our specialized services.
             </p>
         </div>
 
-        <div #scrollContainer class="max-w-[1500px] mx-auto md:px-12 lg:px-32 overflow-x-auto hide-scrollbar"
-            (scroll)="checkScrollPosition()">
-            <div class="flex md:justify-center md:gap-[30px] lg:gap-[75px]">
-                @for(card of expertiseCards; track $index) {
-                <div class="bg-white w-full md:max-w-[350px] rounded px-5 py-10 text-center flex-shrink-0 expertise-card"
-                    data-aos="flip-left" [attr.data-aos-delay]="$index * 150">
-                    <div [innerHTML]="card.safeSvg"
-                        class="w-[200px] h-[200px] mx-auto mb-6 [&>svg]:w-full [&>svg]:h-full"></div>
-                    <h3 class="text-[#2559EB] text-xl leading-8 mb-2">{{ card.title }}</h3>
-                    <p class="leading-6 text-[#5D5D5D]">{{ card.description }}</p>
+        <div class="relative">
+            <div class="max-w-[1240px] lg:mx-auto">
+                <div #scrollContainer
+                    class="overflow-x-auto hide-scrollbar lg:-mr-[max(0px,calc((100vw-1240px)/2))]"
+                    (scroll)="checkScrollPosition()">
+                    <div
+                        class="flex gap-4 sm:gap-6 md:gap-[30px] lg:gap-[75px] lg:pr-[max(0px,calc((100vw-1240px)/2))]">
+                        @for(card of expertiseCards; track $index){
+                        <div class="bg-white w-[280px] sm:w-[320px] md:w-[350px] rounded px-5 py-10 text-center flex-shrink-0 expertise-card"
+                            data-aos="fade-up" [attr.data-aos-delay]="$index * 150">
+                            <div [innerHTML]="card.safeSvg"
+                                class="w-[160px] sm:w-[180px] md:w-[200px] h-[160px] sm:h-[180px] md:h-[200px] mx-auto mb-4 sm:mb-5 md:mb-6 [&>svg]:w-full [&>svg]:h-full">
+                            </div>
+                            <h3 class="text-[#2559EB] text-lg sm:text-xl leading-7 sm:leading-8 mb-2">{{ card.title }}
+                            </h3>
+                            <p class="text-sm sm:text-base leading-5 sm:leading-6 text-[#5D5D5D]">{{ card.description }}
+                            </p>
+                        </div>
+                        }
+                    </div>
                 </div>
-                }
             </div>
         </div>
 
-        <div class="mt-[82px] flex items-center justify-center gap-[8px] sm:hidden">
+        <div class="buttons mt-[82px] flex items-center justify-center gap-[8px]">
             <button (click)="scrollToPrevious()" [disabled]="!canScrollLeft"
                 class="bg-white p-[10px] rounded inline-block cursor-pointer transition-opacity disabled:opacity-50 disabled:cursor-not-allowed">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -44,6 +49,5 @@
 
             </button>
         </div>
-
     </div>
 </section>
