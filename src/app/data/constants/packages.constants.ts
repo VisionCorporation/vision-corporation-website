@@ -21,7 +21,7 @@ export const PACKAGES = [{
     }]
 },
 {
-    title: "UX/UI Design Packages",
+    title: "UI/UX Design Packages",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam pellentesque, dolor nec feugiat ornare, quam sem vehicula tortor, eu finibus libero elit nec orci. Vivamus non ligula enim. Curabitur vel ultricies magna. Cras nec sem commodo, aliquam velit ut, convallis ",
     types: [{
         name: "Basic Package",
