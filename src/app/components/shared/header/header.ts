@@ -12,14 +12,6 @@ export class Header {
   public isClosing = false;
   private renderer = inject(Renderer2);
 
-  public toggleMenu(): void {
-    if (this.isMenuOpen) {
-      this.closeMenu();
-    } else {
-      this.openMenu();
-    }
-  }
-
   public openMenu(): void {
     this.isMenuOpen = true;
     this.isClosing = false;
