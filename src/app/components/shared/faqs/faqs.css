@@ -43,6 +43,7 @@
 }
 
 .faq-content.open .faq-answer {
+    margin-top: 8px;
     opacity: 1;
     transform: translateY(0);
 }
