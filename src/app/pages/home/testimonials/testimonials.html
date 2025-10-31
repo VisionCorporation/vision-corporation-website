@@ -19,8 +19,14 @@
                 [attr.data-aos-delay]="$index * 150">
                 <div class="flex items-center gap-3">
                     <div class="relative w-[40px] h-[40px] rounded-full overflow-hidden border border-[#D1D1D1]">
+                        @if(testimonial.hasImage){
                         <img [ngSrc]="testimonial.userImage" [alt]="testimonial.userName" fill priority
                             class="object-cover object-top" />
+                        }
+                        @else {
+                        <h3 class="flex items-center justify-center h-full bg-white text-[#2559EB]">{{ getInitials(testimonial.userName)
+                            }}</h3>
+                        }
                     </div>
 
                     <h3 class="text-white leading-6">{{ testimonial.userName }}</h3>
