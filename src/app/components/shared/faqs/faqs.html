@@ -10,12 +10,12 @@
                 quam
                 sem vehicula tortor, eu finibus libero elit nec orci. Vivamus non ligula enim. </p>
         </div>
-        <div class="flex items-center  gap-4 bg-[#F4F6FB] rounded-[52px] py-1 px-2 max-w-[610px] mx-auto text-nowrap mb-16 overflow-x-auto scrollbar-hide"
+        <div class="flex items-center gap-4 bg-[#F4F6FB] rounded-[52px] py-[5px] px-2 max-w-[610px] mx-auto text-nowrap mb-16 overflow-x-auto scrollbar-hide"
             role="tablist" aria-label="FAQ categories" data-aos="fade-up">
             @for(cat of categories; track $index){
             <button #tabButton type="button" role="tab" (click)="setActive(cat)"
                 [attr.aria-selected]="activeTab === cat" class="cursor-pointer py-3 px-8 text-[#5D5D5D]"
-                [ngClass]="{'rounded-[52px] bg-[#2559EB] text-white transition-colors duration-300 ease-in-out': activeTab === cat}">
+                [ngClass]="{'rounded-[52px] bg-[#2559EB] hover:bg-[#1D4ED8] transition-colors duration-200 focus:outline-none focus:ring-[2px] focus:ring-[#2559EB] focus:ring-offset-2 text-white ease-in-out': activeTab === cat, 'hover:bg-[#DBE4FE] rounded-[100px] transition-colors duration-200': activeTab !== cat}">
                 {{ cat }}
             </button>
             }
