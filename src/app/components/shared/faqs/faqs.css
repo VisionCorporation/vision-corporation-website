@@ -36,12 +36,6 @@
 }
 
 .faq-answer {
-    min-height: 0;
-    line-height: 1.6;
-    font-size: 0.95rem;
-    color: #5D5D5D;
-    padding: 0;
-    opacity: 0;
     transform: translateY(-4px);
     transition: padding 400ms cubic-bezier(0.4, 0, 0.2, 1),
         opacity 350ms cubic-bezier(0.4, 0, 0.2, 1) 50ms,
@@ -49,20 +43,6 @@
 }
 
 .faq-content.open .faq-answer {
-    padding-top: 0.75rem;
-    padding-bottom: 0.75rem;
     opacity: 1;
     transform: translateY(0);
-}
-
-@media (min-width: 768px) {
-    .faq-card {
-        padding: 0.9rem 1rem;
-    }
-
-    .faq-icon {
-        min-width: 48px;
-        min-height: 48px;
-        font-size: 22px;
-    }
 }

@@ -4,11 +4,8 @@
     <div class="relative z-10 max-w-[1250px] mx-auto ">
         <div class="text-center text-white mb-16">
             <h2 class="text-3xl sm:text-5xl mb-2" data-aos="fade-up">Frequently Asked Questions (FAQS)</h2>
-            <p class="text-lg sm:text-xl" data-aos="fade-up">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Etiam pellentesque,
-                dolor nec feugiat ornare,
-                quam
-                sem vehicula tortor, eu finibus libero elit nec orci. Vivamus non ligula enim. </p>
+            <p class="text-lg sm:text-xl" data-aos="fade-up">Informed clients make stronger partnership. Here are some
+                answers to some of the frequently asked questions about our services, process, and the values.</p>
         </div>
         <div class="flex items-center gap-4 bg-[#F4F6FB] rounded-[52px] py-[5px] px-2 max-w-[610px] mx-auto text-nowrap mb-16 overflow-x-auto scrollbar-hide"
             role="tablist" aria-label="FAQ categories" data-aos="fade-up">
@@ -23,8 +20,8 @@
 
         <div class="flex flex-col gap-4">
             @for(item of faqs; track $index){
-            @if(item.category === activeTab){
-            <div class="flex bg-white rounded p-4 gap-4 faq-card" [class.expanded]="expandedIndex === $index"
+            @if(item && item.category === activeTab){
+            <div class="flex bg-white rounded p-4 gap-3 sm:gap-4 faq-card" [class.expanded]="expandedIndex === $index"
                 data-aos="fade-up">
                 <div class="flex items-center justify-center w-12 h-12 rounded bg-[#F4F6FB] p-3 flex-shrink-0"
                     aria-hidden="true">
@@ -38,7 +35,7 @@
                     [class.expanded]="expandedIndex === $index" role="button" (click)="toggle($index)"
                     [attr.aria-expanded]="expandedIndex === $index">
                     <div class="flex items-center justify-between">
-                        <div class="text-[#262626] text-lg sm:text-xl leading-5">{{ item.question }}</div>
+                        <div class="text-[#262626] text-[18px] sm:text-xl leading-5">{{ item.question }}</div>
                         <div class="faq-chevron flex-shrink-0 ml-2" [class.open]="expandedIndex === $index">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -51,7 +48,7 @@
 
                     <div class="faq-content" [class.open]="expandedIndex === $index"
                         [attr.aria-hidden]="expandedIndex !== $index">
-                        <div class="faq-answer">{{ item.answer }}</div>
+                        <div class="faq-answer mt-2 min-h-0 text-[#5D5D5D] p-0 opacity-0">{{ item.answer }}</div>
                     </div>
                 </div>
             </div>
