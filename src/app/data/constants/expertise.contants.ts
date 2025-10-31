@@ -1,7 +1,7 @@
 export const EXPERTISE_CARDS = [
     {
         title: "Full Stack Web Development",
-        description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Suspendisse et justo. Praesent mattis commodo augue.",
+        description: "We build robust, scalable web solutions that grow with your business. From concept to launch, every layer works seamlessly to deliver exceptional performance.",
         svg: `<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <rect width="200" height="200" fill="url(#pattern0_1117_615)"/>
 <defs>
@@ -15,7 +15,7 @@ export const EXPERTISE_CARDS = [
     },
     {
         title: "UI/UX Design",
-        description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Suspendisse et justo. Praesent mattis commodo augue.",
+        description: "Our expertise blends aesthetics with purpose to design interfaces that catch the eye, tell stories, and guide users naturally towards their goals. Every detail is crafted to make your product intuitive, engaging and visually consistent with your brand identity.",
         svg: `<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <rect width="200" height="200" fill="url(#pattern0_1117_627)"/>
 <defs>
@@ -29,7 +29,7 @@ export const EXPERTISE_CARDS = [
     },
     {
         title: "Frontend Development",
-        description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Suspendisse et justo. Praesent mattis commodo augue.",
+        description: "You deserve experiences that are fast, responsive, and beautiful across every device. Our frontend team transforms designs into interactive realities with smooth transitions, clean layouts, and effortless usability that feel alive.",
         svg: `<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <rect width="200" height="200" fill="url(#pattern0_1287_3960)"/>
 <defs>
@@ -43,7 +43,7 @@ export const EXPERTISE_CARDS = [
     },
     {
         title: "Backend Development",
-        description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Suspendisse et justo. Praesent mattis commodo augue.",
+        description: "While users focus on what matters most, our secure and scalable server-side manages data, logic, and integrations with precision. We build the reliable foundation that keeps your application running smoothly as you scale.",
         svg: `<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <rect width="200" height="200" fill="url(#pattern0_1287_3658)"/>
 <defs>
