@@ -1,6 +1,6 @@
 export const PACKAGES = [{
     title: "Full Stack Web Development Packages",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam pellentesque, dolor nec feugiat ornare, quam sem vehicula tortor, eu finibus libero elit nec orci. Vivamus non ligula enim. Curabitur vel ultricies magna. Cras nec sem commodo, aliquam velit ut, convallis ",
+    description: "Our full-stack development service covers everything from front-end interfaces to back-end systems. Select the plan that aligns with your goals.",
     types: [{
         name: "Basic Package",
         description: "Great for people just starting out, new businesses, or small companies that want a simple online  presence.",
@@ -22,7 +22,7 @@ export const PACKAGES = [{
 },
 {
     title: "UI/UX Design Packages",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam pellentesque, dolor nec feugiat ornare, quam sem vehicula tortor, eu finibus libero elit nec orci. Vivamus non ligula enim. Curabitur vel ultricies magna. Cras nec sem commodo, aliquam velit ut, convallis ",
+    description: "Our designs balance aesthetics with purpose. Choose the design package that matches your project’s scale, goals, and creative needs.",
     types: [{
         name: "Basic Package",
         description: "Great for people just starting out, new businesses, or small companies that want a simple online  presence.",
@@ -44,7 +44,7 @@ export const PACKAGES = [{
 },
 {
     title: "Frontend Development Packages",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam pellentesque, dolor nec feugiat ornare, quam sem vehicula tortor, eu finibus libero elit nec orci. Vivamus non ligula enim. Curabitur vel ultricies magna. Cras nec sem commodo, aliquam velit ut, convallis ",
+    description: "Pixel-perfect interfaces that bring your design to life on every device. Find the right plan for your project.",
     types: [{
         name: "Basic Package",
         description: "Great for people just starting out, new businesses, or small companies that want a simple online  presence.",
@@ -66,7 +66,7 @@ export const PACKAGES = [{
 },
 {
     title: "Backend Development Packages",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam pellentesque, dolor nec feugiat ornare, quam sem vehicula tortor, eu finibus libero elit nec orci. Vivamus non ligula enim. Curabitur vel ultricies magna. Cras nec sem commodo, aliquam velit ut, convallis ",
+    description: "Secure, scalable server systems built for performance and reliability. Pick a package built to match your system’s complexity and goals.",
     types: [{
         name: "Basic Package",
         description: "Great for people just starting out, new businesses, or small companies that want a simple online  presence.",
