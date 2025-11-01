@@ -4,10 +4,11 @@ import { Footer } from '../../components/shared/footer/footer';
 import { SeoService } from '../../services/seo-service';
 import { NgOptimizedImage } from '@angular/common';
 import ngSrcset from './../../../../public/assets/ngSrcset.json';
+import { RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-privacy-policy',
-  imports: [Header, Footer, NgOptimizedImage],
+  imports: [Header, Footer, NgOptimizedImage, RouterLink],
   templateUrl: './privacy-policy.html',
   styleUrl: './privacy-policy.css'
 })
