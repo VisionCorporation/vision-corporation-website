@@ -107,7 +107,8 @@
             <ul class="flex items-center gap-x-2">
                 @for(link of socialMediaLinks; track link.label) {
                 <li class="hover:scale-125 transform transition-transform duration-300 ease-in-out"><a
-                        href="{{link.url}}" [innerHTML]="link.icon" target="_blank"></a></li>
+                        href="{{link.url}}" [innerHTML]="link.icon" target="_blank" [attr.aria-label]="link.label"></a>
+                </li>
                 }
             </ul>
         </div>
