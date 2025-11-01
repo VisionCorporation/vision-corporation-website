@@ -16,15 +16,16 @@
                 <h2 class="text-xl sm:text-[32px] text-[#262626] mb-2">{{ package.title }}</h2>
                 <p class="text-[#5D5D5D] text-lg sm:text-xl sm:leading-8">{{ package.description }}</p>
             </div>
-            <div class="bg-[#F4F6FB] w-12 h-12 p-3 rounded flex items-center justify-center cursor-pointer"
-                (click)="togglePackage($index)" role="button" [attr.aria-expanded]="isPackageExpanded($index)">
+            <button class="bg-[#F4F6FB] w-12 h-12 p-3 rounded flex items-center justify-center cursor-pointer"
+                [attr.aria-label]="isPackageExpanded($index) ? 'Collapse package details' : 'Expand package details'"
+                [attr.aria-expanded]="isPackageExpanded($index)" (click)="togglePackage($index)">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
                     [class.rotate-180]="isPackageExpanded($index)" [class.transform]="isPackageExpanded($index)">
                     <path fill-rule="evenodd" clip-rule="evenodd"
                         d="M12.5303 16.2803C12.2374 16.5732 11.7626 16.5732 11.4697 16.2803L3.96967 8.78033C3.67678 8.48744 3.67678 8.01256 3.96967 7.71967C4.26256 7.42678 4.73744 7.42678 5.03033 7.71967L12 14.6893L18.9697 7.71967C19.2626 7.42678 19.7374 7.42678 20.0303 7.71967C20.3232 8.01256 20.3232 8.48744 20.0303 8.78033L12.5303 16.2803Z"
                         fill="#5D5D5D" />
                 </svg>
-            </div>
+            </button>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 items-start gap-y-5 gap-x-[9px] mt-12"
