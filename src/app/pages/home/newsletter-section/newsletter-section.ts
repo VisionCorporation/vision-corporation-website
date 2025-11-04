@@ -32,20 +32,20 @@ export class NewsletterSection implements OnDestroy {
     this.newsletterApi.subscribeToNewsletter(this.newsletterForm.value.email ?? '').pipe(takeUntil(this.destroy$)).subscribe({
       next: (response) => {
         this.newsletterForm.reset()
-        this.alert.showAlert('success', 'You’ve subscribed successfully!', 3000, 'bottom-right');
+        this.alert.showAlert('success', 'You’ve subscribed successfully!', 3000, 'top-right');
         this.detectFormChanges()
       },
       error: (error) => {
         if (error.status === 400) {
-          this.alert.showAlert('error', 'You’re already subscribed', 3000, 'bottom-right');
+          this.alert.showAlert('error', 'You’re already subscribed', 3000, 'top-right');
           this.detectFormChanges()
         }
         else if (error.status === 0) {
-          this.alert.showAlert('error', 'Check your internet and try again', 3000, 'bottom-right');
+          this.alert.showAlert('error', 'Check your internet and try again', 3000, 'top-right');
           this.detectFormChanges()
         }
         else {
-          this.alert.showAlert('error', 'Something went wrong. Try again', 3000, 'bottom-right');
+          this.alert.showAlert('error', 'Something went wrong. Try again', 3000, 'top-right');
           this.detectFormChanges()
         }
       }
