@@ -19,7 +19,7 @@
                 <div class="flex flex-col gap-y-3 sm:gap-y-6 flex-1 w-full sm:min-w-[300px]">
                     <div class="w-full bg-[#FFFFFF] py-3 px-3 border border-[#D1D1D1] rounded flex items-center gap-2 sm:max-w-[517px]"
                         [ngClass]="{
-    'border-2 border-red-600': newsletterForm.get('email')?.invalid && (newsletterForm.get('email')?.dirty || newsletterForm.get('email')?.touched)
+    'border-2 border-[#ff6b6b]': newsletterForm.get('email')?.invalid && (newsletterForm.get('email')?.dirty || newsletterForm.get('email')?.touched)
   }">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -35,7 +35,13 @@
 
                     @if(newsletterForm.get('email')?.invalid && (newsletterForm.get('email')?.dirty ||
                     newsletterForm.get('email')?.touched)){
-                    <span class="text-red-600 -mt-3 text-sm text-left bg-white p-1 rounded w-full customise-sub-title">
+                    <span
+                        class="text-[#ff6b6b] -mt-2 sm:-mt-5 text-[15px] text-left customise-sub-title flex items-center gap-2">
+                        <svg width="18" height="18" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M7.5 7.5L12 12M12 7.5L7.5 12M18.75 9.75C18.75 14.7206 14.7206 18.75 9.75 18.75C4.77944 18.75 0.75 14.7206 0.75 9.75C0.75 4.77944 4.77944 0.75 9.75 0.75C14.7206 0.75 18.75 4.77944 18.75 9.75Z"
+                                stroke="#ff6b6b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
                         {{ errorMessage('email') }}
                     </span>
                     }
