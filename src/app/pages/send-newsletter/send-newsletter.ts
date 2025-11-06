@@ -32,7 +32,7 @@ export class SendNewsletter {
     const control = this.authenticateUserForm.get(name);
     if (control?.invalid && (control.dirty || control.touched)) {
       if (control.errors?.['required']) return 'Password is required';
-      if (control.errors?.['minlength']) return 'Password must be at least 8 characters long';
+      if (control.errors?.['minlength']) return 'Password must be 8+ characters long';
     }
     return '';
   }
