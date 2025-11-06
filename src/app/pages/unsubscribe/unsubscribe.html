@@ -5,8 +5,8 @@
             }}
         </h1>
 
-        <p class="text-[#5D5D5D] text-lg leading-6 mb-3">
-            {{ isProcessing ? 'Please wait while we update your preferences...' : message }}
+        <p class="text-[#5D5D5D] text-lg leading-6 mb-3"
+            [innerHTML]="isProcessing ? 'Please wait while we update your preferences...' : message">
         </p>
 
         @if(success){

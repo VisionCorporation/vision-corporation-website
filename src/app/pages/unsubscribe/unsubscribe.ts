@@ -46,7 +46,7 @@ export class Unsubscribe implements OnInit {
       this.api.unsubscribeFromNewsletter(email, token).subscribe({
         next: () => {
           this.success = true;
-          this.message = `Your email (${email}) has already been removed from Vision Corporation’s mailing list.`;
+          this.message = `Your email <strong>${email}</strong> has already been removed from Vision Corporation’s mailing list.`;
           localStorage.setItem(`unsubscribed:${email}`, 'true');
           this.detectFormChanges();
         },
