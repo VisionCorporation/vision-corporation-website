@@ -1,7 +1,6 @@
 export const FooterLinks = [
     { label: 'Home', url: '/' },
     { label: 'Services', url: '/services' },
-    { label: 'Projects', url: '/projects' },
     { label: 'About Us', url: '/about' },
 ] as const;
 
