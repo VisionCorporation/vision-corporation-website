@@ -38,7 +38,7 @@ export class Unsubscribe implements OnInit {
       const alreadyUnsubscribed = localStorage.getItem(`unsubscribed:${email}`);
       if (alreadyUnsubscribed) {
         this.success = true;
-        this.message = `Your email, (${email}) has already been permanently removed from Vision Corporation’s mailing list.`;
+        this.message = `Your email <strong>${email}</strong> has been permanently removed from Vision Corporation’s mailing list.`;
         this.detectFormChanges();
         return;
       }
@@ -46,7 +46,7 @@ export class Unsubscribe implements OnInit {
       this.api.unsubscribeFromNewsletter(email, token).subscribe({
         next: () => {
           this.success = true;
-          this.message = `Your email <strong>${email}</strong> has already been removed from Vision Corporation’s mailing list.`;
+          this.message = `Your email <strong>${email}</strong> has been permanently removed from Vision Corporation’s mailing list.`;
           localStorage.setItem(`unsubscribed:${email}`, 'true');
           this.detectFormChanges();
         },
