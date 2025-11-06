@@ -1,13 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, signal } from '@angular/core';
-
-interface Alert {
-  id: number;
-  type: 'success' | 'error' | 'notification';
-  message: string;
-  position: 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left';
-  isVisible: boolean;
-}
+import { Alert } from '../../../interfaces/alert.interface';
 
 @Component({
   selector: 'app-alert',
