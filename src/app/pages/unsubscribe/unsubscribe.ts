@@ -1,5 +1,5 @@
 import { ChangeDetectorRef, Component, Inject, inject, OnInit, PLATFORM_ID } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Api } from '../../services/api';
 import { isPlatformBrowser } from '@angular/common';
 
@@ -17,7 +17,7 @@ export class Unsubscribe implements OnInit {
   private api = inject(Api);
   private route = inject(ActivatedRoute);
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) { }
+  constructor(@Inject(PLATFORM_ID) private platformId: Object, private router: Router,) { }
 
   ngOnInit(): void {
     this.unsubscribeFromNewsletter()
@@ -32,7 +32,7 @@ export class Unsubscribe implements OnInit {
         next: () => {
           this.detectFormChanges()
           this.success = true;
-          this.message = `Your email, (${email}) has been permanently removed from Vision Corporation’s mailing list`;
+          this.message = `Your email, (${email}) has been permanently removed from Vision Corporation’s mailing list.`;
 
         },
         error: (err) => {
@@ -55,11 +55,8 @@ export class Unsubscribe implements OnInit {
   }
 
   public scrollToSubscribe() {
-    // ✅ only runs in the browser
     if (isPlatformBrowser(this.platformId)) {
-      const el = document.getElementById('subscribe-newsletter');
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
+      this.router.navigate(['/'], { fragment: 'subscribe-newsletter' });
     }
   }
-
 }
