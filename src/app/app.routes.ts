@@ -10,5 +10,8 @@ export const routes: Routes = [
     {
         path: 'send-newsletter', loadComponent: () => import("./pages/send-newsletter/send-newsletter").then((c) => c.SendNewsletter), data: { hideCookieBanner: true }
     },
+    {
+        path: 'unsubscribe', loadComponent: () => import("./pages/unsubscribe/unsubscribe").then((c) => c.Unsubscribe), data: { hideCookieBanner: true }
+    },
     { path: '**', loadComponent: () => import("./pages/not-found/not-found").then((c) => c.NotFound), data: { hideCookieBanner: true } },
 ];
