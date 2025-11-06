@@ -1,18 +1,18 @@
 import { ChangeDetectorRef, Component, inject, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { Api } from '../../services/api';
 
 @Component({
   selector: 'app-unsubscribe',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './unsubscribe.html',
   styleUrl: './unsubscribe.css'
 })
 export class Unsubscribe implements OnInit {
   public isProcessing = true;
   public success = false;
-  private cdr = inject(ChangeDetectorRef);
   public message = '';
+  private cdr = inject(ChangeDetectorRef);
   private api = inject(Api);
   private route = inject(ActivatedRoute);
 
@@ -29,7 +29,7 @@ export class Unsubscribe implements OnInit {
         next: () => {
           this.detectFormChanges()
           this.success = true;
-          this.message = `Your email (${email}) has been unsubscribed successfully.`;
+          this.message = `Your email, (${email}) has been permanently removed from Vision Corporation’s mailing list`;
 
         },
         error: (err) => {

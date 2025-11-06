@@ -1,17 +1,23 @@
 <div class="flex flex-col items-center justify-center min-h-screen px-4 text-center bg-gray-50">
-    <div class="bg-white shadow-lg rounded-2xl p-8 max-w-md w-full border border-gray-100">
+    <div class="bg-white shadow-lg rounded-2xl p-8 max-w-[700px] w-full border border-gray-100">
         <h1 class="text-2xl font-semibold mb-3">
-            {{ isProcessing ? 'Processing...' : success ? 'You’re Unsubscribed' : 'Something Went Wrong' }}
+            {{ isProcessing ? 'Processing...' : success ? 'You\'ve successfully unsubscribed' : 'Something Went Wrong'
+            }}
         </h1>
 
-        <p class="text-gray-600 mb-6">
+        <p class="text-[#5D5D5D] text-lg sm:text-xl leading-6 sm:leading-8">
             {{ isProcessing ? 'Please wait while we update your preferences...' : message }}
         </p>
 
+        @if(success){
+        <p class="text-[#5D5D5D] text-lg sm:text-xl leading-6 sm:leading-8 mb-6">We're sorry to see you go. You’ll no longer receive updates from Vision Corporation.</p>
+        <p class="text-[#5D5D5D] text-lg sm:text-xl leading-6 sm:leading-8">Was this a mistake?</p>
+        }
+
         @if(!isProcessing){
-        <a routerLink="/" class="inline-block bg-[#2559EB] hover:bg-[#1D4ED8] transition-colors duration-200 
+        <a routerLink="/#subscribe-newsletter" class="inline-block bg-[#2559EB] hover:bg-[#1D4ED8] transition-colors duration-200 
           focus:outline-none focus:ring-[2px] focus:ring-[#2559EB] focus:ring-offset-2 text-white py-3 px-3 rounded">
-            Return to Homepage
+            Resubscribe me
         </a>
         }
     </div>
