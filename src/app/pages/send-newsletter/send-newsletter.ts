@@ -47,7 +47,6 @@ export class SendNewsletter implements OnDestroy {
 
   public submitNewsletter(): void {
     this.isSending = true
-
     const newsletter = this.sendNewsletterForm.getRawValue() as Newsletter;
     
     this.sendNewsletterApi.sendNewsletter(newsletter).pipe(takeUntil(this.destroy$)).subscribe({
