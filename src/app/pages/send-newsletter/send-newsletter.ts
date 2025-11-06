@@ -1,8 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, inject, OnDestroy, ViewChild } from '@angular/core';
 import { FormBuilder, Validators, ReactiveFormsModule } from "@angular/forms";
 import { RouterLink } from '@angular/router';
 import { AlertComponent } from '../../components/shared/alert/alert';
+import { Api } from '../../services/api';
+import { Subject, takeUntil } from 'rxjs';
+import { Newsletter } from '../../interfaces/newsletter.interface';
 
 @Component({
   selector: 'app-send-newsletter',
@@ -10,12 +13,15 @@ import { AlertComponent } from '../../components/shared/alert/alert';
   templateUrl: './send-newsletter.html',
   styleUrl: './send-newsletter.css'
 })
-export class SendNewsletter {
+export class SendNewsletter implements OnDestroy {
   @ViewChild('alert') alert!: AlertComponent;
   public isAuthenticated = false;
   public isSending = false;
   private fb = inject(FormBuilder)
+  private cdr = inject(ChangeDetectorRef);
   public showPassword = false;
+  private sendNewsletterApi = inject(Api)
+  private readonly destroy$ = new Subject<void>()
 
   public authenticateUserForm = this.fb.group({
     password: ['', [Validators.required, Validators.minLength(8)]]
@@ -24,6 +30,7 @@ export class SendNewsletter {
   public sendNewsletterForm = this.fb.group({
     templateName: ['', [Validators.required]],
     subject: ['', [Validators.required]],
+    heading: ['', [Validators.required]],
     buttonText: ['', [Validators.required]],
     buttonUrl: ['', [Validators.required]],
     message: ['', [Validators.required]]
@@ -38,6 +45,28 @@ export class SendNewsletter {
     }
   }
 
+  public submitNewsletter(): void {
+    const newsletter = this.sendNewsletterForm.getRawValue() as Newsletter;
+    this.sendNewsletterApi.sendNewsletter(newsletter).pipe(takeUntil(this.destroy$)).subscribe({
+      next: () => {
+        this.sendNewsletterForm.reset()
+        this.alert.showAlert('success', 'Newsletter sent successfully!', 3000, 'top-right');
+        this.detectFormChanges()
+      },
+      error: () => {
+        this.alert.showAlert('error', 'Failed to send newsletter. Try again', 3000, 'top-right');
+        this.detectFormChanges()
+      }
+    })
+  }
+
+  private detectFormChanges() {
+    queueMicrotask(() => {
+      this.isSending = false;
+      this.cdr.detectChanges();
+    });
+  }
+
   public errorMessage(name: string): string {
     const control = this.authenticateUserForm.get(name);
     if (control?.invalid && (control.dirty || control.touched)) {
@@ -49,5 +78,10 @@ export class SendNewsletter {
 
   public togglePasswordVisibility(): void {
     this.showPassword = !this.showPassword;
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next()
+    this.destroy$.complete()
   }
 }
