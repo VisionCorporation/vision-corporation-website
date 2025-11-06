@@ -14,6 +14,6 @@ export class Api {
   }
 
   public sendNewsletter(newsletterData: Newsletter) {
-    return this.http.post(`${environment.baseUrl}/newsletter/send`, { newsletterData })
+    return this.http.post(`${environment.baseUrl}/newsletter/send`, newsletterData)
   }
 }
