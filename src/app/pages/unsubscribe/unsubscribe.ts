@@ -17,33 +17,51 @@ export class Unsubscribe implements OnInit {
   private api = inject(Api);
   private route = inject(ActivatedRoute);
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object, private router: Router,) { }
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: Object,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
-    this.unsubscribeFromNewsletter()
+    this.unsubscribeFromNewsletter();
   }
 
   private unsubscribeFromNewsletter() {
     const email = this.route.snapshot.queryParamMap.get('email');
     const token = this.route.snapshot.queryParamMap.get('token');
 
+
+    if (isPlatformBrowser(this.platformId) && email) {
+      const alreadyUnsubscribed = localStorage.getItem(`unsubscribed:${email}`);
+      if (alreadyUnsubscribed) {
+        this.success = true;
+        this.message = `Your email, (${email}) has already been permanently removed from Vision Corporation’s mailing list.`;
+        this.detectFormChanges();
+        return;
+      }
+    }
+
     if (email && token) {
       this.api.unsubscribeFromNewsletter(email, token).subscribe({
         next: () => {
-          this.detectFormChanges()
           this.success = true;
           this.message = `Your email, (${email}) has been permanently removed from Vision Corporation’s mailing list.`;
 
+          if (isPlatformBrowser(this.platformId)) {
+            localStorage.setItem(`unsubscribed:${email}`, 'true');
+          }
+
+          this.detectFormChanges();
         },
-        error: (err) => {
-          this.detectFormChanges()
+        error: () => {
           this.success = false;
           this.message = 'We encountered a problem while unsubscribing you. Please try again later.';
+          this.detectFormChanges();
         }
       });
     } else {
-      this.detectFormChanges()
       this.message = 'Invalid unsubscribe link.';
+      this.detectFormChanges();
     }
   }
 
