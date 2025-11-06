@@ -13,10 +13,20 @@ import { AlertComponent } from '../../components/shared/alert/alert';
 export class SendNewsletter {
   @ViewChild('alert') alert!: AlertComponent;
   public isAuthenticated = false;
+  public isSending = false;
   private fb = inject(FormBuilder)
   public showPassword = false;
+
   public authenticateUserForm = this.fb.group({
     password: ['', [Validators.required, Validators.minLength(8)]]
+  })
+
+  public sendNewsletterForm = this.fb.group({
+    templateName: ['', [Validators.required]],
+    subject: ['', [Validators.required]],
+    buttonText: ['', [Validators.required]],
+    buttonUrl: ['', [Validators.required]],
+    message: ['', [Validators.required]]
   })
 
   public onSubmit(): void {
