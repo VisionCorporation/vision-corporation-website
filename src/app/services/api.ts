@@ -16,4 +16,11 @@ export class Api {
   public sendNewsletter(newsletterData: Newsletter) {
     return this.http.post(`${environment.baseUrl}/newsletter/send`, newsletterData)
   }
+
+  public unsubscribeFromNewsletter(email: string, token: string) {
+    return this.http.get(`${environment.baseUrl}/newsletter/unsubscribe`, {
+      params: { email, token },
+    });
+  }
+
 }
