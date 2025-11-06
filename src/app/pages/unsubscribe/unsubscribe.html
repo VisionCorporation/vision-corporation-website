@@ -5,14 +5,14 @@
             }}
         </h1>
 
-        <p class="text-[#5D5D5D] text-lg sm:text-xl leading-6">
+        <p class="text-[#5D5D5D] text-lg leading-6">
             {{ isProcessing ? 'Please wait while we update your preferences...' : message }}
         </p>
 
         @if(success){
-        <p class="text-[#5D5D5D] text-lg sm:text-xl leading-6 mb-6">We're sorry to see you go. You’ll no
+        <p class="text-[#5D5D5D] text-lg leading-6 mb-6">We're sorry to see you go. You’ll no
             longer receive updates from Vision Corporation.</p>
-        <p class="text-[#5D5D5D] text-lg sm:text-xl leading-6 mb-2">Was this a mistake?</p>
+        <p class="text-[#5D5D5D] text-lg leading-6 mb-2">Was this a mistake?</p>
         }
 
         @if(!isProcessing){
