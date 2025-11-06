@@ -1,10 +1,11 @@
-import { ChangeDetectorRef, Component, inject, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { ChangeDetectorRef, Component, Inject, inject, OnInit, PLATFORM_ID } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Api } from '../../services/api';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-unsubscribe',
-  imports: [RouterLink],
+  imports: [],
   templateUrl: './unsubscribe.html',
   styleUrl: './unsubscribe.css'
 })
@@ -15,6 +16,8 @@ export class Unsubscribe implements OnInit {
   private cdr = inject(ChangeDetectorRef);
   private api = inject(Api);
   private route = inject(ActivatedRoute);
+
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) { }
 
   ngOnInit(): void {
     this.unsubscribeFromNewsletter()
@@ -50,4 +53,13 @@ export class Unsubscribe implements OnInit {
       this.cdr.detectChanges();
     });
   }
+
+  public scrollToSubscribe() {
+    // ✅ only runs in the browser
+    if (isPlatformBrowser(this.platformId)) {
+      const el = document.getElementById('subscribe-newsletter');
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
 }
