@@ -1,0 +1,77 @@
+/* Dropdown container animation */
+.dropdown-menu {
+    animation: dropdownSlideIn 250ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    transform-origin: top center;
+    overflow: hidden;
+}
+
+.dropdown-menu.closing {
+    animation: dropdownSlideOut 200ms cubic-bezier(0.4, 0, 1, 1) forwards;
+}
+
+/* Dropdown option stagger animation */
+.dropdown-option {
+    animation: optionSlideIn 300ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    opacity: 0;
+}
+
+.dropdown-option:nth-child(1) {
+    animation-delay: 50ms;
+}
+
+.dropdown-option:nth-child(2) {
+    animation-delay: 100ms;
+}
+
+.dropdown-option:nth-child(3) {
+    animation-delay: 150ms;
+}
+
+.dropdown-option:nth-child(4) {
+    animation-delay: 200ms;
+}
+
+.dropdown-option:nth-child(5) {
+    animation-delay: 250ms;
+}
+
+.dropdown-option:nth-child(6) {
+    animation-delay: 300ms;
+}
+
+/* Keyframe animations */
+@keyframes dropdownSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes dropdownSlideOut {
+    from {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(-10px) scale(0.95);
+    }
+}
+
+@keyframes optionSlideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}

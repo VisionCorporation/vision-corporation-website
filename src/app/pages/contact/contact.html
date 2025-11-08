@@ -49,10 +49,13 @@
     <div class="grow shrink basis-0 w-full min-w-[240px] lg:text-left flex flex-col">
         <div class="bg-[#F4F6FB] sm:p-4 rounded-lg flex-1">
             <h2 class="text-[#262626] text-xl sm:text-2xl leading-7 mb-6">Let’s Talk About Your Project</h2>
-            <form class="flex flex-col gap-4 flex-1">
+            <form [formGroup]="contactUsForm" (ngSubmit)="onSubmit()" class="flex flex-col gap-4 flex-1">
                 <div>
                     <label for="fullName" class="text-[#262626]">Name<sup class="text-[#E22420]">*</sup></label>
-                    <div class="mt-2 bg-white flex items-center border border-[#D1D1D1] py-2 px-3 gap-2 rounded focus-within:border-2">
+                    <div class="mt-2 bg-white flex items-center border border-[#D1D1D1] py-2 px-3 gap-2 rounded focus-within:border-2 focus-within:border-[#2559EB]"
+                        [ngClass]="{
+    'border-2 border-[#ff6b6b]': contactUsForm.get('fullName')?.invalid && (contactUsForm.get('fullName')?.dirty || contactUsForm.get('fullName')?.touched)
+  }">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M15.7498 6C15.7498 8.07107 14.0709 9.75 11.9998 9.75C9.92877 9.75 8.24984 8.07107 8.24984 6C8.24984 3.92893 9.92877 2.25 11.9998 2.25C14.0709 2.25 15.7498 3.92893 15.7498 6Z"
@@ -62,72 +65,113 @@
                                 stroke="#5D5D5D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
                         <input type="text" placeholder="Your full name" id="fullName" formControlName="fullName"
-                            class="w-full p-1 placeholder:text-[#B0B0B0] focus:outline-none" />
+                            autocomplete="off" class="w-full p-1 placeholder:text-[#B0B0B0] focus:outline-none" />
                     </div>
                 </div>
 
                 <div>
                     <label for="email" class="text-[#262626]">Email<sup class="text-[#E22420]">*</sup></label>
-                    <div class="mt-2 bg-white flex items-center border border-[#D1D1D1] py-2 px-3 gap-2 rounded focus-within:border-2">
+                    <div class="mt-2 bg-white flex items-center border border-[#D1D1D1] py-2 px-3 gap-2 rounded focus-within:border-2 focus-within:border-[#2559EB]"
+                        [ngClass]="{
+    'border-2 border-[#ff6b6b]': contactUsForm.get('email')?.invalid && (contactUsForm.get('email')?.dirty || contactUsForm.get('email')?.touched)
+  }">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M21.75 6.75V17.25C21.75 18.4926 20.7426 19.5 19.5 19.5H4.5C3.25736 19.5 2.25 18.4926 2.25 17.25V6.75M21.75 6.75C21.75 5.50736 20.7426 4.5 19.5 4.5H4.5C3.25736 4.5 2.25 5.50736 2.25 6.75M21.75 6.75V6.99271C21.75 7.77405 21.3447 8.49945 20.6792 8.90894L13.1792 13.5243C12.4561 13.9694 11.5439 13.9694 10.8208 13.5243L3.32078 8.90894C2.65535 8.49945 2.25 7.77405 2.25 6.99271V6.75"
                                 stroke="#5D5D5D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
                         <input type="email" placeholder="eg. johndoe@email.com" id="email" formControlName="email"
-                            class="w-full p-1 placeholder:text-[#B0B0B0] focus:outline-none" />
+                            autocomplete="off" class="w-full p-1 placeholder:text-[#B0B0B0] focus:outline-none" />
                     </div>
+                    @if(contactUsForm.get('fullName')?.invalid && (contactUsForm.get('fullName')?.dirty ||
+                    contactUsForm.get('fullName')?.touched)){
+                    <span class="text-[#ff6b6b] mt-2 text-[15px] text-left customise-sub-title flex items-center gap-2">
+                        <svg width="18" height="18" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M7.5 7.5L12 12M12 7.5L7.5 12M18.75 9.75C18.75 14.7206 14.7206 18.75 9.75 18.75C4.77944 18.75 0.75 14.7206 0.75 9.75C0.75 4.77944 4.77944 0.75 9.75 0.75C14.7206 0.75 18.75 4.77944 18.75 9.75Z"
+                                stroke="#ff6b6b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        {{ errorMessage('fullName') }}
+                    </span>
+                    }
                 </div>
 
                 <div>
                     <label for="subject" class="text-[#262626]">Subject<sup class="text-[#E22420]">*</sup></label>
-                    <div class="mt-2 bg-white flex items-center border border-[#D1D1D1] py-2 px-3 gap-2 rounded focus-within:border-2">
+                    <div class="mt-2 bg-white flex items-center border border-[#D1D1D1] py-2 px-3 gap-2 rounded focus-within:border-2 focus-within:border-[#2559EB]"
+                        [ngClass]="{
+    'border-2 border-[#ff6b6b]': contactUsForm.get('subject')?.invalid && (contactUsForm.get('subject')?.dirty || contactUsForm.get('subject')?.touched)
+  }">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M9.87891 7.51884C11.0505 6.49372 12.95 6.49372 14.1215 7.51884C15.2931 8.54397 15.2931 10.206 14.1215 11.2312C13.9176 11.4096 13.6917 11.5569 13.4513 11.6733C12.7056 12.0341 12.0002 12.6716 12.0002 13.5V14.25M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12ZM12 17.25H12.0075V17.2575H12V17.25Z"
                                 stroke="#5D5D5D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
                         <input type="text" placeholder="What is this about?" id="subject" formControlName="subject"
-                            class="w-full p-1 placeholder:text-[#B0B0B0] focus:outline-none" />
+                            autocomplete="off" class="w-full p-1 placeholder:text-[#B0B0B0] focus:outline-none" />
                     </div>
                 </div>
 
                 <div>
-                    <label for="category" class="text-[#262626]">
+                    <label class="text-[#262626]">
                         Message Category
                         <span class="ml-3 text-[#B0B0B0]">(optional)</span>
                     </label>
-                    <div
-                        class="mt-2 bg-white flex items-center justify-between border border-[#D1D1D1] py-2 px-3 gap-2 rounded focus-within:border-2 relative">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M9.56802 3H5.25C4.00736 3 3 4.00736 3 5.25V9.56802C3 10.1648 3.23705 10.7371 3.65901 11.159L13.2401 20.7401C13.9388 21.4388 15.0199 21.6117 15.8465 21.0705C17.9271 19.7084 19.7084 17.9271 21.0705 15.8465C21.6117 15.0199 21.4388 13.9388 20.7401 13.2401L11.159 3.65901C10.7371 3.23705 10.1648 3 9.56802 3Z"
-                                stroke="#5D5D5D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                            <path d="M6 6H6.0075V6.0075H6V6Z" stroke="#5D5D5D" stroke-width="1.5" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                        </svg>
 
-                        <select id="category" formControlName="category"
-                            class="w-full p-1 placeholder:text-[#B0B0B0] focus:outline-none bg-transparent text-[#262626] appearance-none">
-                            <option value="" disabled selected>Enquiry (default)</option>
-                            <option value="project">Project</option>
-                            <option value="collaboration">Collaboration</option>
-                            <option value="support">Support</option>
-                            <option value="feedback">Feedback</option>
-                        </select>
+                    <div #dropdownRef class="relative">
+                        <div tabindex="0" role="button" aria-haspopup="listbox" [attr.aria-expanded]="dropdownOpen"
+                            (keydown)="handleTriggerKeydown($event)"
+                            class="mt-2 bg-white flex items-center justify-between border border-[#D1D1D1] py-2 px-3 gap-2 rounded cursor-pointer focus:outline-none focus:border-2 focus:border-[#2559EB]"
+                            (click)="toggleDropdown($event)">
+                            @if(selectedOption){
+                            <div class="flex items-center gap-2 text-[#5D5D5D]">
+                                <span [innerHTML]="selectedOption.icon"></span>
+                                <span>{{ selectedOption.label }}</span>
+                            </div>
+                            }
 
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M6.2636 9.86358C6.61508 9.51211 7.18492 9.51211 7.5364 9.86358L12 14.3272L16.4636 9.86358C16.8151 9.51211 17.3849 9.51211 17.7364 9.86358C18.0879 10.2151 18.0879 10.7849 17.7364 11.1364L12.6364 16.2364C12.4676 16.4052 12.2387 16.5 12 16.5C11.7613 16.5 11.5324 16.4052 11.3636 16.2364L6.2636 11.1364C5.91213 10.7849 5.91213 10.2151 6.2636 9.86358Z"
-                                fill="#5D5D5D" />
-                        </svg>
+                            @if(!selectedOption){
+                            <div class="flex items-center gap-2 text-[#5D5D5D]">
+                                <span [innerHTML]="options[0].icon"></span>
+                                <span>{{ options[0].label }}</span>
+                            </div>
+                            }
+
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg" [class.rotate-180]="dropdownOpen"
+                                class="transition-transform duration-300">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M6.2636 9.86358C6.61508 9.51211 7.18492 9.51211 7.5364 9.86358L12 14.3272L16.4636 9.86358C16.8151 9.51211 17.3849 9.51211 17.7364 9.86358C18.0879 10.2151 18.0879 10.7849 17.7364 11.1364L12.6364 16.2364C12.4676 16.4052 12.2387 16.5 12 16.5C11.7613 16.5 11.5324 16.4052 11.3636 16.2364L6.2636 11.1364C5.91213 10.7849 5.91213 10.2151 6.2636 9.86358Z"
+                                    fill="#5D5D5D" />
+                            </svg>
+                        </div>
+
+                        @if(dropdownOpen){
+                        <div class="dropdown-menu bg-white mt-1 rounded border border-[#D1D1D1] absolute w-full z-10">
+                            @for(option of options; track option.value; let i = $index){
+                            <button type="button" role="option"
+                                [attr.aria-selected]="selectedOption.value === option.value"
+                                class="dropdown-option w-full text-[#5D5D5D] cursor-pointer flex items-center gap-2 px-3 py-2 border-t border-[#D1D1D1] hover:bg-[#2559EB] hover:text-white transition-colors duration-200 group"
+                                [ngClass]="{
+                    'bg-[#2559EB] text-white': selectedOption.value === option.value
+                }" (click)="selectOption(option, $event)">
+                                <span [innerHTML]="option.icon"></span>
+                                <span>{{ option.label }}</span>
+                            </button>
+                            }
+                        </div>
+                        }
                     </div>
                 </div>
 
                 <div>
                     <label for="message" class="text-[#262626]">Mesage<sup class="text-[#E22420]">*</sup></label>
-                    <div class="mt-2 bg-white flex items-center border border-[#D1D1D1] py-2 px-3 gap-2 rounded focus-within:border-2">
+                    <div class="mt-2 bg-white flex items-center border border-[#D1D1D1] py-2 px-3 gap-2 rounded focus-within:border-2 focus-within:border-[#2559EB]"
+                        [ngClass]="{
+    'border-2 border-[#ff6b6b]': contactUsForm.get('message')?.invalid && (contactUsForm.get('message')?.dirty || contactUsForm.get('message')?.touched)
+  }">
                         <textarea placeholder="Tell us how we can help" id="message" rows="6" formControlName="message"
+                            autocomplete="off"
                             class="w-full p-1 placeholder:text-[#B0B0B0] focus:outline-none resize-none"></textarea>
                     </div>
                     <span class="float-right mt-2 text-[#5D5D5D] text-sm">0/80</span>
