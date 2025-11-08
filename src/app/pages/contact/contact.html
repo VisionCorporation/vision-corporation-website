@@ -42,18 +42,17 @@
             </filter>
         </defs>
     </svg>
-
 </section>
 
 <section
-    class="border-4 max-w-[1400px] mx-auto px-3 md:px-12 lg:px-20 pt-20 mb-[114px] flex flex-wrap gap-[26px] relative z-10 flex-col lg:flex-row items-stretch">
+    class="max-w-[1400px] mx-auto px-3 md:px-12 lg:px-20 pt-20 mb-[114px] flex flex-wrap gap-12 sm:gap-[26px] relative z-10 flex-col md:flex-row items-stretch">
     <div class="grow shrink basis-0 w-full min-w-[240px] lg:text-left flex flex-col">
         <div class="bg-[#F4F6FB] sm:p-4 rounded-lg flex-1">
             <h2 class="text-[#262626] text-xl sm:text-2xl leading-7 mb-6">Let’s Talk About Your Project</h2>
             <form class="flex flex-col gap-4 flex-1">
                 <div>
                     <label for="fullName" class="text-[#262626]">Name<sup class="text-[#E22420]">*</sup></label>
-                    <div class="mt-2 bg-white flex items-center border border-[#D1D1D1] py-2 px-3 gap-2 rounded">
+                    <div class="mt-2 bg-white flex items-center border border-[#D1D1D1] py-2 px-3 gap-2 rounded focus-within:border-2">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M15.7498 6C15.7498 8.07107 14.0709 9.75 11.9998 9.75C9.92877 9.75 8.24984 8.07107 8.24984 6C8.24984 3.92893 9.92877 2.25 11.9998 2.25C14.0709 2.25 15.7498 3.92893 15.7498 6Z"
@@ -69,7 +68,7 @@
 
                 <div>
                     <label for="email" class="text-[#262626]">Email<sup class="text-[#E22420]">*</sup></label>
-                    <div class="mt-2 bg-white flex items-center border border-[#D1D1D1] py-2 px-3 gap-2 rounded">
+                    <div class="mt-2 bg-white flex items-center border border-[#D1D1D1] py-2 px-3 gap-2 rounded focus-within:border-2">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M21.75 6.75V17.25C21.75 18.4926 20.7426 19.5 19.5 19.5H4.5C3.25736 19.5 2.25 18.4926 2.25 17.25V6.75M21.75 6.75C21.75 5.50736 20.7426 4.5 19.5 4.5H4.5C3.25736 4.5 2.25 5.50736 2.25 6.75M21.75 6.75V6.99271C21.75 7.77405 21.3447 8.49945 20.6792 8.90894L13.1792 13.5243C12.4561 13.9694 11.5439 13.9694 10.8208 13.5243L3.32078 8.90894C2.65535 8.49945 2.25 7.77405 2.25 6.99271V6.75"
@@ -82,7 +81,7 @@
 
                 <div>
                     <label for="subject" class="text-[#262626]">Subject<sup class="text-[#E22420]">*</sup></label>
-                    <div class="mt-2 bg-white flex items-center border border-[#D1D1D1] py-2 px-3 gap-2 rounded">
+                    <div class="mt-2 bg-white flex items-center border border-[#D1D1D1] py-2 px-3 gap-2 rounded focus-within:border-2">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M9.87891 7.51884C11.0505 6.49372 12.95 6.49372 14.1215 7.51884C15.2931 8.54397 15.2931 10.206 14.1215 11.2312C13.9176 11.4096 13.6917 11.5569 13.4513 11.6733C12.7056 12.0341 12.0002 12.6716 12.0002 13.5V14.25M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12ZM12 17.25H12.0075V17.2575H12V17.25Z"
@@ -99,8 +98,7 @@
                         <span class="ml-3 text-[#B0B0B0]">(optional)</span>
                     </label>
                     <div
-                        class="mt-2 bg-white flex items-center justify-between border border-[#D1D1D1] py-2 px-3 gap-2 rounded relative">
-                        <!-- Left icon -->
+                        class="mt-2 bg-white flex items-center justify-between border border-[#D1D1D1] py-2 px-3 gap-2 rounded focus-within:border-2 relative">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M9.56802 3H5.25C4.00736 3 3 4.00736 3 5.25V9.56802C3 10.1648 3.23705 10.7371 3.65901 11.159L13.2401 20.7401C13.9388 21.4388 15.0199 21.6117 15.8465 21.0705C17.9271 19.7084 19.7084 17.9271 21.0705 15.8465C21.6117 15.0199 21.4388 13.9388 20.7401 13.2401L11.159 3.65901C10.7371 3.23705 10.1648 3 9.56802 3Z"
@@ -109,7 +107,6 @@
                                 stroke-linejoin="round" />
                         </svg>
 
-                        <!-- Select -->
                         <select id="category" formControlName="category"
                             class="w-full p-1 placeholder:text-[#B0B0B0] focus:outline-none bg-transparent text-[#262626] appearance-none">
                             <option value="" disabled selected>Enquiry (default)</option>
@@ -119,7 +116,6 @@
                             <option value="feedback">Feedback</option>
                         </select>
 
-                        <!-- Custom dropdown arrow -->
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" clip-rule="evenodd"
                                 d="M6.2636 9.86358C6.61508 9.51211 7.18492 9.51211 7.5364 9.86358L12 14.3272L16.4636 9.86358C16.8151 9.51211 17.3849 9.51211 17.7364 9.86358C18.0879 10.2151 18.0879 10.7849 17.7364 11.1364L12.6364 16.2364C12.4676 16.4052 12.2387 16.5 12 16.5C11.7613 16.5 11.5324 16.4052 11.3636 16.2364L6.2636 11.1364C5.91213 10.7849 5.91213 10.2151 6.2636 9.86358Z"
@@ -130,7 +126,7 @@
 
                 <div>
                     <label for="message" class="text-[#262626]">Mesage<sup class="text-[#E22420]">*</sup></label>
-                    <div class="mt-2 bg-white flex items-center border border-[#D1D1D1] py-2 px-3 gap-2 rounded">
+                    <div class="mt-2 bg-white flex items-center border border-[#D1D1D1] py-2 px-3 gap-2 rounded focus-within:border-2">
                         <textarea placeholder="Tell us how we can help" id="message" rows="6" formControlName="message"
                             class="w-full p-1 placeholder:text-[#B0B0B0] focus:outline-none resize-none"></textarea>
                     </div>
@@ -149,7 +145,7 @@
             </form>
         </div>
     </div>
-    <div class="relative grow shrink basis-0 w-full flex flex-col gap-2 border-4">
+    <div class="relative grow shrink basis-0 w-full flex flex-col gap-2">
         <h2 class="mb-2 sm:mb-4 text-[#262626] text-xl sm:text-2xl">Prefer a Direct Approach?</h2>
         <div class="flex items-center gap-2">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -189,14 +185,14 @@
             <span class="text-[#5D5D5D]">Sekondi-Takoradi, West Africa.</span>
         </div>
 
-        <div class="mt-8 relative w-full border border-[#CFE2FF] rounded-lg overflow-hidden flex-1">
+        <div class="mt-8 relative w-full border border-[#CFE2FF] rounded-lg overflow-hidden"
+            style="aspect-ratio: 1 / 1;">
             <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3975.0194278095305!2d-1.7286156250191806!3d4.936396195039673!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfe77bb2422d9181%3A0xa6e1a4b10c76c5f7!2sMaxtrust%20Group!5e0!3m2!1sen!2sgh!4v1762632528168!5m2!1sen!2sgh"
-                class="w-full h-full border-0" allowfullscreen="" loading="lazy"
+                class="absolute inset-0 w-full h-full border-0" allowfullscreen="" loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"></iframe>
-
             <div
-                class="absolute bottom-[9px] left-0 right-0 border-4 p-2 sm:p-4 rounded bg-white flex flex-col gap-2 mx-2 sm:mx-4">
+                class="absolute bottom-[9px] left-0 right-0  p-2 sm:p-4 rounded bg-white flex flex-col gap-2 mx-2 sm:mx-4">
                 <h3 class="text-lg sm:text-xl text-[#262626]">Visit Our Office</h3>
                 <div class="flex items-center gap-1 sm:gap-2 text-[#5D5D5D]">
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
