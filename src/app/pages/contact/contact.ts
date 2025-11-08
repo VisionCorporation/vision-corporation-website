@@ -71,7 +71,10 @@ export class Contact {
     if (control?.invalid && (control.dirty || control.touched)) {
       if (control.errors?.['required']) return 'Field is required';
       if (control.errors?.['pattern']) return 'Email is invalid';
-      if (control.errors?.['minlength']) return 'Password must be 8+ characters long';
+      if (control.errors?.['minlength']) {
+        const requiredLength = control.getError('minlength')?.requiredLength
+        return `Minimum length is ${requiredLength} characters`
+      }
     }
     return '';
   }
