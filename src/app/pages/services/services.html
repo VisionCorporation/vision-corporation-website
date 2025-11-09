@@ -116,7 +116,7 @@
 </div>
 
 <div class="max-w-[1400px] flex flex-col gap-16 mx-auto pb-16 mt-[60px] px-3 md:px-8 lg:px-14">
-    <div class="text-center">
+    <div class="text-center" data-aos="fade-up">
         <h2 class="text-[#262626] text-[30px] sm:text-[40px] leading-10 sm:leading-12 mb-2">Other Services</h2>
         <p class="text-lg sm:text-xl text-[#5D5D5D] leading-6 sm:leading-8">Lorem ipsum dolor sit amet, consectetur
             adipiscing
@@ -125,7 +125,7 @@
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-y-[50px] gap-[25px]">
         @for(otherService of otherServices; track otherService.title){
-        <div class="relative border border-[#D1D1D1] rounded p-5">
+        <div class="relative border border-[#D1D1D1] rounded p-5" data-aos="fade-up" [attr.data-aos-delay]="$index * 150">
             <div class="w-[150px] h-[150px] inline mb-4" [innerHTML]="otherService.svg"></div>
             <h3 class="text-[#2559EB] text-xl">{{otherService.title}}</h3>
             <p class="text-[#5D5D5D]">{{otherService.description}}</p>
@@ -141,7 +141,7 @@
                 </div>
             </div>
             }
-            <button (click)="showValue(otherService.value)"
+            <button (click)="navigateToContactForm(otherService.value)"
                 class="rounded w-full flex items-center justify-center gap-3 py-3 cursor-pointer border border-[#2559EB] hover:bg-[#DBE4FE] transition-colors duration-200 focus:outline-none focus:ring-[2px] focus:ring-[#2559EB] focus:ring-offset-2 text-[#2559EB]">Learn
                 more
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

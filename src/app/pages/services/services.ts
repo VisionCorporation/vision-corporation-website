@@ -7,6 +7,7 @@ import { Faqs } from '../../components/shared/faqs/faqs';
 import { OTHER_SERVICES, PACKAGES } from '../../data/constants/packages.constants';
 import { CommonModule, CurrencyPipe } from '@angular/common';
 import { DomSanitizer } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-services',
@@ -19,6 +20,7 @@ export class Services {
   public packages = PACKAGES;
   public expandedIndex: number | null = 0;
   private readonly sanitizer = inject(DomSanitizer);
+  private router = inject(Router)
 
   public readonly otherServices = OTHER_SERVICES.map(card => ({
     ...card,
@@ -68,7 +70,10 @@ export class Services {
     }, 0);
   }
 
-  public showValue(service: string) {
-    console.log(service)
+  public navigateToContactForm(value: string): void {
+    this.router.navigate(['/contact'], {
+      fragment: 'contact-form',
+      state: { messageCategory: value }
+    });
   }
 }
