@@ -1,5 +1,5 @@
-import { ChangeDetectorRef, Component, ElementRef, HostListener, inject, ViewChild } from '@angular/core';
-import { CommonModule, NgOptimizedImage } from "@angular/common";
+import { ChangeDetectorRef, Component, ElementRef, HostListener, inject, ViewChild, PLATFORM_ID, Inject } from '@angular/core';
+import { CommonModule, NgOptimizedImage, ViewportScroller, isPlatformBrowser } from "@angular/common";
 import { Header } from '../../components/shared/header/header';
 import { Footer } from '../../components/shared/footer/footer';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
@@ -9,6 +9,7 @@ import { AlertComponent } from '../../components/shared/alert/alert';
 import { Api } from '../../services/api';
 import { Subject, takeUntil } from 'rxjs';
 import { ContactUs } from '../../interfaces/contact-us.interface';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-contact',
@@ -27,6 +28,7 @@ export class Contact {
   private cdr = inject(ChangeDetectorRef)
   private sendContactForm = inject(Api)
   private readonly destroy$ = new Subject<void>()
+  private isBrowser: boolean;
 
   public contactUsForm = this.fb.group({
     name: ['', [Validators.required, Validators.minLength(5)]],
@@ -36,7 +38,15 @@ export class Contact {
     message: ['', [Validators.required, Validators.minLength(20)]]
   })
 
-  constructor(private sanitizer: DomSanitizer) {
+  constructor(
+    private sanitizer: DomSanitizer,
+    private viewportScroller: ViewportScroller,
+    private route: ActivatedRoute,
+    private router: Router,
+    @Inject(PLATFORM_ID) platformId: Object
+  ) {
+    this.isBrowser = isPlatformBrowser(platformId);
+
     this.options = CONTACT_CATEGORIES.map(cat => ({
       ...cat,
       icon: this.sanitizer.bypassSecurityTrustHtml(cat.icon),
@@ -44,6 +54,39 @@ export class Contact {
 
     this.selectedOption = this.options[0];
     this.contactUsForm.patchValue({ messageCategory: this.options[0].value });
+  }
+
+  ngOnInit() {
+    if (this.isBrowser) {
+      const navigation = this.router.currentNavigation();
+      const state = navigation?.extras?.state || window.history.state;
+
+      if (state?.messageCategory) {
+        const category = this.options.find(opt => opt.value === state.messageCategory);
+        if (category) {
+          this.selectedOption = category;
+          this.contactUsForm.patchValue({ messageCategory: category.value });
+        }
+      }
+
+      this.route.fragment.subscribe(fragment => {
+        if (fragment) {
+          setTimeout(() => {
+            const element = document.getElementById(fragment);
+            if (element) {
+              const headerOffset = 80;
+              const elementPosition = element.getBoundingClientRect().top;
+              const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+              window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+              });
+            }
+          }, 100);
+        }
+      });
+    }
   }
 
   public toggleDropdown(event?: MouseEvent): void {
@@ -102,9 +145,9 @@ export class Contact {
   public errorMessage(name: string): string {
     const control = this.contactUsForm.get(name);
     if (control?.invalid && (control.dirty || control.touched)) {
-      if (control.errors?.['required']) return 'Field is required';
-      if (control.errors?.['pattern']) return 'Invalid email (e.g., user@domain.com)';
-      if (control.errors?.['minlength']) {
+      if (control?.errors?.['required']) return 'Field is required';
+      if (control?.errors?.['pattern']) return 'Invalid email (e.g., user@domain.com)';
+      if (control?.errors?.['minlength']) {
         const requiredLength = control.getError('minlength')?.requiredLength
         return `Minimum length is ${requiredLength} characters`
       }
@@ -114,6 +157,8 @@ export class Contact {
 
   @HostListener('document:mousedown', ['$event'])
   onDocumentMouseDown(event: MouseEvent) {
+    if (!this.isBrowser) return;
+
     const target = event.target as Node | null;
     const wrapper = this.dropdownRef?.nativeElement;
 
