@@ -20,7 +20,7 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
   private aosInitialized = false;
   private routerSub!: Subscription;
 
-  public isCookieOpen = false;
+  public isCookieOpen = true;
   public isCustomiseCookieOpen = false;
   public hideCookieBanner = false;
 
