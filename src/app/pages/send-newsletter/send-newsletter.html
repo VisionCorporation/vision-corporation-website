@@ -7,7 +7,7 @@
         <form [formGroup]="sendNewsletterForm" (ngSubmit)="submitNewsletter()" class="flex flex-col gap-4">
             <label for="templateName" class="-mb-4 text-[#262626]">Template name<sup
                     class="text-[#E22420]">*</sup></label>
-            <div class="flex items-center border border-[#D1D1D1] py-2 px-3 gap-2 rounded focus-within:border-2">
+            <div class="flex items-center border border-[#D1D1D1] py-2 px-3 gap-2 rounded focus-within:border-2 text-[#5D5D5D]">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="#5D5D5D" class="size-6">
                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -19,7 +19,7 @@
             </div>
 
             <label for="subject" class="-mb-4 text-[#262626]">Subject<sup class="text-[#E22420]">*</sup></label>
-            <div class="flex items-center border border-[#D1D1D1] py-2 px-3 gap-2 rounded focus-within:border-2">
+            <div class="flex items-center border border-[#D1D1D1] py-2 px-3 gap-2 rounded focus-within:border-2 text-[#5D5D5D]">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="#5D5D5D" class="size-6">
                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -32,7 +32,7 @@
 
 
             <label for="heading" class="-mb-4 text-[#262626]">Heading<sup class="text-[#E22420]">*</sup></label>
-            <div class="flex items-center border border-[#D1D1D1] py-2 px-3 gap-2 rounded focus-within:border-2">
+            <div class="flex items-center border border-[#D1D1D1] py-2 px-3 gap-2 rounded focus-within:border-2 text-[#5D5D5D]">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="#5D5D5D" class="size-6">
                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -44,7 +44,7 @@
             </div>
 
             <label for="buttonText" class="-mb-4 text-[#262626]">Button text<sup class="text-[#E22420]">*</sup></label>
-            <div class="flex items-center border border-[#D1D1D1] py-2 px-3 gap-2 rounded focus-within:border-2">
+            <div class="flex items-center border border-[#D1D1D1] py-2 px-3 gap-2 rounded focus-within:border-2 text-[#5D5D5D]">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="#5D5D5D" class="size-6">
                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -56,7 +56,7 @@
             </div>
 
             <label for="buttonUrl" class="-mb-4 text-[#262626]">Button URL<sup class="text-[#E22420]">*</sup></label>
-            <div class="flex items-center border border-[#D1D1D1] py-2 px-3 gap-2 rounded focus-within:border-2">
+            <div class="flex items-center border border-[#D1D1D1] py-2 px-3 gap-2 rounded focus-within:border-2 text-[#5D5D5D]">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="#5D5D5D" class="size-6">
                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -68,7 +68,7 @@
             </div>
 
             <label for="message" class="-mb-4 text-[#262626]">Message<sup class="text-[#E22420]">*</sup></label>
-            <div class="flex items-start border border-[#D1D1D1] py-2 px-3 gap-2 rounded focus-within:border-2">
+            <div class="flex items-start border border-[#D1D1D1] py-2 px-3 gap-2 rounded focus-within:border-2 text-[#5D5D5D]">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="#5D5D5D" class="size-6">
                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -109,7 +109,7 @@
         <h1 class="text-center mt-7 text-lg sm:text-2xl text-[#262626]">Newsletter form access</h1>
         <form [formGroup]="authenticateUserForm" (ngSubmit)="onSubmit()" class="flex flex-col mt-7">
             <label for="password" class="mb-2">Password<sup class="text-[#E22420]">*</sup></label>
-            <div class="flex items-center border border-[#D1D1D1] py-2 px-3 gap-2 rounded focus-within:border-2"
+            <div class="flex items-center border border-[#D1D1D1] py-2 px-3 gap-2 rounded focus-within:border-2 text-[#5D5D5D]"
                 [ngClass]="{
     'border-2 border-[#ff6b6b]': authenticateUserForm.get('password')?.invalid && (authenticateUserForm.get('password')?.dirty || authenticateUserForm.get('password')?.touched)
   }">
