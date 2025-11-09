@@ -115,5 +115,56 @@
     }
 </div>
 
+<div class="max-w-[1400px] flex flex-col gap-16 mx-auto pb-16 mt-[60px] px-3 md:px-8 lg:px-14">
+    <div class="text-center">
+        <h2 class="text-[#262626] text-[30px] sm:text-[40px] leading-10 sm:leading-12 mb-2">Other Services</h2>
+        <p class="text-lg sm:text-xl text-[#5D5D5D] leading-6 sm:leading-8">Lorem ipsum dolor sit amet, consectetur
+            adipiscing
+            elit.
+            Etiam pellentesque, dolor nec feugiat</p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-y-[50px] gap-[25px]">
+        @for(otherService of otherServices; track otherService.title){
+        <div class="relative border border-[#D1D1D1] rounded p-5">
+            <div class="w-[150px] h-[150px] inline mb-4" [innerHTML]="otherService.svg"></div>
+            <h3 class="text-[#2559EB] text-xl">{{otherService.title}}</h3>
+            <p class="text-[#5D5D5D]">{{otherService.description}}</p>
+            @for(spec of otherService.specs; track $index){
+            <div class="flex flex-col gap-2 mt-2 mb-4">
+                <div class="flex items-center gap-1">
+                    <svg width="20" height="20" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M6 8.5L7.5 10L10 6.5M14 8C14 11.3137 11.3137 14 8 14C4.68629 14 2 11.3137 2 8C2 4.68629 4.68629 2 8 2C11.3137 2 14 4.68629 14 8Z"
+                            stroke="#348537" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <p class="text-[15px] text-[#5D5D5D]">{{spec}}</p>
+                </div>
+            </div>
+            }
+            <button (click)="showValue(otherService.value)"
+                class="rounded w-full flex items-center justify-center gap-3 py-3 cursor-pointer border border-[#2559EB] hover:bg-[#DBE4FE] transition-colors duration-200 focus:outline-none focus:ring-[2px] focus:ring-[#2559EB] focus:ring-offset-2 text-[#2559EB]">Learn
+                more
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M13.5 4.5L21 12M21 12L13.5 19.5M21 12H3" stroke="currentColor" stroke-width="1.5"
+                        stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </button>
+            <div
+                class="absolute -top-[20px] left-1/2 -translate-x-1/2 bg-[#EA690C] border border-[#EA690C] rounded p-[6px] text-white flex items-center gap-1">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M14.6312 2.09562C12.56 2.92419 10.3417 3.46339 8.02596 3.6632C7.35847 3.72079 6.68276 3.7502 6 3.7502H5.25C2.35051 3.7502 0 6.10071 0 9.0002C0 11.5998 1.88945 13.7581 4.36997 14.1768C4.70424 15.5458 5.16805 16.864 5.74764 18.1176C6.21171 19.1214 7.42181 19.4376 8.33029 18.9131L8.9866 18.5342C9.8667 18.0261 10.1523 16.9415 9.75868 16.0661C9.52382 15.5437 9.31422 15.0076 9.13142 14.4592C11.0488 14.7172 12.8919 15.209 14.6312 15.9048C15.3569 13.7354 15.75 11.4137 15.75 9.00018C15.75 6.58667 15.3569 4.26496 14.6312 2.09562Z"
+                        fill="white" />
+                    <path
+                        d="M16.0106 1.4909C16.8141 3.8466 17.25 6.37249 17.25 9.00018C17.25 11.6279 16.8141 14.1538 16.0106 16.5095C15.9554 16.6712 15.8987 16.8323 15.8401 16.9924C15.6977 17.3814 15.8976 17.8121 16.2866 17.9545C16.6756 18.0969 17.1063 17.897 17.2487 17.508C17.3887 17.1255 17.5196 16.7386 17.641 16.3475C18.1647 14.6607 18.5127 12.897 18.664 11.078C19.181 10.5395 19.5 9.80685 19.5 9.0002C19.5 8.19355 19.181 7.46091 18.664 6.92246C18.5127 5.10337 18.1647 3.33966 17.641 1.65292C17.5196 1.26183 17.3887 0.874905 17.2487 0.492398C17.1063 0.103424 16.6756 -0.0964767 16.2866 0.0459059C15.8976 0.188288 15.6977 0.619037 15.8401 1.00801C15.8987 1.16813 15.9555 1.32916 16.0106 1.4909Z"
+                        fill="white" />
+                </svg>
+                <span class="inline-block text-nowrap">Frequently Asked</span>
+            </div>
+        </div>
+        }
+    </div>
+</div>
+
 <app-faqs />
 <app-footer />

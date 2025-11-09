@@ -4,8 +4,9 @@ import { Header } from '../../components/shared/header/header';
 import { Footer } from '../../components/shared/footer/footer';
 import { SeoService } from '../../services/seo-service';
 import { Faqs } from '../../components/shared/faqs/faqs';
-import { PACKAGES } from '../../data/constants/packages.constants';
+import { OTHER_SERVICES, PACKAGES } from '../../data/constants/packages.constants';
 import { CommonModule, CurrencyPipe } from '@angular/common';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-services',
@@ -17,6 +18,12 @@ export class Services {
   private readonly seoService = inject(SeoService);
   public packages = PACKAGES;
   public expandedIndex: number | null = 0;
+  private readonly sanitizer = inject(DomSanitizer);
+
+  public readonly otherServices = OTHER_SERVICES.map(card => ({
+    ...card,
+    svg: this.sanitizer.bypassSecurityTrustHtml(card.svg)
+  }));
 
   @ViewChildren('packageContainer') packageContainers!: QueryList<ElementRef>;
 
@@ -59,5 +66,9 @@ export class Services {
 
       try { AOS.refresh(); } catch (ignored) { }
     }, 0);
+  }
+
+  public showValue(service: string) {
+    console.log(service)
   }
 }
