@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { Newsletter } from '../interfaces/newsletter.interface';
+import { ContactUs } from '../interfaces/contact-us.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -23,4 +24,7 @@ export class Api {
     });
   }
 
+  public sendContactUsForm(formData: ContactUs) {
+    return this.http.post(`${environment.baseUrl}/contact-us`, formData);
+  }
 }
