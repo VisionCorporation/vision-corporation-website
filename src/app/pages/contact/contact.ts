@@ -70,6 +70,7 @@ export class Contact {
 
   public onSubmit() {
     const formData = this.contactUsForm.value as ContactUs
+    this.isSubmitting = true
 
     this.sendContactForm.sendContactUsForm(formData).pipe(takeUntil(this.destroy$)).subscribe({
       next: () => {
