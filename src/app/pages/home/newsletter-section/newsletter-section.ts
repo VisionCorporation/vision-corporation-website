@@ -63,7 +63,7 @@ export class NewsletterSection implements OnDestroy {
     const control = this.newsletterForm.get(name);
     if (control?.invalid && (control.dirty || control.touched)) {
       if (control.errors?.['required']) return 'Email is required';
-      if (control.errors?.['pattern']) return 'Please enter a valid email address';
+      if (control.errors?.['pattern']) return 'Invalid email (e.g., user@domain.com)';
     }
     return '';
   }
