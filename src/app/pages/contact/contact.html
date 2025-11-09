@@ -219,7 +219,7 @@
                 <button type="submit" [disabled]="contactUsForm.invalid || isSubmitting"
                     class="mt-6 cursor-pointer bg-[#2559EB] hover:bg-[#1D4ED8] transition-colors duration-200 
           focus:outline-none focus:ring-[2px] focus:ring-[#2559EB] focus:ring-offset-2 text-white py-3 px-3 sm:px-6 rounded w-full sm:w-auto text-center flex items-center justify-center disabled:bg-[#E7E7E7] disabled:text-[#4F4F4F] disabled:hover:bg-[#E7E7E7] disabled:cursor-not-allowed">
-                    Send Message
+                    {{isSubmitting ? 'Sending...': 'Send Message'}}
                     <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg"
                         class="ml-2 sm:ml-3">
                         <path d="M14 4.5L21.5 12M21.5 12L14 19.5M21.5 12H3.5" stroke="white" stroke-width="1.5"
