@@ -10,6 +10,7 @@ import { Api } from '../../services/api';
 import { Subject, takeUntil } from 'rxjs';
 import { ContactUs } from '../../interfaces/contact-us.interface';
 import { ActivatedRoute, Router } from '@angular/router';
+import { SeoService } from '../../services/seo-service';
 
 @Component({
   selector: 'app-contact',
@@ -26,6 +27,7 @@ export class Contact {
   private fb = inject(FormBuilder)
   public isSubmitting = false
   private cdr = inject(ChangeDetectorRef)
+  private readonly seoService = inject(SeoService);
   private sendContactForm = inject(Api)
   private readonly destroy$ = new Subject<void>()
   private isBrowser: boolean;
@@ -54,6 +56,13 @@ export class Contact {
 
     this.selectedOption = this.options[0];
     this.contactUsForm.patchValue({ messageCategory: this.options[0].value });
+
+    this.seoService.updatePageSeo({
+      title: 'Contact Us - Vision Corporation | IT & Software Support',
+      description: 'Contact Vision Corporation for software development, IT consulting, and digital solutions. Let\'s discuss your project and find the best solutions together.',
+      url: 'https://visioncorporationafrica.netlify.app/contact',
+      image: 'https://visioncorporationafrica.netlify.app/assets/images/contact-og.jpeg'
+    });
   }
 
   ngOnInit() {
