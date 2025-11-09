@@ -70,7 +70,7 @@ export class Contact {
     const control = this.contactUsForm.get(name);
     if (control?.invalid && (control.dirty || control.touched)) {
       if (control.errors?.['required']) return 'Field is required';
-      if (control.errors?.['pattern']) return 'Email is invalid';
+      if (control.errors?.['pattern']) return 'Invalid email (e.g., user@domain.com)';
       if (control.errors?.['minlength']) {
         const requiredLength = control.getError('minlength')?.requiredLength
         return `Minimum length is ${requiredLength} characters`

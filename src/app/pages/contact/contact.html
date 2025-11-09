@@ -52,10 +52,11 @@
             <form [formGroup]="contactUsForm" (ngSubmit)="onSubmit()" class="flex flex-col gap-4 flex-1">
                 <div>
                     <label for="fullName" class="text-[#262626]">Name<sup class="text-[#E22420]">*</sup></label>
-                    <div class="mt-2 bg-white flex items-center border border-[#D1D1D1] py-2 px-3 gap-2 rounded focus-within:border-2 focus-within:border-[#2559EB]"
+                    <div class="mt-2 bg-white flex items-center border border-[#D1D1D1] py-2 px-3 gap-2 rounded"
                         [ngClass]="{
-    'border-2 border-[#ff6b6b]': contactUsForm.get('fullName')?.invalid && (contactUsForm.get('fullName')?.dirty || contactUsForm.get('fullName')?.touched)
-  }">
+            'border-2 border-[#2559EB] focus-within:border-2 focus-within:border-[#2559EB]': !(contactUsForm.get('fullName')?.invalid && (contactUsForm.get('fullName')?.dirty || contactUsForm.get('fullName')?.touched)),
+            'border-2 border-[#ff6b6b] focus-within:border-[#ff6b6b]': contactUsForm.get('fullName')?.invalid && (contactUsForm.get('fullName')?.dirty || contactUsForm.get('fullName')?.touched)
+        }">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M15.7498 6C15.7498 8.07107 14.0709 9.75 11.9998 9.75C9.92877 9.75 8.24984 8.07107 8.24984 6C8.24984 3.92893 9.92877 2.25 11.9998 2.25C14.0709 2.25 15.7498 3.92893 15.7498 6Z"
@@ -83,10 +84,11 @@
 
                 <div>
                     <label for="email" class="text-[#262626]">Email<sup class="text-[#E22420]">*</sup></label>
-                    <div class="mt-2 bg-white flex items-center border border-[#D1D1D1] py-2 px-3 gap-2 rounded focus-within:border-2 focus-within:border-[#2559EB]"
+                    <div class="mt-2 bg-white flex items-center border border-[#D1D1D1] py-2 px-3 gap-2 rounded"
                         [ngClass]="{
-    'border-2 border-[#ff6b6b]': contactUsForm.get('email')?.invalid && (contactUsForm.get('email')?.dirty || contactUsForm.get('email')?.touched)
-  }">
+            'border-2 border-[#2559EB] focus-within:border-2 focus-within:border-[#2559EB]': !(contactUsForm.get('email')?.invalid && (contactUsForm.get('email')?.dirty || contactUsForm.get('email')?.touched)),
+            'border-2 border-[#ff6b6b] focus-within:border-[#ff6b6b]': contactUsForm.get('email')?.invalid && (contactUsForm.get('email')?.dirty || contactUsForm.get('email')?.touched)
+        }">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M21.75 6.75V17.25C21.75 18.4926 20.7426 19.5 19.5 19.5H4.5C3.25736 19.5 2.25 18.4926 2.25 17.25V6.75M21.75 6.75C21.75 5.50736 20.7426 4.5 19.5 4.5H4.5C3.25736 4.5 2.25 5.50736 2.25 6.75M21.75 6.75V6.99271C21.75 7.77405 21.3447 8.49945 20.6792 8.90894L13.1792 13.5243C12.4561 13.9694 11.5439 13.9694 10.8208 13.5243L3.32078 8.90894C2.65535 8.49945 2.25 7.77405 2.25 6.99271V6.75"
@@ -112,8 +114,9 @@
                     <label for="subject" class="text-[#262626]">Subject<sup class="text-[#E22420]">*</sup></label>
                     <div class="mt-2 bg-white flex items-center border border-[#D1D1D1] py-2 px-3 gap-2 rounded focus-within:border-2 focus-within:border-[#2559EB]"
                         [ngClass]="{
-    'border-2 border-[#ff6b6b]': contactUsForm.get('subject')?.invalid && (contactUsForm.get('subject')?.dirty || contactUsForm.get('subject')?.touched)
-  }">
+            'border-2 border-[#2559EB] focus-within:border-2 focus-within:border-[#2559EB]': !(contactUsForm.get('subject')?.invalid && (contactUsForm.get('subject')?.dirty || contactUsForm.get('subject')?.touched)),
+            'border-2 border-[#ff6b6b] focus-within:border-[#ff6b6b]': contactUsForm.get('subject')?.invalid && (contactUsForm.get('subject')?.dirty || contactUsForm.get('subject')?.touched)
+        }">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M9.87891 7.51884C11.0505 6.49372 12.95 6.49372 14.1215 7.51884C15.2931 8.54397 15.2931 10.206 14.1215 11.2312C13.9176 11.4096 13.6917 11.5569 13.4513 11.6733C12.7056 12.0341 12.0002 12.6716 12.0002 13.5V14.25M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12ZM12 17.25H12.0075V17.2575H12V17.25Z"
@@ -189,11 +192,12 @@
                 </div>
 
                 <div>
-                    <label for="message" class="text-[#262626]">Mesage<sup class="text-[#E22420]">*</sup></label>
-                    <div class="mt-2 bg-white flex items-center border border-[#D1D1D1] py-2 px-3 gap-2 rounded focus-within:border-2 focus-within:border-[#2559EB]"
+                    <label for="message" class="text-[#262626]">Message<sup class="text-[#E22420]">*</sup></label>
+                    <div class="mt-2 bg-white flex items-center border border-[#D1D1D1] py-2 px-3 gap-2 rounded"
                         [ngClass]="{
-    'border-2 border-[#ff6b6b]': contactUsForm.get('message')?.invalid && (contactUsForm.get('message')?.dirty || contactUsForm.get('message')?.touched)
-  }">
+            'border-2 border-[#2559EB] focus-within:border-2 focus-within:border-[#2559EB]': !(contactUsForm.get('message')?.invalid && (contactUsForm.get('message')?.dirty || contactUsForm.get('message')?.touched)),
+            'border-2 border-[#ff6b6b] focus-within:border-[#ff6b6b]': contactUsForm.get('message')?.invalid && (contactUsForm.get('message')?.dirty || contactUsForm.get('message')?.touched)
+        }">
                         <textarea placeholder="Tell us how we can help" id="message" rows="6" formControlName="message"
                             autocomplete="off"
                             class="w-full p-1 placeholder:text-[#B0B0B0] focus:outline-none resize-none"></textarea>
