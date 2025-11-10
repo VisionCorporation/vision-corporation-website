@@ -1,7 +1,7 @@
 export const FooterLinks = [
     { label: 'Home', url: '/' },
     { label: 'Services', url: '/services' },
-    { label: 'About Us', url: '/about' },
+    { label: 'About Us', url: '/about-us' },
 ] as const;
 
 export const FooterServices = [
