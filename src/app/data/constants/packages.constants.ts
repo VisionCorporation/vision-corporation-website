@@ -1,5 +1,6 @@
 export const PACKAGES = [{
     title: "Full Stack Web Development Packages",
+    value: 'full-stack-web-development',
     description: "Our full-stack development service covers everything from front-end interfaces to back-end systems. Select the plan that aligns with your goals.",
     types: [{
         name: "Basic Package",
