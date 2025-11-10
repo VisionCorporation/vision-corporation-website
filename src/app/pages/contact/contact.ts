@@ -78,23 +78,25 @@ export class Contact {
         }
       }
 
-      this.route.fragment.subscribe(fragment => {
-        if (fragment) {
-          setTimeout(() => {
-            const element = document.getElementById(fragment);
-            if (element) {
-              const headerOffset = 80;
-              const elementPosition = element.getBoundingClientRect().top;
-              const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+      if (state?.packageName) {
+        this.contactUsForm.patchValue({ subject: state.packageName });
+      }
 
-              window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth'
-              });
-            }
-          }, 100);
-        }
-      });
+      if (state?.scrollToForm) {
+        setTimeout(() => {
+          const element = document.getElementById('contact-form');
+          if (element) {
+            const headerOffset = 80;
+            const elementPosition = element.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: 'smooth'
+            });
+          }
+        }, 100);
+      }
     }
   }
 
