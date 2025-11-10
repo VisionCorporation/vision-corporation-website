@@ -70,10 +70,25 @@ export class Services {
     }, 0);
   }
 
+  public navigatePackageToContactForm(packageTitle: string, packageName: string): void {
+    console.log(packageTitle, packageName)
+    this.router.navigate(['/contact'], {
+      skipLocationChange: false,
+      state: {
+        messageCategory: packageTitle,
+        packageName: packageName,
+        scrollToForm: true
+      }
+    });
+  }
+
   public navigateToContactForm(value: string): void {
     this.router.navigate(['/contact'], {
-      fragment: 'contact-form',
-      state: { messageCategory: value }
+      skipLocationChange: false,
+      state: {
+        messageCategory: value,
+        scrollToForm: true
+      }
     });
   }
 }

@@ -93,7 +93,7 @@
                 }
                 <h3 class="my-6 customise-sub-title text-xl text-[#262626]">Starting from <span>{{ packageType.price |
                         currency:'USD':'symbol':'1.0-0' }}</span></h3>
-                <button class="rounded w-full flex items-center justify-center gap-3 py-3 cursor-pointer"
+                <button (click)="navigatePackageToContactForm(package.value, packageType.name)" class="rounded w-full flex items-center justify-center gap-3 py-3 cursor-pointer"
                     [ngClass]="{ 'border border-[#2559EB] hover:bg-[#DBE4FE] transition-colors duration-200 focus:outline-none focus:ring-[2px] focus:ring-[#2559EB] focus:ring-offset-2 text-[#2559EB]': packageType.name === 'Basic Package', 'bg-[#2559EB] hover:bg-[#1D4ED8] transition-colors duration-200 
           focus:outline-none focus:ring-[2px] focus:ring-[#2559EB] focus:ring-offset-2 text-white': packageType.name !== 'Basic Package' }">
                     Get now
