@@ -3,10 +3,13 @@ import AOS from 'aos';
 import { isPlatformBrowser } from '@angular/common';
 import { Router, RouterOutlet, NavigationEnd, ActivatedRouteSnapshot } from '@angular/router';
 import { filter, Subscription } from 'rxjs';
+import { CookiePreferences } from './interfaces/cookies.interface';
+import { CONSENT_KEY } from './data/constants/cookies.constants';
 
 declare global {
   interface Window {
     gtag?: (...args: any[]) => void;
+    dataLayer?: any[];
   }
 }
 
@@ -19,12 +22,13 @@ declare global {
 export class App implements OnInit, AfterViewInit, OnDestroy {
   private aosInitialized = false;
   private routerSub!: Subscription;
+  private analyticsScriptLoaded = false;
 
-  public isCookieOpen = true;
+  public isCookieOpen = false;
   public isCustomiseCookieOpen = false;
   public hideCookieBanner = false;
 
-  public cookiePreferences = {
+  public cookiePreferences: CookiePreferences = {
     strictlyNecessary: true,
     functional: false,
     analytics: false,
@@ -37,17 +41,19 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
-    if (isPlatformBrowser(this.platformId)) {
-      this.router.events
-        .pipe(filter(event => event instanceof NavigationEnd))
-        .subscribe((event: NavigationEnd) => {
-          if (window.gtag) {
-            window.gtag('config', 'G-Y9GGWL1N5Q', {
-              page_path: event.urlAfterRedirects
-            });
-          }
-        });
-    }
+    if (!isPlatformBrowser(this.platformId)) return;
+
+    this.checkConsent();
+
+    this.router.events
+      .pipe(filter(event => event instanceof NavigationEnd))
+      .subscribe((event: NavigationEnd) => {
+        if (this.cookiePreferences.analytics && window.gtag) {
+          window.gtag('config', 'G-Y9GGWL1N5Q', {
+            page_path: event.urlAfterRedirects
+          });
+        }
+      });
   }
 
   ngAfterViewInit() {
@@ -75,20 +81,48 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
       });
   }
 
-  ngOnDestroy(): void {
-    if (this.routerSub) {
-      this.routerSub.unsubscribe();
-    }
-  }
-
   private shouldHideCookieBanner(route: ActivatedRouteSnapshot): boolean {
     if (route.data?.['hideCookieBanner']) return true;
     if (route.firstChild) return this.shouldHideCookieBanner(route.firstChild);
     return false;
   }
 
-  public closeCookieBanner(): void {
-    this.isCookieOpen = !this.isCookieOpen;
+  private checkConsent(): void {
+    const savedConsent = localStorage.getItem(CONSENT_KEY);
+
+    if (savedConsent) {
+      this.isCookieOpen = false;
+      this.cookiePreferences = JSON.parse(savedConsent);
+
+      if (this.cookiePreferences.analytics) {
+        this.loadAnalyticsScript();
+      }
+    } else {
+      this.isCookieOpen = true;
+    }
+  }
+
+  private saveConsent(): void {
+    localStorage.setItem(CONSENT_KEY, JSON.stringify(this.cookiePreferences));
+    this.isCookieOpen = false;
+    this.isCustomiseCookieOpen = false;
+  }
+
+  private loadAnalyticsScript(): void {
+    if (!isPlatformBrowser(this.platformId) || this.analyticsScriptLoaded) return;
+
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-Y9GGWL1N5Q';
+    document.head.appendChild(script);
+
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = window.gtag || function () { window.dataLayer!.push(arguments); };
+
+    window.gtag('js', new Date());
+    window.gtag('config', 'G-Y9GGWL1N5Q');
+
+    this.analyticsScriptLoaded = true;
   }
 
   public toggleCookieBanners(): void {
@@ -96,11 +130,11 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
     this.isCustomiseCookieOpen = !this.isCustomiseCookieOpen;
   }
 
-  public confirmCustomiseChoices(): void {
-    this.isCustomiseCookieOpen = !this.isCustomiseCookieOpen;
+  public closeCookieBanner(): void {
+    this.rejectAll();
   }
 
-  public toggleCookie(type: 'strictlyNecessary' | 'functional' | 'analytics' | 'advertising'): void {
+  public toggleCookie(type: keyof CookiePreferences): void {
     if (type === 'strictlyNecessary') return;
     this.cookiePreferences[type] = !this.cookiePreferences[type];
   }
@@ -112,6 +146,8 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
       analytics: true,
       advertising: true
     };
+    this.saveConsent();
+    this.loadAnalyticsScript();
   }
 
   public rejectAll(): void {
@@ -121,5 +157,20 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
       analytics: false,
       advertising: false
     };
+    this.saveConsent();
+  }
+
+  public confirmCustomiseChoices(): void {
+    this.saveConsent();
+
+    if (this.cookiePreferences.analytics) {
+      this.loadAnalyticsScript();
+    }
+  }
+
+  ngOnDestroy(): void {
+    if (this.routerSub) {
+      this.routerSub.unsubscribe();
+    }
   }
 }

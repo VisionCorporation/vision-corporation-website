@@ -51,8 +51,8 @@
                         We use cookies to improve your experience
                     </h4>
                     <p class="text-[#5D5D5D] text-base md:text-lg leading-5 sm:leading-6 mt-1">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam pellentesque, dolor nec feugiat
-                        ornare, quam sem vehicula tortor, eu finibus libero elit nec orci. Vivamus non ligula enim.
+                        We use essential and optional cookies to enhance your experience, analyse usage, and provide
+                        relevant content. You can accept all or manage your preferences.
                     </p>
                 </div>
             </div>
@@ -64,13 +64,13 @@
                     Customise
                 </button>
 
-                <button class="w-full md:w-auto text-nowrap cursor-pointer border border-[#2559EB] text-[#2559EB]
+                <button (click)="rejectAll()" class="w-full md:w-auto text-nowrap cursor-pointer border border-[#2559EB] text-[#2559EB]
           hover:bg-[#DBE4FE] transition-colors duration-200 focus:outline-none focus:ring-[2px]
           focus:ring-[#2559EB] focus:ring-offset-2 rounded py-3 px-6 text-base font-medium">
                     Reject all
                 </button>
 
-                <button class="w-full md:w-auto text-nowrap cursor-pointer bg-[#2559EB] hover:bg-[#1D4ED8]
+                <button (click)="acceptAll()" class="w-full md:w-auto text-nowrap cursor-pointer bg-[#2559EB] hover:bg-[#1D4ED8]
           transition-colors duration-200 focus:outline-none focus:ring-[2px] focus:ring-[#2559EB]
           focus:ring-offset-2 text-white rounded py-3 px-6 text-base font-medium">
                     Accept all
@@ -95,14 +95,12 @@
                 </button>
             </div>
 
-            <div class="flex items-center flex-col gap-6">
+            <div class="flex items-start flex-col gap-6">
                 <div class="border-b border-[#D1D1D1] pb-6">
                     <h4 class="text-[#262626] text-xl sm:text-2xl sm:leading-7">Manage Cookie preferences</h4>
-                    <p class="text-[#5D5D5D] text-lg sm:text-xl sm:leading-6">Lorem ipsum dolor sit amet, consectetur
-                        adipiscing elit.
-                        Etiam pellentesque, dolor nec feugiat
-                        ornare, quam
-                        sem vehicula tortor, eu finibus libero elit nec orci. Vivamus non ligula enim. </p>
+                    <p class="text-[#5D5D5D] text-lg sm:text-xl sm:leading-6">You can choose which types of cookies you
+                        want us to use. Essential cookies are always active as they’re needed for the website to
+                        function properly.</p>
                 </div>
 
                 <div class="border-b border-[#D1D1D1] pb-6 w-full flex items-center justify-between">
@@ -110,18 +108,13 @@
                         <h5 class="text-[#262626] text-lg sm:text-xl sm:leading-6 customise-sub-title">Strictly
                             necessary
                             Cookies</h5>
-                        <p class="text-[#5D5D5D] text-lg sm:text-xl sm:leading-6 max-w-[829px]">Lorem ipsum dolor sit
-                            amet,
-                            consectetur
-                            adipiscing elit.
-                            Etiam pellentesque, dolor nec feugiat ornare, quam sem vehicula tortor, eu finibus libero
-                            elit
-                            nec orci. Vivamus non ligula enim. </p>
+                        <p class="text-[#5D5D5D] text-lg sm:text-xl sm:leading-6 max-w-[829px]">These cookies are
+                            essential for basic website functions such as security, accessibility, and page navigation.
+                            The site cannot operate properly without them.</p>
                     </div>
 
                     <div class="flex items-center justify-center">
-                        <button (click)="toggleCookie('strictlyNecessary')"
-                            [class]="cookiePreferences.strictlyNecessary ? 'bg-[#E7E7E7]' : 'bg-gray-300'"
+                        <button [class]="cookiePreferences.strictlyNecessary ? 'bg-[#E7E7E7]' : 'bg-gray-300'"
                             class="relative inline-flex h-[26px] w-12 border border-[#888888] cursor-not-allowed items-center rounded-full transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 p-[4px]"
                             role="switch" [attr.aria-checked]="cookiePreferences.strictlyNecessary" disabled>
                             <span [class]="cookiePreferences.strictlyNecessary ? 'translate-x-[20px]' : 'translate-x-0'"
@@ -135,13 +128,9 @@
                         <h5 class="text-[#262626] text-lg sm:text-xl sm:leading-6 customise-sub-title">Functional
                             Cookies
                         </h5>
-                        <p class="text-[#5D5D5D] text-lg sm:text-xl sm:leading-6 max-w-[829px]">Lorem ipsum dolor sit
-                            amet,
-                            consectetur
-                            adipiscing elit.
-                            Etiam pellentesque, dolor nec feugiat ornare, quam sem vehicula tortor, eu finibus libero
-                            elit
-                            nec orci. Vivamus non ligula enim. </p>
+                        <p class="text-[#5D5D5D] text-lg sm:text-xl sm:leading-6 max-w-[829px]">These cookies remember
+                            your preferences and settings, helping us provide a more tailored and consistent user
+                            experience.</p>
                     </div>
 
                     <div class="flex items-center justify-center">
@@ -159,13 +148,9 @@
                     <div>
                         <h5 class="text-[#262626] text-lg sm:text-xl sm:leading-6 customise-sub-title">Analytics Cookies
                         </h5>
-                        <p class="text-[#5D5D5D] text-lg sm:text-xl sm:leading-6 max-w-[829px]">Lorem ipsum dolor sit
-                            amet,
-                            consectetur
-                            adipiscing elit.
-                            Etiam pellentesque, dolor nec feugiat ornare, quam sem vehicula tortor, eu finibus libero
-                            elit
-                            nec orci. Vivamus non ligula enim. </p>
+                        <p class="text-[#5D5D5D] text-lg sm:text-xl sm:leading-6 max-w-[829px]">These cookies collect
+                            anonymous information about how visitors use our website. They help us measure performance
+                            and improve content and usability.</p>
                     </div>
 
                     <div class="flex items-center justify-center">
@@ -184,13 +169,9 @@
                         <h5 class="text-[#262626] text-lg sm:text-xl sm:leading-6 customise-sub-title">Advertising
                             Cookies
                         </h5>
-                        <p class="text-[#5D5D5D] text-lg sm:text-xl sm:leading-6 max-w-[829px]">Lorem ipsum dolor sit
-                            amet,
-                            consectetur
-                            adipiscing elit.
-                            Etiam pellentesque, dolor nec feugiat ornare, quam sem vehicula tortor, eu finibus libero
-                            elit
-                            nec orci. Vivamus non ligula enim. </p>
+                        <p class="text-[#5D5D5D] text-lg sm:text-xl sm:leading-6 max-w-[829px]">These cookies track your
+                            browsing habits to deliver advertising that is more relevant to your interests and to
+                            measure the effectiveness of our campaigns.</p>
                     </div>
 
                     <div class="flex items-center justify-center">
