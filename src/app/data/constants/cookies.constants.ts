@@ -1,0 +1,1 @@
+export const CONSENT_KEY = 'user_cookie_consent' as const
