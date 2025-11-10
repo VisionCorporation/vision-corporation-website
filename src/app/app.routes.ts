@@ -4,6 +4,7 @@ import { NotFound } from './pages/not-found/not-found';
 export const routes: Routes = [
     { path: '', loadComponent: () => import("./pages/home/home").then((c) => c.Home) },
     { path: 'services', loadComponent: () => import("./pages/services/services").then((c) => c.Services) },
+    { path: 'about-us', loadComponent: () => import("./pages/about-us/about-us").then((c) => c.AboutUs) },
     { path: 'contact', loadComponent: () => import("./pages/contact/contact").then((c) => c.Contact) },
     { path: 'privacy-policy', loadComponent: () => import("./pages/privacy-policy/privacy-policy").then((c) => c.PrivacyPolicy) },
     { path: 'privacy-policy', loadComponent: () => import("./pages/privacy-policy/privacy-policy").then((c) => c.PrivacyPolicy) },
