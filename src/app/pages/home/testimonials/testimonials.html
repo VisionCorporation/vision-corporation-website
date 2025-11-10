@@ -1,35 +1,38 @@
 <section
     class="relative py-[70px] sm:py-[115px] bg-[url('/assets/images/testimonials-bg.webp')] bg-cover bg-center bg-no-repeat">
     <div class="absolute inset-0 bg-gradient-to-bl from-[#2559EB]/100 to-[#8A38F5]/90 pointer-events-none"></div>
+
     <div class="relative z-10 px-[15px]">
         <div class="text-center mb-[78px]">
-            <h2 class="text-3xl sm:text-[40px] leading-12 text-white mb-2" data-aos="fade-up" data-aos-delay="50">What
-                Our Clients Say</h2>
-            <p class="text-lg sm:text-xl text-white leading-6 sm:leading-8" data-aos="fade-up" data-aos-delay="60">Real
-                results from real businesses who
-                trusted us with their growth.
+            <h2 class="text-3xl sm:text-[40px] leading-12 text-white mb-2" data-aos="fade-up" data-aos-delay="50">
+                What Our Clients Say
+            </h2>
+            <p class="text-lg sm:text-xl text-white leading-6 sm:leading-8" data-aos="fade-up" data-aos-delay="60">
+                Real results from real businesses who trusted us with their growth.
             </p>
         </div>
 
         <div class="max-w-[1400px] mx-auto px-3 md:px-8 lg:px-14 flex gap-5 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-[50px]
-         overflow-x-auto md:overflow-visible hide-scrollbar snap-x snap-mandatory scroll-smooth">
+      overflow-x-auto md:overflow-visible hide-scrollbar snap-x snap-mandatory scroll-smooth">
             @for (testimonial of testimonials; track $index) {
             <div class="p-5 border border-[#D1D1D1] rounded w-[85%] flex-shrink-0
-             flex flex-col gap-y-6 snap-start md:w-full md:max-w-[426px]" data-aos="fade-up"
+        flex flex-col gap-y-6 snap-start md:w-full md:max-w-[426px] bg-white/5 backdrop-blur-sm" data-aos="fade-up"
                 [attr.data-aos-delay]="$index * 150">
                 <div class="flex items-center gap-3">
                     <div class="relative w-[40px] h-[40px] rounded-full overflow-hidden border border-[#D1D1D1]">
-                        @if(testimonial.hasImage){
-                        <img [ngSrc]="testimonial.userImage" [alt]="testimonial.userName" fill priority
-                            class="object-cover object-top" />
-                        }
-                        @else {
-                        <h3 class="flex items-center justify-center h-full bg-white text-[#2559EB]">{{ getInitials(testimonial.userName)
-                            }}</h3>
+                        @if (testimonial.hasImage) {
+                        <img [ngSrc]="testimonial.userImage" [alt]="testimonial.userName" width="211" height="317"
+                            class="w-[40px] h-auto object-cover object-top rounded-md" priority />
+                        } @else {
+                        <h3 class="flex items-center justify-center h-full bg-white text-[#2559EB] font-semibold">
+                            {{ getInitials(testimonial.userName) }}
+                        </h3>
                         }
                     </div>
 
-                    <h3 class="text-white leading-6">{{ testimonial.userName }}</h3>
+                    <h3 class="text-white leading-6 font-medium">
+                        {{ testimonial.userName }}
+                    </h3>
                 </div>
 
                 <p class="text-white leading-6">
@@ -54,12 +57,10 @@
                             d="M124 0L126.694 8.2918H135.413L128.359 13.4164L131.053 21.7082L124 16.5836L116.947 21.7082L119.641 13.4164L112.587 8.2918H121.306L124 0Z"
                             [attr.fill]="(5 - $index) >= 5 ? '#FFFF00' : '#E5E7EB'" />
                     </svg>
-
                     <p>{{ (5 - $index) + '.0' }}</p>
                 </div>
             </div>
             }
         </div>
-
     </div>
 </section>
