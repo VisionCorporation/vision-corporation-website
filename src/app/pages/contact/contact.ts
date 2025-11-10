@@ -79,7 +79,7 @@ export class Contact {
       }
 
       if (state?.packageName) {
-        this.contactUsForm.patchValue({ subject: state.packageName });
+        this.contactUsForm.patchValue({ subject: `Interested in Purchasing the ${state.packageName}` });
       }
 
       if (state?.scrollToForm) {
