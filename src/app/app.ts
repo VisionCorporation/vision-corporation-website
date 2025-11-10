@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, Inject, OnDestroy, OnInit, PLATFORM_ID } from '@angular/core';
 import AOS from 'aos';
-import { isPlatformBrowser } from '@angular/common';
-import { Router, RouterOutlet, NavigationEnd, ActivatedRouteSnapshot } from '@angular/router';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { Router, RouterOutlet, NavigationEnd, ActivatedRouteSnapshot, NavigationStart, NavigationCancel, NavigationError } from '@angular/router';
 import { filter, Subscription } from 'rxjs';
 import { CookiePreferences } from './interfaces/cookies.interface';
 import { CONSENT_KEY } from './data/constants/cookies.constants';
@@ -20,6 +20,7 @@ declare global {
   styleUrl: './app.css'
 })
 export class App implements OnInit, AfterViewInit, OnDestroy {
+  public loading = false;
   private aosInitialized = false;
   private routerSub!: Subscription;
   private analyticsScriptLoaded = false;
@@ -38,7 +39,18 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
   constructor(
     @Inject(PLATFORM_ID) private platformId: object,
     private router: Router
-  ) { }
+  ) {
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationStart) {
+        this.loading = true;
+      }
+      if (event instanceof NavigationEnd ||
+        event instanceof NavigationCancel ||
+        event instanceof NavigationError) {
+        this.loading = false;
+      }
+    });
+  }
 
   ngOnInit(): void {
     if (!isPlatformBrowser(this.platformId)) return;
