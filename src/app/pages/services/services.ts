@@ -1,5 +1,4 @@
-import { Component, inject, ElementRef, QueryList, ViewChildren } from '@angular/core';
-import AOS from 'aos';
+import { Component, inject } from '@angular/core';
 import { Header } from '../../components/shared/header/header';
 import { Footer } from '../../components/shared/footer/footer';
 import { SeoService } from '../../services/seo-service';
@@ -18,7 +17,6 @@ import { Router } from '@angular/router';
 export class Services {
   private readonly seoService = inject(SeoService);
   public packages = PACKAGES;
-  public expandedIndex: number | null = 0;
   private readonly sanitizer = inject(DomSanitizer);
   private router = inject(Router)
 
@@ -27,8 +25,6 @@ export class Services {
     svg: this.sanitizer.bypassSecurityTrustHtml(card.svg)
   }));
 
-  @ViewChildren('packageContainer') packageContainers!: QueryList<ElementRef>;
-
   constructor() {
     this.seoService.updatePageSeo({
       title: 'Our Services - Vision Corporation | IT & Software Solutions',
@@ -36,38 +32,6 @@ export class Services {
       url: 'https://visioncorporationafrica.netlify.app/services',
       image: 'https://visioncorporationafrica.netlify.app/assets/images/services-og.jpeg'
     });
-  }
-
-  public isPackageExpanded(index: number): boolean {
-    return this.expandedIndex === index;
-  }
-
-  public togglePackage(index: number): void {
-    const next = this.expandedIndex === index ? null : index;
-    this.expandedIndex = next;
-
-    setTimeout(() => {
-      if (this.expandedIndex !== null) {
-        const containers = this.packageContainers.toArray();
-        const el = containers[this.expandedIndex!];
-        if (el?.nativeElement) {
-          try {
-            const rect = el.nativeElement.getBoundingClientRect();
-            const headerEl = document.querySelector('app-header');
-            const headerHeight = headerEl ? headerEl.getBoundingClientRect().height : 0;
-            const desiredTop = rect.top + window.scrollY - headerHeight - 8;
-            window.scrollTo({ top: Math.max(0, desiredTop), behavior: 'smooth' });
-          } catch (e) {
-            if (typeof el.nativeElement.scrollIntoView === 'function') {
-              el.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
-            }
-          }
-        }
-
-      }
-
-      try { AOS.refresh(); } catch (ignored) { }
-    }, 0);
   }
 
   public navigatePackageToContactForm(packageTitle: string, packageName: string): void {

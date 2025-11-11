@@ -10,26 +10,16 @@
 
 <div class="max-w-[1400px] flex flex-col gap-16 mx-auto pb-16 px-3 md:px-8 lg:px-14">
     @for(package of packages; track package.title){
-    <div #packageContainer>
+    <div>
         <div class="flex items-center justify-between sm:gap-[88px]" data-aos="fade-up">
             <div>
                 <h2 class="text-xl sm:text-[32px] text-[#262626] mb-2">{{ package.title }}</h2>
                 <p class="text-[#5D5D5D] text-lg sm:text-xl sm:leading-8">{{ package.description }}</p>
             </div>
-            <button class="bg-[#F4F6FB] w-12 h-12 p-3 rounded flex items-center justify-center cursor-pointer"
-                [attr.aria-label]="isPackageExpanded($index) ? 'Collapse package details' : 'Expand package details'"
-                [attr.aria-expanded]="isPackageExpanded($index)" (click)="togglePackage($index)">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
-                    [class.rotate-180]="isPackageExpanded($index)" [class.transform]="isPackageExpanded($index)">
-                    <path fill-rule="evenodd" clip-rule="evenodd"
-                        d="M12.5303 16.2803C12.2374 16.5732 11.7626 16.5732 11.4697 16.2803L3.96967 8.78033C3.67678 8.48744 3.67678 8.01256 3.96967 7.71967C4.26256 7.42678 4.73744 7.42678 5.03033 7.71967L12 14.6893L18.9697 7.71967C19.2626 7.42678 19.7374 7.42678 20.0303 7.71967C20.3232 8.01256 20.3232 8.48744 20.0303 8.78033L12.5303 16.2803Z"
-                        fill="#5D5D5D" />
-                </svg>
-            </button>
+
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 items-start gap-y-5 gap-x-[9px] mt-12"
-            [class.hidden]="!isPackageExpanded($index)">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 items-start gap-y-5 gap-x-[9px] mt-12">
             @for(packageType of package.types; track packageType.name){
             <div class="border border-[#D1D1D1] p-4 rounded-lg w-full" data-aos="fade-up" data-aos-delay="100">
                 <h3 class="text-[#262626] text-xl flex items-center gap-2 mb-2">
@@ -93,7 +83,8 @@
                 }
                 <h3 class="my-6 customise-sub-title text-xl text-[#262626]">Starting from <span>{{ packageType.price |
                         currency:'USD':'symbol':'1.0-0' }}</span></h3>
-                <button (click)="navigatePackageToContactForm(package.value, packageType.name)" class="rounded w-full flex items-center justify-center gap-3 py-3 cursor-pointer"
+                <button (click)="navigatePackageToContactForm(package.value, packageType.name)"
+                    class="rounded w-full flex items-center justify-center gap-3 py-3 cursor-pointer"
                     [ngClass]="{ 'border border-[#2559EB] hover:bg-[#DBE4FE] transition-colors duration-200 focus:outline-none focus:ring-[2px] focus:ring-[#2559EB] focus:ring-offset-2 text-[#2559EB]': packageType.name === 'Basic Package', 'bg-[#2559EB] hover:bg-[#1D4ED8] transition-colors duration-200 
           focus:outline-none focus:ring-[2px] focus:ring-[#2559EB] focus:ring-offset-2 text-white': packageType.name !== 'Basic Package' }">
                     Get now
@@ -125,7 +116,8 @@
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-y-[50px] gap-[25px]">
         @for(otherService of otherServices; track otherService.title){
-        <div class="relative border border-[#D1D1D1] rounded p-5" data-aos="fade-up" [attr.data-aos-delay]="$index * 150">
+        <div class="relative border border-[#D1D1D1] rounded p-5" data-aos="fade-up"
+            [attr.data-aos-delay]="$index * 150">
             <div class="w-[150px] h-[150px] inline mb-4" [innerHTML]="otherService.svg"></div>
             <h3 class="text-[#2559EB] text-xl">{{otherService.title}}</h3>
             <p class="text-[#5D5D5D]">{{otherService.description}}</p>
