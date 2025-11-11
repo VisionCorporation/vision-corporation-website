@@ -48,13 +48,13 @@
     <a routerLink="/contact" class="bg-[#2559EB] hover:bg-[#1D4ED8] transition-colors duration-200 
           focus:outline-none focus:ring-[2px] focus:ring-[#2559EB] focus:ring-offset-2 
           text-white py-3 px-6 rounded hidden md:block">
-      Contact
+      Contact Us
     </a>
 
   </div>
   @if(isMenuOpen){
   <div
-    [class]="'fixed inset-0 flex flex-col px-3 py-5 border border-[#D1D1D1] bg-white w-full h-svh z-50 rounded ' + (isClosing ? 'animate-slide-out-right' : 'animate-slide-in-right')"
+    [class]="'fixed inset-0 md:hidden flex flex-col px-3 py-5 border border-[#D1D1D1] bg-white w-full h-svh z-50 rounded ' + (isClosing ? 'animate-slide-out-right' : 'animate-slide-in-right')"
     (click)="$event.stopPropagation()">
     <div class="flex top-4 items-center justify-between">
       <a routerLink="/" class="flex items-center gap-[6px]" (click)="closeMenu()" aria-label="Go to homepage">
@@ -135,7 +135,7 @@
               <path stroke-linecap="round" stroke-linejoin="round"
                 d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
             </svg>
-            Contact
+            Contact Us
           </a>
         </li>
       </ul>
