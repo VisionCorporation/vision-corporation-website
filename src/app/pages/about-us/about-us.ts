@@ -3,10 +3,11 @@ import { Header } from '../../components/shared/header/header';
 import { Footer } from '../../components/shared/footer/footer';
 import { NgOptimizedImage } from '@angular/common';
 import { WhoWeAre } from './who-we-are/who-we-are';
+import { OurVision } from './our-vision/our-vision';
 
 @Component({
   selector: 'app-about-us',
-  imports: [Header, Footer, WhoWeAre],
+  imports: [Header, Footer, WhoWeAre, OurVision],
   templateUrl: './about-us.html',
   styleUrl: './about-us.css'
 })
