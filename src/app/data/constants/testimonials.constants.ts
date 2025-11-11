@@ -9,7 +9,7 @@ export const TESTIMONIALS = [
         hasImage: false,
         userName: 'Project Stakeholder',
         userImage: 'assets/images/project-stakeholder.webp',
-        message: "The attention to detail in their UI/UX process was remarkable; they not only delivered a beautiful design but also provided a clear, intuitive user experience that will significantly increase our product adoption rates.” - Project Stakeholder."
+        message: "The attention to detail in their UI/UX process was remarkable; they not only delivered a beautiful design but also provided a clear, intuitive user experience that will significantly increase our product adoption rates."
     }, {
         hasImage: false,
         userName: 'Technical Lead',
