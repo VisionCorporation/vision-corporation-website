@@ -2,6 +2,7 @@ export const FooterLinks = [
     { label: 'Home', url: '/' },
     { label: 'Services', url: '/services' },
     { label: 'About Us', url: '/about-us' },
+    { label: 'Contact Us', url: '/contact' },
 ] as const;
 
 export const FooterServices = [
