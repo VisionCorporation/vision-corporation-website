@@ -33,14 +33,18 @@
 
     <nav class="hidden md:block" aria-label="Main navigation">
       <ul class="flex items-center justify-center gap-2">
-        <li class="p-2 text-[#5D5D5D] hover:text-[#2559EB]">
-          <a routerLink="/" routerLinkActive="text-[#2559EB]" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+        <li class="text-[#5D5D5D]">
+          <a routerLink="/" class="hover:text-[#2559EB] p-2"
+            routerLinkActive="text-[#2559EB] border-b-[2px] border-[#2559EB]"
+            [routerLinkActiveOptions]="{ exact: true }">Home</a>
         </li>
-        <li class="p-2 text-[#5D5D5D] hover:text-[#2559EB]">
-          <a routerLink="/services" routerLinkActive="text-[#2559EB]">Services</a>
+        <li class="text-[#5D5D5D]">
+          <a routerLink="/services" class="hover:text-[#2559EB] p-2"
+            routerLinkActive="ttext-[#2559EB] border-b-[2px] border-[#2559EB]">Services</a>
         </li>
-        <li class="p-2 text-[#5D5D5D] hover:text-[#2559EB]">
-          <a routerLink="/about-us" routerLinkActive="text-[#2559EB]">About Us</a>
+        <li class="text-[#5D5D5D]">
+          <a routerLink="/about-us" class="hover:text-[#2559EB] p-2"
+            routerLinkActive="text-[#2559EB] border-b-[2px] border-[#2559EB]">About Us</a>
         </li>
       </ul>
     </nav>
