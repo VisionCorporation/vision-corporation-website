@@ -1,0 +1,26 @@
+<section class="py-16">
+    <div class="relative z-10">
+        <div class="text-center mb-[78px]">
+            <h2 class="text-[30px] sm:text-[40px] leading-10 sm:leading-12 text-[#262626] mb-2" data-aos="fade-up"
+                data-aos-delay="50">Our Philosophy</h2>
+            <p class="text-xl text-[#5D5D5D] leading-8 max-w-[790px] mx-auto px-3" data-aos="fade-up"
+                data-aos-delay="60">
+                We adopt an "infinite game" strategy, aiming not just to capture market share but to continually improve
+                the systems that uplift communities across generations.</p>
+        </div>
+
+        <div
+            class="max-w-[1400px] mx-auto px-3 md:px-8 lg:px-14 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-[25px]">
+            @for(card of ourPhilosopy; track card.title){
+            <div class="bg-white border border-[#D1D1D1] rounded p-5 flex flex-col items-start shadow-[0_7px_10px_rgba(147,147,147,0.17)]"
+                data-aos="fade-up" [attr.data-aos-delay]="$index * 150">
+                <div class="bg-[#8A38F5] w-12 h-12 rounded p-3 mb-4">
+                    <div class="inline" [innerHTML]="card.svg"></div>
+                </div>
+                <h3 class="text-[#2559EB] text-xl mb-2">{{card.title}}</h3>
+                <p class="text-[#5D5D5D]">{{card.description}}</p>
+            </div>
+            }
+        </div>
+    </div>
+</section>
