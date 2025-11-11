@@ -10,4 +10,42 @@
                 addressing critical needs across Africa.</p>
         </div>
     </div>
+
+    <div class="flex items-center justify-center max-w-[1400px] mx-auto px-3 md:px-8 lg:px-14 text-white">
+        <div class="relative w-full">
+            <div class="hidden lg:block">
+                <svg class="absolute w-full h-full inset-0 z-10" viewBox="0 0 1000 800" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+
+                    <path d="M 150 150 C 400 0, 1000 200, 750 350" stroke="#FFFFFF" stroke-opacity="1" stroke-width="2"
+                        stroke-dasharray="40 40" stroke-linecap="round" />
+
+                    <path d="M 750 350 C 700 650, 400 600, 200 500" stroke="#FFFFFF" stroke-opacity="1" stroke-width="2"
+                        stroke-dasharray="40 40" stroke-linecap="round" />
+
+                    <path d="M 200 500 C 400 450, 600 600, 850 650" stroke="#FFFFFF" stroke-opacity="1" stroke-width="2"
+                        stroke-dasharray="40 40" stroke-linecap="round" />
+                </svg>
+            </div>
+
+            <div
+                class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-[30px] lg:gap-0 lg:block lg:h-[800px] z-20 relative">
+                @for (feature of features; track $index) {
+                <div [ngClass]="feature.positionClasses" data-aos="fade-up" [attr.data-aos-delay]="$index * 150"
+                    class="bg-white p-4 rounded transition-all hover:shadow-3xl transform hover:scale-[1.01] w-full lg:w-[375px] flex flex-col justify-between">
+                    <div class="flex flex-col items-start gap-4">
+                        <div [ngClass]="feature.iconBg" class="p-3 rounded flex-shrink-0">
+                            <div [innerHTML]="feature.svg" class="w-6 h-6"></div>
+                        </div>
+                        <h3 class="text-xl text-[#262626]">{{ feature.title }}</h3>
+                    </div>
+
+                    <p class="text-[#5D5D5D] mt-2">
+                        {{ feature.description }}
+                    </p>
+                </div>
+                }
+            </div>
+        </div>
+    </div>
 </section>
