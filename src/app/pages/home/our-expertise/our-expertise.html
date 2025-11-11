@@ -2,7 +2,7 @@
     <div class="absolute inset-0 bg-gradient-to-bl from-[#2559EB]/100 to-[#8A38F5]/90 pointer-events-none"></div>
     <div class="relative z-10">
         <div class="text-center mb-[78px]">
-            <h2 class="text-[30px] sm:text-[40px] leading-10 sm:leading-12 text-white mb-2" data-aos="fade-up"
+            <h2 class="text-[30px] sm:text-[48px] leading-10 sm:leading-12 text-white mb-2" data-aos="fade-up"
                 data-aos-delay="50">Explore our Expertise</h2>
             <p class="text-xl text-white leading-8" data-aos="fade-up" data-aos-delay="60">Experience the power of
                 innovation with our specialized services.
@@ -16,7 +16,7 @@
                     <div
                         class="flex gap-4 sm:gap-6 md:gap-[30px] lg:gap-[75px] lg:pr-[max(0px,calc((100vw-1240px)/2))]">
                         @for(card of expertiseCards; track $index){
-                        <div class="bg-white w-[280px] sm:w-[320px] md:w-[350px] rounded px-5 py-10 text-center flex-shrink-0 expertise-card"
+                        <div class="bg-white w-[280px] sm:w-[320px] md:w-[350px] rounded px-5 py-8 flex-shrink-0 expertise-card"
                             data-aos="fade-up" [attr.data-aos-delay]="$index * 150">
                             <div [innerHTML]="card.safeSvg"
                                 class="w-[160px] sm:w-[180px] md:w-[200px] h-[160px] sm:h-[180px] md:h-[200px] mx-auto mb-4 sm:mb-5 md:mb-6 [&>svg]:w-full [&>svg]:h-full">
