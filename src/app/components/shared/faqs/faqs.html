@@ -21,8 +21,8 @@
         <div class="flex flex-col gap-4">
             @for(item of faqs; track $index){
             @if(item && item.category === activeTab){
-            <div class="flex bg-white rounded p-4 gap-3 sm:gap-4 faq-card" [class.expanded]="expandedIndex === $index"
-                data-aos="fade-up">
+            <div class="flex bg-white hover:bg-[#DBE4FE] rounded p-4 gap-3 sm:gap-4 faq-card cursor-pointer"
+                (click)="toggle($index)" [class.expanded]="expandedIndex === $index" data-aos="fade-up">
                 <div class="flex items-center justify-center w-12 h-12 rounded bg-[#F4F6FB] p-3 flex-shrink-0"
                     aria-hidden="true">
                     @if(item.category === 'General'){
@@ -55,7 +55,7 @@
                     }
                 </div>
                 <div class="w-full flex flex-col cursor-pointer faq-content-wrapper"
-                    [class.expanded]="expandedIndex === $index" role="button" (click)="toggle($index)"
+                    [class.expanded]="expandedIndex === $index" role="button"
                     [attr.aria-expanded]="expandedIndex === $index">
                     <div class="flex items-center justify-between">
                         <div class="text-[#262626] text-[18px] sm:text-xl leading-5">{{ item.question }}</div>

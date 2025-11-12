@@ -25,6 +25,12 @@ export const FAQS = [
     },
     {
         category: 'General',
+        question: 'How long will it take to develop my website?',
+        answer:
+            'Basic websites typically take one month to develop. More complex projects with advanced features may require additional time depending on your specific requirements.',
+    },
+    {
+        category: 'General',
         question: 'How different is Vision Corporation from other digital solution companies?',
         answer:
             'We build purposeful digital experiences. Guided by our values of integrity, openness, innovation, and collaboration, we focus on delivering practical solutions that empower clients and create lasting impact.',
@@ -48,6 +54,11 @@ export const FAQS = [
         category: 'Web Development',
         question: 'Will my website work on all devices?',
         answer: 'All our web solutions are responsive and optimized for excellent performance across desktop, tablet and mobile devices',
+    },
+    {
+        category: 'Web Development',
+        question: 'Can I update the content of the website by myself?',
+        answer: 'Yes. We implement easy-to-use Content Management System solutions that allow you to update your website content anytime, no coding required. We also provide training to ensure you\'re comfortable managing your site.',
     },
     {
         category: 'Web Development',
