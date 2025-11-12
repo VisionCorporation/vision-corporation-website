@@ -34,8 +34,7 @@ export const OTHER_SERVICES = [{
 </defs>
 </svg>`,
     title: 'UI/UX Design',
-    description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing Suspendisse et justo.',
-    specs: ['Lorem ipsum dolor sit amet', "Lorem ipsum dolor sit amet"]
+    description: 'Beautiful, intuitive interfaces that put users first and drive meaningful engagement.',
 },
 {
     value: "frontend-development",
@@ -49,8 +48,7 @@ export const OTHER_SERVICES = [{
 </defs>
 </svg>`,
     title: 'Frontend Development',
-    description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing Suspendisse et justo.',
-    specs: ['Lorem ipsum dolor sit amet', "Lorem ipsum dolor sit amet"]
+    description: 'Fast, responsive web applications that deliver exceptional experiences on any device.',
 },
 {
     value: "backend-development",
@@ -64,6 +62,5 @@ export const OTHER_SERVICES = [{
 </defs>
 </svg>`,
     title: 'Backend Development',
-    description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing Suspendisse et justo.',
-    specs: ['Lorem ipsum dolor sit amet', "Lorem ipsum dolor sit amet"]
+    description: 'Secure, scalable systems that power your applications with reliability and performance.',
 }]
