@@ -13,39 +13,46 @@
 
     <div class="flex items-center justify-center max-w-[1400px] mx-auto px-3 md:px-8 lg:px-14 text-white">
         <div class="relative w-full">
-            <div class="hidden lg:block">
-                <svg class="absolute w-full h-full inset-0 z-10" viewBox="0 0 1000 800" fill="none"
-                    xmlns="http://www.w3.org/2000/svg">
+            <div class="hidden lg:block absolute inset-0 z-10 pointer-events-none">
+                <svg viewBox="0 0 1400 300" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    class="absolute top-[100px] left-0 w-full h-[230px]">
+                    <path d="M 250 100 C 550 20, 950 60, 1150 200" stroke="white" stroke-width="2"
+                        stroke-dasharray="45 30" stroke-linecap="round" opacity="1" />
+                </svg>
+            </div>
 
-                    <path d="M 150 150 C 400 0, 1000 200, 750 350" stroke="#FFFFFF" stroke-opacity="1" stroke-width="2"
-                        stroke-dasharray="40 40" stroke-linecap="round" />
+            <div class="hidden lg:block absolute inset-0 z-10 pointer-events-none">
+                <svg viewBox="0 0 1400 400" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    class="absolute top-[280px] left-0 w-full h-[310px]">
+                    <path d="M 1000 60 C 350 50, 180 50, 100 380" stroke="white" stroke-width="2"
+                        stroke-dasharray="45 25" stroke-linecap="round" opacity="1" />
+                </svg>
+            </div>
 
-                    <path d="M 750 350 C 700 650, 400 600, 200 500" stroke="#FFFFFF" stroke-opacity="1" stroke-width="2"
-                        stroke-dasharray="40 40" stroke-linecap="round" />
-
-                    <path d="M 200 500 C 400 450, 600 600, 850 650" stroke="#FFFFFF" stroke-opacity="1" stroke-width="2"
-                        stroke-dasharray="40 40" stroke-linecap="round" />
+            <div class="hidden lg:block absolute inset-0 z-10 pointer-events-none">
+                <svg viewBox="0 0 1400 300" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    class="absolute top-[560px] left-0 w-full h-[220px]">
+                    <path d="M 230 0 C 50 10, 150 320, 1000 205" stroke="white" stroke-width="2"
+                        stroke-dasharray="45 25" stroke-linecap="round" opacity="1" />
                 </svg>
             </div>
 
             <div
-                class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-[30px] lg:gap-0 lg:block lg:h-[800px] z-20 relative">
+                class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-[30px] lg:gap-0 lg:block lg:h-[820px] z-20 relative">
                 @for (feature of features; track $index) {
-                <div [ngClass]="feature.positionClasses" data-aos="fade-up" [attr.data-aos-delay]="$index * 150"
-                    class="bg-white p-4 rounded transition-all hover:shadow-3xl transform hover:scale-[1.01] w-full lg:w-[375px] flex flex-col justify-between">
+                <div [ngClass]="feature.positionClasses"
+                    class="bg-white p-4 rounded w-full lg:w-[360px] flex flex-col justify-between">
                     <div class="flex flex-col items-start gap-4">
                         <div [ngClass]="feature.iconBg" class="p-3 rounded flex-shrink-0">
                             <div [innerHTML]="feature.svg" class="w-6 h-6"></div>
                         </div>
                         <h3 class="text-xl text-[#262626]">{{ feature.title }}</h3>
                     </div>
-
-                    <p class="text-[#5D5D5D] mt-2">
-                        {{ feature.description }}
-                    </p>
+                    <p class="text-[#5D5D5D] mt-2">{{ feature.description }}</p>
                 </div>
                 }
             </div>
         </div>
+
     </div>
 </section>
