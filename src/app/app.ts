@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Inject, OnDestroy, OnInit, PLATFORM_ID } from '@angular/core';
+import { AfterViewInit, Component, Inject, OnDestroy, OnInit, PLATFORM_ID, Renderer2 } from '@angular/core';
 import AOS from 'aos';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { Router, RouterOutlet, NavigationEnd, ActivatedRouteSnapshot, NavigationStart, NavigationCancel, NavigationError } from '@angular/router';
@@ -38,7 +38,7 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: object,
-    private router: Router
+    private router: Router, private renderer: Renderer2
   ) {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationStart) {
@@ -91,6 +91,15 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
         const rootRoute = this.router.routerState.snapshot.root;
         this.hideCookieBanner = this.shouldHideCookieBanner(rootRoute);
       });
+
+    const overlay = this.renderer.selectRootElement('#global-loading-overlay', true);
+
+    this.renderer.setStyle(overlay, 'opacity', '0');
+
+    setTimeout(() => {
+      this.renderer.setStyle(overlay, 'display', 'none');
+    }, 500);
+
   }
 
   private shouldHideCookieBanner(route: ActivatedRouteSnapshot): boolean {
