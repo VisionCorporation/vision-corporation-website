@@ -15,42 +15,50 @@ export class SeoService {
     url: string;
     image?: string;
   }) {
-    // Update title
-    this.title.setTitle(config.title);
+    // Normalize URL (remove trailing slash)
+    const url = this.normalizeUrl(config.url);
 
-    // Update standard meta tags
+    this.title.setTitle(config.title);
     this.meta.updateTag({ name: 'description', content: config.description });
 
-    // Update Open Graph tags
+    // Open Graph
     this.meta.updateTag({ property: 'og:title', content: config.title });
     this.meta.updateTag({ property: 'og:description', content: config.description });
-    this.meta.updateTag({ property: 'og:url', content: config.url });
+    this.meta.updateTag({ property: 'og:url', content: url });
     this.meta.updateTag({ property: 'og:type', content: 'website' });
-    if (config.image) {
-      this.meta.updateTag({ property: 'og:image', content: config.image });
-    }
+    if (config.image) this.meta.updateTag({ property: 'og:image', content: config.image });
 
-    // Update Twitter tags
+    // Twitter
     this.meta.updateTag({ name: 'twitter:title', content: config.title });
     this.meta.updateTag({ name: 'twitter:description', content: config.description });
-    this.meta.updateTag({ property: 'twitter:url', content: config.url });
-    if (config.image) {
-      this.meta.updateTag({ name: 'twitter:image', content: config.image });
-    }
+    this.meta.updateTag({ property: 'twitter:url', content: url });
+    if (config.image) this.meta.updateTag({ name: 'twitter:image', content: config.image });
 
-    // Update canonical link
-    this.updateCanonicalUrl(config.url);
+    // Canonical
+    this.updateCanonicalUrl(url);
   }
 
+  private normalizeUrl(url: string): string {
+    // Remove trailing slash if not the root domain
+    const origin = new URL(url).origin;
+    return url.endsWith('/') && url !== `${origin}/` ? url.slice(0, -1) : url;
+  }
+
+
   private updateCanonicalUrl(url: string) {
+    // Remove trailing slash if present (except for domain root)
+    const normalizedUrl =
+      url.endsWith('/') && url !== `${new URL(url).origin}/` ? url.slice(0, -1) : url;
+
     let link: HTMLLinkElement | null = this.document.querySelector("link[rel='canonical']");
     if (link) {
-      link.setAttribute('href', url);
+      link.setAttribute('href', normalizedUrl);
     } else {
       link = this.document.createElement('link');
       link.setAttribute('rel', 'canonical');
-      link.setAttribute('href', url);
+      link.setAttribute('href', normalizedUrl);
       this.document.head.appendChild(link);
     }
   }
+
 }
