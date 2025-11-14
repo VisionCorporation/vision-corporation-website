@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://visioncorporationafrica.netlify.app/sitemap.xml
