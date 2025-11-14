@@ -22,7 +22,7 @@ export class AboutUs {
     this.seoService.updatePageSeo({
       title: 'About Us | Vision Corporation - Building Digital Futures',
       description: 'Discover Vision Corporation, a forward-thinking team delivering modern web development, software solutions, and digital innovation across Africa and beyond.',
-      url: 'https://visioncorporationafrica.netlify.app/about-us',
+      url: 'https://visioncorporationafrica.netlify.app/about-us/',
       image: 'https://visioncorporationafrica.netlify.app/assets/images/about-us-og.jpeg'
     });
   }

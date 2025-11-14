@@ -20,7 +20,7 @@ export class PrivacyPolicy {
     this.seoService.updatePageSeo({
       title: 'Privacy Policy - Vision Corporation | Data Protection Rules',
       description: 'Read Vision Corporation’s Privacy Policy to learn how we collect, use, and protect your personal information while ensuring transparency and data security.',
-      url: 'https://visioncorporationafrica.netlify.app/privacy-policy',
+      url: 'https://visioncorporationafrica.netlify.app/privacy-policy/',
       image: 'https://visioncorporationafrica.netlify.app/assets/images/privacy-policy-og.jpeg'
     });
   }

@@ -60,7 +60,7 @@ export class Contact {
     this.seoService.updatePageSeo({
       title: 'Contact Us - Vision Corporation | IT & Software Support',
       description: 'Contact Vision Corporation for software development, IT consulting, and digital solutions. Let\'s discuss your project and find the best solutions together.',
-      url: 'https://visioncorporationafrica.netlify.app/contact',
+      url: 'https://visioncorporationafrica.netlify.app/contact/',
       image: 'https://visioncorporationafrica.netlify.app/assets/images/contact-og.jpeg'
     });
   }

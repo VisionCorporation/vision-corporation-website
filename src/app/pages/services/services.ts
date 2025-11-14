@@ -29,7 +29,7 @@ export class Services {
     this.seoService.updatePageSeo({
       title: 'Our Services - Vision Corporation | IT & Software Solutions',
       description: 'Expert software development, cloud solutions, IT consulting, and digital transformation services designed to empower businesses and drive long-term success.',
-      url: 'https://visioncorporationafrica.netlify.app/services',
+      url: 'https://visioncorporationafrica.netlify.app/services/',
       image: 'https://visioncorporationafrica.netlify.app/assets/images/services-og.jpeg'
     });
   }
