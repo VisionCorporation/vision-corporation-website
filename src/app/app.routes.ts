@@ -7,7 +7,6 @@ export const routes: Routes = [
     { path: 'about-us', loadComponent: () => import("./pages/about-us/about-us").then((c) => c.AboutUs) },
     { path: 'contact', loadComponent: () => import("./pages/contact/contact").then((c) => c.Contact) },
     { path: 'privacy-policy', loadComponent: () => import("./pages/privacy-policy/privacy-policy").then((c) => c.PrivacyPolicy) },
-    { path: 'privacy-policy', loadComponent: () => import("./pages/privacy-policy/privacy-policy").then((c) => c.PrivacyPolicy) },
     { path: 'terms-of-service', loadComponent: () => import("./pages/terms-of-service/terms-of-service").then((c) => c.TermsOfService) },
     { path: 'cookie-policy', loadComponent: () => import("./pages/cookie-policy/cookie-policy").then((c) => c.CookiePolicy) },
     {
