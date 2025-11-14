@@ -1,6 +1,7 @@
 import { NgOptimizedImage } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CORE_VALUES } from '../../../data/constants/core-values.constants';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-core-values',
@@ -9,5 +10,10 @@ import { CORE_VALUES } from '../../../data/constants/core-values.constants';
   styleUrl: './core-values.css'
 })
 export class CoreValues {
-  public readonly coreValues = CORE_VALUES
+  private readonly sanitizer = inject(DomSanitizer);
+
+  public readonly coreValues = CORE_VALUES.map(card => ({
+    ...card,
+    icon: this.sanitizer.bypassSecurityTrustHtml(card.icon)
+  }));
 }

@@ -20,8 +20,7 @@
         @for(value of coreValues; track $index){
         <div class="flex items-start gap-4" data-aos="zoom-in" [attr.data-aos-delay]="$index * 100">
             <div class="flex items-center justify-center">
-                <img [ngSrc]="value.icon" alt="{{ value.title }}" width="64" height="64"
-                    class="w-12 sm:w-16 h-12 sm:h-16 object-contain flex-shrink-0">
+                <div [innerHTML]="value.icon" class="w-12 h-12 md:w-16 md:h-16 [&>svg]:w-full [&>svg]:h-full"></div>
             </div>
             <div>
                 <h3 class="text-xl text-[#262626]">{{ value.title }}</h3>
