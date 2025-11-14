@@ -10,6 +10,23 @@
   function = "angular-ssr"
   path = "/*"
 
+# --- IMPORTANT: STATIC FILE EXCEPTIONS ----
+# These MUST come before the wildcard rewrite
+
+# Serve sitemap.xml as raw XML file
+[[redirects]]
+  from = "/sitemap.xml"
+  to = "/sitemap.xml"
+  status = 200
+
+# Serve robots.txt as raw plain-text file
+[[redirects]]
+  from = "/robots.txt"
+  to = "/robots.txt"
+  status = 200
+
+# --- MAIN SSR WILDCARD HANDLER ---
+# This must stay LAST
 [[redirects]]
   from = "/*"
   to = "/:splat"
