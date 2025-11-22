@@ -82,7 +82,7 @@ img {
   scrollbar-width: none;
 }
 
-p {
+p, li {
   font-weight: 300
 }
 
