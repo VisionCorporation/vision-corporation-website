@@ -8,7 +8,7 @@ import { RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-privacy-policy',
-  imports: [Header, Footer, NgOptimizedImage, RouterLink],
+  imports: [Header, Footer, NgOptimizedImage],
   templateUrl: './privacy-policy.html',
   styleUrl: './privacy-policy.css'
 })
