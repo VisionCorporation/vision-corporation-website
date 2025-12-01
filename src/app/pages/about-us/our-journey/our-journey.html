@@ -5,54 +5,88 @@
         <div class="text-center mb-[78px]">
             <h2 class="text-[30px] sm:text-[40px] leading-10 sm:leading-12 text-white mb-2" data-aos="fade-up"
                 data-aos-delay="50">Our Journey</h2>
-            <p class="text-xl text-white leading-8 max-w-[747px] mx-auto px-3 " data-aos="fade-up" data-aos-delay="60">
+            <p class="text-xl text-white leading-8 max-w-[747px] mx-auto px-3" data-aos="fade-up" data-aos-delay="60">
                 Beginning with software development as our launchpad, we employ rapid prototyping to create solutions
-                addressing critical needs across Africa.</p>
+                addressing critical needs across Africa.
+            </p>
         </div>
-    </div>
 
-    <div class="flex items-center justify-center max-w-[1400px] mx-auto px-3 md:px-8 lg:px-14 text-white">
-        <div class="relative w-full">
-            <div class="hidden lg:block absolute inset-0 z-10 pointer-events-none">
-                <svg viewBox="0 0 1400 300" fill="none" xmlns="http://www.w3.org/2000/svg"
-                    class="absolute top-[100px] left-0 w-full h-[230px]">
-                    <path d="M 250 100 C 550 20, 950 60, 1150 200" stroke="white" stroke-width="2"
-                        stroke-dasharray="45 30" stroke-linecap="round" opacity="1" />
-                </svg>
-            </div>
+        <div class="flex items-center justify-center max-w-[1400px] mx-auto px-3 md:px-8 lg:px-14 overflow-hidden">
+            <div class="relative w-full">
+                <div class="max-w-7xl mx-auto">
+                    <div class="relative">
 
-            <div class="hidden lg:block absolute inset-0 z-10 pointer-events-none">
-                <svg viewBox="0 0 1400 400" fill="none" xmlns="http://www.w3.org/2000/svg"
-                    class="absolute top-[280px] left-0 w-full h-[310px]">
-                    <path d="M 1000 60 C 350 50, 180 50, 100 380" stroke="white" stroke-width="2"
-                        stroke-dasharray="45 25" stroke-linecap="round" opacity="1" />
-                </svg>
-            </div>
-
-            <div class="hidden lg:block absolute inset-0 z-10 pointer-events-none">
-                <svg viewBox="0 0 1400 300" fill="none" xmlns="http://www.w3.org/2000/svg"
-                    class="absolute top-[560px] left-0 w-full h-[220px]">
-                    <path d="M 100 0 C 50 40, 150 310, 1000 280" stroke="white" stroke-width="2"
-                        stroke-dasharray="45 25" stroke-linecap="round" opacity="1" />
-                </svg>
-            </div>
-
-            <div
-                class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-[30px] lg:gap-0 lg:block lg:h-[820px] z-20 relative">
-                @for (feature of features; track $index) {
-                <div [ngClass]="feature.positionClasses"
-                    class="bg-white p-4 rounded w-full lg:w-[360px] flex flex-col justify-between">
-                    <div class="flex flex-col items-start gap-4">
-                        <div [ngClass]="feature.iconBg" class="p-3 rounded flex-shrink-0">
-                            <div [innerHTML]="feature.svg" class="w-6 h-6"></div>
+                        <div
+                            class="hidden lg:block absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-white/30 rounded-full">
                         </div>
-                        <h3 class="text-xl text-[#2559EB]">{{ feature.title }}</h3>
+                        <div
+                            class="hidden lg:block absolute left-1/2 transform -translate-x-1/2 w-1 bg-gradient-to-b from-white/80 via-white/60 to-white/40 timeline-line-animated rounded-full shadow-lg">
+                        </div>
+
+                        <div
+                            class="block lg:hidden absolute left-6 top-0 w-0.5 h-full bg-gradient-to-b from-white/80 via-white/60 to-white/40 rounded-full">
+                        </div>
+
+                        <div class="space-y-16 lg:space-y-32">
+                            @for (feature of features; track $index) {
+                            <div class="relative flex flex-col lg:flex-row items-start lg:items-center gap-8"
+                                [ngClass]="$index % 2 === 0 ? 'lg:flex-row-reverse' : 'lg:flex-row'"
+                                (mouseenter)="setActive($index)" (mouseleave)="clearActive()">
+
+                                <div class="hidden lg:flex absolute left-1/2 transform -translate-x-1/2 z-20">
+                                    <div [ngClass]="[feature.iconBg]"
+                                        class="timeline-dot w-20 h-20 rounded-full flex items-center justify-center shadow-2xl border-4 border-white"
+                                        [style.animation-delay.ms]="$index * 150">
+                                        <div [innerHTML]="feature.svg" class="w-8 h-8 flex items-center justify-center">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="flex lg:hidden absolute left-0 z-10">
+                                    <div [ngClass]="[feature.iconBg]"
+                                        class="timeline-dot w-12 h-12 rounded-full flex items-center justify-center shadow-xl border-2 border-white">
+                                        <div [innerHTML]="feature.svg" class="w-5 h-5"></div>
+                                    </div>
+                                </div>
+
+                                <div class="hidden lg:block flex-1"></div>
+
+                                <div class="flex-1 w-full max-w-[calc(100vw-5rem)] lg:max-w-lg ml-16 lg:ml-0" [ngClass]="{
+                                        'timeline-card-left': $index % 2 !== 0,
+                                        'timeline-card-right': $index % 2 === 0,
+                                        'timeline-card-mobile': true
+                                    }" [style.animation-delay.ms]="$index * 200">
+
+                                    <div class="bg-white/95 backdrop-blur-sm rounded shadow-lg p-4 lg:p-8 transform transition-all duration-300 hover:shadow-[0_20px_60px_rgba(0,0,0,0.3)] border border-white/50 relative overflow-hidden"
+                                        [ngClass]="{'ring-1 ring-white/50 ring-offset-1 ring-offset-transparent': activeIndex === $index}"
+                                        data-aos="fade-up" data-aos-delay="60">
+
+                                        <div [ngClass]="[feature.iconBg]"
+                                            class="absolute top-0 right-0 w-32 h-32 opacity-90 rounded-bl-full transform translate-x-16 -translate-y-16">
+                                        </div>
+
+                                        <div class="relative z-10 flex flex-col justify-between h-full">
+                                            <div class="flex flex-col items-start gap-4 mb-4">
+                                                <h3 class="text-2xl lg:text-3xl font-bold text-[#2559EB] leading-tight">
+                                                    {{ feature.title }}
+                                                </h3>
+                                            </div>
+
+                                            <div>
+                                                <p class="text-[#5D5D5D] text-base lg:text-lg leading-relaxed mb-4">
+                                                    {{ feature.description }}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            }
+                        </div>
                     </div>
-                    <p class="text-[#5D5D5D] mt-2">{{ feature.description }}</p>
                 </div>
-                }
             </div>
         </div>
-
     </div>
 </section>

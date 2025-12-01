@@ -16,4 +16,15 @@ export class OurJourney {
     ...card,
     svg: this.sanitizer.bypassSecurityTrustHtml(card.svg)
   }));
+
+
+  activeIndex = -1;
+
+  setActive(index: number) {
+    this.activeIndex = index;
+  }
+
+  clearActive() {
+    this.activeIndex = -1;
+  }
 }
