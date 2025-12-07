@@ -61,7 +61,7 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe((event: NavigationEnd) => {
         if (this.cookiePreferences.analytics && window.gtag) {
-          window.gtag('config', 'G-Y9GGWL1N5Q', {
+          window.gtag('config', 'G-ZJXXM97TJ5', {
             page_path: event.urlAfterRedirects
           });
         }
@@ -134,14 +134,14 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
 
     const script = document.createElement('script');
     script.async = true;
-    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-Y9GGWL1N5Q';
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-ZJXXM97TJ5';
     document.head.appendChild(script);
 
     window.dataLayer = window.dataLayer || [];
     window.gtag = window.gtag || function () { window.dataLayer!.push(arguments); };
 
     window.gtag('js', new Date());
-    window.gtag('config', 'G-Y9GGWL1N5Q');
+    window.gtag('config', 'G-ZJXXM97TJ5');
 
     this.analyticsScriptLoaded = true;
   }
