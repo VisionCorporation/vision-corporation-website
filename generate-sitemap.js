@@ -11,7 +11,7 @@ const routes = [
     '/cookie-policy'
 ];
 
-const domain = 'https://visioncorporationafrica.netlify.app';
+const domain = 'https://visioncorporation.africa';
 
 const lastmod = new Date().toISOString();
 

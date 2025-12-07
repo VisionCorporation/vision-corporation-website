@@ -19,8 +19,8 @@ export class CookiePolicy {
     this.seoService.updatePageSeo({
       title: 'Cookie Policy - Vision Corporation | How We Use Cookies',
       description: 'Learn how Vision Corporation uses cookies to enhance website functionality, improve user experience, and ensure transparency, privacy, and data protection.',
-      url: 'https://visioncorporationafrica.netlify.app/cookie-policy',
-      image: 'https://visioncorporationafrica.netlify.app/assets/images/cookie-policy-og.jpeg'
+      url: 'https://visioncorporation.africa/cookie-policy',
+      image: 'https://visioncorporation.africa/assets/images/cookie-policy-og.jpeg'
     });
   }
 }

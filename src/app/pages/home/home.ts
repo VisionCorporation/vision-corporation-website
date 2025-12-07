@@ -22,8 +22,8 @@ export class Home {
     this.seoService.updatePageSeo({
       title: 'Vision Corporation – IT Solutions & Digital Transformation',
       description: 'Empowering businesses across Africa with innovative software development, IT consulting, and digital transformation solutions that drive growth and success.',
-      url: 'https://visioncorporationafrica.netlify.app/',
-      image: 'https://visioncorporationafrica.netlify.app/assets/images/home-og.jpeg'
+      url: 'https://visioncorporation.africa/',
+      image: 'https://visioncorporation.africa/assets/images/home-og.jpeg'
     });
   }
 }
