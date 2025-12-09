@@ -13,7 +13,7 @@
             background-size: 48px 48px, 48px 48px, 100% 100%, 100% 100%;
         "></div>
     <section
-        class="max-w-[1400px] mx-auto px-3 md:px-8 lg:px-14 pt-20 lg:pb-12 flex items-center flex-wrap gap-14 relative z-10 flex-col lg:flex-row">
+        class="max-w-[1400px]    mx-auto px-3 md:px-8 lg:px-14 pt-20 lg:pb-20 flex items-center flex-wrap gap-14 relative z-10 flex-col lg:flex-row">
         <div class="grow shrink basis-0 min-w-[240px] text-center lg:text-left">
             <span class="inline-flex border border-[#348537] rounded gap-1 p-1 bg-[#F3FAF3] text-[#246B29] font-medium"
                 data-aos="fade-up" data-aos-delay="40">
@@ -37,9 +37,9 @@
             </p>
             <div class="flex items-center justify-center lg:justify-start gap-5 sm:gap-[35px] w-full" data-aos="fade-up"
                 data-aos-delay="70">
-                <a routerLink="/"
+                <a routerLink="/services"
                     class="bg-[#2559EB] hover:bg-[#1D4ED8] transition-[background-color] duration-200 
-          focus:outline-none focus:ring-[2px] focus:ring-[#2559EB] focus:ring-offset-2 text-white py-3 px-3 sm:px-6 rounded w-1/2 sm:w-auto text-center flex items-center justify-center">
+          focus:outline-none focus:ring-[2px] focus:ring-[#2559EB] focus:ring-offset-2 text-white py-3 px-3 sm:px-6 rounded w-full sm:w-auto text-center flex items-center justify-center">
                     Get Started
                     <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg"
                         class="ml-2 sm:ml-3">
@@ -47,35 +47,12 @@
                             stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
                 </a>
-                <a routerLink="/projects"
-                    class="border border-[#2559EB] hover:bg-[#DBE4FE] transition-colors duration-200 focus:outline-none focus:ring-[2px] focus:ring-[#2559EB] focus:ring-offset-2 text-[#2559EB] py-3 px-4 sm:px-6 rounded w-1/2 sm:w-auto text-center flex items-center justify-center">
-                    View Projects
-                </a>
             </div>
 
         </div>
         <div class="relative grow shrink basis-0 min-w-[240px] items-center flex justify-end" data-aos="fade-up"
             data-aos-delay="60">
-            <img ngSrc="assets/images/grey-man.webp" alt="grey-man" width="103" height="95" priority
-                class="absolute top-0 right-0" />
-
             <img ngSrc="assets/images/yellow-man.webp" alt="yellow-man" width="632" height="586" priority />
         </div>
-
-        <div class="w-full mx-auto mt-[70px] mb-[120px] flex items-center justify-center flex-wrap gap-16">
-            @for (stat of achievementStats; track $index) {
-            <div class="flex flex-col items-center justify-center" data-aos="fade-up"
-                [attr.data-aos-delay]="$index * 150">
-                <div class="bg-[#DBE4FE] w-12 h-12 flex items-center justify-center rounded mb-2 gap-[5px]">
-                    <div [innerHTML]="stat.svg" class="w-6 h-6"></div>
-                </div>
-                <h2 class="text-[32px] text-[#262626] leading-10 mb-2">{{ stat.value }}</h2>
-                <p class="text-[#5D5D5D] sm:text-xl leading-8 text-center">
-                    {{ stat.name }}
-                </p>
-            </div>
-            }
-        </div>
-
     </section>
 </div>
