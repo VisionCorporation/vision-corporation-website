@@ -1,15 +1,12 @@
 import { AngularAppEngine, createRequestHandler } from '@angular/ssr';
-import { getContext } from '@netlify/angular-runtime/context.mjs';
 
 const angularAppEngine = new AngularAppEngine();
 
-export async function netlifyAppEngineHandler(request: Request): Promise<Response> {
-  const context = getContext();
-  
-  // Angular handles everything including 404s via serverRoutes config
-  const result = await angularAppEngine.handle(request, context);
+export async function appEngineHandler(request: Request): Promise<Response> {
+  // Angular handles all routing internally
+  const result = await angularAppEngine.handle(request);
 
-  // Fallback only if Angular completely fails
+  // If Angular SSR fails completely, return fallback
   if (!result) {
     return new Response('Not Found', {
       status: 404,
@@ -20,4 +17,4 @@ export async function netlifyAppEngineHandler(request: Request): Promise<Respons
   return result;
 }
 
-export const reqHandler = createRequestHandler(netlifyAppEngineHandler);
+export const reqHandler = createRequestHandler(appEngineHandler);
