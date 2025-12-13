@@ -1,29 +1,35 @@
-<section class="relative py-[60px] md:py-[90px] bg-[url('/assets/images/our-expertise-bg.webp')] bg-cover bg-center bg-no-repeat">
+<section
+    class="relative py-[60px] md:py-[90px] bg-[url('/assets/images/our-expertise-bg.webp')] bg-cover bg-center bg-no-repeat">
     <div class="absolute inset-0 bg-gradient-to-bl from-[#2559EB]/100 to-[#8A38F5]/90 pointer-events-none"></div>
     <div class="relative z-10">
         <div class="text-center mb-[78px]">
             <h2 class="text-[30px] sm:text-[48px] leading-10 sm:leading-12 text-white mb-2" data-aos="fade-up"
                 data-aos-delay="50">Explore our Expertise</h2>
-            <p class="text-lg sm:text-xl text-white leading-[1.4] sm:leading-8" data-aos="fade-up" data-aos-delay="60">Experience the power of
+            <p class="text-lg sm:text-xl text-white leading-[1.4] sm:leading-8" data-aos="fade-up" data-aos-delay="60">
+                Experience the power of
                 innovation with our specialized services.
             </p>
         </div>
 
         <div class="relative">
-            <div class="max-w-[1400px] lg:mx-auto px-3 md:px-8 lg:px-14">
-                <div #scrollContainer class="overflow-x-auto hide-scrollbar lg:-mr-[max(0px,calc((100vw-1240px)/2))]"
+            <div class="max-w-[1400px] lg:mx-auto">
+                <div #scrollContainer class="overflow-x-auto hide-scrollbar px-3 sm:px-6 lg:px-14"
                     (scroll)="checkScrollPosition()">
-                    <div
-                        class="flex gap-4 sm:gap-6 md:gap-[30px] lg:gap-[75px] lg:pr-[max(0px,calc((100vw-1240px)/2))]">
-                        @for(card of expertiseCards; track $index){
-                        <div class="bg-white w-[280px] sm:w-[320px] md:w-[350px] rounded px-5 py-8 flex-shrink-0 expertise-card"
-                            data-aos="fade-up" [attr.data-aos-delay]="$index * 150">
-                            <div [innerHTML]="card.safeSvg"
-                                class="w-[200px] h-[200px] mx-auto mb-4 sm:mb-5 md:mb-6 [&>svg]:w-full [&>svg]:h-full">
-                            </div>
-                            <h3 class="text-[#2559EB] text-xl leading-7 sm:leading-8 mb-2">{{ card.title }}
+                    <div class="flex flex-nowrap gap-4 sm:gap-6 lg:gap-[75px]
+               -mx-3 sm:-mx-6 lg:-mx-14">
+                        @for (card of expertiseCards; track $index) {
+                        <div class="bg-white w-[280px] sm:w-[320px] md:w-[350px]
+                   rounded px-5 py-8 flex-shrink-0 expertise-card" data-aos="fade-up"
+                            [attr.data-aos-delay]="$index * 150">
+                            <div [innerHTML]="card.safeSvg" class="w-[200px] h-[200px] mx-auto mb-4 sm:mb-5 md:mb-6
+                     [&>svg]:w-full [&>svg]:h-full"></div>
+
+                            <h3 class="text-[#2559EB] text-xl leading-7 sm:leading-8 mb-2">
+                                {{ card.title }}
                             </h3>
-                            <p class="text-base leading-5 sm:leading-6 text-[#5D5D5D]">{{ card.description }}
+
+                            <p class="text-base leading-5 sm:leading-6 text-[#5D5D5D]">
+                                {{ card.description }}
                             </p>
                         </div>
                         }
