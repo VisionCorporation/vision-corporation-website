@@ -1,6 +1,6 @@
-import { environment as devEnvironment } from './environment.development';
 
 export const environment = {
-    ...devEnvironment,
-    production: true,
+  production: true,
+  baseUrl: 'undefined',
+  newsletterPassword: 'undefined',
 };

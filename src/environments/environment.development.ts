@@ -1,5 +1,6 @@
+
 export const environment = {
-    production: false,
-    baseUrl: '',
-    newsletterPassword: ''
+  production: false,
+  baseUrl: 'undefined',
+  newsletterPassword: 'undefined',
 };
