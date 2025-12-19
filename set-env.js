@@ -7,6 +7,7 @@ const prodEnv = `
 export const environment = {
   production: true,
   baseUrl: '${process.env.NG_APP_BASIC_URL}',
+  newsletterPassword: '${process.env.NG_APP_NEWSLETTER_PASSWORD}',
 };
 `;
 
@@ -14,6 +15,7 @@ const devEnv = `
 export const environment = {
   production: false,
   baseUrl: '${process.env.NG_APP_BASIC_URL}',
+  newsletterPassword: '${process.env.NG_APP_NEWSLETTER_PASSWORD}',
 };
 `;
 

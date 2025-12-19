@@ -6,6 +6,7 @@ import { AlertComponent } from '../../components/shared/alert/alert';
 import { Api } from '../../services/api';
 import { Subject, takeUntil } from 'rxjs';
 import { Newsletter } from '../../interfaces/newsletter.interface';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-send-newsletter',
@@ -37,7 +38,7 @@ export class SendNewsletter implements OnDestroy {
   })
 
   public onSubmit(): void {
-    if (this.authenticateUserForm.value.password === 'Vision2024') {
+    if (this.authenticateUserForm.value.password === environment.newsletterPassword) {
       this.alert.showAlert('success', 'You’re in! Newsletter form unlocked', 3000, 'top-right');
       this.isAuthenticated = true;
     } else {
