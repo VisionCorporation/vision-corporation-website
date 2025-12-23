@@ -6,7 +6,7 @@ export const PACKAGES = [{
         name: "Basic Package",
         description: "Great for people just starting out, new businesses, or small companies that want a simple online  presence.",
         specifications: ['Pre made design', ' Starter (1-4) pages', 'Custom frontend built with (React/Angular)', 'Content Management System (CMS)', 'Custom domain (.com) — 1 year included', 'Website hosting — 1 month included', 'Search Engine Optimization (SEO)', '3 months free basic support and maintenance'],
-        price: 628
+        price: 500
     },
     {
         name: "Standard Package",
