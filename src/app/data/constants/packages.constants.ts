@@ -5,7 +5,7 @@ export const PACKAGES = [{
     types: [{
         name: "Basic Package",
         description: "Great for people just starting out, new businesses, or small companies that want a simple online  presence.",
-        specifications: ['Pre made design', ' Starter (1-4) pages', 'Custom frontend built with (React/Angular)', 'Content Management System (CMS)', 'Custom domain (.com) — 1 year included', 'Website hosting — 1 month included', 'Search Engine Optimization (SEO)', '3 months free basic support and maintenance'],
+        specifications: ['Pre made design', 'Starter (1-4) pages', 'Custom frontend built with (React/Angular)', 'Content Management System (CMS)', 'Custom domain (.com) — 1 year included', 'Website hosting — 1 month included', 'Search Engine Optimization (SEO)', '3 months free basic support and maintenance'],
         price: 500
     },
     {
@@ -17,7 +17,7 @@ export const PACKAGES = [{
     {
         name: "Premium Package",
         description: "Any business that wants to sell online needs an e-commerce package. These packages help you show off your products, take payments safely, and run your online store smoothly.",
-        specifications: ['Custom design', 'Premium 15+ pages', 'Custom frontend built with (React/Angular)', 'Content Management System (CMS)', 'Custom domain (.com) — 1 year included', 'Website hosting — 1 month included', 'Search Engine Optimization (SEO)', 'Google Business Listing', 'Advance Online Store Features', 'Email Marketing', 'Content Writing', 'Custom animation', '12 months free basic support and maintenance '],
+        specifications: ['Custom design', 'Premium 15+ pages', 'Custom frontend built with (React/Angular)', 'Content Management System (CMS)', 'Custom domain (.com) — 1 year included', 'Website hosting — 1 month included', 'Search Engine Optimization (SEO)', 'Google Business Listing', 'Advance Online Store Features', 'Email Marketing', 'Content Writing', 'Custom animation', '12 months free basic support and maintenance'],
         price: 4073
     }]
 }]
