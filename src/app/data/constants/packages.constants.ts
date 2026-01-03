@@ -11,14 +11,14 @@ export const PACKAGES = [{
     {
         name: "Standard Package",
         description: "Work well for small to medium-sized businesses, bloggers, and professionals who wants control over their site’s design with a simple online store or blog and a strong online presence.",
-        specifications: ['Custom design', 'Standard (5-8) pages', 'Custom frontend built with (React/Angular)', 'Content Management System (CMS)', 'Custom domain (.com) — 1 year included', 'Website hosting — 1 month included', 'Search Engine Optimization (SEO)', 'Google Business Listing', 'Simple Online Store Features', 'Email Marketing', '6 months free basic support and maintenance'],
-        price: 1489
+        specifications: ['Custom design', 'Standard (5-8) pages', 'Custom frontend built with (React/Angular)', 'Custom domain (.com) — 1 year included', 'Website hosting — 1 month included', 'Search Engine Optimization (SEO)', 'Google Business Listing', 'Simple Online Store Features', '6 months free basic support and maintenance'],
+        price: 1279
     },
     {
         name: "Premium Package",
         description: "Any business that wants to sell online needs an e-commerce package. These packages help you show off your products, take payments safely, and run your online store smoothly.",
-        specifications: ['Custom design', 'Premium 15+ pages', 'Custom frontend built with (React/Angular)', 'Content Management System (CMS)', 'Custom domain (.com) — 1 year included', 'Website hosting — 1 month included', 'Search Engine Optimization (SEO)', 'Google Business Listing', 'Advance Online Store Features', 'Email Marketing', 'Content Writing', 'Custom animation', '12 months free basic support and maintenance'],
-        price: 4073
+        specifications: ['Custom design', 'Premium 15+ pages', 'Custom frontend built with (React/Angular)', 'Custom domain (.com) — 1 year included', 'Website hosting — 1 month included', 'Search Engine Optimization (SEO)', 'Google Business Listing', 'Advance Online Store Features', 'Content Writing', 'Custom animation', '12 months free basic support and maintenance'],
+        price: 3763
     }]
 }]
 
