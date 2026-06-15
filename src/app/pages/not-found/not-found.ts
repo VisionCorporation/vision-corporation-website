@@ -1,4 +1,4 @@
-import { Component, Inject, PLATFORM_ID, Optional, REQUEST } from '@angular/core';
+import { Component, Inject, PLATFORM_ID, Optional, REQUEST, RESPONSE_INIT, inject } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { RouterLink, Router } from '@angular/router';
 import { Meta } from '@angular/platform-browser';
@@ -19,6 +19,12 @@ export class NotFound {
     private seoService: SeoService,
     private meta: Meta
   ) {
+
+    const responseInit = inject(RESPONSE_INIT, { optional: true });
+    if (responseInit) {
+      responseInit.status = 404;
+    }
+
     let pathname = '';
 
     if (isPlatformBrowser(this.platformId)) {
