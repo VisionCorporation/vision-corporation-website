@@ -1,7 +1,7 @@
-import { AfterViewInit, Component, Inject, OnDestroy, OnInit, PLATFORM_ID, Renderer2 } from '@angular/core';
+import { AfterViewInit, Component, inject, OnDestroy, OnInit, PLATFORM_ID } from '@angular/core';
 import AOS from 'aos';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
-import { Router, RouterOutlet, NavigationEnd, ActivatedRouteSnapshot, NavigationStart, NavigationCancel, NavigationError } from '@angular/router';
+import { Router, RouterOutlet, NavigationEnd, ActivatedRouteSnapshot } from '@angular/router';
 import { filter, Subscription } from 'rxjs';
 import { CookiePreferences } from './interfaces/cookies.interface';
 import { CONSENT_KEY } from './data/constants/cookies.constants';
@@ -15,16 +15,16 @@ declare global {
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, CommonModule],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App implements OnInit, AfterViewInit, OnDestroy {
-  public loading = false;
   private aosInitialized = false;
   private routerSub!: Subscription;
   private analyticsScriptLoaded = false;
-
+  private readonly router = inject(Router)
+  private readonly platformId = inject(PLATFORM_ID)
   public isCookieOpen = false;
   public isCustomiseCookieOpen = false;
   public hideCookieBanner = false;
@@ -35,22 +35,6 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
     analytics: false,
     advertising: false
   };
-
-  constructor(
-    @Inject(PLATFORM_ID) private platformId: object,
-    private router: Router, private renderer: Renderer2
-  ) {
-    this.router.events.subscribe(event => {
-      if (event instanceof NavigationStart) {
-        this.loading = true;
-      }
-      if (event instanceof NavigationEnd ||
-        event instanceof NavigationCancel ||
-        event instanceof NavigationError) {
-        this.loading = false;
-      }
-    });
-  }
 
   ngOnInit(): void {
     if (!isPlatformBrowser(this.platformId)) return;
@@ -91,15 +75,6 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
         const rootRoute = this.router.routerState.snapshot.root;
         this.hideCookieBanner = this.shouldHideCookieBanner(rootRoute);
       });
-
-    const overlay = this.renderer.selectRootElement('#global-loading-overlay', true);
-
-    this.renderer.setStyle(overlay, 'opacity', '0');
-
-    setTimeout(() => {
-      this.renderer.setStyle(overlay, 'display', 'none');
-    }, 500);
-
   }
 
   private shouldHideCookieBanner(route: ActivatedRouteSnapshot): boolean {
