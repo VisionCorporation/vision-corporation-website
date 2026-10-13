@@ -20,8 +20,8 @@ export class Home {
 
   constructor() {
     this.seoService.updatePageSeo({
-      title: 'Vision Corporation – IT Solutions & Digital Transformation',
-      description: 'Empowering businesses across Africa with innovative software development, IT consulting, and digital transformation solutions that drive growth and success.',
+      title: 'Vision Corporation | Web Design & Development Agency in Ghana',
+      description: 'Vision Corporation designs and builds business websites, portfolio sites, e-commerce stores and custom web applications in Ghana, as the first step in a bigger mission to build Africa\'s technology.',
       url: 'https://visioncorporation.africa/',
       image: 'https://visioncorporation.africa/assets/images/home-og.jpeg'
     });
