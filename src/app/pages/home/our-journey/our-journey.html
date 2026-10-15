@@ -1,0 +1,140 @@
+<section class="bg-[var(--color-light)]">
+    <div class="mx-auto w-full max-w-[1280px] px-4 py-24 sm:py-28 sm:px-10 lg:px-12">
+        <p class="mb-3 font-semibold tracking-[0.1em] uppercase text-[var(--color-primary)]">
+            Our Journey
+        </p>
+
+        <h2
+            class="font-heading text-3xl font-bold leading-tight tracking-tight text-[var(--color-dark)] sm:text-4xl lg:text-5xl">
+            One company, five journeys
+        </h2>
+
+        <p class="mt-5 max-w-4xl text-base leading-normal text-[var(--color-text-muted)] sm:text-lg">
+            We are building technology around the systems people and communities depend on every day. Each journey
+            starts with a real problem and a commitment to make a meaningful difference.
+        </p>
+
+        <div class="mt-16 sm:mt-20" role="region" aria-roledescription="carousel" aria-label="Our journeys">
+            <div class="overflow-hidden rounded-4xl bg-white p-6 shadow-sm sm:p-10 lg:p-14">
+                <div class="grid">
+                    @for (j of journeys; track j.tag; let i = $index) {
+                    <article
+                        class="col-start-1 row-start-1 grid items-center gap-8 transition-opacity duration-300 lg:grid-cols-2 lg:gap-16"
+                        [class.journey-active]="i === current()" [class.opacity-0]="i !== current()"
+                        [class.pointer-events-none]="i !== current()" [attr.aria-hidden]="i !== current()"
+                        [attr.inert]="i !== current() ? '' : null">
+                        <div class="order-2 lg:order-1">
+                            <span
+                                class="mb-5 block w-fit rounded-full bg-[var(--color-primary-light)] px-3 py-1 text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-[var(--color-primary)]">
+                                {{ j.tag }}
+                            </span>
+
+                            <h3
+                                class="w-full text-2xl sm:text-3xl font-bold leading-tight tracking-tight text-[var(--color-dark)] md:text-4xl">
+                                {{ j.title }}
+                            </h3>
+
+                            <div class="mt-8 space-y-6">
+                                <div class="flex gap-4">
+                                    <span
+                                        class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-red-50 text-red-500">
+                                        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+                                            <path [attr.d]="j.problemIcon" />
+                                        </svg>
+                                    </span>
+                                    <div>
+                                        <p class="text-sm font-semibold text-slate-900">The Problem:</p>
+                                        <p class="mt-1 text-sm leading-relaxed text-slate-600">{{ j.problem }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex gap-4">
+                                    <span
+                                        class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-emerald-50 text-emerald-500">
+                                        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+                                            <path [attr.d]="j.solutionIcon" />
+                                        </svg>
+                                    </span>
+                                    <div>
+                                        <p class="text-sm font-semibold text-slate-900">What we are doing:</p>
+                                        <p class="mt-1 text-sm leading-relaxed text-slate-600">{{ j.solution }}</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            @if (j.buttonText) {
+                            <a href="#"
+                                class="mt-8 group inline-flex items-center justify-center gap-2 rounded-full bg-[var(--color-primary)] px-6 py-3.5 text-[15px] text-[var(--color-white)] transition duration-200 hover:bg-[var(--color-primary-hover)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-white">
+                                {{ j.buttonText }} <svg
+                                    class="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path d="M5 12h14M13 6l6 6-6 6" />
+                                </svg>
+                            </a>
+                            }
+                        </div>
+
+                        <div class="order-1 lg:order-2">
+                            @if(j.image){
+                            <img [src]="j.image" [alt]="j.title"
+                                class="aspect-[4/3] w-full rounded-2xl object-cover shadow-xl shadow-slate-900/10">
+                            }@else {
+                                <div class="aspect-[4/3] w-full rounded-2xl bg-gray-300"></div>
+                            }
+                        </div>
+                    </article>
+                    }
+                </div>
+            </div>
+
+            <div class="mt-8 flex items-center justify-center gap-3 sm:mt-10" aria-label="Journey navigation">
+                <button type="button" (click)="togglePause()"
+                    class="flex h-10 w-10 shrink-0 cursor-pointer items-center justify-center rounded-full border border-[var(--color-border)] bg-[var(--color-white)] text-[var(--color-text-muted)] shadow-sm transition-all duration-200 hover:border-[var(--color-primary)] hover:bg-[var(--color-primary-light)] hover:text-[var(--color-primary)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2"
+                    [attr.aria-label]="paused() ? 'Play carousel' : 'Pause carousel'">
+                    @if (paused()) {
+                    <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M8 5v14l11-7z" />
+                    </svg>
+                    } @else {
+                    <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M6 5h4v14H6zM14 5h4v14h-4z" />
+                    </svg>
+                    }
+                </button>
+
+                <div
+                    class="flex min-w-0 items-center gap-1.5 rounded-full border border-[var(--color-border)] bg-[var(--color-white)] px-2.5 py-2 shadow-sm">
+                    @for (j of journeys; track j.tag; let i = $index) {
+                    <button type="button" (click)="go(i)"
+                        class="relative h-1.5 cursor-pointer overflow-hidden rounded-full bg-[var(--color-border)] transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2"
+                        [class.w-6]="i !== current()" [class.w-12]="i === current()"
+                        [attr.aria-label]="'Go to journey ' + (i + 1)"
+                        [attr.aria-current]="i === current() ? 'true' : null">
+                        @if (i === current()) {
+                        <span class="journey-fill absolute inset-0 rounded-full bg-[var(--color-primary)]"
+                            [style.animation-duration.ms]="duration"
+                            [style.animation-play-state]="paused() ? 'paused' : 'running'"
+                            (animationend)="next()"></span>
+                        }
+                    </button>
+                    }
+                </div>
+
+                <span
+                    class="hidden min-w-[42px] text-sm font-semibold tabular-nums text-[var(--color-text-muted)] sm:block"
+                    aria-live="polite">
+                    {{ current() + 1 }} / {{ journeys.length }}
+                </span>
+            </div>
+        </div>
+
+
+        <p
+            class="mx-auto mt-8 max-w-3xl text-center text-sm leading-7 text-[var(--color-dark)] sm:mt-10 sm:text-base sm:leading-8">
+            Five journeys, one aim: practical technology, designed and built in Africa
+            for the people and communities who rely on it.
+        </p>
+
+    </div>
+</section>
