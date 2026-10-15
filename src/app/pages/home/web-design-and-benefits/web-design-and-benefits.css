@@ -1,0 +1,55 @@
+@keyframes caret-blink {
+
+    0%,
+    49% {
+        opacity: 1
+    }
+
+    50%,
+    100% {
+        opacity: 0
+    }
+}
+
+.caret {
+    animation: caret-blink 1s steps(1) infinite;
+}
+
+@keyframes result-in {
+    from {
+        opacity: 0;
+        transform: translateY(16px) scale(.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.result-in {
+    animation: result-in 600ms cubic-bezier(.22, 1, .36, 1) both;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+.fade-in {
+    animation: fade-in 400ms ease both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .caret,
+    .result-in,
+    .fade-in {
+        animation: none;
+    }
+}
