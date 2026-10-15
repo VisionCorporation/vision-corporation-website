@@ -1,0 +1,79 @@
+<section class="bg-[var(--color-white)]">
+    <div class="w-full mx-auto  max-w-[1280px] px-4 py-24 sm:py-28 sm:px-10 lg:px-12">
+        <p class=" mb-3 font-semibold tracking-[0.1em] uppercase text-[var(--color-primary)]">
+            Frequently asked questions
+        </p>
+
+        <h2
+            class="font-heading text-3xl font-bold leading-tight tracking-tight text-[var(--color-dark)] sm:text-4xl lg:text-5xl">
+            Questions people ask before they start
+        </h2>
+
+
+        <div class="mt-16 sm:mt-20">
+            <div #tabContainer
+                class="flex gap-2 overflow-x-auto border-b border-black/10 pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+                role="tablist" aria-label="FAQ categories">
+                @for (category of FAQ_TABS; track category) {
+                <button #tabButton type="button" role="tab"
+                    class="shrink-0 cursor-pointer rounded-full px-5 py-3 text-sm font-semibold transition-all duration-200"
+                    [style.backgroundColor]="
+                activeCategory() === category
+                    ? 'var(--color-primary)'
+                    : '#f3f4f6'
+            " [style.color]="
+                activeCategory() === category
+                    ? '#ffffff'
+                    : 'var(--color-dark)'
+            " [attr.aria-selected]="activeCategory() === category"
+                    (click)="setActiveCategory(category, tabButton, tabContainer)">
+                    {{ category }}
+                </button>
+                }
+            </div>
+
+            <div class="mt-8 space-y-3">
+                @for (faq of visibleFAQs(); track faq.question; let i = $index) {
+                <article
+                    class="faq-card overflow-hidden rounded-2xl border border-black/[0.08] bg-white transition-colors duration-200"
+                    [class.is-open]="openFaq() === faq.question">
+                    <h3>
+                        <button type="button"
+                            class="faq-trigger flex w-full items-center justify-between gap-5 px-5 py-5 text-left sm:px-7 sm:py-6"
+                            [attr.aria-expanded]="openFaq() === faq.question" [attr.aria-controls]="'faq-answer-' + i"
+                            (click)="toggleFaq(faq.question)">
+                            <span
+                                class="text-base font-semibold leading-relaxed text-[var(--color-dark)] transition-colors duration-200 sm:text-lg"
+                                [class.text-[var(--color-primary)]]="openFaq() === faq.question">
+                                {{ faq.question }}
+                            </span>
+
+                            <span
+                                class="faq-chevron flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gray-100 text-[var(--color-dark)] transition-all duration-300"
+                                [class.chevron-open]="openFaq() === faq.question">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" aria-hidden="true">
+                                    <path d="m6 9 6 6 6-6" />
+                                </svg>
+                            </span>
+                        </button>
+                    </h3>
+
+                    <div class="faq-answer" [class.answer-open]="openFaq() === faq.question"
+                        [attr.id]="'faq-answer-' + i" [attr.aria-hidden]="openFaq() !== faq.question">
+                        <div class="faq-answer-inner">
+                            <div class="px-5 pb-6 sm:px-7 sm:pb-7">
+                                <p class="max-w-3xl text-sm leading-7 text-[var(--color-text-muted)] sm:text-base">
+                                    {{ faq.answer }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                }
+            </div>
+        </div>
+
+    </div>
+</section>
