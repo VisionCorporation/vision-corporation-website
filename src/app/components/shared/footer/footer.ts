@@ -1,11 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
-import {
-  FooterLinks,
-  FooterServices,
-  SocialMediaLinks,
-} from '../../../data/constants/footer.constants';
+import { FOOTER_CONTACT, FOOTER_LEGAL, FOOTER_MENU, FOOTER_SERVICES, FOOTER_SOCIALS } from '../../../data/constants/footer.constants';
 
 @Component({
   selector: 'app-footer',
@@ -15,15 +10,10 @@ import {
   styleUrl: './footer.css',
 })
 export class Footer {
-  readonly currentYear = new Date().getFullYear();
-  readonly footerLinks = FooterLinks;
-  readonly footerServices = FooterServices;
-  readonly socialMediaLinks: { label: string; url: string; icon: SafeHtml }[];
-
-  constructor(private sanitizer: DomSanitizer) {
-    this.socialMediaLinks = SocialMediaLinks.map((link) => ({
-      ...link,
-      icon: this.sanitizer.bypassSecurityTrustHtml(link.icon),
-    }));
-  }
+  public readonly currentYear = new Date().getFullYear();
+  public readonly footerMenu = FOOTER_MENU
+  public readonly footerServices = FOOTER_SERVICES
+  public readonly footerLegal = FOOTER_LEGAL
+  public readonly footerContact = FOOTER_CONTACT;
+  public readonly footerSocials = FOOTER_SOCIALS;
 }
