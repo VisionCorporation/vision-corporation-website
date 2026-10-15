@@ -1,17 +1,20 @@
 import { Component, inject } from '@angular/core';
 import { Header } from '../../components/shared/header/header';
 import { HeroSection } from './hero-section/hero-section';
-import { OurExpertise } from './our-expertise/our-expertise';
-import { CoreValues } from './core-values/core-values';
-import { RealitySection } from './reality-section/reality-section';
-import { NewsletterSection } from './newsletter-section/newsletter-section';
-import { Footer } from '../../components/shared/footer/footer';
-import { Testimonials } from './testimonials/testimonials';
 import { SeoService } from '../../services/seo-service';
+import { OurJourney } from './our-journey/our-journey';
+import { WebDesignAndBenefits } from './web-design-and-benefits/web-design-and-benefits';
+import { HowItWorks } from './how-it-works/how-it-works';
+import { WhatWeBuild } from './what-we-build/what-we-build';
+import { DigitalMarketing } from './digital-marketing/digital-marketing';
+import { WhyWorkWithUs } from './why-work-with-us/why-work-with-us';
+import { Faqs } from './faqs/faqs';
+import { Footer } from '../../components/shared/footer/footer';
+import { Cta } from '../../components/shared/cta/cta';
 
 @Component({
   selector: 'app-home',
-  imports: [Header, HeroSection, OurExpertise, CoreValues, Testimonials, RealitySection, NewsletterSection, Footer],
+  imports: [Header, HeroSection, OurJourney, WebDesignAndBenefits, HowItWorks, WhatWeBuild, DigitalMarketing, WhyWorkWithUs, Faqs, Cta, Footer],
   templateUrl: './home.html',
   styleUrl: './home.css'
 })
