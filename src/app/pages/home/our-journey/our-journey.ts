@@ -8,6 +8,7 @@ import { OUR_JOURNEY_DATA } from '../../../data/constants/our-journey.contants';
 @Component({
   selector: 'app-our-journey',
   imports: [CommonModule],
+  host: { class: 'contents' },
   templateUrl: './our-journey.html',
   styleUrl: './our-journey.css'
 })

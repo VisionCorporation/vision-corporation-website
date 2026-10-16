@@ -3,10 +3,12 @@ import { Component } from '@angular/core';
 import { ACHIEVEMENT_STATS } from '../../../data/constants/achievement-stats.constants';
 import { RouterLink } from '@angular/router';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { ParallaxDirective } from '../../../directives/parallax.directive';
 
 @Component({
   selector: 'app-hero-section',
-  imports: [NgOptimizedImage, RouterLink],
+  imports: [NgOptimizedImage, RouterLink, ParallaxDirective],
+  host: { class: 'contents' },
   templateUrl: './hero-section.html',
   styleUrl: './hero-section.css'
 })
