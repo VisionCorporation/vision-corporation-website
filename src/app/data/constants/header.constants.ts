@@ -1,7 +1,7 @@
 export const HEADER_NAV_LINKS = [
-    { label: 'Our Journey', url: '/' },
-    { label: 'Web Services', url: '/' },
-    { label: 'Digital Marketing', url: '/' },
-    { label: 'Why Vision', url: '/' },
-    { label: 'FAQs', url: '/' },
+    { label: 'Our Journey', url: '/our-journey' },
+    { label: 'Web Services', url: '/web-services' },
+    { label: 'Digital Marketing', url: '/digital-marketing' },
+    { label: 'Why Vision', url: '/why-vision' },
+    { label: 'FAQs', url: '/faqs' },
 ]

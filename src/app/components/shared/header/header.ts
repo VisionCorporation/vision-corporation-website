@@ -1,10 +1,10 @@
 import { Component, DOCUMENT, effect, HostListener, inject, signal } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 import { HEADER_NAV_LINKS } from '../../../data/constants/header.constants';
 
 @Component({
   selector: 'app-header',
-  imports: [RouterLink],
+  imports: [RouterLink, RouterLinkActive],
   templateUrl: './header.html',
   styleUrl: './header.css'
 })

@@ -23,11 +23,16 @@
 
       <nav class="hidden lg:block" aria-label="Main navigation">
         <ul class="flex items-center justify-center gap-4">
-          @for(navLink of headerNavLinks; track navLink.label){
+          @for (navLink of headerNavLinks; track navLink.label) {
           <li>
-            <a [routerLink]="navLink.url"
-              class="text-[var(--color-dark)] transition-colors duration-200 hover:text-[var(--color-primary)] p-2">
+            <a [routerLink]="navLink.url" routerLinkActive="text-[var(--color-primary)]" #rla="routerLinkActive"
+              [routerLinkActiveOptions]="{ exact: navLink.url === '/' }"
+              class="group relative inline-block p-2 text-[var(--color-dark)] transition-all duration-300 hover:-translate-y-0.5 hover:text-[var(--color-primary)] focus:outline-none focus-visible:-translate-y-0.5 focus-visible:text-[var(--color-primary)] motion-reduce:transition-none">
+
               {{ navLink.label }}
+
+              <span aria-hidden="true" [class]="rla.isActive ? 'origin-left scale-x-100' : 'origin-right scale-x-0'"
+                class="absolute inset-x-2 bottom-0 h-0.5 rounded-full bg-[var(--color-primary)] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:origin-left group-hover:scale-x-100 group-focus-visible:origin-left group-focus-visible:scale-x-100 motion-reduce:transition-none"></span>
             </a>
           </li>
           }
@@ -78,9 +83,27 @@
       <ul class="flex flex-col">
         @for (navLink of headerNavLinks; track navLink.label) {
         <li class="border-b border-black/10">
-          <a [routerLink]="navLink.url" (click)="closeMenu()"
-            class="block py-4 text-lg text-[var(--color-dark)] transition-colors duration-200 hover:text-[var(--color-primary)]">
-            {{ navLink.label }}
+          <a [routerLink]="navLink.url" (click)="closeMenu()" routerLinkActive="text-[var(--color-primary)]"
+            #rla="routerLinkActive" [routerLinkActiveOptions]="{ exact: navLink.url === '/' }"
+            class="group relative flex items-center justify-between py-4 text-lg text-[var(--color-dark)] transition-colors duration-300 hover:text-[var(--color-primary)] focus:outline-none focus-visible:text-[var(--color-primary)] active:text-[var(--color-primary)]">
+
+            <span aria-hidden="true" [class]="rla.isActive ? 'h-6' : 'h-0'"
+              class="absolute left-0 top-1/2 w-0.5 -translate-y-1/2 rounded-full bg-[var(--color-primary)] transition-all duration-300 ease-out group-hover:h-6 group-focus-visible:h-6 group-active:h-6 motion-reduce:transition-none"></span>
+
+            <span [class]="rla.isActive ? 'translate-x-3' : ''"
+              class="transition-transform duration-300 ease-out group-hover:translate-x-3 group-focus-visible:translate-x-3 group-active:translate-x-3 motion-reduce:transition-none">
+              {{ navLink.label }}
+            </span>
+
+            <svg [class]="rla.isActive ? 'translate-x-0 opacity-100' : '-translate-x-2 opacity-0'"
+              class="h-4 w-4 transition-all duration-300 ease-out group-hover:translate-x-0 group-hover:opacity-100 group-focus-visible:translate-x-0 group-focus-visible:opacity-100 group-active:translate-x-0 group-active:opacity-100 motion-reduce:transition-none"
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg>
+
+            <span aria-hidden="true" [class]="rla.isActive ? 'scale-x-100' : 'scale-x-0'"
+              class="absolute inset-x-0 -bottom-px h-px origin-left bg-[var(--color-primary)] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-x-100 group-focus-visible:scale-x-100 group-active:scale-x-100 motion-reduce:transition-none"></span>
           </a>
         </li>
         }
