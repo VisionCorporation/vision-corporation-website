@@ -1,19 +1,29 @@
 <section class="w-full bg-[var(--color-dark)]">
-    <footer class="w-full max-w-[1480px] mx-auto">
+    <footer class="mx-auto w-full max-w-[1480px]">
         <div
-            class="w-full max-w-[1400px] mx-auto grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1.5fr] lg:gap-12 py-16 sm:py-20 px-4 md:px-8 lg:px-14">
-            <div class="w-full min-w-0 sm:col-span-2 lg:col-span-1">
-                <a routerLink="/" aria-label="Go to homepage" class="flex items-center gap-[6px]">
+            class="mx-auto grid w-full max-w-[1400px] grid-cols-1 gap-10 px-4 py-16 sm:grid-cols-2 sm:py-20 md:px-8 lg:grid-cols-[2fr_1fr_1fr_1.5fr] lg:gap-12 lg:px-14">
+
+            <div class="w-full min-w-0 sm:col-span-2 lg:col-span-1" data-aos="fade-up" data-aos-duration="700"
+                data-aos-once="true">
+
+                <a routerLink="/" aria-label="Go to homepage"
+                    class="flex items-center gap-[6px] transition-opacity duration-200 hover:opacity-80">
                     <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"
-                        class="brightness-0 invert h-9 w-9 shrink-0 sm:h-10 sm:w-10" aria-hidden="true">
+                        class="h-9 w-9 shrink-0 brightness-0 invert sm:h-10 sm:w-10" aria-hidden="true">
                         <rect width="40" height="40" fill="url(#pattern0_1117_1128)" />
                     </svg>
 
                     <span
-                        class="logo text-[13px] leading-tigh text-[var(--color-white)] sm:text-[15px] sm:leading-normal">VISION
-                        <br>CORPORATION</span>
+                        class="logo text-[13px] leading-tight text-[var(--color-white)] sm:text-[15px] sm:leading-normal">
+                        VISION
+                        <br>
+                        CORPORATION
+                    </span>
                 </a>
-                <p class="mt-4 text-[var(--color-white)]/60">Building the technology Africa runs on.</p>
+
+                <p class="mt-4 text-[var(--color-white)]/60">
+                    Building the technology Africa runs on.
+                </p>
 
                 <ul class="mt-6 space-y-4 border-t border-white/15 pt-6 text-[var(--color-white)]">
                     <li class="flex items-start gap-3">
@@ -23,9 +33,11 @@
                             <path
                                 d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
                         </svg>
+
                         <a [href]="'tel:' + footerContact.phone"
-                            class="opacity-70 hover:opacity-100 transition-opacity">{{
-                            footerContact.phone }}</a>
+                            class="opacity-70 transition-opacity duration-200 hover:opacity-100">
+                            {{ footerContact.phone }}
+                        </a>
                     </li>
 
                     <li class="flex items-start gap-3">
@@ -35,9 +47,11 @@
                             <rect width="20" height="16" x="2" y="4" rx="2" />
                             <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
                         </svg>
+
                         <a [href]="'mailto:' + footerContact.email"
-                            class="opacity-70 hover:opacity-100 transition-opacity break-all">{{ footerContact.email
-                            }}</a>
+                            class="break-all opacity-70 transition-opacity duration-200 hover:opacity-100">
+                            {{ footerContact.email }}
+                        </a>
                     </li>
 
                     <li class="flex items-start gap-3">
@@ -47,6 +61,7 @@
                             <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
                             <circle cx="12" cy="10" r="3" />
                         </svg>
+
                         <address class="not-italic opacity-70">
                             @for (line of footerContact.address; track line) {
                             <span class="block">{{ line }}</span>
@@ -56,45 +71,64 @@
                 </ul>
             </div>
 
-            <div class="w-full min-w-0">
-                <h2 class="mb-4 text-sm font-semibold uppercase tracking-wide text-[var(--color-white)]">Menu</h2>
+            <div class="w-full min-w-0" data-aos="fade-up" data-aos-delay="100" data-aos-duration="700"
+                data-aos-once="true">
+
+                <h2 class="mb-4 text-sm font-semibold uppercase tracking-wide text-[var(--color-white)]">
+                    Menu
+                </h2>
+
                 <ul class="space-y-3">
                     @for (menu of footerMenu; track menu.label) {
                     <li>
                         <a [routerLink]="menu.url"
-                            class="text-[var(--color-white)] opacity-70 hover:opacity-100 transition-opacity">{{
-                            menu.label }}</a>
+                            class="inline-block text-[var(--color-white)] opacity-70 transition-all duration-200 hover:translate-x-1 hover:opacity-100">
+                            {{ menu.label }}
+                        </a>
                     </li>
                     }
                 </ul>
             </div>
 
-            <div class="w-full min-w-0">
-                <h2 class="mb-4 text-sm font-semibold uppercase tracking-wide text-[var(--color-white)]">Services</h2>
+            <div class="w-full min-w-0" data-aos="fade-up" data-aos-delay="200" data-aos-duration="700"
+                data-aos-once="true">
+
+                <h2 class="mb-4 text-sm font-semibold uppercase tracking-wide text-[var(--color-white)]">
+                    Services
+                </h2>
+
                 <ul class="space-y-3">
                     @for (service of footerServices; track service.label) {
-                    <li class="text-[var(--color-white)] opacity-70">{{ service.label }}</li>
+                    <li class="text-[var(--color-white)] opacity-70 transition-opacity duration-200 hover:opacity-100">
+                        {{ service.label }}
+                    </li>
                     }
                 </ul>
             </div>
 
-            <div class="w-full min-w-0 sm:col-span-2 lg:col-span-1">
+            <div class="w-full min-w-0 sm:col-span-2 lg:col-span-1" data-aos="fade-up" data-aos-delay="300"
+                data-aos-duration="700" data-aos-once="true">
+
                 <h2 class="mb-4 text-sm font-semibold uppercase tracking-wide text-[var(--color-white)]">
                     Follow the journey
                 </h2>
+
                 <p class="mb-4 text-sm text-[var(--color-white)] opacity-70">
                     Occasional updates on what we are building, and what we are learning along the way.
                 </p>
 
                 <form class="mt-5 flex w-full flex-col gap-3 sm:flex-row lg:flex-col">
-                    <label for="footer-email" class="sr-only">Email address</label>
+                    <label for="footer-email" class="sr-only">
+                        Email address
+                    </label>
 
                     <input #newsletterEmail id="footer-email" name="email" type="email" autocomplete="email"
                         placeholder="Email address" required
-                        class="min-h-12 w-full min-w-0 rounded-full border border-white/15 bg-white/[0.06] px-6 text-sm text-white outline-none transition-all duration-200 placeholder:text-white/40 focus:border-white/50 focus:bg-white/[0.09] focus:ring-2 focus:ring-white/10" />
+                        class="min-h-12 w-full min-w-0 rounded-full border border-white/15 bg-white/[0.06] px-6 text-sm text-white outline-none transition-all duration-300 placeholder:text-white/40 focus:border-white/50 focus:bg-white/[0.09] focus:ring-2 focus:ring-white/10">
 
                     <button type="submit"
-                        class="group inline-flex min-h-12 w-full cursor-pointer items-center justify-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-[var(--color-dark)] transition-all duration-200 hover:bg-white/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-dark)] sm:w-auto sm:shrink-0 lg:w-full">
+                        class="group inline-flex min-h-12 w-full cursor-pointer items-center justify-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-[var(--color-dark)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/90 hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-dark)] sm:w-auto sm:shrink-0 lg:w-full">
+
                         Subscribe
 
                         <svg class="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1"
@@ -107,7 +141,9 @@
             </div>
         </div>
 
-        <div class="w-full max-w-[1400px] mx-auto px-4 md:px-8 lg:px-14">
+        <div class="mx-auto w-full max-w-[1400px] px-4 md:px-8 lg:px-14" data-aos="fade-up" data-aos-delay="150"
+            data-aos-duration="700" data-aos-once="true">
+
             <div
                 class="flex flex-col-reverse gap-6 border-t border-white/15 py-8 lg:flex-row lg:items-center lg:justify-between">
                 <div class="flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-8 sm:gap-y-3">
@@ -119,19 +155,22 @@
                         @for (item of footerLegal; track item.label) {
                         <li>
                             <a [routerLink]="item.url"
-                                class="text-sm text-[var(--color-white)] opacity-70 hover:opacity-100 transition-opacity">{{
-                                item.label }}</a>
+                                class="text-sm text-[var(--color-white)] opacity-70 transition-opacity duration-200 hover:opacity-100">
+                                {{ item.label }}
+                            </a>
                         </li>
                         }
                     </ul>
                 </div>
 
                 <ul class="flex items-center gap-3 text-[var(--color-white)]">
-                    @for (social of footerSocials; track social.id) {
-                    <li>
+                    @for (social of footerSocials; track social.id; let i = $index) {
+                    <li data-aos="zoom-in" [attr.data-aos-delay]="i * 80" data-aos-duration="500" data-aos-once="true">
+
                         <a [href]="social.url" target="_blank" rel="noopener noreferrer"
                             [attr.aria-label]="social.label" [title]="social.label"
-                            class="flex items-center justify-center rounded-full border border-white/10 p-3 text-white/60 transition-all duration-200 hover:border-white/30 hover:bg-white/10 hover:text-white">
+                            class="flex items-center justify-center rounded-full border border-white/10 p-3 text-white/60 transition-all duration-300 hover:-translate-y-1 hover:border-white/30 hover:bg-white/10 hover:text-white">
+
                             @switch (social.id) {
                             @case ('linkedin') {
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"

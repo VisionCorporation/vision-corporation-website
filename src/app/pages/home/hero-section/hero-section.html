@@ -1,37 +1,56 @@
-<section class="relative isolate flex min-h-[calc(100svh-80px)] items-center overflow-hidden">
-    <img ngSrc="assets/images/hero_accra_skyline.webp" fill priority alt="Accra skyline, Ghana"
-        class="absolute inset-0 -z-10 h-full w-full object-cover" />
+<section class="sticky top-16 isolate flex min-h-[calc(100svh-64px)] items-center overflow-hidden">
+    <div class="absolute inset-0 -z-10">
+        <img ngSrc="assets/images/hero_accra_skyline.webp" fill priority alt="Accra skyline, Ghana"
+            class="hero-image h-full w-full object-cover" />
+    </div>
 
-    <div class="absolute inset-0 bg-white/60 lg:hidden" aria-hidden="true"></div>
+    <div class="absolute inset-0 bg-white/60 lg:hidden" aria-hidden="true">
+    </div>
 
     <div class="absolute inset-0 hidden bg-gradient-to-r from-white/70 via-white/50 to-white/5 lg:block"
-        aria-hidden="true"></div>
+        aria-hidden="true">
+    </div>
 
-    <div class="relative z-10 mx-auto w-full max-w-[1280px] px-4 py-20 sm:px-10 lg:px-12">
+    <div appParallax="0.2" fade
+        class="relative z-10 mx-auto w-full max-w-[1280px] px-4 py-20 will-change-transform sm:px-10 lg:px-12">
         <div class="max-w-4xl">
-            <p class="mb-6 inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-primary)]">
+            <p class="mb-6 inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-primary)]"
+                data-aos="fade-right" data-aos-duration="900" data-aos-delay="100" data-aos-easing="ease-out-cubic"
+                data-aos-once="true">
+
                 Software first. Africa's infrastructure next.
             </p>
 
-            <h1
-                class="font-heading text-4xl font-bold leading-[1.08] tracking-tight text-[var(--color-dark)] sm:text-5xl lg:text-7xl">
+            <h1 class="font-heading text-4xl font-bold leading-[1.08] tracking-tight text-[var(--color-dark)] sm:text-5xl lg:text-7xl"
+                data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200" data-aos-easing="ease-out-cubic"
+                data-aos-once="true">
+
                 We build the technology
                 <br class="hidden sm:block" />
-                <span class="text-[var(--color-primary)]">Africa runs on.</span>
+
+                <span data-aos="fade-up" data-aos-duration="900" data-aos-delay="400" data-aos-easing="ease-out-back"
+                    data-aos-once="true" class="inline-block text-[var(--color-primary)]">
+                    Africa runs on.
+                </span>
             </h1>
 
-            <p
-                class="mt-6 max-w-3xl text-base font-medium text-[var(--color-dark)] leading-relaxed [text-shadow:0_1px_12px_rgba(255,255,255,0.9)]">
+            <p class="mt-6 max-w-3xl text-base font-medium leading-relaxed text-[var(--color-dark)] [text-shadow:0_1px_12px_rgba(255,255,255,0.9)]"
+                data-aos="fade-up" data-aos-duration="900" data-aos-delay="500" data-aos-easing="ease-out-cubic" data-aos-once="true">
+
                 Vision Corporation is a Ghanaian technology company working on
                 energy, transport, food systems and hardware. We start where we
                 can deliver today, with websites and web applications that help
                 businesses reach more customers, build trust, and grow online.
             </p>
 
-            <div class="mt-9 flex flex-col items-stretch gap-4 sm:flex-row sm:items-center">
+            <div class="mt-9 flex flex-col items-stretch gap-4 sm:flex-row sm:items-center" data-aos="fade-up"
+                data-aos-duration="900" data-aos-delay="650" data-aos-easing="ease-out-back" data-aos-once="true">
+
                 <a routerLink="/contact"
                     class="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-[var(--color-primary)] px-6 py-3.5 text-[15px] font-medium text-[var(--color-white)] shadow-lg shadow-[var(--color-primary)]/25 transition duration-200 hover:bg-[var(--color-primary-hover)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-white md:w-auto">
+
                     Start a Web Project
+
                     <svg class="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round" aria-hidden="true">
@@ -41,6 +60,7 @@
 
                 <a routerLink="/about"
                     class="inline-flex w-full items-center justify-center rounded-full border border-[var(--color-dark)]/20 bg-[var(--color-white)] px-6 py-3.5 text-[15px] font-medium text-[var(--color-dark)] shadow-sm transition-colors duration-200 hover:border-[var(--color-dark)]/40 hover:bg-[var(--color-white)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-white md:w-auto">
+
                     Explore Our Journey
                 </a>
             </div>
