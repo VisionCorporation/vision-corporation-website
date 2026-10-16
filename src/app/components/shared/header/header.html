@@ -4,7 +4,7 @@
     <div
       class="max-w-[1400px] mx-auto flex items-center justify-between px-4 md:px-8 lg:px-14 transition-[padding] duration-300 ease-out"
       [class.py-4]="!scrolled()" [class.sm:py-5]="!scrolled()" [class.py-2]="scrolled()" [class.sm:py-2.5]="scrolled()">
-      <a routerLink="/" aria-label="Go to homepage" class="flex items-center gap-[6px]">
+      <a routerLink="/" aria-label="Go to homepage" class="flex items-center gap-[6px]" (click)="closeMenu()">
         <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"
           xmlns:xlink="http://www.w3.org/1999/xlink" class="h-8 w-8 shrink-0 sm:h-10 sm:w-10">
           <rect width="40" height="40" fill="url(#pattern0_1117_1128)" />
@@ -26,10 +26,13 @@
           @for (navLink of headerNavLinks; track navLink.label) {
           <li (mouseenter)="navLink.children ? openDropdown(navLink.label) : closeDropdown()" class="cursor-pointer"
             (focusin)="navLink.children ? openDropdown(navLink.label) : closeDropdown()">
-            <a [routerLink]="navLink.url" routerLinkActive="text-[var(--color-primary)]" #rla="routerLinkActive"
-              [routerLinkActiveOptions]="{ exact: navLink.url === '/' }"
-              [class.text-[var(--color-primary)]]="activeDropdown() === navLink.label"
-              class="group relative inline-block p-2 text-[var(--color-dark)] transition-all duration-300 hover:-translate-y-0.5 hover:text-[var(--color-primary)] focus:outline-none focus-visible:-translate-y-0.5 focus-visible:text-[var(--color-primary)] motion-reduce:transition-none">
+            <a [routerLink]="navLink.url" [fragment]="navLink.fragment"
+              [routerLinkActive]="navLink.fragment ? '' : 'text-[var(--color-primary)]'" #rla="routerLinkActive"
+              [routerLinkActiveOptions]="{ exact: !navLink.fragment }" [class.text-[var(--color-primary)]]="
+    navLink.fragment
+      ? currentFragment() === navLink.fragment
+      : rla.isActive || activeDropdown() === navLink.label
+  " class="group relative inline-block p-2 text-[var(--color-dark)] transition-all duration-300 hover:-translate-y-0.5 hover:text-[var(--color-primary)] focus:outline-none focus-visible:-translate-y-0.5 focus-visible:text-[var(--color-primary)] motion-reduce:transition-none">
 
               {{ navLink.label }}
               @if (navLink.children) {
@@ -41,9 +44,15 @@
               </svg>
               }
 
-              <span aria-hidden="true"
-                [class]="(rla.isActive || activeDropdown() === navLink.label) ? 'origin-left scale-x-100' : 'origin-right scale-x-0'"
-                class="absolute inset-x-2 bottom-0 h-0.5 rounded-full bg-[var(--color-primary)] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:origin-left group-hover:scale-x-100 group-focus-visible:origin-left group-focus-visible:scale-x-100 motion-reduce:transition-none"></span>
+              <span aria-hidden="true" [class]="
+    (
+      navLink.fragment
+        ? currentFragment() === navLink.fragment
+        : rla.isActive || activeDropdown() === navLink.label
+    )
+      ? 'origin-left scale-x-100'
+      : 'origin-right scale-x-0'
+  " class="absolute inset-x-2 bottom-0 h-0.5 rounded-full bg-[var(--color-primary)] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:origin-left group-hover:scale-x-100 group-focus-visible:origin-left group-focus-visible:scale-x-100 motion-reduce:transition-none"></span>
             </a>
           </li>
           }
@@ -176,27 +185,50 @@
             </ul>
           </div>
           } @else {
-          <a [routerLink]="navLink.url" (click)="closeMenu()" routerLinkActive="text-[var(--color-primary)]"
-            #rla="routerLinkActive" [routerLinkActiveOptions]="{ exact: navLink.url === '/' }"
-            class="group relative flex items-center justify-between py-4 text-lg text-[var(--color-dark)] transition-colors duration-300 hover:text-[var(--color-primary)] focus:outline-none focus-visible:text-[var(--color-primary)] active:text-[var(--color-primary)]">
+          <a [routerLink]="navLink.url" [fragment]="navLink.fragment" (click)="closeMenu()"
+            [routerLinkActive]="navLink.fragment ? '' : 'text-[var(--color-primary)]'" #rla="routerLinkActive"
+            [routerLinkActiveOptions]="{ exact: !navLink.fragment }" [class.text-[var(--color-primary)]]="
+    navLink.fragment
+      ? currentFragment() === navLink.fragment
+      : rla.isActive || activeDropdown() === navLink.label
+  " class="group relative flex items-center justify-between py-4 text-lg text-[var(--color-dark)] transition-colors duration-300 hover:text-[var(--color-primary)] focus:outline-none focus-visible:text-[var(--color-primary)] active:text-[var(--color-primary)]">
+            <span aria-hidden="true" [class]="
+      (navLink.fragment
+        ? currentFragment() === navLink.fragment
+        : rla.isActive)
+        ? 'h-6'
+        : 'h-0'
+    " class="absolute left-0 top-1/2 w-0.5 -translate-y-1/2 rounded-full bg-[var(--color-primary)] transition-all duration-300 ease-out group-hover:h-6 group-focus-visible:h-6 group-active:h-6 motion-reduce:transition-none"></span>
 
-            <span aria-hidden="true" [class]="rla.isActive ? 'h-6' : 'h-0'"
-              class="absolute left-0 top-1/2 w-0.5 -translate-y-1/2 rounded-full bg-[var(--color-primary)] transition-all duration-300 ease-out group-hover:h-6 group-focus-visible:h-6 group-active:h-6 motion-reduce:transition-none"></span>
-
-            <span [class]="rla.isActive ? 'translate-x-3' : ''"
-              class="transition-transform duration-300 ease-out group-hover:translate-x-3 group-focus-visible:translate-x-3 group-active:translate-x-3 motion-reduce:transition-none">
+            <span [class]="
+      (navLink.fragment
+        ? currentFragment() === navLink.fragment
+        : rla.isActive)
+        ? 'translate-x-3'
+        : ''
+    " class="transition-transform duration-300 ease-out group-hover:translate-x-3 group-focus-visible:translate-x-3 group-active:translate-x-3 motion-reduce:transition-none">
               {{ navLink.label }}
             </span>
 
-            <svg [class]="rla.isActive ? 'translate-x-0 opacity-100' : '-translate-x-2 opacity-0'"
-              class="h-4 w-4 transition-all duration-300 ease-out group-hover:translate-x-0 group-hover:opacity-100 group-focus-visible:translate-x-0 group-focus-visible:opacity-100 group-active:translate-x-0 group-active:opacity-100 motion-reduce:transition-none"
+            <svg [class]="
+      (navLink.fragment
+        ? currentFragment() === navLink.fragment
+        : rla.isActive)
+        ? 'translate-x-0 opacity-100'
+        : '-translate-x-2 opacity-0'
+    " class="h-4 w-4 transition-all duration-300 ease-out group-hover:translate-x-0 group-hover:opacity-100 group-focus-visible:translate-x-0 group-focus-visible:opacity-100 group-active:translate-x-0 group-active:opacity-100 motion-reduce:transition-none"
               viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
               stroke-linejoin="round" aria-hidden="true">
               <path d="M5 12h14M13 6l6 6-6 6" />
             </svg>
 
-            <span aria-hidden="true" [class]="rla.isActive ? 'scale-x-100' : 'scale-x-0'"
-              class="absolute inset-x-0 -bottom-px h-px origin-left bg-[var(--color-primary)] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-x-100 group-focus-visible:scale-x-100 group-active:scale-x-100 motion-reduce:transition-none"></span>
+            <span aria-hidden="true" [class]="
+      (navLink.fragment
+        ? currentFragment() === navLink.fragment
+        : rla.isActive)
+        ? 'scale-x-100'
+        : 'scale-x-0'
+    " class="absolute inset-x-0 -bottom-px h-px origin-left bg-[var(--color-primary)] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-x-100 group-focus-visible:scale-x-100 group-active:scale-x-100 motion-reduce:transition-none"></span>
           </a>
           }
         </li>

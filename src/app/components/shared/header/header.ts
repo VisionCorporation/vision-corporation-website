@@ -1,6 +1,7 @@
 import { Component, DOCUMENT, effect, HostListener, inject, signal } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { NavigationEnd, Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { HEADER_NAV_LINKS } from '../../../data/constants/header.constants';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -16,10 +17,23 @@ export class Header {
   public activeDropdown = signal<string | null>(null);
   public mobileExpanded = signal<string | null>(null);
 
+  private readonly router = inject(Router);
+  readonly currentFragment = signal<string | null>(
+    this.router.parseUrl(this.router.url).fragment
+  );
+
   constructor() {
     effect(() => {
       this.document.body.style.overflow = this.menuOpen() ? 'hidden' : '';
     });
+
+    this.router.events
+      .pipe(filter((event) => event instanceof NavigationEnd))
+      .subscribe(() => {
+        this.currentFragment.set(
+          this.router.parseUrl(this.router.url).fragment
+        );
+      });
   }
 
   public toggleMenu() {

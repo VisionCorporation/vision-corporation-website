@@ -1,6 +1,7 @@
 export interface NavLink {
     label: string;
     url?: string;
+    fragment?: string;
     children?: NavLink[];
 }
 
@@ -18,5 +19,5 @@ export const HEADER_NAV_LINKS: NavLink[] = [
     { label: 'Web Services', url: '/web-services' },
     { label: 'Digital Marketing', url: '/digital-marketing' },
     { label: 'Why Vision', url: '/why-vision' },
-    { label: 'FAQs', url: '/faqs' },
+    { label: 'FAQs', url: '/', fragment: 'faqs' }
 ]
