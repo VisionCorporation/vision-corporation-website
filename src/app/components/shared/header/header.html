@@ -35,12 +35,24 @@
       </nav>
 
       <a routerLink="/contact"
-        class="group lg:inline-flex hidden rounded-full items-center justify-center gap-2 bg-[var(--color-primary)] px-6 py-3.5 text-[15px] text-[var(--color-white)] transition-colors duration-200 hover:bg-[var(--color-primary-hover)] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:ring-offset-2">
-        Start a Project
-        <svg class="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" viewBox="0 0 24 24" fill="none"
-          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M5 12h14M13 6l6 6-6 6" />
-        </svg>
+        class="group relative hidden items-center justify-center gap-2 overflow-hidden rounded-full bg-[var(--color-primary)] px-6 py-3.5 text-[15px] text-[var(--color-white)] shadow-lg shadow-[var(--color-primary)]/20 transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-xl hover:shadow-[var(--color-primary)]/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2 active:translate-y-0 active:scale-[0.98] motion-reduce:transition-none lg:inline-flex">
+        <span aria-hidden="true"
+          class="absolute inset-0 origin-left scale-x-0 bg-[var(--color-primary-hover)] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-x-100 group-focus-visible:scale-x-100 motion-reduce:transition-none"></span>
+        <span class="relative">Start a Project</span>
+        <span class="relative h-4 w-4 overflow-hidden" aria-hidden="true">
+          <svg
+            class="absolute inset-0 h-4 w-4 transition-transform duration-300 ease-out group-hover:translate-x-6 group-focus-visible:translate-x-6"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M5 12h14M13 6l6 6-6 6" />
+          </svg>
+          <svg
+            class="absolute inset-0 h-4 w-4 -translate-x-6 transition-transform duration-300 ease-out group-hover:translate-x-0 group-focus-visible:translate-x-0"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M5 12h14M13 6l6 6-6 6" />
+          </svg>
+        </span>
       </a>
 
       <button type="button" (click)="toggleMenu()" aria-controls="mobile-menu" [attr.aria-expanded]="menuOpen()"
@@ -75,12 +87,23 @@
       </ul>
 
       <a routerLink="/contact" (click)="closeMenu()"
-        class="mt-8 items-center justify-center gap-2 group inline-flex rounded-full bg-[var(--color-primary)] px-6 py-3.5 text-center text-[15px] text-[var(--color-white)] transition-colors duration-200 hover:bg-[var(--color-primary-hover)]">
-        Start a Project
-        <svg class="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" viewBox="0 0 24 24" fill="none"
-          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M5 12h14M13 6l6 6-6 6" />
-        </svg>
+        class="group relative mt-8 inline-flex items-center justify-center gap-2 overflow-hidden rounded-full bg-[var(--color-primary)] px-6 py-3.5 text-center text-[15px] text-[var(--color-white)] shadow-lg shadow-[var(--color-primary)]/20 transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-xl hover:shadow-[var(--color-primary)]/40 active:translate-y-0 active:scale-[0.98] motion-reduce:transition-none">
+        <span aria-hidden="true"
+          class="absolute inset-0 origin-left scale-x-0 bg-[var(--color-primary-hover)] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-x-100 motion-reduce:transition-none"></span>
+        <span class="relative">Start a Project</span>
+        <span class="relative h-4 w-4 overflow-hidden" aria-hidden="true">
+          <svg class="absolute inset-0 h-4 w-4 transition-transform duration-300 ease-out group-hover:translate-x-6"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M5 12h14M13 6l6 6-6 6" />
+          </svg>
+          <svg
+            class="absolute inset-0 h-4 w-4 -translate-x-6 transition-transform duration-300 ease-out group-hover:translate-x-0"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M5 12h14M13 6l6 6-6 6" />
+          </svg>
+        </span>
       </a>
     </nav>
   </div>

@@ -66,12 +66,17 @@
                 </ul>
 
                 <div class="mt-7" data-aos="fade-up" data-aos-delay="400">
-                    <a routerLink="/contact" [ngClass]="{
-                            'bg-[var(--color-primary)] text-[var(--color-white)] hover:bg-[var(--color-primary-hover)]': site.isPopular,
-                            'border border-[#CBD5E1] bg-white text-[var(--color-dark)] hover:border-[var(--color-primary)] hover:bg-[var(--color-primary-light)] hover:text-[var(--color-primary)]': !site.isPopular
-                        }"
-                        class="inline-flex w-full items-center justify-center rounded-full px-4 py-3 text-center text-sm font-semibold transition duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-white">
-                        {{ site.buttonText }}
+                    <a routerLink="/contact"
+                        [ngClass]="site.isPopular
+            ? 'bg-[var(--color-primary)] text-[var(--color-white)] shadow-lg shadow-[var(--color-primary)]/20 hover:shadow-xl hover:shadow-[var(--color-primary)]/40'
+            : 'border border-[var(--color-dark)]/20 bg-[var(--color-white)] text-[var(--color-dark)] shadow-sm hover:border-[var(--color-dark)] hover:text-[var(--color-white)] hover:shadow-md focus-visible:border-[var(--color-dark)] focus-visible:text-[var(--color-white)]'"
+                        class="group relative inline-flex w-full items-center justify-center overflow-hidden rounded-full px-4 py-3 text-center text-sm font-semibold transition-all duration-300 ease-out hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-white active:translate-y-0 active:scale-[0.98] motion-reduce:transition-none">
+
+                        <span aria-hidden="true"
+                            [ngClass]="site.isPopular ? 'bg-[var(--color-primary-hover)]' : 'bg-[var(--color-dark)]'"
+                            class="absolute inset-0 origin-left scale-x-0 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-x-100 group-focus-visible:scale-x-100 motion-reduce:transition-none"></span>
+
+                        <span class="relative">{{ site.buttonText }}</span>
                     </a>
                 </div>
             </article>

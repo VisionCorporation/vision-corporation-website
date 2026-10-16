@@ -35,7 +35,8 @@
             </h1>
 
             <p class="mt-6 max-w-3xl text-base font-medium leading-relaxed text-[var(--color-dark)] [text-shadow:0_1px_12px_rgba(255,255,255,0.9)]"
-                data-aos="fade-up" data-aos-duration="900" data-aos-delay="500" data-aos-easing="ease-out-cubic" data-aos-once="true">
+                data-aos="fade-up" data-aos-duration="900" data-aos-delay="500" data-aos-easing="ease-out-cubic"
+                data-aos-once="true">
 
                 Vision Corporation is a Ghanaian technology company working on
                 energy, transport, food systems and hardware. We start where we
@@ -47,21 +48,34 @@
                 data-aos-duration="900" data-aos-delay="650" data-aos-easing="ease-out-back" data-aos-once="true">
 
                 <a routerLink="/contact"
-                    class="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-[var(--color-primary)] px-6 py-3.5 text-[15px] font-medium text-[var(--color-white)] shadow-lg shadow-[var(--color-primary)]/25 transition duration-200 hover:bg-[var(--color-primary-hover)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-white md:w-auto">
+                    class="group relative inline-flex w-full items-center justify-center gap-2 overflow-hidden rounded-full bg-[var(--color-primary)] px-6 py-3.5 text-[15px] font-medium text-[var(--color-white)] shadow-lg shadow-[var(--color-primary)]/20 transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-xl hover:shadow-[var(--color-primary)]/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-white active:translate-y-0 active:scale-[0.98] motion-reduce:transition-none md:w-auto">
 
-                    Start a Web Project
+                    <span aria-hidden="true"
+                        class="absolute inset-0 origin-left scale-x-0 bg-[var(--color-primary-hover)] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-x-100 group-focus-visible:scale-x-100 motion-reduce:transition-none"></span>
 
-                    <svg class="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" aria-hidden="true">
-                        <path d="M5 12h14M13 6l6 6-6 6" />
-                    </svg>
+                    <span class="relative">Start a Web Project</span>
+
+                    <span class="relative h-4 w-4 overflow-hidden" aria-hidden="true">
+                        <svg class="absolute inset-0 h-4 w-4 transition-transform duration-300 ease-out group-hover:translate-x-6 group-focus-visible:translate-x-6"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14M13 6l6 6-6 6" />
+                        </svg>
+                        <svg class="absolute inset-0 h-4 w-4 -translate-x-6 transition-transform duration-300 ease-out group-hover:translate-x-0 group-focus-visible:translate-x-0"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14M13 6l6 6-6 6" />
+                        </svg>
+                    </span>
                 </a>
 
                 <a routerLink="/about"
-                    class="inline-flex w-full items-center justify-center rounded-full border border-[var(--color-dark)]/20 bg-[var(--color-white)] px-6 py-3.5 text-[15px] font-medium text-[var(--color-dark)] shadow-sm transition-colors duration-200 hover:border-[var(--color-dark)]/40 hover:bg-[var(--color-white)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-white md:w-auto">
+                    class="group relative inline-flex w-full items-center justify-center overflow-hidden rounded-full border border-[var(--color-dark)]/20 bg-[var(--color-white)] px-6 py-3.5 text-[15px] font-medium text-[var(--color-dark)] shadow-sm transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-[var(--color-dark)] hover:text-[var(--color-white)] hover:shadow-md focus:outline-none focus-visible:border-[var(--color-dark)] focus-visible:text-[var(--color-white)] focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-white active:translate-y-0 active:scale-[0.98] motion-reduce:transition-none md:w-auto">
 
-                    Explore Our Journey
+                    <span aria-hidden="true"
+                        class="absolute inset-0 origin-left scale-x-0 bg-[var(--color-dark)] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-x-100 group-focus-visible:scale-x-100 motion-reduce:transition-none"></span>
+
+                    <span class="relative">Explore Our Journey</span>
                 </a>
             </div>
         </div>

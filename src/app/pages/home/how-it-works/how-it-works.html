@@ -45,11 +45,14 @@
             data-aos-easing="ease-out-back">
 
             <a routerLink="/contact"
-                class="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-[var(--color-primary)] px-6 py-3.5 text-[15px] font-medium text-[var(--color-white)] transition duration-300 hover:-translate-y-0.5 hover:bg-[var(--color-primary-hover)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-dark)] sm:w-auto">
+                class="group relative inline-flex w-full items-center justify-center gap-2 overflow-hidden rounded-full bg-[var(--color-primary)] px-6 py-3.5 text-[15px] font-medium text-[var(--color-white)] shadow-lg shadow-[var(--color-primary)]/20 transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-xl hover:shadow-[var(--color-primary)]/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-dark)] active:translate-y-0 active:scale-[0.98] motion-reduce:transition-none sm:w-auto">
 
-                Book a Free Consultation
+                <span aria-hidden="true"
+                    class="absolute inset-0 origin-left scale-x-0 bg-[var(--color-primary-hover)] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-x-100 group-focus-visible:scale-x-100 motion-reduce:transition-none"></span>
 
-                <svg class="h-4 w-4 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3"
+                <span class="relative">Book a Free Consultation</span>
+
+                <svg class="relative h-4 w-4 transition-transform duration-300 group-hover:rotate-6 group-hover:scale-125 group-focus-visible:rotate-6 group-focus-visible:scale-125 motion-reduce:transition-none"
                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                     stroke-linejoin="round" aria-hidden="true">
                     <rect x="3" y="4" width="18" height="18" rx="2" />
