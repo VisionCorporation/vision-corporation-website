@@ -69,13 +69,19 @@
                     </span>
                 </a>
 
-                <a routerLink="/about"
-                    class="group relative inline-flex w-full items-center justify-center overflow-hidden rounded-full border border-[var(--color-dark)]/20 bg-[var(--color-white)] px-6 py-3.5 text-[15px] font-medium text-[var(--color-dark)] shadow-sm transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-[var(--color-dark)] hover:text-[var(--color-white)] hover:shadow-md focus:outline-none focus-visible:border-[var(--color-dark)] focus-visible:text-[var(--color-white)] focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-white active:translate-y-0 active:scale-[0.98] motion-reduce:transition-none md:w-auto">
+                <a [routerLink]="[]" fragment="explore-our-journey"
+                    class="group relative inline-flex w-full items-center justify-center gap-2 overflow-hidden rounded-full border border-[var(--color-dark)]/20 bg-[var(--color-white)] px-6 py-3.5 text-[15px] font-medium text-[var(--color-dark)] shadow-sm transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-[var(--color-dark)] hover:text-[var(--color-white)] hover:shadow-md focus:outline-none focus-visible:border-[var(--color-dark)] focus-visible:text-[var(--color-white)] focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-white active:translate-y-0 active:scale-[0.98] motion-reduce:transition-none md:w-auto">
 
                     <span aria-hidden="true"
                         class="absolute inset-0 origin-left scale-x-0 bg-[var(--color-dark)] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-x-100 group-focus-visible:scale-x-100 motion-reduce:transition-none"></span>
 
                     <span class="relative">Explore Our Journey</span>
+
+                    <svg class="h-4 w-4 transition-transform duration-300 group-hover:translate-y-0.5"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" aria-hidden="true">
+                        <path d="M12 5v14M6 13l6 6 6-6" />
+                    </svg>
                 </a>
             </div>
         </div>
