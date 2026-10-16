@@ -69,7 +69,7 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
           });
           this.aosInitialized = true;
         } else {
-          AOS.refreshHard();
+          setTimeout(() => AOS.refreshHard());
         }
 
         const rootRoute = this.router.routerState.snapshot.root;
