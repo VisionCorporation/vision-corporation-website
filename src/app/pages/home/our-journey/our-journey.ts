@@ -4,10 +4,11 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { OUR_JOURNEY_DATA } from '../../../data/constants/our-journey.contants';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-our-journey',
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   host: { class: 'contents' },
   templateUrl: './our-journey.html',
   styleUrl: './our-journey.css'

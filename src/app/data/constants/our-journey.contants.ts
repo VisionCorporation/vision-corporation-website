@@ -1,12 +1,13 @@
-interface OurJourney {
+export interface OurJourney {
     tag: string;
-    title: string
-    problem: string
-    solution: string
-    image: string
-    buttonText?: string
-    problemIcon: string
-    solutionIcon: string
+    title: string;
+    problem: string;
+    solution: string;
+    image: string;
+    buttonText: string;
+    buttonUrl: string;
+    problemIcon: string;
+    solutionIcon: string;
 }
 
 const ICONS = {
@@ -30,6 +31,7 @@ export const OUR_JOURNEY_DATA: OurJourney[] = [
         solution: 'Building websites and web applications that real customers can discover, trust and buy from. This work funds and fuels everything else on this page.',
         image: '',
         buttonText: 'See our web services',
+        buttonUrl: '/web-services',
         problemIcon: ICONS.warning,
         solutionIcon: ICONS.doneAll,
     },
@@ -39,6 +41,8 @@ export const OUR_JOURNEY_DATA: OurJourney[] = [
         problem: 'Power cuts slow down factories, shops and hospitals. Industry cannot grow on a supply that keeps switching off.',
         solution: 'Working toward a modular nuclear reactor, designed and built entirely in Africa, to support Ghana\'s grid by 2036 and give industry a steady supply it can plan around.',
         image: '',
+        buttonText: 'Explore our energy journey',
+        buttonUrl: '/our-journey/energy',
         problemIcon: ICONS.bolt,
         solutionIcon: ICONS.power,
     },
@@ -48,6 +52,8 @@ export const OUR_JOURNEY_DATA: OurJourney[] = [
         problem: 'Moving goods between African countries is slow and expensive, and that cost lands on the person buying at the end.',
         solution: 'Designing transport systems that connect the continent and make trade between our countries easier and cheaper.',
         image: '',
+        buttonText: 'Explore transportation',
+        buttonUrl: '/our-journey/transportation',
         problemIcon: ICONS.truck,
         solutionIcon: ICONS.route,
     },
@@ -57,6 +63,8 @@ export const OUR_JOURNEY_DATA: OurJourney[] = [
         problem: 'Africa builds a lot of software on hardware designed somewhere else, and depends on others for the chips and controls inside it.',
         solution: 'Designing integrated circuits and control systems for advanced infrastructure, so more of the technology Africa uses is designed here.',
         image: '',
+        buttonText: 'Explore hardware solutions',
+        buttonUrl: '/our-journey/hardware-solutions',
         problemIcon: ICONS.chip,
         solutionIcon: ICONS.gear,
     },
@@ -66,6 +74,8 @@ export const OUR_JOURNEY_DATA: OurJourney[] = [
         problem: 'Most AI tools are trained on data and conditions from somewhere else, so the answers they give often don\'t fit African markets, infrastructure or communities.',
         solution: 'Building AI into every journey above, to analyse critical data on energy, transport, hardware and business, and to turn it into insight that suits the African ecosystem. We build it ethically and openly, so people can understand and trust what it tells them.',
         image: '',
+        buttonText: 'Explore our AI journey',
+        buttonUrl: '/our-journey/artificial-intelligence',
         problemIcon: ICONS.sparkle,
         solutionIcon: ICONS.shield,
     }
