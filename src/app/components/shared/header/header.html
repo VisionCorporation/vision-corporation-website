@@ -1,5 +1,5 @@
 <div class="sticky top-0 z-50 w-full bg-[var(--color-light)] transition-shadow duration-300"
-  [class.shadow-md]="scrolled()">
+  [class.shadow-md]="scrolled()" (mouseleave)="closeDropdown()" (keydown.escape)="closeDropdown()">
   <header class="site-header w-full max-w-[1480px] mx-auto">
     <div
       class="max-w-[1400px] mx-auto flex items-center justify-between px-4 md:px-8 lg:px-14 transition-[padding] duration-300 ease-out"
@@ -24,14 +24,25 @@
       <nav class="hidden lg:block" aria-label="Main navigation">
         <ul class="flex items-center justify-center gap-4">
           @for (navLink of headerNavLinks; track navLink.label) {
-          <li>
+          <li (mouseenter)="navLink.children ? openDropdown(navLink.label) : closeDropdown()" class="cursor-pointer"
+            (focusin)="navLink.children ? openDropdown(navLink.label) : closeDropdown()">
             <a [routerLink]="navLink.url" routerLinkActive="text-[var(--color-primary)]" #rla="routerLinkActive"
               [routerLinkActiveOptions]="{ exact: navLink.url === '/' }"
+              [class.text-[var(--color-primary)]]="activeDropdown() === navLink.label"
               class="group relative inline-block p-2 text-[var(--color-dark)] transition-all duration-300 hover:-translate-y-0.5 hover:text-[var(--color-primary)] focus:outline-none focus-visible:-translate-y-0.5 focus-visible:text-[var(--color-primary)] motion-reduce:transition-none">
 
               {{ navLink.label }}
+              @if (navLink.children) {
+              <svg class="ml-1 inline-block h-3 w-3 transition-transform duration-300"
+                [class.rotate-180]="activeDropdown() === navLink.label" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true">
+                <path d="M6 9l6 6 6-6" />
+              </svg>
+              }
 
-              <span aria-hidden="true" [class]="rla.isActive ? 'origin-left scale-x-100' : 'origin-right scale-x-0'"
+              <span aria-hidden="true"
+                [class]="(rla.isActive || activeDropdown() === navLink.label) ? 'origin-left scale-x-100' : 'origin-right scale-x-0'"
                 class="absolute inset-x-2 bottom-0 h-0.5 rounded-full bg-[var(--color-primary)] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:origin-left group-hover:scale-x-100 group-focus-visible:origin-left group-focus-visible:scale-x-100 motion-reduce:transition-none"></span>
             </a>
           </li>
@@ -74,6 +85,52 @@
     </div>
   </header>
 
+  <div aria-hidden="true" (mouseenter)="closeDropdown()"
+    class="absolute left-0 top-full hidden h-screen w-full bg-black/40 transition-opacity duration-300 lg:block motion-reduce:transition-none"
+    [class.opacity-100]="activeDropdown()" [class.opacity-0]="!activeDropdown()"
+    [class.pointer-events-none]="!activeDropdown()"></div>
+
+  @for (navLink of headerNavLinks; track navLink.label) {
+  @if (navLink.children) {
+  <div [attr.inert]="activeDropdown() === navLink.label ? null : ''"
+    class="absolute left-0 top-full z-10 hidden w-full border-t border-black/10 bg-[var(--color-light)] shadow-lg transition-[clip-path,opacity] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] lg:block motion-reduce:transition-none"
+    [class]="activeDropdown() === navLink.label
+    ? '[clip-path:inset(0_0_0_0)] opacity-100'
+    : '[clip-path:inset(0_0_100%_0)] opacity-0 pointer-events-none'">
+    <div class="mx-auto flex max-w-[1400px] items-start justify-start gap-20 px-4 py-10 md:px-8 lg:px-14">
+
+      <h2
+        class="max-w-[280px] text-[28px] font-semibold leading-tight text-[var(--color-dark)] transition-all duration-500 ease-out motion-reduce:transition-none"
+        [class]="activeDropdown() === navLink.label ? 'translate-x-0 opacity-100' : '-translate-x-24 opacity-0'">
+        Vision Corporation Journeys
+      </h2>
+
+      <div>
+        <h3
+          class="mb-4 text-sm font-medium uppercase tracking-wider text-[var(--color-primary)] transition-all duration-500 ease-out motion-reduce:transition-none"
+          [style.transition-delay.ms]="activeDropdown() === navLink.label ? 100 : 0"
+          [class]="activeDropdown() === navLink.label ? 'translate-x-0 opacity-100' : '-translate-x-8 opacity-0'">
+          {{ navLink.label }}
+        </h3>
+        <ul class="flex flex-col gap-1">
+          @for (child of navLink.children; track child.label; let i = $index) {
+          <li class="transition-all duration-500 ease-out motion-reduce:transition-none"
+            [style.transition-delay.ms]="activeDropdown() === navLink.label ? 180 + i * 70 : 0"
+            [class]="activeDropdown() === navLink.label ? 'translate-x-0 opacity-100' : '-translate-x-8 opacity-0'">
+            <a [routerLink]="child.url" (click)="closeDropdown()"
+              class="inline-block py-1.5 text-lg text-[var(--color-dark)] transition-all duration-300 hover:translate-x-2 hover:text-[var(--color-primary)] focus:outline-none focus-visible:translate-x-2 focus-visible:text-[var(--color-primary)]">
+              {{ child.label }}
+            </a>
+          </li>
+          }
+        </ul>
+      </div>
+
+    </div>
+  </div>
+  }
+  }
+
   <div class="pointer-events-none absolute left-0 top-full h-[calc(100dvh_-_100%)] w-full overflow-hidden lg:hidden">
     <nav id="mobile-menu" aria-label="Mobile navigation" [attr.inert]="menuOpen() ? null : ''"
       class="pointer-events-auto flex h-full w-full flex-col overflow-y-auto border-t border-black/10 bg-[var(--color-light)] px-4 pb-8 pt-4 transition-all duration-300 ease-in-out motion-reduce:transition-none md:px-8"
@@ -83,6 +140,42 @@
       <ul class="flex flex-col">
         @for (navLink of headerNavLinks; track navLink.label) {
         <li class="border-b border-black/10">
+          @if (navLink.children) {
+          @let highlighted = mobileExpanded() === navLink.label || childrenActive.isActive;
+          <button type="button" (click)="toggleMobileSub(navLink.label)"
+            [attr.aria-expanded]="mobileExpanded() === navLink.label"
+            [style.color]="highlighted ? 'var(--color-primary)' : null"
+            class="cursor-pointer group relative flex w-full items-center justify-between py-4 text-left text-lg text-[var(--color-dark)] transition-colors duration-300 hover:text-[var(--color-primary)] focus:outline-none focus-visible:text-[var(--color-primary)]">
+            <span aria-hidden="true" [class]="highlighted ? 'h-6' : 'h-0'"
+              class="absolute left-0 top-1/2 w-0.5 -translate-y-1/2 rounded-full bg-[var(--color-primary)] transition-all duration-300 ease-out group-hover:h-6 group-focus-visible:h-6 motion-reduce:transition-none"></span>
+
+            <span [class]="highlighted ? 'translate-x-3' : ''"
+              class="transition-transform duration-300 ease-out group-hover:translate-x-3 group-focus-visible:translate-x-3 motion-reduce:transition-none">
+              {{ navLink.label }}
+            </span>
+            <svg class="h-4 w-4 transition-transform duration-300"
+              [class.rotate-180]="mobileExpanded() === navLink.label" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" />
+            </svg>
+
+            <span aria-hidden="true" [class]="highlighted ? 'scale-x-100' : 'scale-x-0'"
+              class="absolute inset-x-0 -bottom-px h-px origin-left bg-[var(--color-primary)] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-x-100 group-focus-visible:scale-x-100 motion-reduce:transition-none"></span>
+          </button>
+          <div class="grid transition-[grid-template-rows] duration-300 ease-in-out motion-reduce:transition-none"
+            [class]="mobileExpanded() === navLink.label ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'">
+            <ul class="overflow-hidden" routerLinkActive #childrenActive="routerLinkActive">
+              @for (child of navLink.children; track child.label) {
+              <li>
+                <a [routerLink]="child.url" (click)="closeMenu()" routerLinkActive="text-[var(--color-primary)]"
+                  class="block py-3 pl-4 text-base text-[var(--color-dark)]/80 transition-colors duration-300 hover:text-[var(--color-primary)] active:text-[var(--color-primary)]">
+                  {{ child.label }}
+                </a>
+              </li>
+              }
+            </ul>
+          </div>
+          } @else {
           <a [routerLink]="navLink.url" (click)="closeMenu()" routerLinkActive="text-[var(--color-primary)]"
             #rla="routerLinkActive" [routerLinkActiveOptions]="{ exact: navLink.url === '/' }"
             class="group relative flex items-center justify-between py-4 text-lg text-[var(--color-dark)] transition-colors duration-300 hover:text-[var(--color-primary)] focus:outline-none focus-visible:text-[var(--color-primary)] active:text-[var(--color-primary)]">
@@ -105,6 +198,7 @@
             <span aria-hidden="true" [class]="rla.isActive ? 'scale-x-100' : 'scale-x-0'"
               class="absolute inset-x-0 -bottom-px h-px origin-left bg-[var(--color-primary)] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-x-100 group-focus-visible:scale-x-100 group-active:scale-x-100 motion-reduce:transition-none"></span>
           </a>
+          }
         </li>
         }
       </ul>

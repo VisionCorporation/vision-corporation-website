@@ -13,6 +13,8 @@ export class Header {
   private document = inject(DOCUMENT);
   public menuOpen = signal(false);
   public scrolled = signal(false);
+  public activeDropdown = signal<string | null>(null);
+  public mobileExpanded = signal<string | null>(null);
 
   constructor() {
     effect(() => {
@@ -20,8 +22,26 @@ export class Header {
     });
   }
 
-  public toggleMenu() { this.menuOpen.update(open => !open); }
-  public closeMenu() { this.menuOpen.set(false); }
+  public toggleMenu() {
+    this.menuOpen.update(open => !open);
+  }
+
+  public closeMenu() {
+    this.menuOpen.set(false);
+    this.mobileExpanded.set(null);
+  }
+
+  public openDropdown(label: string) {
+    this.activeDropdown.set(label);
+  }
+
+  public closeDropdown() {
+    this.activeDropdown.set(null);
+  }
+
+  public toggleMobileSub(label: string) {
+    this.mobileExpanded.update(v => (v === label ? null : label));
+  }
 
   @HostListener('document:keydown.escape')
   onEscape() { this.closeMenu(); }
