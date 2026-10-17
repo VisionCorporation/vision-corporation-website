@@ -43,7 +43,7 @@
 
               <span aria-hidden="true"
                 class="absolute inset-x-2 bottom-0 h-0.5 origin-left rounded-full bg-[var(--color-primary)] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-x-100 group-focus-visible:scale-x-100 motion-reduce:transition-none"
-                [class.scale-x-100]="activeDropdown() === navLink.label || isParentActive(navLink)" +
+                [class.scale-x-100]="activeDropdown() === navLink.label || isParentActive(navLink)"
                 [class.scale-x-0]="activeDropdown() !== navLink.label && !isParentActive(navLink)"></span>
             </button>
             } @else {
