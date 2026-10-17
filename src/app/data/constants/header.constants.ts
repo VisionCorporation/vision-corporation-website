@@ -9,11 +9,11 @@ export const HEADER_NAV_LINKS: NavLink[] = [
     {
         label: 'Our Journey',
         children: [
-            { label: 'Software Development', url: '/our-journey/software-development' },
-            { label: 'Energy', url: '/our-journey/energy' },
-            { label: 'Transportation', url: '/our-journey/transportation' },
-            { label: 'Hardware Solutions', url: '/our-journey/hardware-solutions' },
-            { label: 'Artificial Intelligence (AI)', url: '/our-journey/artificial-intelligence' },
+            { label: 'Web Design and Development', url: '/journeys/web-design-and-development' },
+            { label: 'Energy', url: '/journeys/energy' },
+            { label: 'Transportation', url: '/journeys/transportation' },
+            { label: 'Hardware Solutions', url: '/journeys/hardware-solutions' },
+            { label: 'Artificial Intelligence (AI)', url: '/journeys/artificial-intelligence' },
         ],
     },
     { label: 'Web Services', url: '/web-services' },
