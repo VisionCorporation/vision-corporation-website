@@ -1,0 +1,50 @@
+<section id="what-we-do" class="scroll-mt-24 bg-[var(--color-white)]">
+    <div class="mx-auto max-w-[1400px] px-4 py-24 md:px-8 sm:py-28 lg:px-14">
+        <div class="max-w-4xl" data-aos="fade-up" data-aos-duration="800">
+            <p class="mb-3 text-sm font-medium uppercase tracking-wider text-[var(--color-primary)]">Our work</p>
+
+            <h2 class="mt-5 text-3xl font-semibold leading-tight sm:text-4xl lg:text-5xl">
+                <app-accent-text [parts]="data.heading" />
+            </h2>
+        </div>
+
+        @if (data.paragraphs?.length) {
+        <div class="mt-10 max-w-3xl space-y-6">
+            @for (paragraph of data.paragraphs; track paragraph; let i = $index) {
+            <p [class]="i === 0 ? 'text-lg text-[var(--color-dark)]/70 sm:text-xl' : 'border-l-2 border-[var(--color-primary)] pl-5 text-[var(--color-dark)]/70'"
+                class="leading-relaxed" data-aos="fade-up" [attr.data-aos-delay]="i * 100" data-aos-duration="800">
+                {{ paragraph }}
+            </p>
+            }
+        </div>
+        }
+
+        @if (data.items?.length) {
+        <ul class="mt-14 grid gap-6 md:grid-cols-2">
+            @for (item of data.items; track item.title; let i = $index) {
+            <li class="group relative flex flex-col overflow-hidden rounded-3xl border border-black/10 bg-[var(--color-light)] p-8 transition-all duration-300 ease-out hover:-translate-y-1 hover:border-[var(--color-primary)]/40 hover:shadow-xl motion-reduce:transition-none"
+                data-aos="fade-up" [attr.data-aos-delay]="i * 100" data-aos-duration="750"
+                data-aos-easing="ease-out-cubic">
+                <span aria-hidden="true"
+                    class="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-[var(--color-primary)] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-x-100 motion-reduce:transition-none"></span>
+
+                <div class="mb-4 flex items-start justify-between">
+                    <span
+                        class="flex h-14 w-14 items-center justify-center rounded-2xl bg-[var(--color-primary)]/10 text-lg font-semibold text-[var(--color-primary)] transition-colors duration-300">
+                        {{ (i + 1).toString().padStart(2, '0') }}
+                    </span>
+                    <svg class="h-5 w-5 text-[var(--color-dark)]/30 transition-all duration-300 group-hover:translate-x-1 group-hover:text-[var(--color-primary)]"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" aria-hidden="true">
+                        <path d="M5 12h14M13 6l6 6-6 6" />
+                    </svg>
+                </div>
+
+                <h3 class="mt-8 text-2xl font-semibold">{{ item.title }}</h3>
+                <p class="mt-3 flex-1 leading-relaxed text-[var(--color-dark)]/70">{{ item.description }}</p>
+            </li>
+            }
+        </ul>
+        }
+    </div>
+</section>
