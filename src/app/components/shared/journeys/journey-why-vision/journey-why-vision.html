@@ -1,0 +1,56 @@
+<section class="">
+    <div
+        class="relative mx-auto grid max-w-[1400px] gap-10 overflow-hidden rounded-3xl bg-[var(--color-light)] px-6 py-24 text-[var(--color-dark)] sm:py-28 md:px-14 lg:grid-cols-12 lg:gap-16">
+
+        <div class="relative lg:col-span-5" data-aos="fade-right" data-aos-duration="800">
+            <p class="mb-3 text-sm font-medium uppercase tracking-wider text-[var(--color-primary)]">
+                Why Vision
+            </p>
+
+            <h2 class="mt-5 text-3xl font-semibold leading-tight tracking-[-0.02em] sm:text-4xl lg:text-5xl">
+                <app-accent-text [parts]="data.heading" />
+            </h2>
+
+            <div class="mt-8 flex flex-wrap items-center gap-3 text-sm text-[var(--color-text-muted)]"
+                data-aos="fade-up" data-aos-delay="150" data-aos-duration="700">
+                @for (pill of ['Software', 'Hardware', 'AI']; track pill; let last = $last) {
+                <span class="rounded-full border border-[var(--color-border)] bg-white px-4 py-1.5">
+                    {{ pill }}
+                </span>
+
+                @if (!last) {
+                <svg class="h-5 w-5 text-[var(--color-primary)]" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M8 3L4 7l4 4M4 7h16M16 21l4-4-4-4M20 17H4" />
+                </svg>
+                }
+                }
+            </div>
+        </div>
+
+        <div class="relative lg:col-span-7">
+            <div class="group relative rounded-2xl border border-[var(--color-border)] bg-white p-7 transition-[transform,border-color,box-shadow] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:border-[var(--color-primary)]/40 hover:shadow-[0_16px_40px_rgba(11,16,32,0.07)] motion-reduce:transform-none motion-reduce:transition-none"
+                data-aos="fade-up" data-aos-delay="100" data-aos-duration="750">
+
+                <div class="flex items-center gap-3">
+                    <span
+                        class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[var(--color-primary)] text-[var(--color-white)] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105 motion-reduce:transition-none">
+                        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M20 6L9 17l-5-5" />
+                        </svg>
+                    </span>
+
+                    <h3
+                        class="text-xl font-semibold transition-colors duration-300 ease-out group-hover:text-[var(--color-primary)]">
+                        Technology for Africa's future
+                    </h3>
+                </div>
+
+                <p class="mt-4 text-lg leading-relaxed text-[var(--color-text-muted)]">
+                    {{ data.description }}
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
