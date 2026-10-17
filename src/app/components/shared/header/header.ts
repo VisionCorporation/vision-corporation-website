@@ -1,7 +1,8 @@
 import { Component, DOCUMENT, effect, HostListener, inject, signal } from '@angular/core';
 import { NavigationEnd, Router, RouterLink, RouterLinkActive } from '@angular/router';
-import { HEADER_NAV_LINKS } from '../../../data/constants/header.constants';
-import { filter } from 'rxjs';
+import { HEADER_NAV_LINKS, NavLink } from '../../../data/constants/header.constants';
+import { filter, map } from 'rxjs';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-header',
@@ -16,11 +17,7 @@ export class Header {
   public scrolled = signal(false);
   public activeDropdown = signal<string | null>(null);
   public mobileExpanded = signal<string | null>(null);
-
-  private readonly router = inject(Router);
-  readonly currentFragment = signal<string | null>(
-    this.router.parseUrl(this.router.url).fragment
-  );
+  private router = inject(Router);
 
   constructor() {
     effect(() => {
@@ -35,6 +32,22 @@ export class Header {
         );
       });
   }
+
+  private currentUrl = toSignal(
+    this.router.events.pipe(
+      filter((event) => event instanceof NavigationEnd),
+      map(() => this.router.url.split(/[?#]/)[0]),
+    ),
+    { initialValue: this.router.url.split(/[?#]/)[0] },
+  );
+
+  public isParentActive(navLink: NavLink): boolean {
+    return navLink.children?.some((child) => child.url === this.currentUrl()) ?? false;
+  }
+
+  public readonly currentFragment = signal<string | null>(
+    this.router.parseUrl(this.router.url).fragment
+  );
 
   public toggleMenu() {
     this.menuOpen.update(open => !open);

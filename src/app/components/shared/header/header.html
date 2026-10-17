@@ -31,7 +31,7 @@
               (click)="activeDropdown() === navLink.label ? closeDropdown() : openDropdown(navLink.label)"
               [attr.aria-expanded]="activeDropdown() === navLink.label" aria-haspopup="true"
               class="group relative inline-block p-2 text-[var(--color-dark)] transition-all duration-300 hover:-translate-y-0.5 hover:text-[var(--color-primary)] focus:outline-none focus-visible:-translate-y-0.5 focus-visible:text-[var(--color-primary)] motion-reduce:transition-none"
-              [class.text-[var(--color-primary)]]="activeDropdown() === navLink.label">
+              [class.text-[var(--color-primary)]]="activeDropdown() === navLink.label || isParentActive(navLink)">
               {{ navLink.label }}
 
               <svg class="ml-1 inline-block h-3 w-3 transition-transform duration-300"
@@ -43,8 +43,8 @@
 
               <span aria-hidden="true"
                 class="absolute inset-x-2 bottom-0 h-0.5 origin-left rounded-full bg-[var(--color-primary)] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-x-100 group-focus-visible:scale-x-100 motion-reduce:transition-none"
-                [class.scale-x-100]="activeDropdown() === navLink.label"
-                [class.scale-x-0]="activeDropdown() !== navLink.label"></span>
+                [class.scale-x-100]="activeDropdown() === navLink.label || isParentActive(navLink)" +
+                [class.scale-x-0]="activeDropdown() !== navLink.label && !isParentActive(navLink)"></span>
             </button>
             } @else {
             <a [routerLink]="navLink.url" [fragment]="navLink.fragment" routerLinkActive #rla="routerLinkActive"
@@ -141,8 +141,13 @@
           <li class="transition-all duration-500 ease-out motion-reduce:transition-none"
             [style.transition-delay.ms]="activeDropdown() === navLink.label ? 180 + i * 70 : 0"
             [class]="activeDropdown() === navLink.label ? 'translate-x-0 opacity-100' : '-translate-x-8 opacity-0'">
-            <a [routerLink]="child.url" (click)="closeDropdown()"
-              class="inline-block py-1.5 text-lg text-[var(--color-dark)] transition-all duration-300 hover:translate-x-2 hover:text-[var(--color-primary)] focus:outline-none focus-visible:translate-x-2 focus-visible:text-[var(--color-primary)]">
+            <a [routerLink]="child.url" routerLinkActive #childRla="routerLinkActive"
+              [routerLinkActiveOptions]="{ exact: true }" (click)="closeDropdown()"
+              [attr.aria-current]="childRla.isActive ? 'page' : null"
+              [class.text-[var(--color-primary)]]="childRla.isActive" [class.translate-x-2]="childRla.isActive"
+              class="group inline-flex items-center gap-3 py-1.5 text-lg text-[var(--color-dark)] transition-all duration-300 hover:translate-x-2 hover:text-[var(--color-primary)] focus:outline-none focus-visible:translate-x-2 focus-visible:text-[var(--color-primary)] motion-reduce:transition-none">
+              <span aria-hidden="true" class="h-0.5 rounded-full bg-[var(--color-primary)] transition-all duration-300"
+                [class.w-5]="childRla.isActive" [class.w-0]="!childRla.isActive"></span>
               {{ child.label }}
             </a>
           </li>
