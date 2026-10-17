@@ -86,13 +86,13 @@
                 data-aos-delay="200" data-aos-duration="1000" data-aos-easing="ease-out-cubic" aria-hidden="true">
 
                 <div
-                    class="relative overflow-hidden rounded-3xl border border-black/10 bg-[var(--color-white)] shadow-2xl shadow-black/10">
+                    class="relative overflow-hidden rounded-3xl border border-[var(--color-border)] bg-[var(--color-white)] shadow-2xl shadow-black/10">
                     <div class="flex items-center gap-2 border-b border-black/10 px-5 py-3.5">
                         <span class="h-2.5 w-2.5 rounded-full bg-black/15"></span>
                         <span class="h-2.5 w-2.5 rounded-full bg-black/15"></span>
                         <span class="h-2.5 w-2.5 rounded-full bg-black/15"></span>
                         <span
-                            class="ml-3 flex-1 truncate rounded-full bg-black/5 px-4 py-1 text-xs text-[var(--color-dark)]/50">google.com/search</span>
+                            class="ml-3 flex-1 truncate rounded-full bg-black/5 px-4 py-1 text-xs text-[var(--color-dark)]/70">google.com/search</span>
                     </div>
 
                     <div class="p-5 sm:p-6">
@@ -273,8 +273,19 @@
         <div class="mx-auto max-w-[1400px] px-4 py-24 md:px-8 sm:py-28 lg:px-14">
             <div class="max-w-4xl" data-aos="fade-up" data-aos-duration="800">
                 <p class="mb-3 text-sm font-medium uppercase tracking-wider text-[var(--color-primary)]">What we do</p>
-                <h2 class="mt-5 text-3xl font-semibold leading-tight sm:text-4xl lg:text-5xl">Five ways to put your
-                    business in front of the right people.</h2>
+                <h2 class="mt-5 text-3xl font-semibold leading-tight sm:text-4xl lg:text-5xl">
+                    Five ways to put your business in front of the
+                    <span class="relative inline-block px-6 text-[var(--color-primary)]">
+                        right people
+                        <svg aria-hidden="true"
+                            class="pointer-events-none absolute -rotate-1 -inset-x-1 -inset-y-1 h-[calc(100%+8px)] w-[calc(100%+8px)]"
+                            viewBox="0 0 120 50" fill="none" preserveAspectRatio="none">
+                            <path d="M104 12C84 2 36 0 16 10C-2 20 2 38 28 44C58 50 100 46 112 32C122 20 108 8 80 5"
+                                stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                vector-effect="non-scaling-stroke" stroke-linejoin="round" />
+                        </svg>
+                    </span>
+                </h2>
             </div>
 
             <ul class="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-6">
@@ -327,7 +338,15 @@
                 </p>
 
                 <h2 class="mt-5 text-3xl font-semibold leading-tight sm:text-4xl lg:text-5xl">
-                    A simple process, with no guesswork.
+                    A simple process, with
+                    <span class="relative inline-block text-[var(--color-primary)]">
+                        no guesswork
+                        <svg aria-hidden="true" class="absolute -bottom-2 left-0 h-2 w-full" viewBox="0 0 200 8"
+                            fill="none" preserveAspectRatio="none">
+                            <path d="M2 6c40-5 100-5 196 0" stroke="currentColor" stroke-width="3"
+                                vector-effect="non-scaling-stroke" stroke-linecap="round" />
+                        </svg>
+                    </span>.
                 </h2>
             </div>
 
