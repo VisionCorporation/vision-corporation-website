@@ -5,6 +5,8 @@ import { Router, RouterOutlet, NavigationEnd, ActivatedRouteSnapshot } from '@an
 import { filter, Subscription } from 'rxjs';
 import { CookiePreferences } from './interfaces/cookies.interface';
 import { CONSENT_KEY } from './data/constants/cookies.constants';
+import { Header } from './components/shared/header/header';
+import { Footer } from './components/shared/footer/footer';
 
 declare global {
   interface Window {
@@ -15,7 +17,7 @@ declare global {
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, CommonModule],
+  imports: [RouterOutlet, CommonModule, Header, Footer],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
