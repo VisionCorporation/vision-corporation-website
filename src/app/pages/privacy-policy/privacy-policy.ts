@@ -1,27 +1,29 @@
+
 import { Component, inject } from '@angular/core';
-import { Header } from '../../components/shared/header/header';
-import { Footer } from '../../components/shared/footer/footer';
 import { SeoService } from '../../services/seo-service';
-import { NgOptimizedImage } from '@angular/common';
-import ngSrcset from './../../../../public/assets/ngSrcset.json';
-import { RouterLink } from "@angular/router";
+import { SECTIONS } from '../../data/constants/privacy-policy.constants';
+
+
 
 @Component({
   selector: 'app-privacy-policy',
-  imports: [Header, Footer, NgOptimizedImage],
+  imports: [],
   templateUrl: './privacy-policy.html',
-  styleUrl: './privacy-policy.css'
 })
 export class PrivacyPolicy {
+  public readonly lastUpdated = 'November 23, 2025';
+  public readonly email = 'info@visioncorporation.africa';
+  public readonly phone = '+233561251006';
   private readonly seoService = inject(SeoService);
-  public srcSet = ngSrcset
+  readonly sections = SECTIONS;
 
   constructor() {
     this.seoService.updatePageSeo({
       title: 'Privacy Policy - Vision Corporation | Data Protection Rules',
-      description: 'Read Vision Corporation’s Privacy Policy to learn how we collect, use, and protect your personal information while ensuring transparency and data security.',
+      description:
+        'Read Vision Corporation’s Privacy Policy to learn how we collect, use, and protect your personal information while ensuring transparency and data security.',
       url: 'https://visioncorporation.africa/privacy-policy',
-      image: 'https://visioncorporation.africa/assets/images/privacy-policy-og.jpeg'
+      image: 'https://visioncorporation.africa/assets/images/privacy-policy-og.jpeg',
     });
   }
 }
