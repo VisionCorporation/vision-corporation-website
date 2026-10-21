@@ -58,8 +58,8 @@ export class Contact {
     this.contactUsForm.patchValue({ messageCategory: this.options[0].value });
 
     this.seoService.updatePageSeo({
-      title: 'Contact Us - Vision Corporation | IT & Software Support',
-      description: 'Contact Vision Corporation for software development, IT consulting, and digital solutions. Let\'s discuss your project and find the best solutions together.',
+      title: 'Contact Vision Corporation | Web Design Agency in Ghana',
+      description: 'Tell Vision Corporation about your website, web app or digital marketing project. Based in Sekondi-Takoradi, Ghana. Send a message for a free consultation.',
       url: 'https://visioncorporation.africa/contact',
       image: 'https://visioncorporation.africa/assets/images/contact-og.jpeg'
     });

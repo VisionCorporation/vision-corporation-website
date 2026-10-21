@@ -25,7 +25,7 @@ export const JOURNEYS: Record<string, JourneyPageData> = {
             subtext:
                 'We design and build business websites, portfolio websites, e-commerce stores and custom web applications for startups and growing businesses.',
             buttonText: 'Start a Web Project',
-            buttonLink: '/contact',
+            buttonLink: '/contact-us',
             illustration: 'web',
             illustrationLabel: 'yourbusiness.com',
             tags: ['Portfolio sites', 'Business sites', 'E-commerce', 'Web apps'],
@@ -118,9 +118,9 @@ export const JOURNEYS: Record<string, JourneyPageData> = {
             text:
                 'Share your idea and your goal. We will reply with honest advice on the best place to start.',
             primaryLabel: 'Start a Web Project',
-            primaryLink: '/contact',
+            primaryLink: '/contact-us',
             secondaryLabel: 'Book a Free Consultation',
-            secondaryLink: '/contact',
+            secondaryLink: '/contact-us',
         },
     },
 
@@ -138,7 +138,7 @@ export const JOURNEYS: Record<string, JourneyPageData> = {
             subtext:
                 "We are working toward a modular nuclear reactor, designed and built entirely in Africa, to help support Ghana's energy grid by 2036.",
             buttonText: 'Follow Our Energy Journey',
-            buttonLink: '/contact',
+            buttonLink: '/contact-us',
             illustration: 'energy',
             illustrationLabel: 'vision.africa/energy',
             tags: ['Modular design', 'African-built', '2036 goal'],
@@ -209,7 +209,7 @@ export const JOURNEYS: Record<string, JourneyPageData> = {
             text:
                 "If you are a researcher, an institution or a partner who cares about Africa's energy future, we would like to talk.",
             primaryLabel: 'Talk to Us About Energy',
-            primaryLink: '/contact',
+            primaryLink: '/contact-us',
         },
     },
 
@@ -227,7 +227,7 @@ export const JOURNEYS: Record<string, JourneyPageData> = {
             subtext:
                 'We want to create innovative transportation systems that link the continent and make commerce between African countries faster and more affordable.',
             buttonText: 'Follow Our Transport Journey',
-            buttonLink: '/contact',
+            buttonLink: '/contact-us',
             illustration: 'transport',
             illustrationLabel: 'vision.africa/transport',
             tags: ['Routes', 'Costs', 'Cross-border trade'],
@@ -302,7 +302,7 @@ export const JOURNEYS: Record<string, JourneyPageData> = {
             text:
                 'If you work in trade, logistics, policy or research and want to shape this with us, get in touch.',
             primaryLabel: 'Talk to Us About Transport',
-            primaryLink: '/contact',
+            primaryLink: '/contact-us',
         },
     },
 
@@ -321,7 +321,7 @@ export const JOURNEYS: Record<string, JourneyPageData> = {
             subtext:
                 'We design integrated circuits and control systems for advanced technological infrastructure, so more of the technology Africa relies on is designed here.',
             buttonText: 'Follow Our Hardware Journey',
-            buttonLink: '/contact',
+            buttonLink: '/contact-us',
             illustration: 'hardware',
             illustrationLabel: 'vision.africa/hardware',
             tags: ['Integrated circuits', 'Control systems', 'Local engineering skill'],
@@ -392,7 +392,7 @@ export const JOURNEYS: Record<string, JourneyPageData> = {
             text:
                 'If you are an engineer, researcher or manufacturer interested in designing and building hardware in Africa, we would like to hear from you.',
             primaryLabel: 'Talk to Us About Hardware',
-            primaryLink: '/contact',
+            primaryLink: '/contact-us',
         },
     },
 
@@ -506,7 +506,7 @@ export const JOURNEYS: Record<string, JourneyPageData> = {
             text:
                 'If you have a problem where better insight would help, or you want to work with us on ethical AI, get in touch.',
             primaryLabel: 'Talk to Us About AI',
-            primaryLink: '/contact',
+            primaryLink: '/contact-us',
         },
     },
 };
