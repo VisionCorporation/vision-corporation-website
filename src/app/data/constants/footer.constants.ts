@@ -1,10 +1,9 @@
 export const FOOTER_MENU = [
-    { label: 'Our Journey', url: '/' },
+    { label: 'Our Journey', url: '/', fragment: 'explore-our-journey' },
     { label: 'Web Services', url: '/' },
-    { label: 'Digital Marketing ', url: '/' },
-    { label: 'Why Vision', url: '/' },
-    { label: 'About Us', url: '/' },
-    { label: 'FAQ', url: '/' }
+    { label: 'Digital Marketing ', url: '/digital-marketing' },
+    { label: 'Why Vision', url: '/why-vision' },
+    { label: 'FAQs', url: '/', fragment: 'faqs' }
 ]
 
 export const FOOTER_SERVICES = [
@@ -16,8 +15,8 @@ export const FOOTER_SERVICES = [
 ]
 
 export const FOOTER_LEGAL = [
-    { label: 'Privacy Policy', url: '/' },
-    { label: 'Terms of Service', url: '/' },
+    { label: 'Privacy Policy', url: '/privacy-policy' },
+    { label: 'Terms of Service', url: '/terms-of-service' },
 ]
 
 export const FOOTER_CONTACT = {

@@ -81,7 +81,7 @@
                 <ul class="space-y-3">
                     @for (menu of footerMenu; track menu.label) {
                     <li>
-                        <a [routerLink]="menu.url"
+                        <a [routerLink]="menu.url" [fragment]="menu.fragment"
                             class="inline-block text-[var(--color-white)] opacity-70 transition-all duration-200 hover:translate-x-1 hover:opacity-100">
                             {{ menu.label }}
                         </a>
