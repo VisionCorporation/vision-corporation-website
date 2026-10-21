@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Cta } from '../../components/shared/cta/cta';
 import { BARS, CHANNELS, PROBLEMS, REASONS, SERVICES, STEPS } from '../../data/constants/digital-marketing.constants';
+import { SeoService } from '../../services/seo-service';
 
 @Component({
   selector: 'app-digital-marketing',
@@ -38,4 +39,14 @@ export class DigitalMarketing {
   public readonly services = SERVICES
   public readonly steps = STEPS
   public readonly reasons = REASONS
+  private readonly seoService = inject(SeoService);
+
+  constructor() {
+    this.seoService.updatePageSeo({
+      title: 'Marketing and Digital Marketing | Vision Corporation',
+      description: 'Digital marketing and online marketing by Vision Corporation: search engine optimization, blogs, article writing, Facebook ads, TikTok ads and content creation.',
+      url: `https://visioncorporation.africa/digital-marketing`,
+      image: 'https://visioncorporation.africa/assets/images/journey-og.jpeg',
+    });
+  }
 }

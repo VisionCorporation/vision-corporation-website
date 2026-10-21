@@ -11,6 +11,7 @@ import { JourneyWhyVision } from '../../../components/shared/journeys/journey-wh
 import { AiJourneyMap } from '../../../components/shared/journeys/ai-journey-map/ai-journey-map';
 import { Cta } from '../../../components/shared/cta/cta';
 import { JourneyNotFound } from '../journey-not-found/journey-not-found';
+import { SeoService } from '../../../services/seo-service';
 
 @Component({
   selector: 'app-journey-page',
@@ -31,7 +32,7 @@ export class JourneyPage {
   private readonly route = inject(ActivatedRoute);
   private readonly title = inject(Title);
   private readonly meta = inject(Meta);
-
+  private readonly seoService = inject(SeoService);
   private readonly routeParams = toSignal(this.route.paramMap, {
     initialValue: this.route.snapshot.paramMap,
   });
@@ -56,11 +57,11 @@ export class JourneyPage {
         return;
       }
 
-      this.title.setTitle(`${page.label} | Vision Corporation`);
-
-      this.meta.updateTag({
-        name: 'description',
-        content: page.hero.subtext,
+      this.seoService.updatePageSeo({
+        title: page.metaTitle,
+        description: page.metaDescription,
+        url: `https://visioncorporation.africa/journeys/${page.slug}`,
+        image: 'https://visioncorporation.africa/assets/images/journey-og.jpeg',
       });
     });
   }

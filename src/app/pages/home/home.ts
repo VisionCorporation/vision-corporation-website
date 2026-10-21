@@ -21,8 +21,8 @@ export class Home {
 
   constructor() {
     this.seoService.updatePageSeo({
-      title: 'Vision Corporation | Web Design & Development Agency in Ghana',
-      description: 'Vision Corporation designs and builds business websites, portfolio sites, e-commerce stores and custom web applications in Ghana, as the first step in a bigger mission to build Africa\'s technology.',
+      title: 'Web Design & Digital Marketing Agency in Ghana | Vision Corporation',
+      description: 'Looking for a reliable web design and digital marketing agency in Ghana? Vision Corporation builds high-performing business websites, e-commerce stores, and custom web apps, backed by SEO and ads to grow your brand.',
       url: 'https://visioncorporation.africa/',
       image: 'https://visioncorporation.africa/assets/images/home-og.jpeg'
     });
