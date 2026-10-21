@@ -17,66 +17,56 @@
                 data-aos-duration="700">
 
                 @for (category of FAQ_TABS; track category; let i = $index) {
-                <button #tabButton type="button" role="tab"
-                    class="shrink-0 cursor-pointer rounded-full px-5 py-3 text-sm font-semibold transition-all duration-200 hover:-translate-y-0.5"
-                    [style.backgroundColor]="
-                        activeCategory() === category
-                            ? 'var(--color-primary)'
-                            : '#f3f4f6'
-                    " [style.color]="
-                        activeCategory() === category
-                            ? '#ffffff'
-                            : 'var(--color-dark)'
-                    " [attr.aria-selected]="activeCategory() === category" [attr.data-aos]="'fade-up'"
-                    [attr.data-aos-delay]="250 + i * 70" (click)="setActiveCategory(category, tabButton, tabContainer)">
+                <button #tabButton type="button" role="tab" [attr.aria-selected]="activeCategory() === category"
+                    (click)="setActiveCategory(category, tabButton, tabContainer)"
+                    [class]="activeCategory() === category
+                            ? 'border-[var(--color-primary)] bg-[var(--color-primary)] text-[var(--color-white)]'
+                            : 'border-black/15 text-[var(--color-dark)]/70 hover:border-[var(--color-primary)] hover:text-[var(--color-primary)]'"
+                    class="shrink-0 cursor-pointer rounded-full border px-5 py-2.5 text-sm font-medium transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2 motion-reduce:transition-none">
                     {{ category }}
                 </button>
                 }
             </div>
 
-            <div class="mt-8 space-y-3">
+            <div class="mt-8 border-t border-black/10" data-aos="fade-up" data-aos-once="true">
                 @for (faq of visibleFAQs(); track faq.question; let i = $index) {
-                <article
-                    class="faq-card overflow-hidden rounded-2xl border border-black/[0.08] bg-white transition-all duration-300 hover:border-[var(--color-primary)]/30 hover:shadow-md"
-                    [class.is-open]="openFaq() === faq.question" data-aos="fade-up"
-                    [attr.data-aos-delay]="i < 5 ? i * 80 : 400" data-aos-duration="600" data-aos-once="true">
+                <article class="border-b border-black/10" [class.is-open]="openFaq() === faq.question"
+                    [attr.data-aos-delay]="i < 5 ? i * 80 : 400">
 
                     <h3>
-                        <button type="button"
-                            class="faq-trigger flex w-full items-center justify-between gap-5 px-5 py-5 text-left sm:px-7 sm:py-6"
-                            [attr.aria-expanded]="openFaq() === faq.question" [attr.aria-controls]="'faq-answer-' + i"
-                            (click)="toggleFaq(faq.question)">
+                        <button type="button" (click)="toggleFaq(faq.question)"
+                            [attr.aria-expanded]="openFaq() === faq.question" [attr.aria-controls]="'faq-panel-' + i"
+                            [id]="'faq-button-' + i"
+                            class="group flex w-full cursor-pointer items-center justify-between gap-6 py-6 text-left focus:outline-none focus-visible:text-[var(--color-primary)]">
 
-                            <span
-                                class="text-base font-semibold leading-relaxed text-[var(--color-dark)] transition-colors duration-200 sm:text-lg"
-                                [class.text-[var(--color-primary)]]="openFaq() === faq.question">
+                            <span [class]="openFaq() === faq.question ? 'text-[var(--color-primary)]' : ''"
+                                class="text-base font-semibold leading-relaxed transition-colors duration-300 group-hover:text-[var(--color-primary)] sm:text-lg">
                                 {{ faq.question }}
                             </span>
 
                             <span
-                                class="faq-chevron flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gray-100 text-[var(--color-dark)] transition-all duration-300"
-                                [class.chevron-open]="openFaq() === faq.question"
-                                [class.bg-[var(--color-primary-light)]]="openFaq() === faq.question"
-                                [class.text-[var(--color-primary)]]="openFaq() === faq.question">
+                                [class]="openFaq() === faq.question ? 'border-[var(--color-primary)] bg-[var(--color-primary)] text-[var(--color-white)]' : 'border-black/15 text-[var(--color-primary)]'"
+                                class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border transition-all duration-300 group-hover:border-[var(--color-primary)]">
 
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" aria-hidden="true">
-                                    <path d="m6 9 6 6 6-6" />
+                                <svg [class.rotate-45]="openFaq() === faq.question"
+                                    class="h-4 w-4 transition-transform duration-300 ease-in-out motion-reduce:transition-none"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path d="M12 5v14M5 12h14" />
                                 </svg>
                             </span>
                         </button>
                     </h3>
 
-                    <div class="faq-answer" [class.answer-open]="openFaq() === faq.question"
-                        [attr.id]="'faq-answer-' + i" [attr.aria-hidden]="openFaq() !== faq.question">
+                    <div [id]="'faq-panel-' + i" role="region" [attr.aria-labelledby]="'faq-button-' + i"
+                        [attr.inert]="openFaq() === faq.question ? null : ''"
+                        [class]="openFaq() === faq.question ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'"
+                        class="grid transition-[grid-template-rows] duration-300 ease-in-out motion-reduce:transition-none">
 
-                        <div class="faq-answer-inner">
-                            <div class="px-5 pb-6 sm:px-7 sm:pb-7">
-                                <p class="max-w-3xl text-sm leading-7 text-[var(--color-text-muted)] sm:text-base">
-                                    {{ faq.answer }}
-                                </p>
-                            </div>
+                        <div class="overflow-hidden">
+                            <p class="max-w-5xl pb-6 text-sm leading-7 text-[var(--color-dark)]/70 sm:text-base">
+                                {{ faq.answer }}
+                            </p>
                         </div>
                     </div>
                 </article>
