@@ -1,5 +1,4 @@
 @if (journey(); as page) {
-<app-header />
 
 <main class="overflow-x-clip bg-[var(--color-light)] text-[var(--color-dark)]">
     <app-journey-hero [label]="page.label" [data]="page.hero" />
@@ -19,8 +18,6 @@
     <app-cta [heading]="page.cta.heading" [text]="page.cta.text" [primaryLabel]="page.cta.primaryLabel"
         [secondaryLabel]="page.cta.secondaryLabel ?? ''" />
 </main>
-
-<app-footer />
 }
 @else {
 <app-journey-not-found />

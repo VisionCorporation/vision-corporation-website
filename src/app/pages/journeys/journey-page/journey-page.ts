@@ -9,8 +9,6 @@ import { JourneyWork } from '../../../components/shared/journeys/journey-work/jo
 import { JourneyApproach } from '../../../components/shared/journeys/journey-approach/journey-approach';
 import { JourneyWhyVision } from '../../../components/shared/journeys/journey-why-vision/journey-why-vision';
 import { AiJourneyMap } from '../../../components/shared/journeys/ai-journey-map/ai-journey-map';
-import { Header } from '../../../components/shared/header/header';
-import { Footer } from '../../../components/shared/footer/footer';
 import { Cta } from '../../../components/shared/cta/cta';
 import { JourneyNotFound } from '../journey-not-found/journey-not-found';
 
@@ -24,8 +22,6 @@ import { JourneyNotFound } from '../journey-not-found/journey-not-found';
     JourneyWhyVision,
     AiJourneyMap,
     Cta,
-    Header,
-    Footer,
     JourneyNotFound
   ],
   templateUrl: './journey-page.html',
