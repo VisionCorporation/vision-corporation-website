@@ -14,6 +14,9 @@ export const JOURNEYS: Record<string, JourneyPageData> = {
     'web-design-and-development': {
         slug: 'web-design-and-development',
         label: 'Web and Marketing',
+        metaTitle: 'Website Development Company in Ghana | Vision Corporation',
+        metaDescription:
+            'Vision Corporation: website developers who build your ecommerce website, business website, portfolio website and online store, the first step to building technology in Ghana.',
         hero: {
             headline: [
                 { text: 'Websites that get ' },
@@ -124,6 +127,9 @@ export const JOURNEYS: Record<string, JourneyPageData> = {
     energy: {
         slug: 'energy',
         label: 'Energy',
+        metaTitle: 'Electric Company & Nuclear Energy | Vision Corporation',
+        metaDescription:
+            'Vision Corporation is building Ghana’s next electric company: modular nuclear energy, 100% African-built by 2036, to support the grid and reduce power outages.',
         hero: {
             headline: [
                 { text: "Reliable power for Ghana's " },
@@ -210,6 +216,9 @@ export const JOURNEYS: Record<string, JourneyPageData> = {
     transportation: {
         slug: 'transportation',
         label: 'Transportation',
+        metaTitle: 'Transportation Services & Logistics | Vision Corporation',
+        metaDescription:
+            'Transportation services from Vision Corporation: a shipping company building transport and logistics in Ghana, to make moving goods across Africa affordable.',
         hero: {
             headline: [
                 { text: 'Connecting Africa, so ' },
@@ -300,6 +309,9 @@ export const JOURNEYS: Record<string, JourneyPageData> = {
     'hardware-solutions': {
         slug: 'hardware-solutions',
         label: 'Hardware Solutions',
+        metaTitle: 'Hardware, Embedded Systems & PLCs | Vision Corporation',
+        metaDescription:
+            'Vision Corporation builds hardware solutions in Ghana, from integrated circuit design and embedded systems to PLCs for industrial automation and control.',
         hero: {
             headline: [
                 { text: 'Designing the ' },
@@ -387,6 +399,9 @@ export const JOURNEYS: Record<string, JourneyPageData> = {
     'artificial-intelligence': {
         slug: 'artificial-intelligence',
         label: 'Artificial Intelligence (AI)',
+        metaTitle: 'Artificial Intelligence & AI Chatbots | Vision Corporation',
+        metaDescription:
+            'Vision Corporation integrates artificial intelligence, from an AI chatbot to an AI assistant, across software, energy, transportation and hardware in Ghana.',
         hero: {
             headline: [
                 { text: 'AI built for the ' },

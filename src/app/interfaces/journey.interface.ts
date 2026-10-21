@@ -74,6 +74,8 @@ export interface JourneyAiApplicationsData {
 export interface JourneyPageData {
     slug: string;
     label: string;
+    metaTitle: string;
+    metaDescription: string;
     hero: JourneyHeroData;
     problem: JourneyProblemData;
     work?: JourneyWorkData;
