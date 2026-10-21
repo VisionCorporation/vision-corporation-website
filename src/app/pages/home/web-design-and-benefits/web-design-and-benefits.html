@@ -127,34 +127,34 @@
                             </p>
                         </div>
 
-                        @if (showYou()) {
-                        <div class="result-in mt-5 rounded-xl border border-[var(--color-primary)]/30 bg-[var(--color-primary)]/5 p-3.5 ring-1 ring-[var(--color-primary)]/10"
-                            data-aos="fade-down" data-aos-duration="600">
+                        <div class="mt-5 min-h-[148px]">
+                            @if (showYou()) {
+                            <div class="result-in rounded-xl border border-[var(--color-primary)]/30 bg-[var(--color-primary)]/5 p-3.5 ring-1 ring-[var(--color-primary)]/10"
+                                data-aos="fade-down" data-aos-duration="600">
 
-                            <div class="flex items-center gap-2 text-xs text-[var(--color-text-muted)]">
-                                <span
-                                    class="flex h-5 w-5 items-center justify-center rounded-full bg-[var(--color-primary)] text-[10px] font-bold text-[var(--color-white)]">
-                                    Y
-                                </span>
+                                <div class="flex items-center gap-2 text-xs text-[var(--color-text-muted)]">
+                                    <span
+                                        class="flex h-5 w-5 items-center justify-center rounded-full bg-[var(--color-primary)] text-[10px] font-bold text-white">
+                                        Y
+                                    </span>
+                                    yourbusiness.com
+                                </div>
 
-                                yourbusiness.com
+                                <p class="mt-1.5 text-base font-semibold text-[var(--color-primary)] sm:text-lg">
+                                    Your Business | Trusted, Local &amp; Easy to Reach
+                                </p>
 
-                                <span
-                                    class="ml-auto rounded-full bg-emerald-100 px-2 py-0.5 text-[10px] font-semibold text-emerald-700">
-                                    Open now
-                                </span>
+                                <p class="mt-1 text-sm leading-snug text-[var(--color-text-muted)]">
+                                    <span class="text-amber-500">★★★★★</span>
+                                    Customers find you, trust you and get in touch in seconds.
+                                </p>
                             </div>
-
-                            <p class="mt-1.5 text-base font-semibold text-[var(--color-primary)] sm:text-lg">
-                                Your Business | Trusted, Local &amp; Easy to Reach
-                            </p>
-
-                            <p class="mt-1 text-sm leading-snug text-[var(--color-text-muted)]">
-                                <span class="text-amber-500">★★★★★</span>
-                                Customers find you, trust you and get in touch in seconds.
-                            </p>
+                            } @else {
+                            <div class="h-[148px] animate-pulse rounded-xl border border-[var(--color-border)] bg-slate-50/70 motion-reduce:animate-none"
+                                aria-hidden="true">
+                            </div>
+                            }
                         </div>
-                        }
                     </div>
 
                     <div class="mt-6 flex items-start gap-4" data-aos="fade-up" data-aos-delay="350"
