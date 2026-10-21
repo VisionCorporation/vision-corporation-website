@@ -1,5 +1,4 @@
 import { Component, inject } from '@angular/core';
-import { Header } from '../../components/shared/header/header';
 import { HeroSection } from './hero-section/hero-section';
 import { SeoService } from '../../services/seo-service';
 import { OurJourney } from './our-journey/our-journey';
@@ -9,12 +8,11 @@ import { WhatWeBuild } from './what-we-build/what-we-build';
 import { DigitalMarketing } from './digital-marketing/digital-marketing';
 import { WhyWorkWithUs } from './why-work-with-us/why-work-with-us';
 import { Faqs } from './faqs/faqs';
-import { Footer } from '../../components/shared/footer/footer';
 import { Cta } from '../../components/shared/cta/cta';
 
 @Component({
   selector: 'app-home',
-  imports: [Header, HeroSection, OurJourney, WebDesignAndBenefits, HowItWorks, WhatWeBuild, DigitalMarketing, WhyWorkWithUs, Faqs, Cta, Footer],
+  imports: [HeroSection, OurJourney, WebDesignAndBenefits, HowItWorks, WhatWeBuild, DigitalMarketing, WhyWorkWithUs, Faqs, Cta],
   templateUrl: './home.html',
   styleUrl: './home.css'
 })
