@@ -1,13 +1,11 @@
 import { Component } from '@angular/core';
-import { Header } from '../../components/shared/header/header';
-import { Footer } from '../../components/shared/footer/footer';
 import { RouterLink } from '@angular/router';
 import { Cta } from '../../components/shared/cta/cta';
 import { BARS, CHANNELS, PROBLEMS, REASONS, SERVICES, STEPS } from '../../data/constants/digital-marketing.constants';
 
 @Component({
   selector: 'app-digital-marketing',
-  imports: [Header, Footer, RouterLink, Cta],
+  imports: [RouterLink, Cta],
   templateUrl: './digital-marketing.html',
   styleUrl: './digital-marketing.css',
   styles: [`
