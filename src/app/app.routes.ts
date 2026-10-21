@@ -2,15 +2,9 @@ import { Routes } from '@angular/router';
 
 export const routes: Routes = [
     { path: '', loadComponent: () => import("./pages/home/home").then((c) => c.Home) },
-    {
-        path: 'journeys/:slug',
-        loadComponent: () =>
-            import('./pages/journeys/journey-page/journey-page').then(
-                (m) => m.JourneyPage,
-            ),
-    },
+    { path: 'journeys/:slug', loadComponent: () => import('./pages/journeys/journey-page/journey-page').then((m) => m.JourneyPage,), },
     { path: 'digital-marketing', loadComponent: () => import('./pages/digital-marketing/digital-marketing').then(m => m.DigitalMarketing), },
-    { path: 'about-us', loadComponent: () => import("./pages/about-us/about-us").then((c) => c.AboutUs) },
+    { path: 'why-vision', loadComponent: () => import('./pages/why-vision/why-vision').then(m => m.WhyVision) },
     { path: 'contact', loadComponent: () => import("./pages/contact/contact").then((c) => c.Contact) },
     { path: 'privacy-policy', loadComponent: () => import("./pages/privacy-policy/privacy-policy").then((c) => c.PrivacyPolicy) },
     { path: 'terms-of-service', loadComponent: () => import("./pages/terms-of-service/terms-of-service").then((c) => c.TermsOfService) },

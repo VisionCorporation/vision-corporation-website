@@ -6,11 +6,15 @@ export const serverRoutes: ServerRoute[] = [
     renderMode: RenderMode.Prerender
   },
   {
+    path: 'journeys/:slug',
+    renderMode: RenderMode.Server,
+  },
+  {
     path: 'digital-marketing',
     renderMode: RenderMode.Prerender
   },
   {
-    path: 'about-us',
+    path: 'why-vision',
     renderMode: RenderMode.Prerender
   },
   {
