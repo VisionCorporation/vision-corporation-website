@@ -1,265 +1,95 @@
-<app-header />
-<section class="max-w-[1400px] mx-auto px-3 md:px-8 lg:px-14 my-16">
-    <div class="relative shadow-lg">
-        <img ngSrc="assets/images/terms-of-service.webp" [attr.srcset]="srcSet['terms-of-service']"
-            sizes="(max-width: 768px) 100vw, 70vw" alt="Terms of Service" priority fill
-            class="object-cover object-center rounded" />
-        <div class="rounded absolute inset-0 bg-gradient-to-t from-[#2559EB]/100 to-[#8A38F5]/30 pointer-events-none">
+<main class="bg-[var(--color-light)] text-[var(--color-dark)]">
+    <section class="border-b border-black/10">
+        <div class="mx-auto max-w-[1280px] px-4 py-14 md:px-8 lg:px-14 lg:py-20">
+            <p class="text-sm font-medium uppercase tracking-wider text-[var(--color-primary)]">Legal</p>
+            <h1 class="mt-4 text-4xl font-semibold leading-[1.1] tracking-tight sm:text-5xl">Terms of Service</h1>
+            <p class="mt-6 max-w-4xl sm:text-lg leading-relaxed text-[var(--color-dark)]/70">
+                By using Vision Corporation’s website or services, you agree to comply with the Terms & Conditions
+                below. They set out your
+                rights,
+                your responsibilities and how we work together.
+            </p>
+            <p class="mt-6 text-sm text-[var(--color-dark)]/60">Last updated {{ lastUpdated }}</p>
         </div>
-        <div
-            class="px-2.5 md:px-[100px] min-h-[436px] flex flex-col items-center justify-center relative z-10 text-white text-center">
-            <h1 class="text-3xl sm:text-[40px] sm:leading-12 mb-6" data-aos="fade-up" data-aos-delay="0">Terms of
-                Service</h1>
-            <p class="sm:text-xl sm:leading-8" data-aos="fade-up" data-aos-delay="10"> Review the terms and conditions
-                that govern your use of Vision Corporation’s website and digital services. This page outlines your
-                rights, responsibilities, and the guidelines that ensure a safe, transparent, and reliable experience
-                for all users.</p>
+    </section>
+
+    <section class="mx-auto max-w-[1280px] px-4 py-12 md:px-8 lg:px-14 lg:py-16">
+        <div class="mx-auto">
+            @for (section of sections; track section.id; let i = $index) {
+            <section class="py-10 first:border-t-0 first:pt-0">
+                <h2 class="text-2xl font-semibold leading-snug">
+                    <span class="mr-2 text-[var(--color-primary)]">
+                        {{ i + 1 }}.
+                    </span>
+                    {{ section.title }}
+                </h2>
+
+                <ul class="mt-6 space-y-4">
+                    @for (clause of section.clauses; track clause.num) {
+                    <li class="grid grid-cols-[2rem_1fr] gap-x-2 sm:gap-x-3 sm:grid-cols-[2rem_1fr]">
+                        <span class="pt-0.5 text-sm font-medium text-[var(--color-primary)] sm:text-base">
+                            {{ clause.num }}
+                        </span>
+
+                        <div>
+                            <p class="max-w-3xl leading-relaxed text-[var(--color-dark)]/75 [&_strong]:font-semibold [&_strong]:text-[var(--color-dark)]"
+                                [innerHTML]="clause.text"></p>
+
+                            @if (clause.items) {
+                            <ul class="mt-3 space-y-2">
+                                @for (item of clause.items; track item.num) {
+                                <li class="grid grid-cols-[2rem_1fr] gap-x-3">
+                                    <span class="text-sm font-medium text-[var(--color-primary)]">
+                                        {{ item.num }}
+                                    </span>
+
+                                    <p class="leading-relaxed text-[var(--color-dark)]/75">
+                                        {{ item.text }}
+                                    </p>
+                                </li>
+                                }
+                            </ul>
+                            }
+                        </div>
+                    </li>
+                    }
+                </ul>
+            </section>
+            }
+
+            <section class="border-t border-black/10 pt-10 lg:min-h-[40vh]">
+                <h2 class="text-2xl font-semibold leading-snug">
+                    <span class="mr-2 text-[var(--color-primary)]">13.</span>
+                    Contact Us
+                </h2>
+
+                <p class="mt-6 max-w-3xl leading-relaxed text-[var(--color-dark)]/75">
+                    If you have questions or concerns about this Terms of Service, please contact us at:
+                </p>
+
+                <dl class="mt-5 space-y-2">
+                    <div class="flex gap-3">
+                        <dt class="w-16 text-[var(--color-dark)]/60">Email</dt>
+                        <dd>
+                            <a [href]="'mailto:' + email"
+                                class="text-[var(--color-primary)] underline-offset-4 hover:underline focus:outline-none focus-visible:underline">
+                                {{ email }}
+                            </a>
+                        </dd>
+                    </div>
+
+                    <div class="flex gap-3">
+                        <dt class="w-16 text-[var(--color-dark)]/60">Phone</dt>
+                        <dd>
+                            <a [href]="'tel:' + phone"
+                                class="text-[var(--color-primary)] underline-offset-4 hover:underline focus:outline-none focus-visible:underline">
+                                {{ phone }}
+                            </a>
+                        </dd>
+                    </div>
+                </dl>
+            </section>
         </div>
-    </div>
+    </section>
 
-    <div class="mt-[60px] mb-[68px]">
-        <span class="text-lg block mb-2 text-[#5D5D5D]" data-aos="fade-up">Last updated [November 21, 2025]</span>
-        <p class="text-[#5D5D5D] text-lg sm:text-xl sm:leading-8" data-aos="fade-up" data-aos-delay="50">
-            Welcome to <strong class="custom-name">Vision Corporation</strong>. By accessing our website or using our
-            services, you agree to
-            comply with the
-            Terms & Conditions below.
-        </p>
-    </div>
-
-    <div class="mb-14">
-        <h2 class="text-[#262626] text-xl sm:text-2xl sm:leading-7 mb-3" data-aos="fade-up" data-aos-delay="50">1.
-            Acceptance of Terms</h2>
-        <p class="text-[#5D5D5D] text-lg sm:text-xl sm:leading-8 mb-2" data-aos="fade-up" data-aos-delay="150">
-            <strong class="mr-1">1.1</strong> By using
-            our website or engaging Vision Corporation for any services, you confirm that you have read and accepted
-            these Terms & Conditions.
-        </p>
-        <p class="text-[#5D5D5D] text-lg sm:text-xl sm:leading-8" data-aos="fade-up" data-aos-delay="150">
-            <strong class="mr-1">1.2</strong> If you do not agree with any part of these Terms, you must discontinue the
-            use of our
-            services
-            immediately.
-        </p>
-    </div>
-
-    <div class="mb-14">
-        <h2 class="text-[#262626] text-xl sm:text-2xl sm:leading-7 mb-3" data-aos="fade-up" data-aos-delay="50">
-            2. Our Services</h2>
-        <p class="text-[#5D5D5D] text-lg sm:text-xl sm:leading-8 mb-2" data-aos="fade-up" data-aos-delay="150">
-            <strong class="mr-1">2.1</strong> Vision Corporation provides software development, web design, IT
-            consulting,
-            system maintenance, and digital solutions.
-        </p>
-        <p class="text-[#5D5D5D] text-lg sm:text-xl sm:leading-8 mb-2" data-aos="fade-up" data-aos-delay="150">
-            <strong class="mr-1">2.2</strong> For software projects, work begins once the required upfront deposit is
-            made.
-        </p>
-        <p class="text-[#5D5D5D] text-lg sm:text-xl sm:leading-8 mb-2" data-aos="fade-up" data-aos-delay="150">
-            <strong class="mr-1">2.3</strong> Project timelines will be communicated at the start of each project.
-        </p>
-        <p class="text-[#5D5D5D] text-lg sm:text-xl sm:leading-8" data-aos="fade-up" data-aos-delay="150">
-            <strong class="mr-1">2.4</strong> Any anticipated delays will be communicated to the client in advance.
-        </p>
-    </div>
-
-    <div class="mb-14">
-        <h2 class="text-[#262626] text-xl sm:text-2xl sm:leading-7 mb-3" data-aos="fade-up" data-aos-delay="50">3.
-            Payment Terms</h2>
-        <p class="text-[#5D5D5D] text-lg sm:text-xl sm:leading-8 mb-2" data-aos="fade-up" data-aos-delay="150">
-            <strong class="mr-1">3.1</strong> Unless otherwise agreed, our standard payment breakdown for software
-            projects is:
-        </p>
-        <ul class="ml-4 mb-2 text-[#5D5D5D] text-lg sm:text-xl sm:leading-8">
-            <li data-aos="fade-up" data-aos-delay="150" class="mb-1"><strong class="mr-1">3.1.1</strong> 30% deposit
-                before work
-                begins</li>
-            <li data-aos="fade-up" data-aos-delay="150" class="mb-1"><strong class="mr-1">3.1.2</strong> 40% after
-                completing the
-                main system
-                features</li>
-            <li data-aos="fade-up" data-aos-delay="150"><strong class="mr-1">3.1.3</strong> 30% on final delivery and
-                approval</li>
-        </ul>
-        <p class="text-[#5D5D5D] text-lg sm:text-xl sm:leading-8 mb-2" data-aos="fade-up" data-aos-delay="150">
-            <strong class="mr-1">3.2</strong> Payments must be made through approved channels provided by Vision
-            Corporation.
-        </p>
-        <p class="text-[#5D5D5D] text-lg sm:text-xl sm:leading-8" data-aos="fade-up" data-aos-delay="150">
-            <strong class="mr-1">3.3</strong> Failure to follow the payment schedule may cause delays or suspension of
-            the project.
-        </p>
-    </div>
-
-    <div class="mb-14">
-        <h2 class="text-[#262626] text-xl sm:text-2xl sm:leading-7 mb-3" data-aos="fade-up" data-aos-delay="50">
-            4. Domain & Hosting Support</h2>
-        <p class="text-[#5D5D5D] text-lg sm:text-xl sm:leading-8 mb-2" data-aos="fade-up" data-aos-delay="150">
-            <strong class="mr-1">4.1</strong> If included in your package, Vision Corporation will assist in purchasing
-            or
-            registering your domain.
-        </p>
-        <p class="text-[#5D5D5D] text-lg sm:text-xl sm:leading-8 mb-2" data-aos="fade-up" data-aos-delay="150">
-            <strong class="mr-1">4.2</strong> Vision Corporation is not responsible for downtime or technical issues
-            caused by
-            third-party hosting providers.
-        </p>
-    </div>
-
-    <div class="mb-14">
-        <h2 class="text-[#262626] text-xl sm:text-2xl sm:leading-7 mb-3" data-aos="fade-up" data-aos-delay="50">
-            5. Maintenance & Updates</h2>
-        <p class="text-[#5D5D5D] text-lg sm:text-xl sm:leading-8 mb-2" data-aos="fade-up" data-aos-delay="150">
-            <strong class="mr-1">5.1</strong> Clients receive <strong class="custom-name">a free maintenance and updates
-                based on their
-                chosen
-                package</strong> after the project is approved.
-        </p>
-        <p class="text-[#5D5D5D] text-lg sm:text-xl sm:leading-8 mb-2" data-aos="fade-up" data-aos-delay="150">
-            <strong class="mr-1">5.2</strong>After the free maintenance period, all updates and support services will be
-            billed at agreed rates.
-        </p>
-        <p class="text-[#5D5D5D] text-lg sm:text-xl sm:leading-8 mb-2" data-aos="fade-up" data-aos-delay="150">
-            <strong class="mr-1">5.3</strong>Clients will receive a quotation before any paid maintenance work begins.
-        </p>
-        <p class="text-[#5D5D5D] text-lg sm:text-xl sm:leading-8 mb-2" data-aos="fade-up" data-aos-delay="150">
-            <strong class="mr-1">5.4</strong>Minor updates and bug fixes are included; major feature upgrades may
-            require new charges.
-        </p>
-    </div>
-
-    <div class="mb-14">
-        <h2 class="text-[#262626] text-xl sm:text-2xl sm:leading-7 mb-3" data-aos="fade-up" data-aos-delay="50">
-            6. Cancellation & Refund Policy</h2>
-        <p class="text-[#5D5D5D] text-lg sm:text-xl sm:leading-8 mb-2" data-aos="fade-up" data-aos-delay="150">
-            <strong class="mr-1">6.1</strong> The client may cancel the project with <span class="custom-name">one week
-                written notice</span>.
-        </p>
-        <p class="text-[#5D5D5D] text-lg sm:text-xl sm:leading-8 mb-2" data-aos="fade-up" data-aos-delay="150">
-            <strong class="mr-1">6.2</strong>The upfront deposit is <span class="custom-name">non-refundable</span> once
-            work has begun.
-        </p>
-        <p class="text-[#5D5D5D] text-lg sm:text-xl sm:leading-8 mb-2" data-aos="fade-up" data-aos-delay="150">
-            <strong class="mr-1">6.3</strong>Completed phases of the project cannot be refunded.
-        </p>
-    </div>
-
-    <div class="mb-14">
-        <h2 class="text-[#262626] text-xl sm:text-2xl sm:leading-7 mb-3" data-aos="fade-up" data-aos-delay="50">
-            7. Client Responsibilities</h2>
-        <p class="text-[#5D5D5D] text-lg sm:text-xl sm:leading-8 mb-2" data-aos="fade-up" data-aos-delay="150">
-            <strong class="mr-1">7.1</strong> Clients must provide all necessary content, data, documents, and login
-            credentials on time.
-        </p>
-        <p class="text-[#5D5D5D] text-lg sm:text-xl sm:leading-8 mb-2" data-aos="fade-up" data-aos-delay="150">
-            <strong class="mr-1">7.2</strong>Delays in providing required materials may lead to changes in project
-            timelines.
-        </p>
-        <p class="text-[#5D5D5D] text-lg sm:text-xl sm:leading-8 mb-2" data-aos="fade-up" data-aos-delay="150">
-            <strong class="mr-1">7.3</strong>Clients must ensure that all content submitted is legally owned or properly
-            licensed.
-        </p>
-        <p class="text-[#5D5D5D] text-lg sm:text-xl sm:leading-8 mb-2" data-aos="fade-up" data-aos-delay="150">
-            <strong class="mr-1">7.4</strong>Clients must review and approve deliverables promptly to avoid delays.
-        </p>
-    </div>
-
-    <div class="mb-14">
-        <h2 class="text-[#262626] text-xl sm:text-2xl sm:leading-7 mb-3" data-aos="fade-up" data-aos-delay="50">
-            8. Intellectual Property</h2>
-        <p class="text-[#5D5D5D] text-lg sm:text-xl sm:leading-8 mb-2" data-aos="fade-up" data-aos-delay="150">
-            <strong class="mr-1">8.1</strong> Vision Corporation retains ownership of all software, code, and project
-            assets <span class="custom-name">until full payment is made</span>.
-        </p>
-        <p class="text-[#5D5D5D] text-lg sm:text-xl sm:leading-8 mb-2" data-aos="fade-up" data-aos-delay="150">
-            <strong class="mr-1">8.2</strong>Upon full payment, ownership rights are transferred to the client.
-        </p>
-        <p class="text-[#5D5D5D] text-lg sm:text-xl sm:leading-8 mb-2" data-aos="fade-up" data-aos-delay="150">
-            <strong class="mr-1">8.3</strong>Unless otherwise requested in writing, Vision Corporation may display
-            completed work in its portfolio.
-        </p>
-        <p class="text-[#5D5D5D] text-lg sm:text-xl sm:leading-8 mb-2" data-aos="fade-up" data-aos-delay="150">
-            <strong class="mr-1">8.4</strong>Source code, design files, and documentation are released only after full
-            payment is completed.
-        </p>
-    </div>
-
-    <div class="mb-14">
-        <h2 class="text-[#262626] text-xl sm:text-2xl sm:leading-7 mb-3" data-aos="fade-up" data-aos-delay="50">
-            9. Confidentiality</h2>
-        <p class="text-[#5D5D5D] text-lg sm:text-xl sm:leading-8 mb-2" data-aos="fade-up" data-aos-delay="150">
-            <strong class="mr-1">9.1</strong> Both parties agree to keep all project information confidential, including
-            business details, project data, credentials, and documentation.
-        </p>
-        <p class="text-[#5D5D5D] text-lg sm:text-xl sm:leading-8 mb-2" data-aos="fade-up" data-aos-delay="150">
-            <strong class="mr-1">9.2</strong>Confidentiality obligations continue even after the completion of the
-            project.
-        </p>
-        <p class="text-[#5D5D5D] text-lg sm:text-xl sm:leading-8 mb-2" data-aos="fade-up" data-aos-delay="150">
-            <strong class="mr-1">9.3</strong>Neither party may disclose confidential information to third parties
-            without written consent.
-        </p>
-    </div>
-
-    <div class="mb-14">
-        <h2 class="text-[#262626] text-xl sm:text-2xl sm:leading-7 mb-3" data-aos="fade-up" data-aos-delay="50">
-            10. Limitation of Liability</h2>
-        <p class="text-[#5D5D5D] text-lg sm:text-xl sm:leading-8 mb-2" data-aos="fade-up" data-aos-delay="150">
-            <strong class="mr-1">10.1</strong> Vision Corporation is not liable for losses caused by third-party
-            hosting,
-            integrations, or external services.
-        </p>
-        <p class="text-[#5D5D5D] text-lg sm:text-xl sm:leading-8 mb-2" data-aos="fade-up" data-aos-delay="150">
-            <strong class="mr-1">10.2</strong>We are not responsible for delays caused by client inaction or late
-            submissions.
-        </p>
-        <p class="text-[#5D5D5D] text-lg sm:text-xl sm:leading-8 mb-2" data-aos="fade-up" data-aos-delay="150">
-            <strong class="mr-1">10.3</strong>We are not liable for security breaches caused by client negligence.
-        </p>
-        <p class="text-[#5D5D5D] text-lg sm:text-xl sm:leading-8 mb-2" data-aos="fade-up" data-aos-delay="150">
-            <strong class="mr-1">10.4</strong>Our maximum liability is limited to the total amount paid by the client
-            for
-            the project.
-        </p>
-    </div>
-
-    <div class="mb-14">
-        <h2 class="text-[#262626] text-xl sm:text-2xl sm:leading-7 mb-3" data-aos="fade-up" data-aos-delay="50">
-            11. Amendments</h2>
-        <p class="text-[#5D5D5D] text-lg sm:text-xl sm:leading-8 mb-2" data-aos="fade-up" data-aos-delay="150">
-            <strong class="mr-1">11.1</strong> Vision Corporation may update or modify these Terms at any time.
-        </p>
-        <p class="text-[#5D5D5D] text-lg sm:text-xl sm:leading-8 mb-2" data-aos="fade-up" data-aos-delay="150">
-            <strong class="mr-1">11.2</strong>Updates take effect immediately once published on this website.
-        </p>
-        <p class="text-[#5D5D5D] text-lg sm:text-xl sm:leading-8 mb-2" data-aos="fade-up" data-aos-delay="150">
-            <strong class="mr-1">11.3</strong>Continued use of our services indicates acceptance of updated Terms.
-        </p>
-    </div>
-
-    <div class="mb-14">
-        <h2 class="text-[#262626] text-xl sm:text-2xl sm:leading-7 mb-3" data-aos="fade-up" data-aos-delay="50">
-            12. Governing Law</h2>
-        <p class="text-[#5D5D5D] text-lg sm:text-xl sm:leading-8 mb-2" data-aos="fade-up" data-aos-delay="150">
-            <strong class="mr-1">12.1</strong> These Terms & Conditions are governed by the laws of the Republic of
-            Ghana.
-        </p>
-        <p class="text-[#5D5D5D] text-lg sm:text-xl sm:leading-8 mb-2" data-aos="fade-up" data-aos-delay="150">
-            <strong class="mr-1">12.2</strong>Any disputes shall be resolved through negotiation or appropriate legal
-            channels within Ghana.
-        </p>
-    </div>
-
-    <div class="mb-16">
-        <h2 class="text-[#262626] text-xl sm:text-2xl sm:leading-7 mb-3" data-aos="fade-up" data-aos-delay="50">
-            13. Contact Us</h2>
-        <p class="text-[#5D5D5D] text-lg sm:text-xl sm:leading-8 mb-2" data-aos="fade-up" data-aos-delay="150">
-            If you have questions or concerns about this Terms of Service, please contact us at:
-        </p>
-        <p class="text-[#5D5D5D] text-lg" data-aos="fade-up" data-aos-delay="150">Email: <a
-                href="mailto:info@visioncorporation.africa">info@visioncorporation.africa</a></p>
-        <p class="text-[#5D5D5D] text-lg" data-aos="fade-up" data-aos-delay="150">Phone: <a
-                href="tel:+233561251006">+233561251006</a></p>
-    </div>
-</section>
-<app-footer />
+</main>
