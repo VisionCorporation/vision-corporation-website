@@ -5,7 +5,7 @@ export const routes: Routes = [
     {
         path: 'journeys/:slug',
         loadComponent: () =>
-            import('./pages/journey-page/journey-page').then(
+            import('./pages/journeys/journey-page/journey-page').then(
                 (m) => m.JourneyPage,
             ),
     },
