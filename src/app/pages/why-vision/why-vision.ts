@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { Cta } from '../../components/shared/cta/cta';
 import { RouterLink } from '@angular/router';
 import { GROWTH, JOURNEYS, PRINCIPLES, VALUES, WHAT_WE_BUILD } from '../../data/constants/why-vision.constants';
+import { NgOptimizedImage } from '@angular/common';
 
 @Component({
   selector: 'app-why-vision',
-  imports: [Cta, RouterLink],
+  imports: [Cta, RouterLink, NgOptimizedImage],
   templateUrl: './why-vision.html',
   styleUrl: './why-vision.css'
 })
