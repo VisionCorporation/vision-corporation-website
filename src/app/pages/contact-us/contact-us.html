@@ -1,3 +1,5 @@
+<app-alert #alert />
+
 <main class="overflow-x-clip bg-[var(--color-light)] text-[var(--color-dark)]">
 
     <section class="relative isolate">
@@ -175,7 +177,7 @@
                     <p class="mt-2 text-sm text-[var(--color-dark)]/60">Fields marked <span
                             class="text-red-500">*</span> are required.</p>
 
-                    <form [formGroup]="form" (ngSubmit)="submit()" novalidate class="mt-8 grid gap-6">
+                    <form [formGroup]="contactForm" (ngSubmit)="submit()" novalidate class="mt-8 grid gap-6">
                         <div class="grid gap-6 sm:grid-cols-2">
                             <div>
                                 <label for="name" class="text-sm font-medium">Your name <span
@@ -185,8 +187,19 @@
                                     [attr.aria-describedby]="invalid('name') ? 'name-error' : null"
                                     [class]="invalid('name') ? 'border-red-500' : 'border-black/15'"
                                     class="mt-2 w-full rounded-xl border bg-[var(--color-white)] px-4 py-3.5 text-[15px] transition-colors duration-200 placeholder:text-[var(--color-text-muted)] focus:border-[var(--color-primary)] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]/20" />
+
                                 @if (invalid('name')) {
-                                <p id="name-error" class="mt-2 text-sm text-red-600">{{ errorText('name') }}</p>
+                                <p class="mt-2 flex text-xs sm:text-sm items-center gap-2 text-red-600 ">
+                                    <svg class="h-3 sm:h-4 w-3 sm:w-4 shrink-0" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" aria-hidden="true">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <line x1="12" y1="8" x2="12" y2="12"></line>
+                                        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                                    </svg>
+
+                                    <span>{{ errorText('name') }}</span>
+                                </p>
                                 }
                             </div>
 
@@ -198,8 +211,19 @@
                                     [attr.aria-describedby]="invalid('email') ? 'email-error' : null"
                                     [class]="invalid('email') ? 'border-red-500' : 'border-black/15'"
                                     class="mt-2 w-full rounded-xl border bg-[var(--color-white)] px-4 py-3.5 text-[15px] transition-colors duration-200 placeholder:text-[var(--color-text-muted)] focus:border-[var(--color-primary)] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]/20" />
+
                                 @if (invalid('email')) {
-                                <p id="email-error" class="mt-2 text-sm text-red-600">{{ errorText('email') }}</p>
+                                <p class="mt-2 flex text-xs sm:text-sm items-center gap-2 text-red-600 ">
+                                    <svg class="h-3 sm:h-4 w-3 sm:w-4 shrink-0" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" aria-hidden="true">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <line x1="12" y1="8" x2="12" y2="12"></line>
+                                        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                                    </svg>
+
+                                    <span>{{ errorText('email') }}</span>
+                                </p>
                                 }
                             </div>
                         </div>
@@ -207,15 +231,15 @@
                         <div class="grid gap-6 sm:grid-cols-2">
                             <div>
                                 <label for="phone" class="text-sm font-medium">Phone or WhatsApp</label>
-                                <input id="phone" type="tel" formControlName="phone" autocomplete="tel"
-                                    placeholder="Optional, but helpful for a quick reply"
+                                <input id="phone" type="tel" formControlName="phone" autocomplete="tel" inputmode="tel"
+                                    placeholder="e.g. +233543184902" (input)="onPhoneInput($event)"
                                     class="mt-2 w-full rounded-xl border border-black/15 bg-[var(--color-white)] px-4 py-3.5 text-[15px] transition-colors duration-200 placeholder:text-[var(--color-text-muted)] focus:border-[var(--color-primary)] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]/20" />
                             </div>
 
                             <div>
                                 <label for="business" class="text-sm font-medium">Business or organisation</label>
                                 <input id="business" type="text" formControlName="business" autocomplete="organization"
-                                    placeholder="The name of your business"
+                                    placeholder="e.g. Vision Corporation"
                                     class="mt-2 w-full rounded-xl border border-black/15 bg-[var(--color-white)] px-4 py-3.5 text-[15px] transition-colors duration-200 placeholder:text-[var(--color-text-muted)] focus:border-[var(--color-primary)] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]/20" />
                             </div>
                         </div>
@@ -240,7 +264,17 @@
                                 </svg>
                             </div>
                             @if (invalid('topic')) {
-                            <p id="topic-error" class="mt-2 text-sm text-red-600">{{ errorText('topic') }}</p>
+                            <p class="mt-2 flex text-xs sm:text-sm items-center gap-2 text-red-600 ">
+                                <svg class="h-3 sm:h-4 w-3 sm:w-4 shrink-0" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" aria-hidden="true">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <line x1="12" y1="8" x2="12" y2="12"></line>
+                                    <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                                </svg>
+
+                                <span>{{ errorText('topic') }}</span>
+                            </p>
                             }
                         </div>
 
@@ -248,13 +282,22 @@
                             <label for="message" class="text-sm font-medium">Tell us about your project <span
                                     class="text-red-500">*</span></label>
                             <textarea id="message" rows="6" formControlName="message"
-                                placeholder="A few lines about what you want to achieve is enough. Not sure yet? Tell us that instead."
-                                [attr.aria-invalid]="invalid('message')"
+                                placeholder="Tell us about your project or how we can help"
                                 [attr.aria-describedby]="invalid('message') ? 'message-error' : null"
                                 [class]="invalid('message') ? 'border-red-500' : 'border-black/15'"
                                 class="mt-2 w-full resize-none rounded-xl border bg-[var(--color-white)] px-4 py-3.5 text-[15px] leading-relaxed transition-colors duration-200 placeholder:text-[var(--color-text-muted)] focus:border-[var(--color-primary)] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]/20"></textarea>
                             @if (invalid('message')) {
-                            <p id="message-error" class="mt-2 text-sm text-red-600">{{ errorText('message') }}</p>
+                            <p class="mt-2 flex text-xs sm:text-sm items-center gap-2 text-red-600 ">
+                                <svg class="h-3 sm:h-4 w-3 sm:w-4 shrink-0" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" aria-hidden="true">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <line x1="12" y1="8" x2="12" y2="12"></line>
+                                    <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                                </svg>
+
+                                <span>{{ errorText('message') }}</span>
+                            </p>
                             }
                         </div>
 
