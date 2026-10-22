@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
-import { Newsletter } from '../interfaces/newsletter.interface';
+import { Newsletter, NewsletterResponse } from '../interfaces/newsletter.interface';
 import { ContactUs } from '../interfaces/contact-us.interface';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +11,11 @@ import { ContactUs } from '../interfaces/contact-us.interface';
 export class Api {
   private http = inject(HttpClient);
 
-  public subscribeToNewsletter(email: string) {
-    return this.http.post(`${environment.baseUrl}/newsletter/subscribe`, { email });
+  public subscribeToNewsletter(email: string): Observable<NewsletterResponse> {
+    return this.http.post<NewsletterResponse>(
+      `${environment.baseUrl}/newsletter/subscribe`,
+      { email }
+    );
   }
 
   public sendNewsletter(newsletterData: Newsletter) {
