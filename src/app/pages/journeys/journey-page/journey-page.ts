@@ -48,11 +48,10 @@ export class JourneyPage {
       const page = this.journey();
 
       if (!page) {
-        this.title.setTitle('Journey Not Found | Vision Corporation');
-
-        this.meta.updateTag({
-          name: 'description',
-          content: 'Explore the work and ambitions of Vision Corporation.',
+        this.seoService.updatePageSeo({
+          title: 'Journey Not Found | Vision Corporation',
+          description: 'The requested journey could not be found.',
+          url: '',
         });
 
         return;
