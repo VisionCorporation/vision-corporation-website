@@ -43,7 +43,7 @@ export const FAQ_CATEGORIES = [
             {
                 question: 'How long does it take to build a website?',
                 answer:
-                    'It depends on the size of the project. A simple portfolio site is quick to build, while an online store or custom application takes longer. We agree on a timeline with you at the start, and we tell you early if anything changes.',
+                    'It depends on the size of the project. A simple portfolio site is quick to build(within a day or maximum 2), while an online store or custom application takes longer(weeks or months). We agree on a timeline with you at the start, and we tell you early if anything changes.',
             },
         ],
     },
@@ -69,7 +69,7 @@ export const FAQ_CATEGORIES = [
             {
                 question: 'How long does SEO take to work?',
                 answer:
-                    'SEO is gradual. It can take a few months before you see a clear change, and no one can honestly promise a specific ranking. Paid ads can bring visitors sooner, so many businesses use both while their search presence grows. We explain what to expect before you commit.',
+                    'SEO is gradual and can take about 3 months to show a clear change. No one can honestly promise a specific ranking. Paid ads can bring visitors sooner, so many businesses use both.',
             },
             {
                 question: 'Should I choose SEO or paid ads?',
