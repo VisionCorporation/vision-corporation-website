@@ -5,3 +5,13 @@
 </main>
 
 <app-footer />
+
+@if (showBackToTop) {
+<button type="button" aria-label="Back to top" (click)="scrollToTop()"
+    class="group fixed bottom-6 cursor-pointer right-6 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-[var(--color-primary)] text-[var(--color-white)] shadow-lg transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-xl">
+    <svg class="h-5 w-5 transition-transform duration-300 group-hover:-translate-y-0.5" fill="none" viewBox="0 0 24 24"
+        stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7" />
+    </svg>
+</button>
+}

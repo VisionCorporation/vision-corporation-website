@@ -19,7 +19,10 @@ declare global {
   selector: 'app-root',
   imports: [RouterOutlet, CommonModule, Header, Footer],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrl: './app.css',
+  host: {
+    '(window:scroll)': 'onWindowScroll()',
+  },
 })
 export class App implements OnInit, AfterViewInit, OnDestroy {
   private aosInitialized = false;
@@ -30,6 +33,7 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
   public isCookieOpen = false;
   public isCustomiseCookieOpen = false;
   public hideCookieBanner = false;
+  showBackToTop = false;
 
   public cookiePreferences: CookiePreferences = {
     strictlyNecessary: true,
@@ -164,6 +168,17 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
     if (this.cookiePreferences.analytics) {
       this.loadAnalyticsScript();
     }
+  }
+
+  public onWindowScroll(): void {
+    this.showBackToTop = window.scrollY > 300;
+  }
+
+  public scrollToTop(): void {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
   }
 
   ngOnDestroy(): void {
