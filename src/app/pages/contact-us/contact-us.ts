@@ -4,10 +4,11 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { RouterLink } from '@angular/router';
 import { SeoService } from '../../services/seo-service';
 import { FAQS, SOCIALS, STEPS, TOPICS } from '../../data/constants/contact-us.constants';
+import { NgOptimizedImage } from '@angular/common';
 
 @Component({
   selector: 'app-contact-us',
-  imports: [RouterLink, ReactiveFormsModule],
+  imports: [RouterLink, ReactiveFormsModule, NgOptimizedImage],
   templateUrl: './contact-us.html',
 })
 export class ContactUs {

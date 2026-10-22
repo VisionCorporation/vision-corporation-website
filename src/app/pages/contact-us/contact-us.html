@@ -82,34 +82,20 @@
 
             <div class="relative mx-auto w-full max-w-[560px] py-8 lg:ml-auto lg:mr-0" data-aos="fade-left"
                 data-aos-delay="250" data-aos-duration="900">
+
                 <div
-                    class="relative aspect-[6/5] w-full overflow-hidden rounded-3xl border border-black/10 bg-[var(--color-white)] shadow-2xl shadow-black/10">
-                    <div aria-hidden="true"
-                        class="absolute inset-0 [background-image:radial-gradient(circle_at_1px_1px,rgba(0,0,0,0.08)_1px,transparent_0)] [background-size:22px_22px]">
-                    </div>
+                    class="relative aspect-[6/5] w-full overflow-hidden rounded-3xl border border-slate-200 bg-slate-100 shadow-2xl shadow-black/10">
 
-                    <div aria-hidden="true"
-                        class="absolute -right-16 -top-16 h-56 w-56 rounded-full bg-[var(--color-primary)]/15 blur-3xl">
-                    </div>
-
-                    <div
-                        class="absolute inset-0 flex flex-col items-center justify-center gap-3 text-[var(--color-dark)]/40">
-                        <svg class="h-12 w-12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                            <path d="M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z" />
-                            <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-                            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-                        </svg>
-
-                        <span class="text-sm">Customer Support Specialist</span>
-                    </div>
-
-                    <img src="assets/images/customer-support-specialist.webp" width="1600" height="1000"
+                    <img ngSrc="assets/images/customer-support-specialist.webp" fill priority
                         alt="Vision Corporation customer support specialist assisting a client"
-                        class="absolute inset-0 h-full w-full object-cover"
-                        (error)="$any($event.target).style.display = 'none'" />
+                        class="absolute inset-0 h-full w-full object-cover" />
+
+                    <div aria-hidden="true"
+                        class="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/10 via-transparent to-white/5">
+                    </div>
+
                 </div>
+
 
                 <div class="absolute -left-2 top-0 hidden rounded-2xl border border-black/10 bg-[var(--color-white)] p-4 shadow-xl shadow-black/10 sm:block lg:-left-6"
                     aria-hidden="true">
