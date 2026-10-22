@@ -414,68 +414,70 @@ export const CONTACT_US_SCHEMA: StructuredData = {
     }
 };
 
-export const WEB_DESIGN_AND_DEVELOPMENT_SCHEMA: StructuredData = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "@id": "https://www.visioncorporation.africa/journeys/web-design-and-development#service",
-    "url": "https://www.visioncorporation.africa/journeys/web-design-and-development",
-    "name": "Web design and development",
-    "description": "Business websites, portfolio websites, e-commerce stores and custom web applications for startups and growing businesses in Ghana.",
-    "serviceType": "Web design and development",
-    "provider": {
-        "@id": "https://www.visioncorporation.africa/#organization"
-    },
-    "areaServed": {
-        "@type": "Country",
-        "name": "Ghana"
-    },
-    "hasOfferCatalog": {
-        "@type": "OfferCatalog",
+export const JOURNEY_STRUCTURED_DATA: Record<string, StructuredData> = {
+    'web-design-and-development': {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "@id": "https://www.visioncorporation.africa/journeys/web-design-and-development#service",
+        "url": "https://www.visioncorporation.africa/journeys/web-design-and-development",
         "name": "Web design and development",
-        "itemListElement": [
-            {
-                "@type": "Offer",
-                "itemOffered": {
-                    "@type": "Service",
-                    "name": "Portfolio website design",
-                    "description": "Portfolio websites for freelancers, creatives, consultants and professionals."
+        "description": "Business websites, portfolio websites, e-commerce stores and custom web applications for startups and growing businesses in Ghana.",
+        "serviceType": "Web design and development",
+        "provider": {
+            "@id": "https://www.visioncorporation.africa/#organization"
+        },
+        "areaServed": {
+            "@type": "Country",
+            "name": "Ghana"
+        },
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Web design and development",
+            "itemListElement": [
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Portfolio website design",
+                        "description": "Portfolio websites for freelancers, creatives, consultants and professionals."
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Business website design",
+                        "description": "Business websites for companies, shops, hotels, clinics and service providers, built to be found in search."
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "E-commerce website development",
+                        "description": "Online stores with product catalogues, shopping carts, secure checkout and order management, designed for mobile."
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Custom web application development",
+                        "description": "Portals, dashboards, booking and management systems with user accounts and secure login."
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "UI/UX design",
+                        "description": "User interface and user experience design that is clear on a small phone screen."
+                    }
                 }
-            },
-            {
-                "@type": "Offer",
-                "itemOffered": {
-                    "@type": "Service",
-                    "name": "Business website design",
-                    "description": "Business websites for companies, shops, hotels, clinics and service providers, built to be found in search."
-                }
-            },
-            {
-                "@type": "Offer",
-                "itemOffered": {
-                    "@type": "Service",
-                    "name": "E-commerce website development",
-                    "description": "Online stores with product catalogues, shopping carts, secure checkout and order management, designed for mobile."
-                }
-            },
-            {
-                "@type": "Offer",
-                "itemOffered": {
-                    "@type": "Service",
-                    "name": "Custom web application development",
-                    "description": "Portals, dashboards, booking and management systems with user accounts and secure login."
-                }
-            },
-            {
-                "@type": "Offer",
-                "itemOffered": {
-                    "@type": "Service",
-                    "name": "UI/UX design",
-                    "description": "User interface and user experience design that is clear on a small phone screen."
-                }
-            }
-        ]
-    }
-};
+            ]
+        }
+    },
+}
 
 export const DIGITAL_MARKETING_SCHEMA: StructuredData = {
     "@context": "https://schema.org",

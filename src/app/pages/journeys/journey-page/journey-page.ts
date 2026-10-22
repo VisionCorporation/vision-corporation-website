@@ -12,6 +12,7 @@ import { AiJourneyMap } from '../../../components/shared/journeys/ai-journey-map
 import { Cta } from '../../../components/shared/cta/cta';
 import { JourneyNotFound } from '../journey-not-found/journey-not-found';
 import { SeoService } from '../../../services/seo-service';
+import { JOURNEY_STRUCTURED_DATA } from '../../../data/seo/structured-data';
 
 @Component({
   selector: 'app-journey-page',
@@ -57,11 +58,14 @@ export class JourneyPage {
         return;
       }
 
+      const structuredData = JOURNEY_STRUCTURED_DATA[page.slug];
+
       this.seoService.updatePageSeo({
         title: page.metaTitle,
         description: page.metaDescription,
         url: `https://visioncorporation.africa/journeys/${page.slug}`,
         image: 'https://visioncorporation.africa/assets/images/journey-og.jpeg',
+        ...(structuredData ? { structuredData } : {}),
       });
     });
   }
