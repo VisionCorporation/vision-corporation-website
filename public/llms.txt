@@ -1,0 +1,35 @@
+# Vision Corporation
+
+> Vision Corporation is a Ghanaian technology company based in Sekondi-Takoradi, Ghana. Today it is a web design, web development and digital marketing agency that builds business websites, portfolio websites, e-commerce stores and custom web applications, and helps clients get found with SEO, paid ads, blog writing, email marketing and content creation. Its longer-term mission is to design and build practical, locally led technology for Africa's infrastructure in energy, transportation, hardware and AI.
+
+Vision Corporation was founded by a team of entrepreneurs. It starts with software, which funds and speeds up its work on hardware, control systems and AI-enabled platforms. Its name and spirit draw on Uac Nkanea, the Adinkra symbol for technological advancement.
+
+Key facts:
+- Company type: technology company; web design and development agency, and digital marketing agency
+- Location: Sekondi-Takoradi, Ghana; serves clients in Ghana and beyond
+- Services today: portfolio websites, business websites, e-commerce websites, custom web applications, UI/UX design, SEO, paid ads (Meta and Google), blog writing, email marketing, content creation
+- Long-term journeys: energy, transportation, hardware solutions, artificial intelligence
+- Energy goal: working toward a modular nuclear reactor, designed and built entirely in Africa, to support Ghana's energy grid by 2036 (a goal, not a delivered product)
+- Core values: just cause (technological sovereignty), integrity and honesty, collective leadership, practical innovation, openness and collaboration
+
+## Services
+
+- [Web design and development](https://www.visioncorporation.africa/web-design-and-development): Business websites, portfolio websites, online store, e-commerce stores and custom web applications for startups and growing businesses, built to be found in search, fast on mobile and easy to grow.
+- [Digital marketing](https://www.visioncorporation.africa/digital-marketing): SEO, paid ads on Meta and Google, blog writing, email marketing and content creation, offered with a new website or on their own.
+
+## Our journeys
+
+- [Energy](https://www.visioncorporation.africa/journeys/energy): The goal of an African-built modular nuclear reactor to support Ghana's grid by 2036, and why reliable power matters for industry.
+- [Transportation](https://www.visioncorporation.africa/journeys/transportation): Plans for transport systems that connect African countries and make trade between them faster and more affordable.
+- [Hardware solutions](https://www.visioncorporation.africa/journeys/hardware-solutions): Designing integrated circuits and control systems for advanced infrastructure, so more of the technology Africa relies on is designed in Africa.
+- [Artificial intelligence](https://www.visioncorporation.africa/journeys/artificial-intelligence): How AI is built into every journey to turn critical data into insight that fits African conditions, ethically and openly.
+
+## Company
+
+- [Why Vision (about Vision Corporation)](https://www.visioncorporation.africa/why-vision): Who Vision Corporation is, its vision and mission, its "infinite game" philosophy, its five core values and the journey from software to infrastructure. This is the company's about page.
+- [Contact](https://www.visioncorporation.africa/contact-us): Send a message about a web, marketing or partnership project; free first consultation.
+
+## Optional
+
+- [Homepage and FAQ](https://www.visioncorporation.africa/): Overview of all journeys and answers to common questions about web development costs in West Africa, choosing a full-stack agency in Ghana, UI/UX design, e-commerce and digital marketing.
+- [Full content for AI systems](https://www.visioncorporation.africa/llms-full.txt): The same information in one plain-text file with fuller answers.
