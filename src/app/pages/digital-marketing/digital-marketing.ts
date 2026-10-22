@@ -3,6 +3,7 @@ import { RouterLink } from '@angular/router';
 import { Cta } from '../../components/shared/cta/cta';
 import { BARS, CHANNELS, PROBLEMS, REASONS, SERVICES, STEPS } from '../../data/constants/digital-marketing.constants';
 import { SeoService } from '../../services/seo-service';
+import { DIGITAL_MARKETING_SCHEMA } from '../../data/seo/structured-data';
 
 @Component({
   selector: 'app-digital-marketing',
@@ -47,6 +48,7 @@ export class DigitalMarketing {
       description: 'Digital marketing and online marketing by Vision Corporation: search engine optimization, blogs, article writing, Facebook ads, TikTok ads and content creation.',
       url: `https://visioncorporation.africa/digital-marketing`,
       image: 'https://visioncorporation.africa/assets/images/journey-og.jpeg',
+      structuredData: DIGITAL_MARKETING_SCHEMA
     });
   }
 }

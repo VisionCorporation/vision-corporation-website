@@ -5,6 +5,7 @@ import { RouterLink } from '@angular/router';
 import { SeoService } from '../../services/seo-service';
 import { FAQS, SOCIALS, STEPS, TOPICS } from '../../data/constants/contact-us.constants';
 import { NgOptimizedImage } from '@angular/common';
+import { CONTACT_US_SCHEMA } from '../../data/seo/structured-data';
 
 @Component({
   selector: 'app-contact-us',
@@ -52,6 +53,7 @@ export class ContactUs {
         'Tell Vision Corporation about your website, web app or digital marketing project. Based in Sekondi-Takoradi, Ghana. Send a message for a free consultation.',
       url: 'https://visioncorporation.africa/contact-us',
       image: 'https://visioncorporation.africa/assets/images/contact-og.jpeg',
+      structuredData: CONTACT_US_SCHEMA,
     });
   }
 

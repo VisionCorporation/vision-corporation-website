@@ -9,6 +9,7 @@ import { DigitalMarketing } from './digital-marketing/digital-marketing';
 import { WhyWorkWithUs } from './why-work-with-us/why-work-with-us';
 import { Faqs } from './faqs/faqs';
 import { Cta } from '../../components/shared/cta/cta';
+import { HOMEPAGE_SCHEMA } from '../../data/seo/structured-data';
 
 @Component({
   selector: 'app-home',
@@ -24,7 +25,8 @@ export class Home {
       title: 'Web Design & Digital Marketing Agency in Ghana | Vision Corporation',
       description: 'Looking for a reliable web design and digital marketing agency in Ghana? Vision Corporation builds high-performing business websites, e-commerce stores, and custom web apps, backed by SEO and ads to grow your brand.',
       url: 'https://visioncorporation.africa/',
-      image: 'https://visioncorporation.africa/assets/images/home-og.jpeg'
+      image: 'https://visioncorporation.africa/assets/images/home-og.jpeg',
+      structuredData: HOMEPAGE_SCHEMA,
     });
   }
 }
