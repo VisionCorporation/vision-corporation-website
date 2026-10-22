@@ -24,7 +24,8 @@ export class AlertComponent {
       type,
       message,
       position,
-      isVisible: true
+      isVisible: true,
+      duration
     };
 
 
@@ -49,7 +50,7 @@ export class AlertComponent {
 
     setTimeout(() => {
       this.removeAlert(id);
-    }, 300);
+    }, 350);
   }
 
   private removeAlert(id: number) {
@@ -60,34 +61,38 @@ export class AlertComponent {
     return this.alerts().filter(alert => alert.position === position);
   }
 
-  public getPositionClasses(position: string): string {
-    const base = 'fixed z-50 flex flex-col gap-2 pointer-events-none w-full **items-center**';
+  public getTheme(type: string) {
+    const map: Record<string, { icon: string; bar: string }> = {
+      success: {
+        icon: 'bg-emerald-500/15 text-emerald-600 dark:text-emerald-400',
+        bar: 'bg-emerald-500'
+      },
+      error: {
+        icon: 'bg-red-500/15 text-red-600 dark:text-red-400',
+        bar: 'bg-red-500'
+      },
+      notification: {
+        icon: 'bg-amber-500/15 text-amber-600 dark:text-amber-400',
+        bar: 'bg-amber-500'
+      }
+    };
+    return map[type] || map['success'];
+  }
 
+  public getSlideClass(position: string): string {
+    const v = position.startsWith('top') ? 'slide-top' : 'slide-bottom';
+    const h = position.endsWith('right') ? 'slide-right' : 'slide-left';
+    return `${v} ${h}`;
+  }
+
+  public getPositionClasses(position: string): string {
+    const base = 'fixed z-50 flex flex-col gap-3 pointer-events-none w-full items-center';
     const map: Record<string, string> = {
-      'top-right': `${base} top-4 **sm:items-end sm:w-auto sm:right-4 sm:left-auto**`,
-      'top-left': `${base} top-4 **sm:items-start sm:w-auto sm:left-4 sm:right-auto**`,
-      'bottom-right': `${base} bottom-4 **sm:items-end sm:w-auto sm:right-4 sm:left-auto**`,
-      'bottom-left': `${base} bottom-4 **sm:items-start sm:w-auto sm:left-4 sm:right-auto**`
+      'top-right': `${base} top-4 sm:items-end sm:w-auto sm:right-4 sm:left-auto`,
+      'top-left': `${base} top-4 sm:items-start sm:w-auto sm:left-4 sm:right-auto`,
+      'bottom-right': `${base} bottom-4 sm:items-end sm:w-auto sm:right-4 sm:left-auto`,
+      'bottom-left': `${base} bottom-4 sm:items-start sm:w-auto sm:left-4 sm:right-auto`
     };
     return map[position] || map['top-right'];
-  }
-
-
-  public getAlertClasses(type: string): string {
-    const map: Record<string, string> = {
-      success: 'bg-[#D6F5D8] border border-[#348537]',
-      error: 'bg-[#FFD7D7] border border-[#E22420]',
-      notification: 'bg-[#FFF3CD] border border-[#EA690C]'
-    };
-    return map[type] || map['success'];
-  }
-
-  public getTextClass(type: string): string {
-    const map: Record<string, string> = {
-      success: 'text-[#348537]',
-      error: 'text-[#E22420]',
-      notification: 'text-[#EA690C]'
-    };
-    return map[type] || map['success'];
   }
 }
