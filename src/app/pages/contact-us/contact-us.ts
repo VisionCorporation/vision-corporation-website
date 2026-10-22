@@ -47,10 +47,10 @@ export class ContactUs {
 
   constructor() {
     this.seoService.updatePageSeo({
-      title: 'Contact Vision Corporation | Web Design Agency in Ghana',
+      title: 'Contact Us | Vision Corporation',
       description:
         'Tell Vision Corporation about your website, web app or digital marketing project. Based in Sekondi-Takoradi, Ghana. Send a message for a free consultation.',
-      url: 'https://visioncorporation.africa/contact',
+      url: 'https://visioncorporation.africa/contact-us',
       image: 'https://visioncorporation.africa/assets/images/contact-og.jpeg',
     });
   }

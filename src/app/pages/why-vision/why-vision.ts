@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Cta } from '../../components/shared/cta/cta';
 import { RouterLink } from '@angular/router';
 import { GROWTH, JOURNEYS, PRINCIPLES, VALUES, WHAT_WE_BUILD } from '../../data/constants/why-vision.constants';
 import { NgOptimizedImage } from '@angular/common';
+import { SeoService } from '../../services/seo-service';
 
 @Component({
   selector: 'app-why-vision',
@@ -16,4 +17,14 @@ export class WhyVision {
   public readonly journeys = JOURNEYS
   public readonly principles = PRINCIPLES
   public readonly values = VALUES
+  private readonly seoService = inject(SeoService);
+
+  constructor() {
+    this.seoService.updatePageSeo({
+      title: 'About Vision Corporation | Vision Corporation',
+      description: 'Meet Vision Corporation, a Ghanaian tech company building Africa’s future, from websites today to energy, transport, hardware and AI. Our vision and values.',
+      url: 'https://visioncorporation.africa/why-vision',
+      image: 'https://visioncorporation.africa/assets/images/home-og.jpeg'
+    });
+  }
 }

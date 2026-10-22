@@ -19,9 +19,9 @@ export class PrivacyPolicy {
 
   constructor() {
     this.seoService.updatePageSeo({
-      title: 'Privacy Policy - Vision Corporation | Data Protection Rules',
+      title: 'Privacy Policy | Vision Corporation',
       description:
-        'Read Vision Corporation’s Privacy Policy to learn how we collect, use, and protect your personal information while ensuring transparency and data security.',
+        'Read Vision corporation\'s privacy policy to learn how we collect, use, and protect your personal data and information.',
       url: 'https://visioncorporation.africa/privacy-policy',
       image: 'https://visioncorporation.africa/assets/images/privacy-policy-og.jpeg',
     });

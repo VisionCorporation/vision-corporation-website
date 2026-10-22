@@ -16,9 +16,9 @@ export class TermsOfService {
 
   constructor() {
     this.seoService.updatePageSeo({
-      title: 'Terms of Service - Vision Corporation | Legal User Agreement',
+      title: 'Terms of Service | Vision Corporation',
       description:
-        'Read Vision Corporation’s Terms of Service to understand your rights, responsibilities, and our policies when using our digital products and IT solutions.',
+        'Review the Terms of Service and conditions for using Vision Corporation\'s website and services.',
       url: 'https://visioncorporation.africa/terms-of-service',
       image: 'https://visioncorporation.africa/assets/images/terms-of-service-og.jpeg',
     });
