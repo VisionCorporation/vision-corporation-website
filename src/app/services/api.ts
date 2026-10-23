@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { Newsletter, NewsletterResponse } from '../interfaces/newsletter.interface';
-import { ContactUs } from '../interfaces/contact-us.interface';
+import { ContactUs, ContactUsResponse } from '../interfaces/contact-us.interface';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -28,7 +28,7 @@ export class Api {
     });
   }
 
-  public sendContactUsForm(formData: ContactUs) {
-    return this.http.post(`${environment.baseUrl}/contact-us`, formData);
+  public sendContactUsForm(formData: ContactUs): Observable<ContactUsResponse> {
+    return this.http.post<ContactUsResponse>(`${environment.baseUrl}/contact-us`, formData);
   }
 }
