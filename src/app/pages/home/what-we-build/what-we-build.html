@@ -1,4 +1,4 @@
-<section class="bg-[var(--color-light)]">
+<section id="what-we-build" class="bg-[var(--color-light)]">
     <div class="mx-auto w-full max-w-[1280px] px-4 py-24 sm:py-28 sm:px-10 lg:px-12">
         <p class="mb-3 font-semibold tracking-[0.1em] uppercase text-[var(--color-primary)]" data-aos="fade-up"
             data-aos-duration="600">
@@ -66,14 +66,14 @@
                 </ul>
 
                 <div class="mt-7" data-aos="fade-up" data-aos-delay="400">
-                    <a routerLink="/contact-us"
-                        [ngClass]="site.isPopular
-            ? 'bg-[var(--color-primary)] text-[var(--color-white)] shadow-lg shadow-[var(--color-primary)]/20 hover:shadow-xl hover:shadow-[var(--color-primary)]/40'
-            : 'border border-[var(--color-dark)]/20 bg-[var(--color-white)] text-[var(--color-dark)] shadow-sm hover:border-[var(--color-dark)] hover:text-[var(--color-white)] hover:shadow-md focus-visible:border-[var(--color-dark)] focus-visible:text-[var(--color-white)]'"
+                    <a [routerLink]="['/contact-us']" [queryParams]="{ subject: site.type }"
+                        [class]="site.isPopular
+    ? 'bg-[var(--color-primary)] text-[var(--color-white)] shadow-lg shadow-[var(--color-primary)]/20 hover:shadow-xl hover:shadow-[var(--color-primary)]/40'
+    : 'border border-[var(--color-dark)]/20 bg-[var(--color-white)] text-[var(--color-dark)] shadow-sm hover:border-[var(--color-dark)] hover:text-[var(--color-white)] hover:shadow-md focus-visible:border-[var(--color-dark)] focus-visible:text-[var(--color-white)]'"
                         class="group relative inline-flex w-full items-center justify-center overflow-hidden rounded-full px-4 py-3 text-center text-sm font-semibold transition-all duration-300 ease-out hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-white active:translate-y-0 active:scale-[0.98] motion-reduce:transition-none">
-
-                        <span aria-hidden="true"
-                            [ngClass]="site.isPopular ? 'bg-[var(--color-primary-hover)]' : 'bg-[var(--color-dark)]'"
+                        <span aria-hidden="true" [ngClass]="site.isPopular
+      ? 'bg-[var(--color-primary-hover)]'
+      : 'bg-[var(--color-dark)]'"
                             class="absolute inset-0 origin-left scale-x-0 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-x-100 group-focus-visible:scale-x-100 motion-reduce:transition-none"></span>
 
                         <span class="relative">{{ site.buttonText }}</span>
