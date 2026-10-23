@@ -402,7 +402,7 @@ export const JOURNEYS: Record<string, JourneyPageData> = {
 
     'artificial-intelligence': {
         slug: 'artificial-intelligence',
-        ogImage: 'artificila-intelligence-journey-og-image.jpeg',
+        ogImage: 'artificial-intelligence-journey-og-image.jpeg',
         label: 'Artificial Intelligence (AI)',
         metaTitle: 'Artificial Intelligence & AI Chatbots | Vision Corporation',
         metaDescription:
