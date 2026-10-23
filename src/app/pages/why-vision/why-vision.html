@@ -1,0 +1,483 @@
+<main class="overflow-x-clip bg-[var(--color-light)] text-[var(--color-dark)]">
+
+    <section class="relative isolate">
+        <div aria-hidden="true"
+            class="pointer-events-none absolute inset-0 -z-10 [background-image:radial-gradient(circle_at_1px_1px,rgba(0,0,0,0.09)_1px,transparent_0)] [background-size:26px_26px] [mask-image:linear-gradient(to_bottom,black_30%,transparent)]">
+        </div>
+        <div aria-hidden="true"
+            class="pointer-events-none absolute -left-40 top-10 -z-10 h-[420px] w-[420px] rounded-full bg-[var(--color-primary)]/10 blur-3xl">
+        </div>
+        <div aria-hidden="true"
+            class="pointer-events-none absolute -right-32 -top-20 -z-10 h-[460px] w-[460px] rounded-full bg-[var(--color-primary)]/15 blur-3xl">
+        </div>
+
+        <div
+            class="mx-auto grid max-w-[1400px] items-center gap-16 px-4 py-16 md:px-8 lg:grid-cols-2 lg:gap-12 lg:px-14 lg:py-24">
+            <div>
+                <p class="mb-3 fade-up text-sm font-medium uppercase tracking-wider text-[var(--color-primary)]"
+                    data-aos="fade-up" data-aos-duration="700">
+                    Why Vision
+                </p>
+
+                <h1 class="mt-6 text-4xl font-semibold leading-[1.08] tracking-tight sm:text-5xl xl:text-6xl"
+                    data-aos="fade-up" data-aos-delay="100" data-aos-duration="800">
+                    Building the technology
+                    <span class="relative inline-block text-[var(--color-primary)]">
+                        Africa runs on.
+                        <svg aria-hidden="true" class="absolute -bottom-2 left-0 h-2 w-full" viewBox="0 0 200 8"
+                            fill="none" preserveAspectRatio="none">
+                            <path d="M2 6c40-5 100-5 196 0" stroke="currentColor" stroke-width="3"
+                                stroke-linecap="round" />
+                        </svg>
+                    </span>
+                </h1>
+
+                <p class="mt-8 max-w-xl text-lg leading-relaxed text-[var(--color-dark)]/70" data-aos="fade-up"
+                    data-aos-delay="200" data-aos-duration="800">
+                    Vision Corporation is a Ghanaian technology company. We start with software and work toward the
+                    infrastructure Africa depends on: reliable energy, affordable transport, the hardware that powers
+                    them and AI
+                    that makes sense of it all.
+                </p>
+
+                <div class="mt-10" data-aos="fade-up" data-aos-delay="300" data-aos-duration="800">
+                    <a [routerLink]="[]" fragment="our-journey"
+                        class="group inline-flex items-center justify-center gap-2 rounded-full border border-black/15 px-7 py-4 text-[15px] text-[var(--color-dark)] transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2 active:scale-[0.98] motion-reduce:transition-none">
+                        Explore our journey
+                        <svg class="h-4 w-4 transition-transform duration-300 group-hover:translate-y-0.5"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M12 5v14M6 13l6 6 6-6" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="relative mx-auto w-full max-w-[520px] lg:ml-auto lg:mr-0" aria-hidden="true"
+                data-aos="fade-left" data-aos-delay="250" data-aos-duration="900">
+                <div
+                    class="rounded-3xl border border-black/10 bg-[var(--color-white)] p-6 shadow-2xl shadow-black/10 sm:p-8">
+                    <div class="flex items-center justify-between">
+                        <p class="text-sm font-medium uppercase tracking-wider text-[var(--color-primary)]">Our journey
+                        </p>
+                        <span
+                            class="rounded-full bg-[var(--color-primary)]/10 px-3 py-1 text-xs font-medium text-[var(--color-primary)]">One
+                            step at a time</span>
+                    </div>
+
+                    <ol class="relative mt-8 space-y-5">
+                        <span class="absolute bottom-5 left-5 top-5 w-px bg-[var(--color-primary)]/25"></span>
+                        @for (journey of journeys.slice(0, 4); track journey.title; let i = $index) {
+                        <li class="relative flex items-center gap-4" data-aos="fade-up"
+                            [attr.data-aos-delay]="400 + i * 120" data-aos-duration="700">
+                            <span
+                                class="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[var(--color-primary)]/30 bg-[var(--color-white)] text-[var(--color-primary)]"
+                                [class.bg-[var(--color-primary)]]="i === 0" [class.text-[var(--color-white)]]="i === 0">
+                                <svg class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    @for (d of journey.icon; track d) {
+                                    <path [attr.d]="d" />
+                                    }
+                                </svg>
+                            </span>
+                            <div
+                                class="flex flex-1 items-center justify-between gap-3 rounded-2xl border border-black/10 px-4 py-3">
+                                <span class="text-sm font-semibold">{{ journey.short }}</span>
+                                @if (journey.tag) {
+                                <span
+                                    class="rounded-full bg-[var(--color-primary)]/10 px-2.5 py-0.5 text-[11px] font-medium text-[var(--color-primary)]">{{
+                                    journey.tag }}</span>
+                                }
+                            </div>
+                        </li>
+                        }
+                    </ol>
+
+                    <div class="mt-6 flex items-center gap-4 rounded-2xl bg-[var(--color-primary)] p-4 text-[var(--color-white)]"
+                        data-aos="fade-up" data-aos-delay="900" data-aos-duration="700">
+                        <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/15">
+                            <svg class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                @for (d of journeys[4].icon; track d) {
+                                <path [attr.d]="d" />
+                                }
+                            </svg>
+                        </span>
+                        <div>
+                            <p class="text-sm font-semibold">Artificial intelligence</p>
+                            <p class="text-xs text-[var(--color-white)]/80">Built into every journey</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="mx-auto max-w-[1400px] px-4 py-16 md:px-8 lg:px-14 lg:py-24">
+        <div class="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
+            <div class="lg:col-span-7">
+                <p class="text-sm font-medium uppercase tracking-wider text-[var(--color-primary)]" data-aos="fade-up">
+                    Who we are</p>
+                <h2 class="mt-5 text-3xl font-semibold leading-tight sm:text-4xl lg:text-5xl" data-aos="fade-up"
+                    data-aos-delay="100">
+                    Africa should design and build
+                    <span class="text-[var(--color-primary)]">more of its own</span>
+                    technology.
+                </h2>
+
+                <div class="mt-8 max-w-2xl space-y-5 text-lg leading-relaxed text-[var(--color-dark)]/70"
+                    data-aos="fade-up" data-aos-delay="200">
+                    <p>
+                        We are a team of entrepreneurs who share one belief: Africa should design and build more of its
+                        own
+                        technology. Too much of the continent's infrastructure depends on systems made somewhere else,
+                        for someone
+                        else's conditions. We want to change that, one practical project at a time.
+                    </p>
+                </div>
+
+                <div class="mt-10 max-w-2xl rounded-2xl border border-[var(--color-primary)]/20 border-l-4 border-l-[var(--color-primary)] bg-[var(--color-primary)]/5 p-6"
+                    data-aos="fade-up" data-aos-delay="300">
+                    <p class="text-sm font-medium uppercase tracking-wider text-[var(--color-primary)]">Our inspiration
+                    </p>
+                    <p class="mt-3 leading-relaxed text-[var(--color-dark)]/80">
+                        We draw our inspiration from a symbol. Uac Nkanea is the Adinkra symbol for technological
+                        advancement, and
+                        it reminds us of the spirit of innovation and progress we want to carry into everything we
+                        build.
+                    </p>
+                </div>
+            </div>
+
+
+            <figure class="lg:col-span-5" data-aos="fade-left" data-aos-duration="900">
+                <div
+                    class="relative flex aspect-[4/5] w-full items-center justify-center overflow-hidden rounded-3xl border border-slate-200 bg-slate-100 shadow-xl shadow-slate-900/10">
+
+                    <img ngSrc="assets/images/african-technology-leaders-collaborating-on-project.webp" fill
+                        alt="African technology leaders collaborating on a project" loading="lazy"
+                        class="object-cover transition-transform duration-700 hover:scale-[1.03]" />
+
+                    <div aria-hidden="true"
+                        class="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/10 via-transparent to-white/10">
+                    </div>
+
+                </div>
+            </figure>
+
+        </div>
+    </section>
+
+    <section class="bg-[var(--color-white)]">
+        <div class="mx-auto grid max-w-[1400px] gap-12 px-4 py-16 md:px-8 lg:grid-cols-12 lg:gap-16 lg:px-14 lg:py-24">
+            <div class="lg:col-span-5">
+                <p class="text-sm font-medium uppercase tracking-wider text-[var(--color-primary)]" data-aos="fade-up">
+                    What we do today</p>
+                <h2 class="mt-5 text-3xl font-semibold leading-tight sm:text-4xl lg:text-5xl" data-aos="fade-up"
+                    data-aos-delay="100">
+                    We begin with
+                    <span class="relative inline-block text-[var(--color-primary)]">
+                        software.
+                        <svg aria-hidden="true" class="absolute -bottom-2 left-0 h-2 w-full" viewBox="0 0 200 8"
+                            fill="none" preserveAspectRatio="none">
+                            <path d="M2 6c40-5 100-5 196 0" stroke="currentColor" stroke-width="3"
+                                stroke-linecap="round" />
+                        </svg>
+                    </span>
+                </h2>
+                <p class="mt-8 text-lg leading-relaxed text-[var(--color-dark)]/70" data-aos="fade-up"
+                    data-aos-delay="200">
+                    It is the fastest way to deliver value and to fund the harder work ahead. Today, we are a web design
+                    and
+                    development agency, building for startups and growing businesses. We also help them get found and
+                    grow.
+                </p>
+
+                <a routerLink="/journeys/web-design-and-development"
+                    class="group relative mt-10 inline-flex items-center justify-center gap-2 overflow-hidden rounded-full bg-[var(--color-primary)] px-7 py-4 text-[15px] text-[var(--color-white)] shadow-lg shadow-[var(--color-primary)]/20 transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-xl hover:shadow-[var(--color-primary)]/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2 active:translate-y-0 active:scale-[0.98] motion-reduce:transition-none"
+                    data-aos="fade-up" data-aos-delay="300">
+                    <span aria-hidden="true"
+                        class="absolute inset-0 origin-left scale-x-0 bg-[var(--color-primary-hover)] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-x-100 group-focus-visible:scale-x-100 motion-reduce:transition-none"></span>
+                    <span class="relative">See our web services</span>
+                    <span class="relative h-4 w-4 overflow-hidden" aria-hidden="true">
+                        <svg class="absolute inset-0 h-4 w-4 transition-transform duration-300 ease-out group-hover:translate-x-6 group-focus-visible:translate-x-6"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14M13 6l6 6-6 6" />
+                        </svg>
+                        <svg class="absolute inset-0 h-4 w-4 -translate-x-6 transition-transform duration-300 ease-out group-hover:translate-x-0 group-focus-visible:translate-x-0"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14M13 6l6 6-6 6" />
+                        </svg>
+                    </span>
+                </a>
+            </div>
+
+            <div class="grid gap-10 sm:grid-cols-2 lg:col-span-7 lg:gap-12">
+                <div data-aos="fade-up" data-aos-delay="150">
+                    <h3
+                        class="border-b border-[var(--color-primary)] pb-4 text-sm font-medium uppercase tracking-wider text-[var(--color-primary)]">
+                        What we build</h3>
+                    <ul>
+                        @for (item of webBuilds; track item) {
+                        <li
+                            class="group flex items-center gap-3 border-b border-black/10 py-4 transition-transform duration-300 ease-out hover:translate-x-1.5 motion-reduce:transition-none">
+                            <span
+                                class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[var(--color-primary)]/10 text-[var(--color-primary)] transition-colors duration-300 group-hover:bg-[var(--color-primary)] group-hover:text-[var(--color-white)]">
+                                <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path d="M20 6L9 17l-5-5" />
+                                </svg>
+                            </span>
+                            <span class="text-lg font-medium">{{ item }}</span>
+                        </li>
+                        }
+                    </ul>
+                </div>
+
+                <div data-aos="fade-up" data-aos-delay="300">
+                    <h3
+                        class="border-b border-[var(--color-primary)] pb-4 text-sm font-medium uppercase tracking-wider text-[var(--color-primary)]">
+                        How we help you grow</h3>
+                    <ul>
+                        @for (item of growth; track item) {
+                        <li
+                            class="group flex items-center gap-3 border-b border-black/10 py-4 transition-transform duration-300 ease-out hover:translate-x-1.5 motion-reduce:transition-none">
+                            <span
+                                class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[var(--color-primary)]/10 text-[var(--color-primary)] transition-colors duration-300 group-hover:bg-[var(--color-primary)] group-hover:text-[var(--color-white)]">
+                                <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path d="M20 6L9 17l-5-5" />
+                                </svg>
+                            </span>
+                            <span class="text-lg font-medium">{{ item }}</span>
+                        </li>
+                        }
+                    </ul>
+                </div>
+
+                <p class="border-l-2 border-[var(--color-primary)] pl-5 text-lg leading-relaxed text-[var(--color-dark)]/80 sm:col-span-2"
+                    data-aos="fade-up" data-aos-delay="200">
+                    Every project we deliver strengthens the team, the skills and the resources we need for our bigger
+                    journeys.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="relative isolate overflow-hidden bg-[var(--color-dark)] text-[var(--color-white)]">
+        <div class="mx-auto grid max-w-[1400px] px-4 md:px-8 lg:grid-cols-2 lg:px-14">
+            <div class="border-b border-white/10 py-16 lg:border-b-0 lg:border-r lg:py-24 lg:pr-16" data-aos="fade-up">
+                <span
+                    class="flex h-12 w-12 items-center justify-center rounded-2xl bg-[var(--color-primary)] text-[var(--color-white)]">
+                    <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                        <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                    </svg>
+                </span>
+                <p class="mt-8 text-sm font-medium uppercase tracking-wider text-[var(--color-primary)]">Our vision</p>
+                <p class="mt-5 text-2xl font-medium leading-snug sm:text-3xl">
+                    To be the enduring force that powers
+                    <a href="https://en.wikipedia.org/wiki/African_Renaissance" target="_blank"
+                        rel="noopener noreferrer" class="text-[var(--color-primary)]">
+                        Africa's technological renaissance
+                    </a>, with integrated
+                    hardware,
+                    software and AI that deliver reliable energy and efficient transportation for generations to come.
+                </p>
+            </div>
+
+            <div class="py-16 lg:py-24 lg:pl-16" data-aos="fade-up" data-aos-delay="150">
+                <span
+                    class="flex h-12 w-12 items-center justify-center rounded-2xl bg-[var(--color-primary)] text-[var(--color-white)]">
+                    <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20z" />
+                        <path d="M12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12z" />
+                        <path d="M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" />
+                    </svg>
+                </span>
+                <p class="mt-8 text-sm font-medium uppercase tracking-wider text-[var(--color-primary)]">Our mission</p>
+                <p class="mt-5 text-2xl leading-snug text-[var(--color-white)]/80 sm:text-3xl">
+                    To design, build and scale
+                    <span class="font-medium text-[var(--color-white)]">practical, locally led solutions</span>
+                    to Africa's most critical infrastructure challenges.
+                </p>
+                <br />
+                <p class="sm:text-lg">We begin with software excellence, which funds
+                    and speeds
+                    up our work on integrated circuits, control systems and AI-enabled platforms, so that the impact
+                    outlasts any
+                    single project.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="our-journey" class="scroll-mt-24 mx-auto max-w-[1400px] px-4 py-16 md:px-8 lg:px-14 lg:py-24">
+        <div class="grid gap-12 lg:grid-cols-12 lg:gap-16">
+            <div class="lg:col-span-5">
+                <div class="lg:sticky lg:top-32">
+                    <p class="text-sm font-medium uppercase tracking-wider text-[var(--color-primary)]"
+                        data-aos="fade-up">Our journey</p>
+                    <h2 class="mt-5 text-3xl font-semibold leading-tight sm:text-4xl lg:text-5xl" data-aos="fade-up"
+                        data-aos-delay="100">
+                        One step at a time, and each step
+                        <span class="relative inline-block text-[var(--color-primary)]">
+                            supports the next.
+                            <svg aria-hidden="true" class="absolute -bottom-2 left-0 h-2 w-full" viewBox="0 0 200 8"
+                                fill="none" preserveAspectRatio="none">
+                                <path d="M2 6c40-5 100-5 196 0" stroke="currentColor" stroke-width="3"
+                                    stroke-linecap="round" />
+                            </svg>
+                        </span>
+                    </h2>
+                </div>
+            </div>
+
+            <ol class="relative lg:col-span-7">
+                <span aria-hidden="true" class="absolute bottom-6 left-5 top-6 w-px bg-black/10"></span>
+                @for (journey of journeys; track journey.title; let i = $index) {
+                <li class="group relative pb-12 pl-16 last:pb-0" data-aos="fade-up" data-aos-duration="800">
+                    <span
+                        class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-full border border-[var(--color-primary)]/30 bg-[var(--color-light)] text-[var(--color-primary)] transition-all duration-300 group-hover:scale-110 group-hover:bg-[var(--color-primary)] group-hover:text-[var(--color-white)] motion-reduce:transition-none">
+                        <svg class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            @for (d of journey.icon; track d) {
+                            <path [attr.d]="d" />
+                            }
+                        </svg>
+                    </span>
+
+                    <div
+                        class="transition-transform duration-300 ease-out group-hover:translate-x-2 motion-reduce:transition-none">
+                        <div class="flex flex-wrap items-center gap-3">
+                            <span class="text-sm font-medium text-[var(--color-dark)]/30">0{{ i + 1 }}</span>
+                            <h3 class="text-2xl font-semibold">{{ journey.title }}</h3>
+                            @if (journey.tag) {
+                            <span
+                                class="rounded-full bg-[var(--color-primary)]/10 px-3 py-1 text-xs font-medium text-[var(--color-primary)]">{{
+                                journey.tag }}</span>
+                            }
+                        </div>
+                        <p class="mt-3 max-w-xl leading-relaxed text-[var(--color-dark)]/70">{{ journey.text }}</p>
+                    </div>
+                </li>
+                }
+            </ol>
+        </div>
+
+        <p class="mt-16 max-w-4xl border-t border-black/10 pt-10 text-2xl font-medium leading-snug sm:text-3xl"
+            data-aos="fade-up">
+            Five journeys, one thread:
+            <span class="text-[var(--color-primary)]">practical technology</span>, designed and built in Africa, for the
+            people who rely on it.
+        </p>
+    </section>
+
+    <section class="bg-[var(--color-white)]">
+        <div class="mx-auto max-w-[1400px] px-4 py-16 md:px-8 lg:px-14 lg:py-24">
+            <div class="grid gap-8 lg:grid-cols-12 lg:gap-16">
+                <div class="lg:col-span-5">
+                    <p class="text-sm font-medium uppercase tracking-wider text-[var(--color-primary)]"
+                        data-aos="fade-up">Our philosophy</p>
+                    <h2 class="mt-5 text-3xl font-semibold leading-tight sm:text-4xl lg:text-5xl" data-aos="fade-up"
+                        data-aos-delay="100">
+                        An
+                        <span class="relative inline-block whitespace-nowrap px-5 text-[var(--color-primary)]">
+                            infinite game
+                            <svg aria-hidden="true"
+                                class="pointer-events-none absolute -inset-x-1 -inset-y-1 h-[calc(100%+8px)] w-[calc(100%+8px)]"
+                                viewBox="0 0 120 50" fill="none" preserveAspectRatio="none">
+                                <path d="M104 12C84 2 36 0 16 10C-2 20 2 38 28 44C58 50 100 46 112 32C122 20 108 8 80 5"
+                                    stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </span>
+                    </h2>
+                </div>
+
+                <p class="text-lg leading-relaxed text-[var(--color-dark)]/70 lg:col-span-7" data-aos="fade-up"
+                    data-aos-delay="150">
+                    Most companies play to win a market. We play to keep improving the systems that lift communities,
+                    for as long
+                    as it takes and across generations. That changes how we work:
+                </p>
+            </div>
+
+            <ul class="mt-14 grid gap-10 md:grid-cols-3 md:gap-8">
+                @for (principle of principles; track principle.title; let i = $index) {
+                <li class="group relative pt-8" data-aos="fade-up" [attr.data-aos-delay]="i * 120"
+                    data-aos-duration="800">
+                    <span aria-hidden="true" class="absolute inset-x-0 top-0 h-px bg-black/10"></span>
+                    <span aria-hidden="true"
+                        class="absolute inset-x-0 top-0 h-px origin-left scale-x-0 bg-[var(--color-primary)] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-x-100 motion-reduce:transition-none"></span>
+
+                    <span
+                        class="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-[var(--color-primary)]/10 text-[var(--color-primary)] transition-colors duration-300 group-hover:bg-[var(--color-primary)] group-hover:text-[var(--color-white)]">
+                        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            @for (d of principle.icon; track d) {
+                            <path [attr.d]="d" />
+                            }
+                        </svg>
+                    </span>
+                    <h3 class="mt-6 text-xl font-semibold">{{ principle.title }}</h3>
+                    <p class="mt-3 leading-relaxed text-[var(--color-dark)]/70">{{ principle.text }}</p>
+                </li>
+                }
+            </ul>
+
+            <p class="mt-16 max-w-3xl border-l-2 border-[var(--color-primary)] pl-6 text-lg leading-relaxed text-[var(--color-dark)]/80"
+                data-aos="fade-up">
+                We measure success in lives improved, skills built and infrastructure that lasts, not only in quarterly
+                returns, and we aim for development that is sustainable and kind to the environment.
+            </p>
+        </div>
+    </section>
+
+    <section class="mx-auto max-w-[1400px] px-4 py-16 md:px-8 lg:px-14 lg:py-24">
+        <div class="max-w-2xl">
+            <p class="text-sm font-medium uppercase tracking-wider text-[var(--color-primary)]" data-aos="fade-up">What
+                we stand for</p>
+            <h2 class="mt-5 text-3xl font-semibold leading-tight sm:text-4xl lg:text-5xl" data-aos="fade-up"
+                data-aos-delay="100">
+                Five values behind everything we
+                <span class="relative inline-block text-[var(--color-primary)]">
+                    build.
+                    <svg aria-hidden="true" class="absolute -bottom-2 left-0 h-2 w-full" viewBox="0 0 200 8" fill="none"
+                        preserveAspectRatio="none">
+                        <path d="M2 6c40-5 100-5 196 0" stroke="currentColor" stroke-width="3" stroke-linecap="round" />
+                    </svg>
+                </span>
+            </h2>
+        </div>
+
+        <ol class="mt-14 border-t border-black/10">
+            @for (value of values; track value.title; let i = $index) {
+            <li class="group relative overflow-hidden border-b border-black/10" data-aos="fade-up"
+                data-aos-duration="800">
+                <span aria-hidden="true"
+                    class="absolute inset-0 origin-bottom scale-y-0 bg-[var(--color-white)] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-y-100 motion-reduce:transition-none"></span>
+                <span aria-hidden="true"
+                    class="absolute inset-y-0 left-0 w-1 origin-top scale-y-0 bg-[var(--color-primary)] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-y-100 motion-reduce:transition-none"></span>
+
+                <div
+                    class="relative grid items-start gap-3 px-0 py-8 transition-transform duration-300 ease-out group-hover:translate-x-3 md:grid-cols-12 md:gap-8 md:py-10 motion-reduce:transition-none">
+                    <span
+                        class="text-3xl font-semibold leading-none text-[var(--color-dark)]/15 transition-colors duration-300 group-hover:text-[var(--color-primary)] md:col-span-1 md:text-4xl">0{{
+                        i + 1 }}</span>
+                    <h3 class="text-2xl font-semibold md:col-span-5">{{ value.title }}</h3>
+                    <p class="max-w-xl leading-relaxed text-[var(--color-dark)]/70 md:col-span-6">{{ value.text }}</p>
+                </div>
+            </li>
+            }
+        </ol>
+    </section>
+
+    <app-cta heading="Join us in building Africa's future."
+        text="Whether you need a website that brings in customers or you share our belief in what African technology can become, we would like to hear from you."
+        primaryLabel="Start a Project" primaryLink="/contact-us" secondaryLabel="Contact Us" secondaryLink="/contact-us" />
+
+</main>

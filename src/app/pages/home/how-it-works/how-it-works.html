@@ -1,0 +1,64 @@
+<section class="bg-[var(--color-dark)]">
+    <div class="mx-auto w-full max-w-[1280px] px-4 py-24 sm:px-10 sm:py-28 lg:px-12">
+        <p class="mb-3 font-semibold uppercase tracking-[0.1em] text-[var(--color-primary-light)]" data-aos="fade-up"
+            data-aos-duration="700">
+            How it works
+        </p>
+
+        <h2 class="font-heading text-3xl font-bold leading-tight tracking-tight text-[var(--color-white)] sm:text-4xl lg:text-5xl"
+            data-aos="fade-up" data-aos-delay="100" data-aos-duration="800">
+            From first chat to live website in three steps
+        </h2>
+
+        <p class="mt-5 max-w-4xl text-base leading-normal text-[var(--color-white)]/70 sm:text-lg" data-aos="fade-up"
+            data-aos-delay="200" data-aos-duration="800">
+            No jargon, no guessing. You always know what is happening and what comes next.
+        </p>
+
+        <div
+            class="mt-12 divide-y divide-[var(--color-white)]/10 border-y border-[var(--color-white)]/10 sm:mt-16 lg:mt-20">
+
+            @for(step of howItWorksSteps; track step.title; let i = $index){
+            <div class="group grid grid-cols-1 gap-4 py-7 sm:grid-cols-[64px_minmax(0,1fr)_minmax(0,1.2fr)] sm:items-center sm:gap-6 sm:py-9 lg:grid-cols-[100px_minmax(0,1fr)_minmax(0,1.2fr)] lg:gap-8"
+                data-aos="fade-up" [attr.data-aos-delay]="150 + (i * 150)" data-aos-duration="800"
+                data-aos-easing="ease-out-cubic">
+
+                <span
+                    class="font-heading font-bold tracking-wider text-[var(--color-white)]/65 transition-all duration-500 group-hover:text-[var(--color-primary-light)] group-hover:translate-x-1">
+                    {{ step.number }}
+                </span>
+
+                <h3
+                    class="font-heading text-xl font-bold leading-snug text-[var(--color-white)] transition-transform duration-500 group-hover:translate-x-1 sm:text-2xl">
+                    {{ step.title }}
+                </h3>
+
+                <p
+                    class="max-w-xl text-sm leading-7 text-[var(--color-white)]/65 transition-colors duration-500 group-hover:text-[var(--color-white)]/85 sm:text-base">
+                    {{ step.description }}
+                </p>
+            </div>
+            }
+        </div>
+
+        <div class="mt-12 sm:mt-16" data-aos="fade-up" data-aos-delay="650" data-aos-duration="800"
+            data-aos-easing="ease-out-back">
+
+            <button type="button" (click)="openCalendly()"
+                class="group cursor-pointer relative inline-flex w-full items-center justify-center gap-2 overflow-hidden rounded-full bg-[var(--color-primary)] px-6 py-3.5 text-[15px] font-medium text-[var(--color-white)] shadow-lg shadow-[var(--color-primary)]/20 transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-xl hover:shadow-[var(--color-primary)]/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-dark)] active:translate-y-0 active:scale-[0.98] motion-reduce:transition-none sm:w-auto">
+                <span aria-hidden="true"
+                    class="absolute inset-0 origin-left scale-x-0 bg-[var(--color-primary-hover)] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-x-100 group-focus-visible:scale-x-100 motion-reduce:transition-none"></span>
+
+                <span class="relative">Book a Free Consultation</span>
+
+                <svg class="relative h-4 w-4 transition-transform duration-300 group-hover:rotate-6 group-hover:scale-125 group-focus-visible:rotate-6 group-focus-visible:scale-125 motion-reduce:transition-none"
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" aria-hidden="true">
+                    <rect x="3" y="4" width="18" height="18" rx="2" />
+                    <path d="M16 2v4M8 2v4M3 10h18" />
+                    <path d="m9 16 2 2 4-4" />
+                </svg>
+            </button>
+        </div>
+    </div>
+</section>

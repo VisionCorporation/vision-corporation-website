@@ -1,77 +1,53 @@
-/* Add this CSS to your stylesheet */
+.hero-image {
+	transform: scale(1.2);
+	transform-origin: center center;
+	animation: hero-image-cinematic 18s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+	will-change: transform;
+}
 
-@keyframes verticalFlip {
+.hero-glow {
+	animation: hero-glow-float 8s ease-in-out infinite;
+	will-change: transform, opacity;
+}
 
-	0%,
-	20% {
-		transform: scaleY(1) scale(0.95);
-		opacity: 1;
+@keyframes hero-image-cinematic {
+	0% {
+		transform: scale(1.2) translate3d(0, 1%, 0);
 	}
 
-	24% {
-		opacity: 0;
-		transform: scaleY(1) scale(0.95);
+	35% {
+		transform: scale(1.13) translate3d(-0.5%, 0, 0);
 	}
 
-	25% {
-		transform: scaleY(-1) scale(0.95);
-		opacity: 0;
-	}
-
-	29%,
-	45% {
-		transform: scaleY(-1) scale(0.95);
-		opacity: 1;
-	}
-
-	49% {
-		opacity: 0;
-		transform: scaleY(-1) scale(0.95);
-	}
-
-	50% {
-		transform: scaleY(1) scale(0.95);
-		opacity: 0;
-	}
-
-	54%,
 	70% {
-		transform: scaleY(1) scale(0.95);
-		opacity: 1;
-	}
-
-	74% {
-		opacity: 0;
-		transform: scaleY(1) scale(0.95);
-	}
-
-	75% {
-		transform: scaleY(-1) scale(0.95);
-		opacity: 0;
-	}
-
-	79%,
-	95% {
-		transform: scaleY(-1) scale(0.95);
-		opacity: 1;
-	}
-
-	96% {
-		opacity: 1;
-		transform: scaleY(-1) scale(0.95);
-	}
-
-	99% {
-		opacity: 0;
-		transform: scaleY(-1) scale(0.95);
+		transform: scale(1.07) translate3d(0.4%, -0.3%, 0);
 	}
 
 	100% {
-		transform: scaleY(1) scale(0.95);
-		opacity: 0;
+		transform: scale(1.04) translate3d(0, 0, 0);
 	}
 }
 
-.animate-flip {
-	animation: verticalFlip 12s ease-in-out infinite;
+@keyframes hero-glow-float {
+
+	0%,
+	100% {
+		transform: translateY(-50%) translateX(0) scale(1);
+		opacity: 0.45;
+	}
+
+	50% {
+		transform: translateY(-50%) translateX(40px) scale(1.12);
+		opacity: 0.8;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+	.hero-image,
+	.hero-glow {
+		animation: none;
+		transform: none;
+		will-change: auto;
+	}
 }

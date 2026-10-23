@@ -1,0 +1,126 @@
+# Vision Corporation
+
+> Vision Corporation is a Ghanaian technology company based in Sekondi-Takoradi, Ghana. Today it is a web design, web development and digital marketing agency. Its longer-term mission is to design and build practical, locally led technology for Africa's infrastructure in energy, transportation, hardware and AI.
+
+Website: https://www.visioncorporation.africa/
+Last updated: 2026-10-21
+
+## About Vision Corporation (the "Why Vision" page)
+
+Page: https://www.visioncorporation.africa/why-vision
+
+Vision Corporation is a pioneering technology company founded by a team of entrepreneurs who share one aim: to build the infrastructure that enables Africa's equitable and sustained development. The company draws inspiration from Uac Nkanea, the Adinkra symbol for technological advancement.
+
+It starts with software development as a launchpad, because software is the fastest way to deliver value and to fund harder work ahead. From there it works toward energy, transportation and hardware solutions, with AI integrated across all of them.
+
+Vision: To be the enduring force that powers Africa's technological renaissance, continuously innovating integrated hardware, software and AI systems for generations to come.
+
+Mission: To design, build and scale practical, locally led hardware and software solutions that address Africa's most critical infrastructure challenges. Vision Corporation begins with software excellence to fund and accelerate the development of integrated circuits, control systems and AI-enabled platforms, creating sustainable impact that outlasts any single project.
+
+Philosophy: Vision Corporation pursues an "infinite game" strategy. It does not aim to win a market. It aims to keep improving the systems that uplift communities across generations, through pragmatic engineering, ethical AI and collaborative partnerships with governments, researchers and grassroots organisations. It measures success in lives improved, skills built and infrastructure that lasts.
+
+Core values:
+1. Just cause: the company exists to enable technological sovereignty.
+2. Integrity and honesty: upholding moral principles and building trust through reliability and fair treatment.
+3. Collective leadership: leadership is shared, with humility and the courage to make decisions that favour the many over the few.
+4. Practical innovation: pragmatic, deployable technology that balances cutting-edge research with real-world constraints.
+5. Openness and collaboration: sharing what it learns, collaborating openly with partners and measuring success by collective progress.
+
+## Services today
+
+### Web design and development
+
+Vision Corporation is a web design and digital marketing agency in Ghana. It builds:
+- Portfolio websites for freelancers, creatives, consultants and professionals.
+- Business websites for companies, shops, hotels, clinics and service providers.
+- E-commerce websites with product catalogues, shopping carts, secure checkout and order management, designed for mobile.
+- Custom web applications such as portals, dashboards, booking systems and management systems, with user accounts and secure login.
+- UI/UX design.
+
+Sites are built to be found in search and by AI search tools, to work well on mobile phones, and to grow over time without starting from scratch.
+
+### Digital marketing
+
+Vision Corporation offers five digital marketing services, either alongside a new website or on their own:
+- SEO: improving site structure, content and speed so that search engines and AI tools understand what a business offers.
+- Paid ads on Meta (Facebook and Instagram) and Google.
+- Blog writing: helpful articles that answer customers' real questions.
+- Email marketing: welcome messages, offers and updates to existing customers.
+- Content creation: posts, graphics and short videos for websites and social pages.
+
+## Our journeys
+
+Software development is where the company starts. The following journeys are longer-term goals and directions.
+
+### Energy
+Unreliable power slows factories, hospitals and shops, and industry cannot grow on a supply that keeps switching off. Vision Corporation is working toward a modular nuclear reactor, designed and built entirely in Africa, to support Ghana's energy grid by 2036. This is a goal, not a delivered product. The approach is African-built, safety-first and open about progress, in partnership with governments, researchers and community groups.
+
+### Transportation
+Moving goods between African countries is slow and expensive, and those costs end up in the price of what people buy. Vision Corporation wants to create innovative transport systems that connect the continent and make commerce between African countries faster and more affordable.
+
+### Hardware solutions
+Much of the technology used in Africa runs on hardware designed elsewhere. Vision Corporation designs integrated circuits and control systems for advanced technological infrastructure, so more of the technology Africa relies on is designed in Africa.
+
+### Artificial intelligence
+Most AI tools are trained on data and conditions from elsewhere. Vision Corporation integrates AI across every journey to analyse critical data and turn it into insight that suits the African ecosystem, built ethically and openly, with people staying in charge of decisions.
+
+## Frequently asked questions
+
+**What should a startup in Ghana look for in a full-stack web development agency?**
+Look for an agency that handles design, front-end, back-end and hosting together, explains its choices in plain language, and builds for how Ghanaians use the web: mostly on phones, often on slower connections, and paying by mobile money. Vision Corporation is a full-stack web design and development agency in Ghana that works with startups from the first idea to a live product.
+
+**How much does custom software development cost in West Africa?**
+It depends on what is built, so there is no single price. The main factors are the number of pages or features, whether online payments or user accounts are needed, how much custom design is involved, and how much integration with other systems is required. A simple portfolio site costs far less than an e-commerce store, and a custom web application costs more than either. Vision Corporation gives a clear quote after a free consultation.
+
+**What makes a good UI/UX design firm in Ghana?**
+A good firm starts with users, not decoration: it asks who the customers are, tests ideas with real people where it can, and designs interfaces that are clear on a small phone screen. At Vision Corporation, design and development are done together.
+
+**What is the difference between a website and a web application?**
+A website mainly gives information. A web application lets people do things, such as log in, book, pay, upload or manage their own data. Many businesses start with a website and add an application later.
+
+**Does Vision Corporation build e-commerce websites?**
+Yes. It builds online stores with product pages, a cart, secure checkout and order management, designed to work well on mobile.
+
+**What digital marketing services does Vision Corporation offer?**
+SEO, paid ads on Meta and Google, blog writing, email marketing and content creation.
+
+**How long does SEO take to work?**
+SEO is gradual and can take about 3 months to show a clear change. No one can honestly promise a specific ranking. Paid ads can bring visitors sooner, so many businesses use both.
+
+**Does Vision Corporation help after a website is live?**
+Yes. It can help with updates, fixes, new pages and new features as a business grows.
+
+**Why is a web design agency also working on energy, transport, hardware and AI?**
+Software is where Vision Corporation starts, and it funds and speeds up the longer-term work. Building websites and web applications today grows the skills, team and resources for the bigger journeys.
+
+**Can you build a portfolio website for me??**
+Yes. A portfolio site is a good fit for freelancers, creatives, consultants and professionals. We design it to show your best work clearly and make it easy for clients to contact you.
+
+**How long does it take to build a website??**
+It depends on the size of the project. A simple portfolio site is quick to build(within a day or maximum 2), while an online store or custom application takes longer(weeks or months). We agree on a timeline with you at the start, and we tell you early if anything changes.
+
+**Will people be able to find my website on Google and AI tools like ChatGPT?**
+We build every site with search in mind: clear structure, fast loading, descriptive page content and technical foundations that search engines and AI tools can read. No one can promise a specific ranking, but a well-built site gives you the best chance of being found.
+
+**What digital marketing services do you offer?**
+We offer SEO, paid ads on Meta (Facebook and Instagram) and Google, blog writing, email marketing and content creation. You can add them to a new website we build, or use them on their own if you already have a site.
+
+**How much does digital marketing cost in Ghana?**
+It depends on which services you need and how often. Some are monthly, like content and email, while others are project-based, like an SEO clean-up. Money you spend on ads goes straight to Meta or Google and is separate from our fee. After a free conversation about your goals, we suggest a starting plan and budget you are comfortable with.
+
+**Should I choose SEO or paid ads??**
+Often the answer is both, at different times. Paid ads bring people in quickly while you build, and SEO builds steady, lasting visitors over time. We help you decide based on your goal, your budget and how fast you need results.
+
+**Will my website work well on mobile phones?**
+Yes. We design for phones first, because that is where most of your customers will see it. Pages are made to load quickly and to be easy to use with one thumb.
+
+**Do you help after the website is live?**
+Yes. Launch is the beginning, not the end. We can help with updates, fixes, new pages and new features as your business grows.
+
+**Why is a web design agency also working on energy, transport, hardware and AI?**
+Software is where we start, and it funds and speeds up our longer-term work. Building websites and web applications for businesses today is how we grow the skills, the team and the resources for bigger journeys. Every project you give us helps build that future.
+
+## Contact
+Contact page: https://www.visioncorporation.africa/contact-us
+Location: Sekondi-Takoradi, Ghana
+The first conversation about a web or marketing project is free. Researchers and partners interested in energy, transport, hardware or AI can also use the contact form.

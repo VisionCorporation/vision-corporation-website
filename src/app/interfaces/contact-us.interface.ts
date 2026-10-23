@@ -1,7 +1,13 @@
-export interface ContactUs{
+export interface ContactUs {
     name: string
     email: string
+    phone?: string
+    businessName?: string
     subject: string
-    messageCategory: string
-    message:string
+    message: string
+}
+
+export interface ContactUsResponse {
+    status: string;
+    message: string;
 }

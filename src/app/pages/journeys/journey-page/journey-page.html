@@ -1,0 +1,25 @@
+@if (journey(); as page) {
+
+<main class="overflow-x-clip bg-[var(--color-light)] text-[var(--color-dark)]">
+    <app-journey-hero [label]="page.label" [data]="page.hero" />
+
+    <app-journey-problem [data]="page.problem" />
+
+    @if (page.aiApplications; as applications) {
+    <app-ai-journey-map [data]="applications" />
+    } @else if (page.work; as work) {
+    <app-journey-work [data]="work" />
+    }
+
+    <app-journey-approach [data]="page.approach" />
+
+    <app-journey-why-vision [data]="page.whyVision" />
+
+    <app-cta [heading]="page.cta.heading" [text]="page.cta.text" [primaryLabel]="page.cta.primaryLabel"
+        [primaryLink]="page.cta.primaryLink" [secondaryLabel]="page.cta.secondaryLabel ?? ''"
+        [secondaryLink]="page.cta.secondaryLink ?? ''" secondaryType="button" />
+</main>
+}
+@else {
+<app-journey-not-found />
+}

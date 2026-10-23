@@ -1,0 +1,77 @@
+<section id="faqs" class="bg-[var(--color-white)]">
+    <div class="mx-auto w-full max-w-[1280px] px-4 py-24 sm:px-10 sm:py-28 lg:px-12">
+        <p class="mb-3 font-semibold tracking-[0.1em] uppercase text-[var(--color-primary)]" data-aos="fade-up"
+            data-aos-duration="600">
+            Frequently asked questions
+        </p>
+
+        <h2 class="font-heading text-3xl font-bold leading-tight tracking-tight text-[var(--color-dark)] sm:text-4xl lg:text-5xl"
+            data-aos="fade-up" data-aos-delay="100" data-aos-duration="700">
+            Questions people ask before they start
+        </h2>
+
+        <div class="mt-16 sm:mt-20">
+            <div #tabContainer
+                class="flex gap-2 overflow-x-auto border-b border-black/10 pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+                role="tablist" aria-label="FAQ categories" data-aos="fade-up" data-aos-delay="200"
+                data-aos-duration="700">
+
+                @for (category of FAQ_TABS; track category; let i = $index) {
+                <button #tabButton type="button" role="tab" [attr.aria-selected]="activeCategory() === category"
+                    (click)="setActiveCategory(category, tabButton, tabContainer)"
+                    [class]="activeCategory() === category
+                            ? 'border-[var(--color-primary)] bg-[var(--color-primary)] text-[var(--color-white)]'
+                            : 'border-black/15 text-[var(--color-dark)]/70 hover:border-[var(--color-primary)] hover:text-[var(--color-primary)]'"
+                    class="shrink-0 cursor-pointer rounded-full border px-5 py-2.5 text-sm font-medium transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2 motion-reduce:transition-none">
+                    {{ category }}
+                </button>
+                }
+            </div>
+
+            <div class="mt-8 border-t border-black/10" data-aos="fade-up" data-aos-once="true">
+                @for (faq of visibleFAQs(); track faq.question; let i = $index) {
+                <article class="border-b border-black/10" [class.is-open]="openFaq() === faq.question"
+                    [attr.data-aos-delay]="i < 5 ? i * 80 : 400">
+
+                    <h3>
+                        <button type="button" (click)="toggleFaq(faq.question)"
+                            [attr.aria-expanded]="openFaq() === faq.question" [attr.aria-controls]="'faq-panel-' + i"
+                            [id]="'faq-button-' + i"
+                            class="group flex w-full cursor-pointer items-center justify-between gap-6 py-6 text-left focus:outline-none focus-visible:text-[var(--color-primary)]">
+
+                            <span [class]="openFaq() === faq.question ? 'text-[var(--color-primary)]' : ''"
+                                class="text-base font-semibold leading-relaxed transition-colors duration-300 group-hover:text-[var(--color-primary)] sm:text-lg">
+                                {{ faq.question }}
+                            </span>
+
+                            <span
+                                [class]="openFaq() === faq.question ? 'border-[var(--color-primary)] bg-[var(--color-primary)] text-[var(--color-white)]' : 'border-black/15 text-[var(--color-primary)]'"
+                                class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border transition-all duration-300 group-hover:border-[var(--color-primary)]">
+
+                                <svg [class.rotate-45]="openFaq() === faq.question"
+                                    class="h-4 w-4 transition-transform duration-300 ease-in-out motion-reduce:transition-none"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path d="M12 5v14M5 12h14" />
+                                </svg>
+                            </span>
+                        </button>
+                    </h3>
+
+                    <div [id]="'faq-panel-' + i" role="region" [attr.aria-labelledby]="'faq-button-' + i"
+                        [attr.inert]="openFaq() === faq.question ? null : ''"
+                        [class]="openFaq() === faq.question ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'"
+                        class="grid transition-[grid-template-rows] duration-300 ease-in-out motion-reduce:transition-none">
+
+                        <div class="overflow-hidden">
+                            <p class="max-w-5xl pb-6 text-sm leading-7 text-[var(--color-dark)]/70 sm:text-base">
+                                {{ faq.answer }}
+                            </p>
+                        </div>
+                    </div>
+                </article>
+                }
+            </div>
+        </div>
+    </div>
+</section>

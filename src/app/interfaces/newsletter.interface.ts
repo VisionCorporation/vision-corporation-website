@@ -6,3 +6,8 @@ export interface Newsletter {
     buttonUrl: string
     message: string
 }
+
+export interface NewsletterResponse {
+    status: string;
+    message: string;
+}

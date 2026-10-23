@@ -1,0 +1,96 @@
+<section class="bg-[var(--color-white)]">
+    <div class="mx-auto w-full max-w-[1280px] px-4 py-24 sm:px-10 sm:py-28 lg:px-12">
+        <p class="mb-3 font-semibold tracking-[0.1em] uppercase text-[var(--color-primary)]" data-aos="fade-up"
+            data-aos-duration="600">
+            Digital marketing
+        </p>
+
+        <h2 class="font-heading text-3xl font-bold leading-tight tracking-tight text-[var(--color-dark)] sm:text-4xl lg:text-5xl"
+            data-aos="fade-up" data-aos-delay="100" data-aos-duration="700">
+            A website is the start. Let's help people find it.
+        </h2>
+
+        <p class="mt-5 max-w-4xl text-base leading-normal text-[var(--color-text-muted)] sm:text-lg" data-aos="fade-up"
+            data-aos-delay="200" data-aos-duration="700">
+            A good website that nobody sees does very little for you. We help you show up on Google, reach the right
+            people on Facebook and Instagram, and stay in touch with the customers you already have, all with the same
+            team that built your site.
+        </p>
+
+        <div class="mt-16 grid grid-cols-1 gap-4 sm:mt-20 md:grid-cols-2 lg:grid-cols-4 lg:grid-rows-2">
+            @for (service of marketingServices; track service.title; let i = $index) {
+            <article
+                class="group relative overflow-hidden rounded-3xl border border-black/5 bg-[#f7f8f7] p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg sm:p-8"
+                [class.lg:col-span-2]="i === 0" [class.lg:row-span-2]="i === 0" [class.lg:col-span-1]="i > 0"
+                [class.lg:row-span-1]="i > 0" [attr.data-aos]="i === 0 ? 'zoom-in-up' : 'fade-up'"
+                [attr.data-aos-delay]="i * 120" data-aos-duration="700" data-aos-once="true">
+
+                <div
+                    class="absolute -right-12 -top-12 h-32 w-32 rounded-full bg-[var(--color-primary)]/5 transition-transform duration-500 group-hover:scale-150">
+                </div>
+
+                <span
+                    class="material-symbols-outlined relative inline-flex rounded-xl bg-[var(--color-primary-light)] p-3 text-3xl text-[var(--color-primary)] shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3"
+                    data-aos="zoom-in" [attr.data-aos-delay]="i * 120 + 150">
+                    {{ service.icon }}
+                </span>
+
+                <div class="relative mt-8" data-aos="fade-up" [attr.data-aos-delay]="i * 120 + 200">
+                    <h3 class="font-heading text-xl font-bold tracking-tight text-[var(--color-dark)] sm:text-2xl">
+                        {{ service.title }}
+                    </h3>
+
+                    <p class="mt-2 text-sm font-medium leading-relaxed text-[var(--color-primary)]">
+                        {{ service.tagline }}
+                    </p>
+
+                    <p class="mt-4 text-sm leading-relaxed text-[var(--color-text-muted)] sm:text-base">
+                        {{ service.description }}
+                    </p>
+                </div>
+
+                <span
+                    class="absolute bottom-6 right-6 text-5xl font-bold tracking-tighter text-black/[0.035] transition-all duration-300 group-hover:scale-110 group-hover:text-[var(--color-primary)]/10 sm:bottom-8 sm:right-8"
+                    data-aos="fade-left" [attr.data-aos-delay]="i * 120 + 250">
+                    {{ '0' + (i + 1) }}
+                </span>
+            </article>
+            }
+        </div>
+
+        <div class="mt-9 flex flex-col items-start gap-4 sm:flex-row sm:items-center" data-aos="fade-up"
+            data-aos-delay="200" data-aos-duration="700">
+
+            <a routerLink="/contact-us"
+                class="group relative inline-flex w-full items-center justify-center gap-2 overflow-hidden rounded-full bg-[var(--color-primary)] px-6 py-3.5 text-[15px] font-medium text-[var(--color-white)] shadow-lg shadow-[var(--color-primary)]/20 transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-xl hover:shadow-[var(--color-primary)]/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-white active:translate-y-0 active:scale-[0.98] motion-reduce:transition-none lg:w-auto">
+
+                <span aria-hidden="true"
+                    class="absolute inset-0 origin-left scale-x-0 bg-[var(--color-primary-hover)] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-x-100 group-focus-visible:scale-x-100 motion-reduce:transition-none"></span>
+
+                <span class="relative">Grow My Business Online</span>
+
+                <span class="relative h-4 w-4 overflow-hidden" aria-hidden="true">
+                    <svg class="absolute inset-0 h-4 w-4 transition-transform duration-300 ease-out group-hover:translate-x-6 group-focus-visible:translate-x-6"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M5 12h14M13 6l6 6-6 6" />
+                    </svg>
+                    <svg class="absolute inset-0 h-4 w-4 -translate-x-6 transition-transform duration-300 ease-out group-hover:translate-x-0 group-focus-visible:translate-x-0"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M5 12h14M13 6l6 6-6 6" />
+                    </svg>
+                </span>
+            </a>
+
+            <a routerLink="/contact-us"
+                class="group relative inline-flex w-full items-center justify-center overflow-hidden rounded-full border border-[var(--color-dark)]/20 bg-[var(--color-white)] px-6 py-3.5 text-[15px] font-medium text-[var(--color-dark)] shadow-sm transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-[var(--color-dark)] hover:text-[var(--color-white)] hover:shadow-md focus:outline-none focus-visible:border-[var(--color-dark)] focus-visible:text-[var(--color-white)] focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-white active:translate-y-0 active:scale-[0.98] motion-reduce:transition-none lg:w-auto">
+
+                <span aria-hidden="true"
+                    class="absolute inset-0 origin-left scale-x-0 bg-[var(--color-dark)] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-x-100 group-focus-visible:scale-x-100 motion-reduce:transition-none"></span>
+
+                <span class="relative">Ask about digital marketing</span>
+            </a>
+        </div>
+    </div>
+</section>

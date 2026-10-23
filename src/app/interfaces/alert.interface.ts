@@ -4,4 +4,5 @@ export interface Alert {
   message: string;
   position: 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left';
   isVisible: boolean;
+  duration: number;
 }

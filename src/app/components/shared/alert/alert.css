@@ -1,32 +1,139 @@
-@keyframes slide-in {
+.slide-top {
+    --tx: 0px;
+    --ty: -24px;
+}
+
+.slide-bottom {
+    --tx: 0px;
+    --ty: 24px;
+}
+
+@media (min-width: 640px) {
+    .slide-right {
+        --tx: 60px;
+        --ty: 0px;
+    }
+
+    .slide-left {
+        --tx: -60px;
+        --ty: 0px;
+    }
+}
+
+.alert-enter {
+    animation: alert-in 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.alert-exit {
+    animation: alert-out 0.35s cubic-bezier(0.4, 0, 1, 1) both;
+}
+
+@keyframes alert-in {
     from {
-        transform: translateY(-1rem);
         opacity: 0;
+        transform: translate3d(var(--tx), var(--ty), 0) scale(0.85);
+        filter: blur(6px);
     }
 
     to {
-        transform: translateY(0);
         opacity: 1;
+        transform: translate3d(0, 0, 0) scale(1);
+        filter: blur(0);
     }
 }
 
-@keyframes fade-out {
+@keyframes alert-out {
     from {
         opacity: 1;
-        transform: translateY(0);
+        transform: translate3d(0, 0, 0) scale(1);
     }
 
     to {
         opacity: 0;
-        transform: translateY(-0.2rem);
+        transform: translate3d(var(--tx), var(--ty), 0) scale(0.9);
+        filter: blur(4px);
     }
 }
 
-
-.animate-slide-in {
-    animation: slide-in 0.3s ease-out;
+.alert-progress {
+    animation-name: alert-progress;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    opacity: 0.8;
 }
 
-.animate-fade-out {
-    animation: fade-out 0.3s ease-in forwards;
+@keyframes alert-progress {
+    from {
+        transform: scaleX(1);
+    }
+
+    to {
+        transform: scaleX(0);
+    }
+}
+
+.alert-icon {
+    animation: icon-pop 0.5s 0.15s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes icon-pop {
+    from {
+        transform: scale(0) rotate(-45deg);
+    }
+
+    to {
+        transform: scale(1) rotate(0);
+    }
+}
+
+.alert-draw {
+    stroke-dasharray: 24;
+    stroke-dashoffset: 24;
+    animation: draw 0.4s 0.35s ease-out forwards;
+}
+
+@keyframes draw {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+.alert-ring {
+    transform-origin: 50% 10%;
+    animation: ring 0.8s 0.4s ease-in-out;
+}
+
+@keyframes ring {
+
+    0%,
+    100% {
+        transform: rotate(0);
+    }
+
+    20% {
+        transform: rotate(14deg);
+    }
+
+    40% {
+        transform: rotate(-12deg);
+    }
+
+    60% {
+        transform: rotate(8deg);
+    }
+
+    80% {
+        transform: rotate(-4deg);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .alert-enter,
+    .alert-exit,
+    .alert-icon,
+    .alert-draw,
+    .alert-ring {
+        animation-duration: 0.01ms !important;
+    }
 }

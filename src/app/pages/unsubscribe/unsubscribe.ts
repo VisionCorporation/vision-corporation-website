@@ -1,6 +1,6 @@
 import { ChangeDetectorRef, Component, Inject, inject, OnInit, PLATFORM_ID, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
-import { Api } from '../../services/api';
+import { Api } from '../../services/api/api';
 import { isPlatformBrowser } from '@angular/common';
 import { AlertComponent } from '../../components/shared/alert/alert';
 

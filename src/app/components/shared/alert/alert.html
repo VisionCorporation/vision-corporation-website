@@ -1,66 +1,58 @@
-<div *ngFor="let position of positions" [class]="getPositionClasses(position)">
-    <div *ngFor="let alert of getAlertsByPosition(position)" [class]="getAlertClasses(alert.type)"
-    class="pointer-events-auto flex items-center justify-between gap-3 p-4 rounded-lg w-11/12 max-w-sm sm:min-w-[500px] sm:max-w-[500px]"
-        [ngClass]="{
-         'animate-slide-in opacity-100 translate-y-0': alert.isVisible,
-         'animate-fade-out opacity-0': !alert.isVisible
-       }">
-        <div class="flex gap-4">
-            <div>
-                @if(alert.type === 'success'){
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="M22 11.0801V12.0001C21.9988 14.1565 21.3005 16.2548 20.0093 17.9819C18.7182 19.7091 16.9033 20.9726 14.8354 21.584C12.7674 22.1954 10.5573 22.122 8.53447 21.3747C6.51168 20.6274 4.78465 19.2462 3.61096 17.4372C2.43727 15.6281 1.87979 13.4882 2.02168 11.3364C2.16356 9.18467 2.99721 7.13643 4.39828 5.49718C5.79935 3.85793 7.69279 2.71549 9.79619 2.24025C11.8996 1.76502 14.1003 1.98245 16.07 2.86011"
-                        stroke="#348537" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                    <path d="M22 4L12 14.01L9 11.01" stroke="#348537" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" />
-                </svg>
+@for (position of positions; track position) {
+<div [class]="getPositionClasses(position)">
+    @for (alert of getAlertsByPosition(position); track alert.id) {
+    <div role="alert" [class]="getSlideClass(position)" [class.alert-enter]="alert.isVisible"
+        [class.alert-exit]="!alert.isVisible" class="pointer-events-auto relative overflow-hidden flex items-start gap-3 w-11/12 max-w-sm sm:w-[380px]
+           p-4 rounded-2xl border border-black/5 dark:border-white/10
+           bg-white/90 dark:bg-neutral-900/90 backdrop-blur-xl
+           shadow-[0_10px_40px_-12px_rgba(0,0,0,0.3)]">
 
-                }
-
-
-                @if(alert.type === 'error'){
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="M10.2898 3.85996L1.81978 18C1.64514 18.3024 1.55274 18.6453 1.55177 18.9945C1.55079 19.3437 1.64127 19.6871 1.8142 19.9905C1.98714 20.2939 2.2365 20.5467 2.53748 20.7238C2.83847 20.9009 3.18058 20.9961 3.52978 21H20.4698C20.819 20.9961 21.1611 20.9009 21.4621 20.7238C21.7631 20.5467 22.0124 20.2939 22.1854 19.9905C22.3583 19.6871 22.4488 19.3437 22.4478 18.9945C22.4468 18.6453 22.3544 18.3024 22.1798 18L13.7098 3.85996C13.5315 3.56607 13.2805 3.32308 12.981 3.15444C12.6814 2.98581 12.3435 2.89722 11.9998 2.89722C11.656 2.89722 11.3181 2.98581 11.0186 3.15444C10.7191 3.32308 10.468 3.56607 10.2898 3.85996V3.85996Z"
-                        stroke="#E22420" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                    <path d="M12 9V13" stroke="#E22420" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" />
-                    <path d="M12 16V16.5" stroke="#E22420" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" />
-                </svg>
-
-                }
-
-
-                @if(alert.type === 'notification'){
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="M18 8C18 6.4087 17.3679 4.88258 16.2426 3.75736C15.1174 2.63214 13.5913 2 12 2C10.4087 2 8.88258 2.63214 7.75736 3.75736C6.63214 4.88258 6 6.4087 6 8C6 15 3 17 3 17H21C21 17 18 15 18 8Z"
-                        stroke="#EA690C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                    <path
-                        d="M13.73 21C13.5542 21.3031 13.3019 21.5547 12.9982 21.7295C12.6946 21.9044 12.3504 21.9965 12 21.9965C11.6496 21.9965 11.3054 21.9044 11.0018 21.7295C10.6982 21.5547 10.4458 21.3031 10.27 21"
-                        stroke="#EA690C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-
-                }
-            </div>
-
-            <div>
-                <span [class]="getTextClass(alert.type)" class="flex-1"> <span class="capitalize">{{alert.type}}:</span>
-                    {{ alert.message }}
-                </span>
-            </div>
+        <div class="alert-icon shrink-0 grid place-items-center size-10 rounded-xl" [class]="getTheme(alert.type).icon">
+            @switch (alert.type) {
+            @case ('success') {
+            <svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path class="alert-draw" d="M5 13l4 4L19 7" />
+            </svg>
+            }
+            @case ('error') {
+            <svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 8v5M12 16.5v.01" />
+                <path d="M10.3 3.9L1.8 18a2 2 0 001.7 3h17a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z" />
+            </svg>
+            }
+            @case ('notification') {
+            <svg class="size-5 alert-ring" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 8a6 6 0 10-12 0c0 7-3 9-3 9h18s-3-2-3-9" />
+                <path d="M13.7 21a2 2 0 01-3.4 0" />
+            </svg>
+            }
+            }
         </div>
 
-        <button (click)="fadeOutAlert(alert.id)" [class]="getTextClass(alert.type)"
-            class="transition-opacity hover:opacity-70 cursor-pointer">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round" />
-                <path d="M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round" />
+        <div class="flex-1 min-w-0 pt-0.5">
+            <p class="text-sm font-semibold capitalize text-neutral-900 dark:text-white">{{ alert.type }}</p>
+            <p class="mt-0.5 text-sm leading-snug text-neutral-600 dark:text-neutral-300 break-words">
+                {{ alert.message }}
+            </p>
+        </div>
+
+        <button (click)="fadeOutAlert(alert.id)" aria-label="Dismiss"
+            class="shrink-0 -mr-1 -mt-1 p-1.5 rounded-lg text-neutral-400 transition
+                   hover:bg-black/5 hover:text-neutral-700 dark:hover:bg-white/10 dark:hover:text-white cursor-pointer">
+            <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 6L6 18M6 6l12 12" />
             </svg>
         </button>
+
+        @if (alert.duration > 0) {
+        <div class="absolute bottom-0 left-0 h-[3px] w-full origin-left alert-progress"
+            [class]="getTheme(alert.type).bar" [style.animation-duration.ms]="alert.duration"></div>
+        }
     </div>
+    }
 </div>
+}

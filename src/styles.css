@@ -1,57 +1,39 @@
 @import "tailwindcss";
 
+:root {
+  --color-primary: #0145f2;
+  --color-primary-hover: #0038c7;
+  --color-primary-light: #e8efff;
+
+  --color-dark: #0b1020;
+
+  --color-light: #f6f8fc;
+  --color-border: #e3e8f2;
+  --color-white: #ffffff;
+
+  --color-highlight: #eef2ff;
+
+  --color-text: #0b1020;
+  --color-text-muted: #374151;
+}
+
+
 @font-face {
-  font-family: 'Airbnb Cereal';
-  src: url('/assets/fonts/AirbnbCereal_W_Bd.otf') format('opentype');
-  font-weight: 700;
+  font-family: "Plus Jakarta Sans";
+  src: url("/assets/fonts/PlusJakartaSans-VariableFont_wght.ttf") format("truetype");
+  font-weight: 200 800;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Airbnb Cereal';
-  src: url('/assets/fonts/AirbnbCereal_W_Bk.otf') format('opentype');
-  font-weight: 600;
+  font-family: "Inter";
+  src: url("/assets/fonts/Inter-VariableFont_opsz,wght.ttf") format("truetype");
+  font-weight: 100 900;
   font-style: normal;
   font-display: swap;
 }
 
-@font-face {
-  font-family: 'Airbnb Cereal';
-  src: url('/assets/fonts/AirbnbCereal_W_Blk.otf') format('opentype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Airbnb Cereal';
-  src: url('/assets/fonts/AirbnbCereal_W_Lt.otf') format('opentype');
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Airbnb Cereal';
-  src: url('/assets/fonts/AirbnbCereal_W_Md.otf') format('opentype');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Airbnb Cereal';
-  src: url('/assets/fonts/AirbnbCereal_W_XBd.otf') format('opentype');
-  font-weight: 800;
-  font-style: normal;
-  font-display: swap;
-}
-
-* {
-  font-family: 'Airbnb Cereal', sans-serif;
-  font-weight: 600;
-}
 
 html {
   width: 100%;
@@ -63,13 +45,62 @@ body {
   padding: 0;
   box-sizing: border-box;
   overflow-x: hidden;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
+  background-color: var(--color-white);
 }
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+h1 {
+  font-weight: 800;
+}
+
+a {
+  text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+.logo {
+  font-weight: 700;
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.customise-sub-title {
+  font-weight: 600;
+}
+
 
 img,
 svg {
   -webkit-user-drag: none;
-  user-drag: none;
+  user-select: none;
 }
+
 
 .hide-scrollbar::-webkit-scrollbar {
   display: none;
@@ -78,33 +109,4 @@ svg {
 .hide-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
-}
-
-p,
-li {
-  font-weight: 300
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-.custom-name {
-  font-weight: 500;
-}
-
-.logo {
-  font-weight: 700;
-}
-
-.customise-sub-title {
-  font-weight: 600
-}
-
-.cookie-overlay {
-  background: linear-gradient(135deg, rgba(217, 217, 217, 0.3) 0%, rgba(115, 115, 115, 0.3) 100%);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
 }

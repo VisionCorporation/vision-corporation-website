@@ -1,0 +1,474 @@
+<main class="overflow-x-clip bg-[var(--color-light)] text-[var(--color-dark)]">
+    <section class="relative isolate">
+        <div aria-hidden="true"
+            class="pointer-events-none absolute inset-0 -z-10 [background-image:radial-gradient(circle_at_1px_1px,rgba(0,0,0,0.09)_1px,transparent_0)] [background-size:26px_26px] [mask-image:linear-gradient(to_bottom,black_30%,transparent)]">
+        </div>
+        <div aria-hidden="true"
+            class="pointer-events-none absolute -left-40 top-10 -z-10 h-[420px] w-[420px] rounded-full bg-[var(--color-primary)]/10 blur-3xl">
+        </div>
+        <div aria-hidden="true"
+            class="pointer-events-none absolute -right-32 -top-20 -z-10 h-[460px] w-[460px] rounded-full bg-[var(--color-primary)]/15 blur-3xl">
+        </div>
+
+        <div
+            class="mx-auto grid max-w-[1400px] items-center gap-16 px-4 py-16 md:px-8 lg:grid-cols-2 lg:gap-12 lg:px-14 lg:py-24">
+
+            <div>
+                <p class="mb-3 fade-up text-sm font-medium uppercase tracking-wider text-[var(--color-primary)]"
+                    data-aos="fade-up" data-aos-duration="700">
+                    Digital Marketing
+                </p>
+
+                <h1 class="mt-5 text-4xl font-semibold leading-[1.08] tracking-tight sm:text-5xl xl:text-6xl"
+                    data-aos="fade-up" data-aos-delay="100" data-aos-duration="800">
+                    Get found. Get chosen.
+                    <span class="relative inline-block text-[var(--color-primary)]">
+                        Get remembered.
+                        <svg aria-hidden="true" class="absolute -bottom-2 left-0 h-2 w-full" viewBox="0 0 200 8"
+                            fill="none" preserveAspectRatio="none">
+                            <path d="M2 6c40-5 100-5 196 0" stroke="currentColor" stroke-width="3"
+                                vector-effect="non-scaling-stroke" stroke-linecap="round" />
+                        </svg>
+                    </span>
+                </h1>
+
+                <p class="mt-8 max-w-xl text-lg leading-relaxed text-[var(--color-dark)]/70" data-aos="fade-up"
+                    data-aos-delay="200" data-aos-duration="800">
+                    SEO, paid ads, blog writing, email marketing and content creation, for businesses that want more
+                    people to find them and more of those people to become customers.
+                </p>
+
+                <div class="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center" data-aos="fade-up"
+                    data-aos-delay="300" data-aos-duration="800">
+                    <a routerLink="/contact-us"
+                        class="group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full bg-[var(--color-primary)] px-7 py-4 text-[15px] text-[var(--color-white)] shadow-lg shadow-[var(--color-primary)]/20 transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-xl hover:shadow-[var(--color-primary)]/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2 active:translate-y-0 active:scale-[0.98] motion-reduce:transition-none">
+                        <span aria-hidden="true"
+                            class="absolute inset-0 origin-left scale-x-0 bg-[var(--color-primary-hover)] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-x-100 group-focus-visible:scale-x-100 motion-reduce:transition-none"></span>
+                        <span class="relative">Grow My Business Online</span>
+                        <span class="relative h-4 w-4 overflow-hidden" aria-hidden="true">
+                            <svg class="absolute inset-0 h-4 w-4 transition-transform duration-300 ease-out group-hover:translate-x-6 group-focus-visible:translate-x-6"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 12h14M13 6l6 6-6 6" />
+                            </svg>
+                            <svg class="absolute inset-0 h-4 w-4 -translate-x-6 transition-transform duration-300 ease-out group-hover:translate-x-0 group-focus-visible:translate-x-0"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 12h14M13 6l6 6-6 6" />
+                            </svg>
+                        </span>
+                    </a>
+
+                    <a [routerLink]="[]" fragment="what-we-do"
+                        class="group inline-flex items-center justify-center gap-2 rounded-full border border-black/15 px-7 py-4 text-[15px] text-[var(--color-dark)] transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2 active:scale-[0.98] motion-reduce:transition-none">
+                        See what we do
+                        <svg class="h-4 w-4 transition-transform duration-300 group-hover:translate-y-0.5"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M12 5v14M6 13l6 6 6-6" />
+                        </svg>
+                    </a>
+                </div>
+
+                <ul class="mt-12 flex flex-wrap gap-2" data-aos="fade-up" data-aos-delay="400" data-aos-duration="800">
+                    @for (channel of channels; track channel; let i = $index) {
+                    <li class="rounded-full border border-black/10 bg-[var(--color-white)] px-4 py-1.5 text-sm text-[var(--color-dark)]/70 transition-colors duration-300 hover:border-[var(--color-primary)]/40 hover:text-[var(--color-primary)]"
+                        data-aos="fade-up" [attr.data-aos-delay]="450 + i * 70" data-aos-duration="600">
+                        {{ channel }}
+                    </li>
+                    }
+                </ul>
+            </div>
+
+            <div class="relative mx-auto w-full max-w-[560px] py-12 lg:ml-auto lg:mr-0" data-aos="fade-left"
+                data-aos-delay="200" data-aos-duration="1000" data-aos-easing="ease-out-cubic" aria-hidden="true">
+
+                <div
+                    class="relative overflow-hidden rounded-3xl border border-[var(--color-border)] bg-[var(--color-white)] shadow-2xl shadow-black/10">
+                    <div class="flex items-center gap-2 border-b border-black/10 px-5 py-3.5">
+                        <span class="h-2.5 w-2.5 rounded-full bg-black/15"></span>
+                        <span class="h-2.5 w-2.5 rounded-full bg-black/15"></span>
+                        <span class="h-2.5 w-2.5 rounded-full bg-black/15"></span>
+                        <span
+                            class="ml-3 flex-1 truncate rounded-full bg-black/5 px-4 py-1 text-xs text-[var(--color-dark)]/70">google.com/search</span>
+                    </div>
+
+                    <div class="p-5 sm:p-6">
+                        <div class="flex items-center gap-3 rounded-full border border-black/10 px-4 py-2.5">
+                            <svg class="h-4 w-4 text-[var(--color-dark)]/40" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 21l-4.3-4.3" />
+                                <path d="M11 19a8 8 0 1 0 0-16 8 8 0 0 0 0 16z" />
+                            </svg>
+                            <span class="text-sm text-[var(--color-dark)]/70">trusted local services near me</span>
+                        </div>
+
+                        <div class="mt-5 space-y-3">
+                            <div
+                                class="relative rounded-2xl border border-[var(--color-primary)]/40 bg-[var(--color-primary)]/5 p-4">
+                                <span
+                                    class="absolute -top-2.5 right-4 rounded-full bg-[var(--color-primary)] px-3 py-0.5 text-[11px] font-medium text-[var(--color-white)]">Your
+                                    business</span>
+                                <div class="h-3 w-2/3 rounded-full bg-[var(--color-primary)]/60"></div>
+                                <div class="mt-3 h-2 w-full rounded-full bg-black/10"></div>
+                                <div class="mt-2 h-2 w-4/5 rounded-full bg-black/10"></div>
+                                <div class="mt-3 flex items-center gap-1 text-[var(--color-primary)]">
+                                    @for (star of [1, 2, 3, 4, 5]; track star) {
+                                    <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 2l3 7 7 .6-5.3 4.7 1.6 7.2L12 17.8 5.7 21.5l1.6-7.2L2 9.6 9 9z" />
+                                    </svg>
+                                    }
+                                </div>
+                            </div>
+                            <div class="rounded-2xl border border-black/10 p-4">
+                                <div class="h-3 w-1/2 rounded-full bg-black/15"></div>
+                                <div class="mt-3 h-2 w-full rounded-full bg-black/10"></div>
+                            </div>
+                        </div>
+
+                        <div class="mt-6 rounded-2xl bg-[var(--color-light)] p-4">
+                            <div class="flex items-center justify-between text-xs text-[var(--color-dark)]/60">
+                                <span class="font-medium">Website visits</span>
+                                <span>Illustrative example</span>
+                            </div>
+                            <div class="mt-4 flex h-28 items-end gap-2">
+                                @for (bar of bars; track $index; let i = $index) {
+                                <div class="grow-bar flex-1 rounded-t-lg bg-[var(--color-primary)]"
+                                    [style.height.%]="bar" [style.opacity]="0.35 + i * 0.1"
+                                    [style.animation-delay.ms]="500 + i * 90"></div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="float-a absolute -right-2 top-0 hidden w-56 rounded-2xl border border-black/10 bg-[var(--color-white)] p-4 shadow-xl shadow-black/10 sm:block lg:-right-6"
+                    data-aos="fade-left" data-aos-delay="500" data-aos-duration="800">
+                    <div class="flex items-center gap-3">
+                        <span
+                            class="flex h-9 w-9 items-center justify-center rounded-xl bg-[var(--color-primary)]/10 text-[var(--color-primary)]">
+                            <svg class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M3 11v2a1 1 0 0 0 1 1h2l5 4V6L6 10H4a1 1 0 0 0-1 1z" />
+                                <path d="M15.5 8.5a5 5 0 0 1 0 7" />
+                                <path d="M18.5 5.5a9 9 0 0 1 0 13" />
+                            </svg>
+                        </span>
+                        <div>
+                            <p class="text-sm font-semibold">Meta &amp; Google Ads</p>
+                            <p class="text-xs text-[var(--color-dark)]/60">Your audience, your budget</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="float-b absolute -left-2 bottom-24 hidden w-56 rounded-2xl border border-black/10 bg-[var(--color-white)] p-4 shadow-xl shadow-black/10 sm:block lg:-left-8"
+                    data-aos="fade-right" data-aos-delay="650" data-aos-duration="800">
+                    <div class="flex items-center gap-3">
+                        <span
+                            class="flex h-9 w-9 items-center justify-center rounded-xl bg-[var(--color-primary)]/10 text-[var(--color-primary)]">
+                            <svg class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z" />
+                                <path d="M22 6l-10 7L2 6" />
+                            </svg>
+                        </span>
+                        <div>
+                            <p class="text-sm font-semibold">Welcome email</p>
+                            <p class="text-xs text-[var(--color-dark)]/60">Sent to new customers</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="float-c absolute -right-2 bottom-4 hidden w-56 rounded-2xl border border-black/10 bg-[var(--color-white)] p-4 shadow-xl shadow-black/10 sm:block lg:-right-4"
+                    data-aos="fade-left" data-aos-delay="800" data-aos-duration="800">
+                    <div class="flex items-center gap-3">
+                        <span
+                            class="flex h-9 w-9 items-center justify-center rounded-xl bg-[var(--color-primary)]/10 text-[var(--color-primary)]">
+                            <svg class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 20h9" />
+                                <path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" />
+                            </svg>
+                        </span>
+                        <div>
+                            <p class="text-sm font-semibold">New article</p>
+                            <p class="text-xs text-[var(--color-dark)]/60">Answering a real question</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-[var(--color-dark)] text-[var(--color-white)]">
+        <div class="mx-auto max-w-[1400px] px-4 py-24 md:px-8 sm:py-28 lg:px-14">
+            <div class="grid gap-12 lg:grid-cols-12 lg:gap-16">
+                <div class="lg:col-span-5" data-aos="fade-right" data-aos-duration="800">
+                    <div class="lg:sticky lg:top-32">
+                        <p class="mb-3 text-sm font-medium uppercase tracking-wider text-[var(--color-primary-light)]">
+                            The problem
+                        </p>
+
+                        <h2 class="mt-5 text-3xl font-semibold leading-tight sm:text-4xl lg:text-5xl">
+                            Good businesses get
+                            <span class="relative inline-block text-[var(--color-primary)]">
+                                overlooked
+                                <svg aria-hidden="true" class="absolute -bottom-2 left-0 h-2 w-full" viewBox="0 0 200 8"
+                                    fill="none" preserveAspectRatio="none">
+                                    <path d="M2 6c40-5 100-5 196 0" stroke="currentColor" stroke-width="3"
+                                        vector-effect="non-scaling-stroke" stroke-linecap="round" />
+                                </svg>
+                            </span>
+                            every day.
+                        </h2>
+                    </div>
+                </div>
+
+                <ul class="border-t border-white/10 lg:col-span-7" data-aos="fade-left" data-aos-duration="800"
+                    data-aos-delay="100">
+                    @for (problem of problems; track problem.title; let i = $index) {
+                    <li class="group relative border-b border-white/10" data-aos="fade-up"
+                        [attr.data-aos-delay]="150 + i * 100" data-aos-duration="700">
+                        <span aria-hidden="true"
+                            class="absolute inset-x-0 -bottom-px h-px origin-left scale-x-0 bg-[var(--color-primary)] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-x-100 motion-reduce:transition-none">
+                        </span>
+
+                        <div
+                            class="flex items-start gap-5 py-8 transition-transform duration-300 ease-out group-hover:translate-x-2 sm:gap-8 sm:py-10 motion-reduce:transition-none">
+                            <span
+                                class="w-10 shrink-0 text-3xl font-semibold leading-none text-white/20 transition-colors duration-300 group-hover:text-[var(--color-primary)] sm:w-14 sm:text-4xl">
+                                0{{ i + 1 }}
+                            </span>
+
+                            <div class="flex-1">
+                                <h3 class="text-xl font-semibold sm:text-2xl">
+                                    {{ problem.title }}
+                                </h3>
+
+                                <p class="mt-2 max-w-xl leading-relaxed text-white/65">
+                                    {{ problem.text }}
+                                </p>
+                            </div>
+
+                            <span
+                                class="hidden h-12 w-12 shrink-0 items-center justify-center rounded-full border border-white/10 text-[var(--color-primary)] transition-all duration-300 group-hover:border-[var(--color-primary)] group-hover:bg-[var(--color-primary)] group-hover:text-[var(--color-white)] sm:flex">
+                                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    @for (d of problem.icon; track d) {
+                                    <path [attr.d]="d" />
+                                    }
+                                </svg>
+                            </span>
+                        </div>
+                    </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="what-we-do" class="scroll-mt-24 bg-[var(--color-white)]">
+        <div class="mx-auto max-w-[1400px] px-4 py-24 md:px-8 sm:py-28 lg:px-14">
+            <div class="max-w-4xl" data-aos="fade-up" data-aos-duration="800">
+                <p class="mb-3 text-sm font-medium uppercase tracking-wider text-[var(--color-primary)]">What we do</p>
+                <h2 class="mt-5 text-3xl font-semibold leading-tight sm:text-4xl lg:text-5xl">
+                    Five ways to put your business in front of the
+                    <span class="relative inline-block px-6 text-[var(--color-primary)]">
+                        right people
+                        <svg aria-hidden="true"
+                            class="pointer-events-none absolute -rotate-1 -inset-x-1 -inset-y-1 h-[calc(100%+8px)] w-[calc(100%+8px)]"
+                            viewBox="0 0 120 50" fill="none" preserveAspectRatio="none">
+                            <path d="M104 12C84 2 36 0 16 10C-2 20 2 38 28 44C58 50 100 46 112 32C122 20 108 8 80 5"
+                                stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                vector-effect="non-scaling-stroke" stroke-linejoin="round" />
+                        </svg>
+                    </span>
+                </h2>
+            </div>
+
+            <ul class="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-6">
+                @for (service of services; track service.title; let i = $index) {
+                <li [class]="i < 3 ? 'lg:col-span-2' : 'lg:col-span-3'"
+                    class="group relative flex flex-col overflow-hidden rounded-3xl border border-black/10 bg-[var(--color-light)] p-8 transition-all duration-300 ease-out hover:-translate-y-1 hover:border-[var(--color-primary)]/40 hover:shadow-xl motion-reduce:transition-none"
+                    data-aos="fade-up" [attr.data-aos-delay]="i * 100" data-aos-duration="750"
+                    data-aos-easing="ease-out-cubic">
+                    <span aria-hidden="true"
+                        class="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-[var(--color-primary)] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-x-100 motion-reduce:transition-none"></span>
+
+                    <div class="mb-4 flex items-start justify-between">
+                        <span
+                            class="flex h-14 w-14 items-center justify-center rounded-2xl bg-[var(--color-primary)]/10 text-[var(--color-primary)] transition-colors duration-300">
+                            <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                @for (d of service.icon; track d) {
+                                <path [attr.d]="d" />
+                                }
+                            </svg>
+                        </span>
+                        <span class="text-sm font-medium text-[var(--color-dark)]/30">0{{ i + 1 }}</span>
+                    </div>
+
+                    <h3 class="mt-8 text-2xl font-semibold">{{ service.title }}</h3>
+                    <p class="mt-3 flex-1 leading-relaxed text-[var(--color-dark)]/70">{{ service.text }}</p>
+
+                    <div class="mt-8 flex items-start gap-3 border-t border-black/10 pt-5">
+                        <svg class="mt-0.5 h-4 w-4 shrink-0 text-[var(--color-primary)]" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                            aria-hidden="true">
+                            <path d="M20 6L9 17l-5-5" />
+                        </svg>
+                        <p class="text-sm leading-relaxed">
+                            <span class="font-medium text-[var(--color-primary)]">Good for:</span>
+                            {{ service.goodFor }}
+                        </p>
+                    </div>
+                </li>
+                }
+            </ul>
+        </div>
+    </section>
+
+    <section class="bg-[var(--color-dark)] text-[var(--color-white)]">
+        <div class="mx-auto max-w-[1400px] px-4 py-24 md:px-8 sm:py-28 lg:px-14">
+            <div class="max-w-4xl" data-aos="fade-up" data-aos-duration="800">
+                <p class="mb-3 text-sm font-medium uppercase tracking-wider text-[var(--color-primary-light)]">
+                    How we work
+                </p>
+
+                <h2 class="mt-5 text-3xl font-semibold leading-tight sm:text-4xl lg:text-5xl">
+                    A simple process, with
+                    <span class="relative inline-block text-[var(--color-primary)]">
+                        no guesswork
+                        <svg aria-hidden="true" class="absolute -bottom-2 left-0 h-2 w-full" viewBox="0 0 200 8"
+                            fill="none" preserveAspectRatio="none">
+                            <path d="M2 6c40-5 100-5 196 0" stroke="currentColor" stroke-width="3"
+                                vector-effect="non-scaling-stroke" stroke-linecap="round" />
+                        </svg>
+                    </span>.
+                </h2>
+            </div>
+
+            <ol class="relative mt-16 grid gap-10 md:grid-cols-3 md:gap-6">
+                <span aria-hidden="true"
+                    class="absolute left-[16.6%] right-[16.6%] top-7 hidden border-t-2 border-dashed border-[var(--color-primary)]/30 md:block">
+                </span>
+
+                @for (step of steps; track step.title; let i = $index) {
+                <li class="group relative text-center" data-aos="fade-up" [attr.data-aos-delay]="i * 150"
+                    data-aos-duration="800" data-aos-easing="ease-out-cubic">
+                    <span
+                        class="relative mx-auto flex h-14 w-14 items-center justify-center rounded-full border-2 border-[var(--color-primary)] bg-[var(--color-dark)] text-lg font-semibold text-[var(--color-primary)] transition-all duration-300 group-hover:scale-110 group-hover:bg-[var(--color-primary)] group-hover:text-[var(--color-white)] motion-reduce:transition-none">
+                        {{ i + 1 }}
+                    </span>
+
+                    <div
+                        class="mt-6 rounded-3xl border border-white/10 bg-white/5 p-8 transition-all duration-300 ease-out group-hover:-translate-y-1 group-hover:border-[var(--color-primary)]/40 group-hover:bg-white/[0.07] group-hover:shadow-xl motion-reduce:transition-none">
+
+                        <span
+                            class="mb-3 inline-block rounded-full bg-[var(--color-primary)]/15 px-3 py-1 text-xs font-medium uppercase tracking-wider text-[var(--color-primary-light)]">
+                            {{ step.tag }}
+                        </span>
+
+                        <h3 class="mt-4 text-xl font-semibold">
+                            {{ step.title }}
+                        </h3>
+
+                        <p class="mt-3 leading-relaxed text-white/65">
+                            {{ step.text }}
+                        </p>
+                    </div>
+                </li>
+                }
+            </ol>
+        </div>
+    </section>
+
+    <section class="">
+        <div
+            class="relative mx-auto grid max-w-[1400px] gap-10 overflow-hidden rounded-3xl bg-[var(--color-light)] px-6 py-24 text-[var(--color-dark)] sm:py-28 md:px-14 lg:grid-cols-12 lg:gap-16">
+
+            <div class="relative lg:col-span-5" data-aos="fade-right" data-aos-duration="800">
+                <p class="mb-3 text-sm font-medium uppercase tracking-wider text-[var(--color-primary)]">
+                    Why Vision
+                </p>
+
+                <h2 class="mt-5 text-3xl font-semibold leading-tight tracking-[-0.02em] sm:text-4xl lg:text-5xl">
+                    The team that
+                    <span class="relative inline-block px-6 text-[var(--color-primary)]">
+                        builds
+                        <svg aria-hidden="true"
+                            class="pointer-events-none absolute -rotate-1 -inset-x-1 -inset-y-1 h-[calc(100%+8px)] w-[calc(100%+8px)]"
+                            viewBox="0 0 120 50" fill="none" preserveAspectRatio="none">
+                            <path d="M104 12C84 2 36 0 16 10C-2 20 2 38 28 44C58 50 100 46 112 32C122 20 108 8 80 5"
+                                stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                vector-effect="non-scaling-stroke" stroke-linejoin="round" />
+                        </svg>
+                    </span>
+                    your website also
+                    <span class="relative inline-block px-6 text-[var(--color-primary)]">
+                        markets
+                        <svg aria-hidden="true"
+                            class="pointer-events-none absolute -rotate-1 -inset-x-1 -inset-y-1 h-[calc(100%+8px)] w-[calc(100%+8px)]"
+                            viewBox="0 0 120 50" fill="none" preserveAspectRatio="none">
+                            <path d="M104 12C84 2 36 0 16 10C-2 20 2 38 28 44C58 50 100 46 112 32C122 20 108 8 80 5"
+                                stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                vector-effect="non-scaling-stroke" stroke-linejoin="round" />
+                        </svg>
+                    </span>
+                    it.
+                </h2>
+                <div class="mt-8 flex items-center gap-3 text-sm text-[var(--color-text-muted)]" data-aos="fade-up"
+                    data-aos-delay="150" data-aos-duration="700">
+                    <span class="rounded-full border border-[var(--color-border)] bg-white px-4 py-1.5">
+                        Website
+                    </span>
+
+                    <svg class="h-5 w-5 text-[var(--color-primary)]" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        aria-hidden="true">
+                        <path d="M8 3L4 7l4 4M4 7h16M16 21l4-4-4-4M20 17H4" />
+                    </svg>
+
+                    <span class="rounded-full border border-[var(--color-border)] bg-white px-4 py-1.5">
+                        Marketing
+                    </span>
+                </div>
+            </div>
+
+
+            <ul class="relative grid gap-5 lg:col-span-7">
+                @for (reason of reasons; track reason.title; let i = $index) {
+                <li class="group relative rounded-2xl border border-[var(--color-border)] bg-white p-7 transition-[transform,border-color,box-shadow] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:border-[var(--color-primary)]/40 hover:shadow-[0_16px_40px_rgba(11,16,32,0.07)] motion-reduce:transform-none motion-reduce:transition-none"
+                    data-aos="fade-up" [attr.data-aos-delay]="i * 120" data-aos-duration="750">
+
+                    <div class="flex items-center gap-3">
+                        <span
+                            class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[var(--color-primary)] text-[var(--color-white)] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105 motion-reduce:transition-none">
+                            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M20 6L9 17l-5-5" />
+                            </svg>
+                        </span>
+
+                        <h3
+                            class="text-xl font-semibold transition-colors duration-300 ease-out group-hover:text-[var(--color-primary)]">
+                            {{ reason.title }}
+                        </h3>
+                    </div>
+
+                    <p class="mt-4 leading-relaxed text-[var(--color-text-muted)]">
+                        {{ reason.text }}
+                    </p>
+                </li>
+                }
+            </ul>
+
+        </div>
+    </section>
+
+    <section data-aos="fade-up" data-aos-duration="800" data-aos-easing="ease-out-cubic">
+        <app-cta heading="Ready for more people to find you?"
+            text="Tell us about your business and what you want more of. We will suggest a starting plan."
+            primaryLabel="Grow My Business Online" primaryLink="/contact-us" secondaryLabel="Ask about a package" secondaryLink="/contact-us" />
+    </section>
+</main>

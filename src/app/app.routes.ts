@@ -1,11 +1,11 @@
 import { Routes } from '@angular/router';
-import { NotFound } from './pages/not-found/not-found';
 
 export const routes: Routes = [
     { path: '', loadComponent: () => import("./pages/home/home").then((c) => c.Home) },
-    { path: 'services', loadComponent: () => import("./pages/services/services").then((c) => c.Services) },
-    { path: 'about-us', loadComponent: () => import("./pages/about-us/about-us").then((c) => c.AboutUs) },
-    { path: 'contact', loadComponent: () => import("./pages/contact/contact").then((c) => c.Contact) },
+    { path: 'journeys/:slug', loadComponent: () => import('./pages/journeys/journey-page/journey-page').then((m) => m.JourneyPage,), },
+    { path: 'digital-marketing', loadComponent: () => import('./pages/digital-marketing/digital-marketing').then(m => m.DigitalMarketing), },
+    { path: 'why-vision', loadComponent: () => import('./pages/why-vision/why-vision').then(m => m.WhyVision) },
+    { path: 'contact-us', loadComponent: () => import("./pages/contact-us/contact-us").then((c) => c.ContactUs) },
     { path: 'privacy-policy', loadComponent: () => import("./pages/privacy-policy/privacy-policy").then((c) => c.PrivacyPolicy) },
     { path: 'terms-of-service', loadComponent: () => import("./pages/terms-of-service/terms-of-service").then((c) => c.TermsOfService) },
     { path: 'cookie-policy', loadComponent: () => import("./pages/cookie-policy/cookie-policy").then((c) => c.CookiePolicy) },

@@ -1,5 +1,8 @@
-import { Component, Renderer2, inject } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Component, DOCUMENT, effect, HostListener, inject, signal } from '@angular/core';
+import { NavigationEnd, Router, RouterLink, RouterLinkActive } from '@angular/router';
+import { HEADER_NAV_LINKS, NavLink } from '../../../data/constants/header.constants';
+import { filter, map } from 'rxjs';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-header',
@@ -8,31 +11,75 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   styleUrl: './header.css'
 })
 export class Header {
-  public isMenuOpen = false;
-  public isClosing = false;
-  private renderer = inject(Renderer2);
+  public readonly headerNavLinks = HEADER_NAV_LINKS
+  private document = inject(DOCUMENT);
+  public menuOpen = signal(false);
+  public scrolled = signal(false);
+  public activeDropdown = signal<string | null>(null);
+  public mobileExpanded = signal<string | null>(null);
+  private router = inject(Router);
 
-  public openMenu(): void {
-    this.isMenuOpen = true;
-    this.isClosing = false;
-    this.updateBodyScroll();
+  constructor() {
+    effect(() => {
+      this.document.body.style.overflow = this.menuOpen() ? 'hidden' : '';
+    });
+
+    this.router.events
+      .pipe(filter((event) => event instanceof NavigationEnd))
+      .subscribe(() => {
+        this.currentFragment.set(
+          this.router.parseUrl(this.router.url).fragment
+        );
+      });
   }
 
-  public closeMenu(): void {
-    this.isClosing = true;
+  private currentUrl = toSignal(
+    this.router.events.pipe(
+      filter((event) => event instanceof NavigationEnd),
+      map(() => this.router.url.split(/[?#]/)[0]),
+    ),
+    { initialValue: this.router.url.split(/[?#]/)[0] },
+  );
 
-    setTimeout(() => {
-      this.isMenuOpen = false;
-      this.isClosing = false;
-      this.updateBodyScroll();
-    }, 300);
+  public isParentActive(navLink: NavLink): boolean {
+    return navLink.children?.some((child) => child.url === this.currentUrl()) ?? false;
   }
 
-  private updateBodyScroll(): void {
-    if (this.isMenuOpen) {
-      this.renderer.setStyle(document.body, 'overflow', 'hidden');
-    } else {
-      this.renderer.removeStyle(document.body, 'overflow');
-    }
+  public readonly currentFragment = signal<string | null>(
+    this.router.parseUrl(this.router.url).fragment
+  );
+
+  public toggleMenu() {
+    this.menuOpen.update(open => !open);
+  }
+
+  public closeMenu() {
+    this.menuOpen.set(false);
+    this.mobileExpanded.set(null);
+  }
+
+  public openDropdown(label: string) {
+    this.activeDropdown.set(label);
+  }
+
+  public closeDropdown() {
+    this.activeDropdown.set(null);
+  }
+
+  public toggleMobileSub(label: string) {
+    this.mobileExpanded.update(v => (v === label ? null : label));
+  }
+
+  @HostListener('document:keydown.escape')
+  onEscape() { this.closeMenu(); }
+
+  @HostListener('window:resize')
+  onResize() {
+    if (window.innerWidth >= 1024) this.closeMenu();
+  }
+
+  @HostListener('window:scroll')
+  onScroll() {
+    this.scrolled.set(window.scrollY > 10);
   }
 }

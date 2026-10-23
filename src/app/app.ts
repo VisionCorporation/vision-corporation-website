@@ -5,6 +5,8 @@ import { Router, RouterOutlet, NavigationEnd, ActivatedRouteSnapshot } from '@an
 import { filter, Subscription } from 'rxjs';
 import { CookiePreferences } from './interfaces/cookies.interface';
 import { CONSENT_KEY } from './data/constants/cookies.constants';
+import { Header } from './components/shared/header/header';
+import { Footer } from './components/shared/footer/footer';
 
 declare global {
   interface Window {
@@ -15,9 +17,12 @@ declare global {
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, CommonModule],
+  imports: [RouterOutlet, CommonModule, Header, Footer],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrl: './app.css',
+  host: {
+    '(window:scroll)': 'onWindowScroll()',
+  },
 })
 export class App implements OnInit, AfterViewInit, OnDestroy {
   private aosInitialized = false;
@@ -28,6 +33,7 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
   public isCookieOpen = false;
   public isCustomiseCookieOpen = false;
   public hideCookieBanner = false;
+  showBackToTop = false;
 
   public cookiePreferences: CookiePreferences = {
     strictlyNecessary: true,
@@ -69,7 +75,7 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
           });
           this.aosInitialized = true;
         } else {
-          AOS.refreshHard();
+          setTimeout(() => AOS.refreshHard());
         }
 
         const rootRoute = this.router.routerState.snapshot.root;
@@ -162,6 +168,17 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
     if (this.cookiePreferences.analytics) {
       this.loadAnalyticsScript();
     }
+  }
+
+  public onWindowScroll(): void {
+    this.showBackToTop = window.scrollY > 300;
+  }
+
+  public scrollToTop(): void {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
   }
 
   ngOnDestroy(): void {
