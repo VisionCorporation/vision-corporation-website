@@ -51,14 +51,23 @@
                 </a>
 
                 @if (secondaryLabel()) {
+                @if (secondaryType() === 'link') {
                 <a [routerLink]="secondaryLink()"
                     class="group relative inline-flex min-h-12 w-full items-center justify-center overflow-hidden rounded-full border border-white/30 bg-white/[0.06] px-7 py-3.5 text-center text-[15px] font-medium text-white transition-all duration-300 ease-out hover:-translate-y-1 hover:border-white/60 focus:outline-none focus-visible:border-white/60 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-primary)] active:translate-y-0 active:scale-[0.98] motion-reduce:transition-none sm:w-auto">
-
                     <span aria-hidden="true"
                         class="absolute inset-0 origin-left scale-x-0 bg-white/15 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-x-100 group-focus-visible:scale-x-100 motion-reduce:transition-none"></span>
 
                     <span class="relative">{{ secondaryLabel() }}</span>
                 </a>
+                } @else {
+                <button type="button" (click)="openCalendly()"
+                    class="group cursor-pointer relative inline-flex min-h-12 w-full items-center justify-center overflow-hidden rounded-full border border-white/30 bg-white/[0.06] px-7 py-3.5 text-center text-[15px] font-medium text-white transition-all duration-300 ease-out hover:-translate-y-1 hover:border-white/60 focus:outline-none focus-visible:border-white/60 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-primary)] active:translate-y-0 active:scale-[0.98] motion-reduce:transition-none sm:w-auto">
+                    <span aria-hidden="true"
+                        class="absolute inset-0 origin-left scale-x-0 bg-white/15 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-x-100 group-focus-visible:scale-x-100 motion-reduce:transition-none"></span>
+
+                    <span class="relative">{{ secondaryLabel() }}</span>
+                </button>
+                }
                 }
             </div>
         </div>
