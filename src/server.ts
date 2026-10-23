@@ -1,20 +1,23 @@
-import { AngularAppEngine, createRequestHandler } from '@angular/ssr';
+import { AngularAppEngine, createRequestHandler } from '@angular/ssr'
+import { getContext } from '@netlify/angular-runtime/app-engine.js'
 
-const angularAppEngine = new AngularAppEngine();
+const angularAppEngine = new AngularAppEngine()
 
-export async function appEngineHandler(request: Request): Promise<Response> {
-  // Angular handles all routing internally
-  const result = await angularAppEngine.handle(request);
+export async function netlifyAppEngineHandler(request: Request): Promise<Response> {
+  const context = getContext()
 
-  // If Angular SSR fails completely, return fallback
-  if (!result) {
-    return new Response('Not Found', {
-      status: 404,
-      headers: { 'Content-Type': 'text/html' },
-    });
-  }
+  // Example API endpoints can be defined here.
+  // Uncomment and define endpoints as necessary.
+  // const pathname = new URL(request.url).pathname
+  // if (pathname === '/api/hello') {
+  //   return Response.json({ message: 'Hello from the API' });
+  // }
 
-  return result;
+  const result = await angularAppEngine.handle(request, context)
+  return result || new Response('Not found', { status: 404 })
 }
 
-export const reqHandler = createRequestHandler(appEngineHandler);
+/**
+ * The request handler used by the Angular CLI (dev-server and during build).
+ */
+export const reqHandler = createRequestHandler(netlifyAppEngineHandler)
