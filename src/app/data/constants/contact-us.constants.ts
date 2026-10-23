@@ -6,10 +6,10 @@ export const SOCIALS = [
 ]
 
 export const SUBJECTS = [
-    'Portfolio website',
-    'Business website',
-    'E-commerce website',
-    'Web application',
+    'Portfolio Website',
+    'Business Website',
+    'E-commerce Website',
+    'Custom Web Application',
     'Digital marketing (SEO, ads, email, content)',
     'Partnerships and research',
     'Something else',
