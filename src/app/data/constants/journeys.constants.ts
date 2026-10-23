@@ -217,7 +217,7 @@ export const JOURNEYS: Record<string, JourneyPageData> = {
 
     transportation: {
         slug: 'transportation',
-        ogImage: 'trasportation-journey-og-image.jpeg',
+        ogImage: 'transportation-journey-og-image.jpeg',
         label: 'Transportation',
         metaTitle: 'Transportation Services & Logistics | Vision Corporation',
         metaDescription:
