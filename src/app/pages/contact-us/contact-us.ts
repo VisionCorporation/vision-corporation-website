@@ -1,6 +1,6 @@
 import { Component, inject, signal, ViewChild } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { SeoService } from '../../services/seo-service';
 import { FAQS, SOCIALS, STEPS, SUBJECTS } from '../../data/constants/contact-us.constants';
 import { NgOptimizedImage } from '@angular/common';
@@ -30,6 +30,7 @@ export class ContactUs {
   public readonly subjects = SUBJECTS
   public readonly steps = STEPS
   public readonly faqs = FAQS
+  private readonly route = inject(ActivatedRoute);
 
   public readonly contactForm = this.fb.nonNullable.group({
     name: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(120)]],
@@ -52,6 +53,18 @@ export class ContactUs {
       image: 'https://visioncorporation.africa/assets/images/contact-og.jpeg',
       structuredData: CONTACT_US_SCHEMA,
     });
+
+    const subject = this.route.snapshot.queryParamMap.get('subject');
+
+    if (subject) {
+      this.contactForm.controls.subject.setValue(subject);
+    }
+  }
+
+  ngAfterViewInit(): void {
+    if (this.route.snapshot.queryParamMap.has('subject')) {
+      requestAnimationFrame(() => this.scrollToForm(new Event('click')));
+    }
   }
 
   public invalid(field: 'name' | 'email' | 'subject' | 'message'): boolean {
@@ -100,16 +113,26 @@ export class ContactUs {
     this.scrollToForm(event);
   }
 
-  public scrollToForm(event: Event): void {
-    event.preventDefault();
+  public scrollToForm(event?: Event): void {
+    event?.preventDefault();
+
     const el = document.getElementById('contact-form');
     if (!el) return;
+
     const header = document.querySelector('.site-header');
     const bar = header?.closest('.sticky') ?? header;
     const offset = (bar?.getBoundingClientRect().height ?? 90) + 24;
+
     el.style.scrollMarginTop = `${offset}px`;
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+
+    const reduce = window.matchMedia(
+      '(prefers-reduced-motion: reduce)'
+    ).matches;
+
+    el.scrollIntoView({
+      behavior: reduce ? 'auto' : 'smooth',
+      block: 'start',
+    });
   }
 
   public onPhoneInput(event: Event): void {
