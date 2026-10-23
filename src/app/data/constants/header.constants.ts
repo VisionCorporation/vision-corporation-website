@@ -16,7 +16,6 @@ export const HEADER_NAV_LINKS: NavLink[] = [
             { label: 'Artificial Intelligence (AI)', url: '/journeys/artificial-intelligence' },
         ],
     },
-    { label: 'Web Services', url: '/web-services' },
     { label: 'Digital Marketing', url: '/digital-marketing' },
     { label: 'Why Vision', url: '/why-vision' },
     { label: 'FAQs', url: '/', fragment: 'faqs' }

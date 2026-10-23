@@ -1,6 +1,5 @@
 export const FOOTER_MENU = [
     { label: 'Our Journey', url: '/', fragment: 'explore-our-journey' },
-    { label: 'Web Services', url: '/' },
     { label: 'Digital Marketing ', url: '/digital-marketing' },
     { label: 'Why Vision', url: '/why-vision' },
     { label: 'FAQs', url: '/', fragment: 'faqs' }
