@@ -1,4 +1,4 @@
-import type { StructuredData } from '../../services/seo-service'
+import type { StructuredData } from '../../services/seo/seo'
 
 export const HOMEPAGE_SCHEMA: StructuredData = {
     "@context": "https://schema.org",

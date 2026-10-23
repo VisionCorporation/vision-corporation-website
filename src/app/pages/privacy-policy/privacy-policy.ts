@@ -1,6 +1,6 @@
 
 import { Component, inject } from '@angular/core';
-import { SeoService } from '../../services/seo-service';
+import { SeoService } from '../../services/seo/seo';
 import { SECTIONS } from '../../data/constants/privacy-policy.constants';
 
 

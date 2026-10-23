@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { HeroSection } from './hero-section/hero-section';
-import { SeoService } from '../../services/seo-service';
+import { SeoService } from '../../services/seo/seo';
 import { OurJourney } from './our-journey/our-journey';
 import { WebDesignAndBenefits } from './web-design-and-benefits/web-design-and-benefits';
 import { HowItWorks } from './how-it-works/how-it-works';

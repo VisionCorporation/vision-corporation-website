@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { Header } from '../../components/shared/header/header';
 import { Footer } from '../../components/shared/footer/footer';
-import { SeoService } from '../../services/seo-service';
+import { SeoService } from '../../services/seo/seo';
 import ngSrcset from './../../../../public/assets/ngSrcset.json';
 import { NgOptimizedImage } from '@angular/common';
 

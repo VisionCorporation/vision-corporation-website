@@ -3,7 +3,7 @@ import { ChangeDetectorRef, Component, inject, OnDestroy, ViewChild } from '@ang
 import { FormBuilder, Validators, ReactiveFormsModule } from "@angular/forms";
 import { RouterLink } from '@angular/router';
 import { AlertComponent } from '../../components/shared/alert/alert';
-import { Api } from '../../services/api';
+import { Api } from '../../services/api/api';
 import { Subject, takeUntil } from 'rxjs';
 import { Newsletter } from '../../interfaces/newsletter.interface';
 import { environment } from '../../../environments/environment';

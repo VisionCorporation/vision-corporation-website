@@ -1,12 +1,12 @@
 import { Component, inject, signal, ViewChild } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { SeoService } from '../../services/seo-service';
+import { SeoService } from '../../services/seo/seo';
 import { FAQS, SOCIALS, STEPS, SUBJECTS } from '../../data/constants/contact-us.constants';
 import { NgOptimizedImage } from '@angular/common';
 import { CONTACT_US_SCHEMA } from '../../data/seo/structured-data';
 import { AlertComponent } from '../../components/shared/alert/alert';
-import { Api } from '../../services/api';
+import { Api } from '../../services/api/api';
 
 @Component({
   selector: 'app-contact-us',

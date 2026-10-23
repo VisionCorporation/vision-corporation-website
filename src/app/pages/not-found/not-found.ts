@@ -2,7 +2,7 @@ import { Component, Inject, PLATFORM_ID, Optional, REQUEST, RESPONSE_INIT, injec
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { RouterLink, Router } from '@angular/router';
 import { Meta } from '@angular/platform-browser';
-import { SeoService } from '../../services/seo-service';
+import { SeoService } from '../../services/seo/seo';
 
 @Component({
   selector: 'app-not-found',

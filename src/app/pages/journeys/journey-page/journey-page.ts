@@ -11,7 +11,7 @@ import { JourneyWhyVision } from '../../../components/shared/journeys/journey-wh
 import { AiJourneyMap } from '../../../components/shared/journeys/ai-journey-map/ai-journey-map';
 import { Cta } from '../../../components/shared/cta/cta';
 import { JourneyNotFound } from '../journey-not-found/journey-not-found';
-import { SeoService } from '../../../services/seo-service';
+import { SeoService } from '../../../services/seo/seo';
 import { JOURNEY_STRUCTURED_DATA } from '../../../data/seo/structured-data';
 
 @Component({

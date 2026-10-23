@@ -3,7 +3,7 @@ import { Cta } from '../../components/shared/cta/cta';
 import { RouterLink } from '@angular/router';
 import { GROWTH, JOURNEYS, PRINCIPLES, VALUES, WHAT_WE_BUILD } from '../../data/constants/why-vision.constants';
 import { NgOptimizedImage } from '@angular/common';
-import { SeoService } from '../../services/seo-service';
+import { SeoService } from '../../services/seo/seo';
 import { WHY_VISION_SCHEMA } from '../../data/seo/structured-data';
 
 @Component({

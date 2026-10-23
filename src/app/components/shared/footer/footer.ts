@@ -2,7 +2,7 @@ import { Component, inject, signal, ViewChild } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { FOOTER_CONTACT, FOOTER_LEGAL, FOOTER_MENU, FOOTER_SERVICES, FOOTER_SOCIALS } from '../../../data/constants/footer.constants';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Api } from '../../../services/api';
+import { Api } from '../../../services/api/api';
 import { AlertComponent } from '../alert/alert';
 import { finalize } from 'rxjs';
 

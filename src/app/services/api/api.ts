@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { environment } from '../../environments/environment';
-import { Newsletter, NewsletterResponse } from '../interfaces/newsletter.interface';
-import { ContactUs, ContactUsResponse } from '../interfaces/contact-us.interface';
+import { environment } from '../../../environments/environment';
+import { Newsletter, NewsletterResponse } from '../../interfaces/newsletter.interface';
+import { ContactUs, ContactUsResponse } from '../../interfaces/contact-us.interface';
 import { Observable } from 'rxjs';
 
 @Injectable({

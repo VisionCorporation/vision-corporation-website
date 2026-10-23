@@ -2,7 +2,7 @@ import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Cta } from '../../components/shared/cta/cta';
 import { BARS, CHANNELS, PROBLEMS, REASONS, SERVICES, STEPS } from '../../data/constants/digital-marketing.constants';
-import { SeoService } from '../../services/seo-service';
+import { SeoService } from '../../services/seo/seo';
 import { DIGITAL_MARKETING_SCHEMA } from '../../data/seo/structured-data';
 
 @Component({
