@@ -73,6 +73,7 @@ export interface JourneyAiApplicationsData {
 
 export interface JourneyPageData {
     slug: string;
+    ogImage: string;
     label: string;
     metaTitle: string;
     metaDescription: string;

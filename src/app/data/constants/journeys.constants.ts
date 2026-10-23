@@ -13,6 +13,7 @@ const DOING_HEADING: HeadingPart[] = [
 export const JOURNEYS: Record<string, JourneyPageData> = {
     'web-design-and-development': {
         slug: 'web-design-and-development',
+        ogImage: 'web-design-and-development-journey-og-image.jpeg',
         label: 'Web and Marketing',
         metaTitle: 'Website Development Company in Ghana | Vision Corporation',
         metaDescription:
@@ -126,6 +127,7 @@ export const JOURNEYS: Record<string, JourneyPageData> = {
 
     energy: {
         slug: 'energy',
+        ogImage: 'energy-journey-og-image.jpeg',
         label: 'Energy',
         metaTitle: 'Electric Company & Nuclear Energy | Vision Corporation',
         metaDescription:
@@ -215,6 +217,7 @@ export const JOURNEYS: Record<string, JourneyPageData> = {
 
     transportation: {
         slug: 'transportation',
+        ogImage: 'trasportation-journey-og-image.jpeg',
         label: 'Transportation',
         metaTitle: 'Transportation Services & Logistics | Vision Corporation',
         metaDescription:
@@ -308,6 +311,7 @@ export const JOURNEYS: Record<string, JourneyPageData> = {
 
     'hardware-solutions': {
         slug: 'hardware-solutions',
+        ogImage: 'hardware-solutions-journey-og-image.jpeg',
         label: 'Hardware Solutions',
         metaTitle: 'Hardware, Embedded Systems & PLCs | Vision Corporation',
         metaDescription:
@@ -398,6 +402,7 @@ export const JOURNEYS: Record<string, JourneyPageData> = {
 
     'artificial-intelligence': {
         slug: 'artificial-intelligence',
+        ogImage: 'artificila-intelligence-journey-og-image.jpeg',
         label: 'Artificial Intelligence (AI)',
         metaTitle: 'Artificial Intelligence & AI Chatbots | Vision Corporation',
         metaDescription:
