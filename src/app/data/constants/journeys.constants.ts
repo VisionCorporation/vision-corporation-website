@@ -410,7 +410,7 @@ export const JOURNEYS: Record<string, JourneyPageData> = {
             subtext:
                 'Across every journey, we use AI to turn critical data into insight that fits the African ecosystem.',
             buttonText: 'See How AI Fits In',
-            buttonLink: '/journeys/ai',
+            buttonLink: '/journeys/artificial-intelligence',
             buttonFragment: 'what-we-do',
             illustration: 'ai',
             illustrationLabel: 'vision.africa/ai',

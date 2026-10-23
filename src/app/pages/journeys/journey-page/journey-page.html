@@ -15,8 +15,8 @@
 
     <app-journey-why-vision [data]="page.whyVision" />
 
-    <app-cta [heading]="page.cta.heading" [text]="page.cta.text" [primaryLabel]="page.cta.primaryLabel"
-        [secondaryLabel]="page.cta.secondaryLabel ?? ''" />
+    <app-cta [heading]="page.cta.heading" [text]="page.cta.text" [primaryLabel]="page.cta.primaryLabel" [primaryLink]="page.cta.primaryLink"
+        [secondaryLabel]="page.cta.secondaryLabel ?? ''" [secondaryLink]="page.cta.secondaryLink ?? ''" />
 </main>
 }
 @else {
