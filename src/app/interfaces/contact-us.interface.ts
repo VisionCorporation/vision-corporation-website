@@ -2,7 +2,12 @@ export interface ContactUs {
     name: string
     email: string
     phone?: string
-    business?: string
-    topic: string
+    businessName?: string
+    subject: string
     message: string
+}
+
+export interface ContactUsResponse {
+    status: string;
+    message: string;
 }

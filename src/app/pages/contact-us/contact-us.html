@@ -154,18 +154,19 @@
                                 <path d="M20 6L9 17l-5-5" />
                             </svg>
                         </span>
-                        <h2 class="mt-6 text-2xl font-semibold sm:text-3xl">Thank you, {{ sent().name }}.</h2>
+                        <h2 class="mt-6 text-2xl font-semibold sm:text-3xl">Thank you for getting in touch!</h2>
                         <p class="mx-auto mt-4 max-w-md leading-relaxed text-[var(--color-dark)]/70">
-                            We have your message and will reply to
-                            <span class="font-medium text-[var(--color-dark)]">{{ sent().email }}</span> soon. In the
-                            meantime, you can read about our
-                            <a routerLink="/web-services"
-                                class="font-medium text-[var(--color-primary)] underline-offset-4 hover:underline">web
-                                services</a>
-                            or
+                            We have your message and will get back to you soon. In the meantime,
+                            you can learn more about our
+                            <a routerLink="/journeys/web-design-and-development"
+                                class="font-medium text-[var(--color-primary)] underline-offset-4 hover:underline">
+                                web services
+                            </a>
+                            or discover
                             <a routerLink="/why-vision"
-                                class="font-medium text-[var(--color-primary)] underline-offset-4 hover:underline">why
-                                vision corporation</a>.
+                                class="font-medium text-[var(--color-primary)] underline-offset-4 hover:underline">
+                                why Vision Corporation
+                            </a>.
                         </p>
                         <button type="button" (click)="sendAnother()"
                             class="mt-8 cursor-pointer text-sm font-medium text-[var(--color-primary)] underline-offset-4 hover:underline focus:outline-none focus-visible:underline">
@@ -237,24 +238,24 @@
                             </div>
 
                             <div>
-                                <label for="business" class="text-sm font-medium">Business or organisation</label>
-                                <input id="business" type="text" formControlName="business" autocomplete="organization"
-                                    placeholder="e.g. Vision Corporation"
+                                <label for="business-name" class="text-sm font-medium">Business or organisation</label>
+                                <input id="business-name" type="text" formControlName="businessName"
+                                    autocomplete="organization" placeholder="e.g. Vision Corporation"
                                     class="mt-2 w-full rounded-xl border border-black/15 bg-[var(--color-white)] px-4 py-3.5 transition-colors duration-200 placeholder:text-[var(--color-text-muted)] focus:border-[var(--color-primary)] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]/20" />
                             </div>
                         </div>
 
                         <div>
-                            <label for="topic" class="text-sm font-medium">What do you need help with? <span
+                            <label for="subject" class="text-sm font-medium">What do you need help with? <span
                                     class="text-red-500">*</span></label>
                             <div class="relative mt-2">
-                                <select id="topic" formControlName="topic" [attr.aria-invalid]="invalid('topic')"
-                                    [attr.aria-describedby]="invalid('topic') ? 'topic-error' : null"
-                                    [class]="invalid('topic') ? 'border-red-500' : 'border-black/15'"
+                                <select id="subject" formControlName="subject" [attr.aria-invalid]="invalid('subject')"
+                                    [attr.aria-describedby]="invalid('subject') ? 'subject-error' : null"
+                                    [class]="invalid('subject') ? 'border-red-500' : 'border-black/15'"
                                     class="w-full cursor-pointer appearance-none rounded-xl border bg-[var(--color-white)] py-3.5 pl-4 pr-11 transition-colors duration-200 focus:border-[var(--color-primary)] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]/20">
                                     <option value="" disabled>Choose one</option>
-                                    @for (topic of topics; track topic) {
-                                    <option [value]="topic">{{ topic }}</option>
+                                    @for (subject of subjects; track subject) {
+                                    <option [value]="subject">{{ subject }}</option>
                                     }
                                 </select>
                                 <svg class="pointer-events-none absolute right-4 top-1/2 h-4 w-4 -translate-y-1/2 text-[var(--color-dark)]/50"
@@ -263,7 +264,7 @@
                                     <path d="M6 9l6 6 6-6" />
                                 </svg>
                             </div>
-                            @if (invalid('topic')) {
+                            @if (invalid('subject')) {
                             <p class="mt-2 flex text-xs sm:text-sm items-center gap-2 text-red-600 ">
                                 <svg class="h-3 sm:h-4 w-3 sm:w-4 shrink-0" viewBox="0 0 24 24" fill="none"
                                     stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -273,7 +274,7 @@
                                     <line x1="12" y1="16" x2="12.01" y2="16"></line>
                                 </svg>
 
-                                <span>{{ errorText('topic') }}</span>
+                                <span>{{ errorText('subject') }}</span>
                             </p>
                             }
                         </div>
@@ -454,13 +455,6 @@
                     }
                 </p>
                 }
-
-                <div class="mt-8 overflow-hidden rounded-2xl border border-black/10 bg-[var(--color-white)]">
-                    <iframe [src]="mapUrl" title="Vision Corporation office location in Sekondi-Takoradi, Ghana"
-                        width="600" height="450" style="border:0;" allowfullscreen="true" loading="lazy"
-                        referrerpolicy="strict-origin-when-cross-origin"
-                        class="block h-[300px] w-full border-0 lg:h-[340px]"></iframe>
-                </div>
             </aside>
         </div>
     </section>

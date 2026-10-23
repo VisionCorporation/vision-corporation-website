@@ -5,7 +5,7 @@ export const SOCIALS = [
     { name: "YouTube", url: 'https://www.youtube.com/@visioncorporationafrica' },
 ]
 
-export const TOPICS = [
+export const SUBJECTS = [
     'Portfolio website',
     'Business website',
     'E-commerce website',
