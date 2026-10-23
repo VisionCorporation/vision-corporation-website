@@ -20,7 +20,7 @@ export class TermsOfService {
       description:
         'Review the Terms of Service and conditions for using Vision Corporation\'s website and services.',
       url: 'https://visioncorporation.africa/terms-of-service',
-      image: 'https://visioncorporation.africa/assets/images/terms-of-service-og.jpeg',
+      image: 'https://visioncorporation.africa/assets/images/terms-of-service-og-image.jpeg',
     });
   }
 }

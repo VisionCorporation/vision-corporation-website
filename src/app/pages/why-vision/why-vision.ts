@@ -25,7 +25,7 @@ export class WhyVision {
       title: 'About Vision Corporation | Vision Corporation',
       description: 'Meet Vision Corporation, a Ghanaian tech company building Africa’s future, from websites today to energy, transport, hardware and AI. Our vision and values.',
       url: 'https://visioncorporation.africa/why-vision',
-      image: 'https://visioncorporation.africa/assets/images/home-og.jpeg',
+      image: 'https://visioncorporation.africa/assets/images/why-vision-og-image.jpeg',
       structuredData: WHY_VISION_SCHEMA,
     });
   }

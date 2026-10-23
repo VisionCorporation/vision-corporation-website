@@ -23,7 +23,7 @@ export class PrivacyPolicy {
       description:
         'Read Vision corporation\'s privacy policy to learn how we collect, use, and protect your personal data and information.',
       url: 'https://visioncorporation.africa/privacy-policy',
-      image: 'https://visioncorporation.africa/assets/images/privacy-policy-og.jpeg',
+      image: 'https://visioncorporation.africa/assets/images/privacy-policy-og-image.jpeg',
     });
   }
 }

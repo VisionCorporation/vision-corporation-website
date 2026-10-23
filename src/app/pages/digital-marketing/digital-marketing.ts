@@ -47,7 +47,7 @@ export class DigitalMarketing {
       title: 'Marketing and Digital Marketing | Vision Corporation',
       description: 'Digital marketing and online marketing by Vision Corporation: search engine optimization, blogs, article writing, Facebook ads, TikTok ads and content creation.',
       url: `https://visioncorporation.africa/digital-marketing`,
-      image: 'https://visioncorporation.africa/assets/images/journey-og.jpeg',
+      image: 'https://visioncorporation.africa/assets/images/digital-marketing-og-image.jpeg',
       structuredData: DIGITAL_MARKETING_SCHEMA
     });
   }

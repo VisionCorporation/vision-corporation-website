@@ -50,7 +50,7 @@ export class ContactUs {
       description:
         'Tell Vision Corporation about your website, web app or digital marketing project. Based in Sekondi-Takoradi, Ghana. Send a message for a free consultation.',
       url: 'https://visioncorporation.africa/contact-us',
-      image: 'https://visioncorporation.africa/assets/images/contact-og.jpeg',
+      image: 'https://visioncorporation.africa/assets/images/contact-us-og-image.jpeg',
       structuredData: CONTACT_US_SCHEMA,
     });
 

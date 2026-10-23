@@ -63,7 +63,7 @@ export class JourneyPage {
         title: page.metaTitle,
         description: page.metaDescription,
         url: `https://visioncorporation.africa/journeys/${page.slug}`,
-        image: 'https://visioncorporation.africa/assets/images/journey-og.jpeg',
+        image: `https://visioncorporation.africa/assets/images/${page.ogImage}`,
         ...(structuredData ? { structuredData } : {}),
       });
     });

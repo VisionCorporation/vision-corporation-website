@@ -39,7 +39,7 @@ export class NotFound {
       title: '404 - Page Not Found | Vision Corporation',
       description: "The page you're looking for doesn't exist. Return to our homepage to explore enterprise software development, IT infrastructure, and strategic consulting.",
       url: 'https://visioncorporation.africa' + pathname,
-      image: 'https://visioncorporation.africa/assets/images/404-og.jpeg'
+      image: 'https://visioncorporation.africa/assets/images/not-found-og-image.jpeg'
     });
 
     this.meta.updateTag({ name: 'robots', content: 'noindex, follow' });
