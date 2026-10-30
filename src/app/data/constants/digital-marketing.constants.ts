@@ -1,6 +1,6 @@
 export interface MarketingService {
     id: string;
-    icon: string;
+    icon: string[];
     title: string;
     tagline: string;
     description: string;
@@ -9,7 +9,10 @@ export interface MarketingService {
 export const MARKETING_SERVICES: readonly MarketingService[] = [
     {
         id: 'seo',
-        icon: 'search',
+        icon: [
+            'M21 21l-4.3-4.3',
+            'M11 19a8 8 0 1 0 0-16 8 8 0 0 0 0 16z',
+        ],
         title: 'SEO',
         tagline: 'Be there when people search.',
         description:
@@ -17,7 +20,11 @@ export const MARKETING_SERVICES: readonly MarketingService[] = [
     },
     {
         id: 'paid-ads',
-        icon: 'ads_click',
+        icon: [
+            'M3 11v2a1 1 0 0 0 1 1h2l5 4V6L6 10H4a1 1 0 0 0-1 1z',
+            'M15.5 8.5a5 5 0 0 1 0 7',
+            'M18.5 5.5a9 9 0 0 1 0 13',
+        ],
         title: 'Paid ads on Meta and Google',
         tagline: 'Reach people ready to buy.',
         description:
@@ -25,7 +32,10 @@ export const MARKETING_SERVICES: readonly MarketingService[] = [
     },
     {
         id: 'blog-writing',
-        icon: 'edit_note',
+        icon: [
+            'M12 20h9',
+            'M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z',
+        ],
         title: 'Blog writing',
         tagline: 'Become the answer people read.',
         description:
@@ -33,7 +43,10 @@ export const MARKETING_SERVICES: readonly MarketingService[] = [
     },
     {
         id: 'email-marketing',
-        icon: 'mail',
+        icon: [
+            'M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z',
+            'M22 6l-10 7L2 6',
+        ],
         title: 'Email marketing',
         tagline: 'Bring customers back.',
         description:
@@ -41,13 +54,16 @@ export const MARKETING_SERVICES: readonly MarketingService[] = [
     },
     {
         id: 'content-creation',
-        icon: 'perm_media',
+        icon: [
+            'M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z',
+            'M10 8l6 4-6 4V8z',
+        ],
         title: 'Content creation',
         tagline: 'Give people something worth stopping for.',
         description:
             "Posts, graphics and short videos for your website and social pages, made regularly and in your brand's voice.",
     },
-]
+];
 
 export const CHANNELS = ['SEO', 'Meta Ads', 'Google Ads', 'Blog', 'Email', 'Content'];
 export const BARS = [32, 44, 38, 56, 52, 70, 88];

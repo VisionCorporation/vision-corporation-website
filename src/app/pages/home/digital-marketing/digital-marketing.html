@@ -30,9 +30,14 @@
                 </div>
 
                 <span
-                    class="material-symbols-outlined relative inline-flex rounded-xl bg-[var(--color-primary-light)] p-3 text-3xl text-[var(--color-primary)] shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3"
+                    class="relative inline-flex rounded-xl bg-[var(--color-primary-light)] p-3 text-[var(--color-primary)] shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3"
                     data-aos="zoom-in" [attr.data-aos-delay]="i * 120 + 150">
-                    {{ service.icon }}
+                    <svg class="size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        @for (path of service.icon; track path) {
+                        <path [attr.d]="path" />
+                        }
+                    </svg>
                 </span>
 
                 <div class="relative mt-8" data-aos="fade-up" [attr.data-aos-delay]="i * 120 + 200">
