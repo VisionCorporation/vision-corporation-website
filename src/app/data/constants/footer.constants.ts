@@ -2,6 +2,7 @@ export const FOOTER_MENU = [
     { label: 'Our Journey', url: '/', fragment: 'explore-our-journey' },
     { label: 'Digital Marketing ', url: '/digital-marketing' },
     { label: 'Why Vision', url: '/why-vision' },
+    { label: 'Blogs', url: '/blogs' },
     { label: 'FAQs', url: '/', fragment: 'faqs' }
 ]
 

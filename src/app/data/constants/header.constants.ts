@@ -18,5 +18,6 @@ export const HEADER_NAV_LINKS: NavLink[] = [
     },
     { label: 'Digital Marketing', url: '/digital-marketing' },
     { label: 'Why Vision', url: '/why-vision' },
+    { label: 'Blogs', url: '/blogs' },
     { label: 'FAQs', url: '/', fragment: 'faqs' }
 ]
